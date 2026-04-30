@@ -21,6 +21,8 @@
             
             --accent-orange-light: #ffc174;
             --accent-orange: #f7931e;
+            --map-bg: #f8f9fa;
+            --white: #ffffff;
             --font-main: 'Open Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             --font-heading: 'Montserrat', 'Open Sans', 'Segoe UI', sans-serif;
         }
@@ -33,10 +35,7 @@
             font-family: var(--font-main);
             color: #333;
             padding-top: 70px;
-            /* Animated Deep Tech Background */
-            background: linear-gradient(-45deg, #001f3f, #003366, #004080, #002244);
-            background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
+            background-color: var(--map-bg);
             min-height: 100vh;
             overflow-x: hidden;
         }
@@ -125,7 +124,8 @@
         }
         .fee-table {
             width: 100%; border-collapse: collapse; min-width: 600px; /* Force scroll if too small */
-            background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px);
+            background: linear-gradient(-45deg, #001f3f, #003366, #004080, #002244);
+            backdrop-filter: blur(10px);
             border-radius: 15px; overflow: hidden;
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
             border: 1px solid rgba(255,255,255,0.2);
@@ -152,16 +152,16 @@
         /* --- LEFT: GLASS FORM --- */
         .form-box {
             flex: 1.5; 
-            background: rgba(255, 255, 255, 0.9); 
+            background: linear-gradient(-45deg, #001f3f, #003366, #004080, #002244);
             backdrop-filter: blur(20px);
             padding: 40px; border-radius: 20px;
             box-shadow: 0 20px 50px rgba(0,0,0,0.3);
-            border: 1px solid rgba(255,255,255,0.5);
+            border: 1px solid rgba(255,255,255,0.2);
         }
-        .form-box h2 { color: var(--primary-blue); margin-bottom: 25px; border-left: 5px solid var(--accent-gold); padding-left: 15px; }
+        .form-box h2 { color: var(--accent-gold); margin-bottom: 25px; border-left: 5px solid var(--accent-gold); padding-left: 15px; }
         
         .form-group { margin-bottom: 20px; }
-        .form-group label { display: block; margin-bottom: 8px; color: #444; font-weight: 700; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.5px; }
+        .form-group label { display: block; margin-bottom: 8px; color: var(--white); font-weight: 700; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.5px; }
         
         .form-control {
             width: 100%; padding: 15px; border: 2px solid #e0e0e0; border-radius: 10px;

@@ -21,7 +21,7 @@
             
             --accent-orange-light: #ffc174;
             --accent-orange: #f7931e;
-            --map-bg: #e6f0ff; 
+            --map-bg: #f8f9fa; 
             --white: #ffffff;
             --font-main: 'Open Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             --font-heading: 'Montserrat', 'Open Sans', 'Segoe UI', sans-serif;
@@ -36,13 +36,6 @@
             background-color: var(--map-bg);
             color: #333;
             padding-top: 70px;
-            /* Hexagon Grid Pattern */
-            background-image: 
-                radial-gradient(var(--primary-blue) 1px, transparent 1px),
-                radial-gradient(var(--primary-blue) 1px, transparent 1px);
-            background-size: 40px 40px;
-            background-position: 0 0, 20px 20px;
-            background-attachment: fixed;
             overflow-x: hidden;
         }
 
@@ -117,7 +110,7 @@
         .page-banner {
             background: linear-gradient(rgba(0,51,102,0.9), rgba(0,51,102,0.8)), url('https://via.placeholder.com/1920x400?text=Conference+Schedule');
             background-size: cover; background-position: center;
-            height: 180px; 
+            height: 260px;
             display: flex; justify-content: center; align-items: center;
             text-align: center; color: var(--white);
             box-shadow: 0 5px 15px rgba(0,0,0,0.3);
@@ -132,32 +125,116 @@
            4. "GAME MAP" SCHEDULE STYLES
            ========================================= */
         .schedule-wrapper {
-            max-width: 1000px; margin: 40px auto; padding: 0 20px; position: relative;
+            max-width: 900px; margin: 32px auto; padding: 0 18px; position: relative;
         }
 
-        /* 3D Level Buttons */
+        /* Calendar Day Selector */
         .level-select {
-            display: flex; justify-content: center; gap: 20px; margin-bottom: 60px; flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 12px;
+            margin: 0 auto 42px;
+            max-width: 680px;
         }
         .level-btn {
-            background: linear-gradient(to bottom, #004d99, #003366);
-            color: white; border: 2px solid #0059b3;
-            padding: 12px 35px; font-size: 1.1rem; font-weight: 800;
-            border-radius: 10px; cursor: pointer; position: relative;
-            box-shadow: 0 6px 0 #002244, 0 10px 10px rgba(0,0,0,0.3);
-            transition: all 0.1s;
-            text-transform: uppercase; letter-spacing: 1px;
+            background: #ffffff;
+            color: var(--primary-blue);
+            border: 1px solid rgba(0, 51, 102, 0.12);
+            padding: 0;
+            min-height: 112px;
+            font-size: 0.9rem;
+            font-weight: 800;
+            border-radius: 14px 14px 7px 7px;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 12px 24px rgba(0, 51, 102, 0.13);
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            text-align: center;
         }
-        .level-btn:active { transform: translateY(6px); box-shadow: 0 0 0 #002244; }
+        .level-btn:hover,
+        .level-btn:focus-visible {
+            transform: translateY(-4px);
+            border-color: rgba(247, 147, 30, 0.6);
+            box-shadow: 0 16px 30px rgba(0, 51, 102, 0.18);
+            outline: none;
+        }
+        .level-btn:active { transform: translateY(-1px); }
         .level-btn.active { 
-            background: linear-gradient(to bottom, #ffc174, #f7931e);
-            color: #002244; border-color: #ffb04d;
-            box-shadow: 0 6px 0 #8a7018, 0 10px 10px rgba(0,0,0,0.3);
+            border-color: rgba(0, 51, 102, 0.45);
+            box-shadow: 0 14px 28px rgba(0, 51, 102, 0.2);
+        }
+        .level-btn::before {
+            content: attr(data-month);
+            width: 100%;
+            height: auto;
+            margin: 0;
+            border-radius: 0;
+            background: var(--primary-blue);
+            color: var(--white);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 7px 10px;
+            font-family: var(--font-heading);
+            font-size: 0.72rem;
+            font-weight: 800;
+            letter-spacing: 0.12em;
+        }
+        .level-btn.active::before {
+            background: var(--primary-blue);
+            color: var(--white);
+        }
+        .level-btn::after {
+            content: attr(data-weekday);
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+            color: #6b7785;
+            font-size: 0.66rem;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+        }
+        .level-btn.active::after {
+            color: var(--primary-blue);
+        }
+        .level-btn span {
+            display: block;
+            line-height: 1;
+        }
+        .level-btn .date-num {
+            color: var(--primary-blue);
+            font-family: var(--font-heading);
+            font-size: clamp(1.9rem, 1.45rem + 1.6vw, 2.55rem);
+            font-weight: 800;
+            padding: 15px 12px 5px;
+        }
+        .level-btn.active .date-num {
+            color: var(--primary-blue);
+        }
+        .level-btn .day-name {
+            color: var(--accent-gold);
+            font-size: 0.82rem;
+            padding: 0 12px 12px;
+        }
+        .level-btn small {
+            display: block;
+            text-transform: none;
+            font-size: 0.64rem;
+            font-weight: 800;
+            letter-spacing: 0.03em;
+            color: #687586;
+            padding: 0 12px 16px;
         }
 
         /* Map Container */
         .map-container {
-            display: none; position: relative; padding: 40px 0;
+            display: none; position: relative; padding: 28px 0;
         }
         .map-container.active { display: block; animation: zoomIn 0.5s; }
         @keyframes zoomIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
@@ -188,20 +265,20 @@
 
         /* Map Items */
         .map-item {
-            position: relative; width: 100%; min-height: 180px;
+            position: relative; width: 100%; min-height: 142px;
             display: flex; justify-content: center; align-items: center;
-            margin-bottom: 20px;
+            margin-bottom: 14px;
         }
 
         /* NODES (Circles) */
         .map-node {
-            width: 80px; height: 80px;
+            width: 62px; height: 62px;
             background: radial-gradient(circle at 30% 30%, #0059b3, #002244);
-            border: 4px solid var(--white);
+            border: 3px solid var(--white);
             border-radius: 50%;
             z-index: 5;
             display: flex; justify-content: center; align-items: center;
-            color: var(--white); font-size: 1.8rem;
+            color: var(--white); font-size: 1.35rem;
             box-shadow: 0 0 20px rgba(0, 51, 102, 0.6);
             transition: 0.3s;
             cursor: pointer;
@@ -209,52 +286,71 @@
         }
         .map-node:hover { transform: scale(1.1); background: radial-gradient(circle at 30% 30%, #ffc174, #f7931e); color: #002244; }
 
-        /* Floating Card */
+        /* Schedule Ticket Card */
         .map-card {
             position: absolute; width: 42%;
-            background: white; padding: 25px;
-            border-radius: 15px;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-            border-left: 5px solid var(--accent-gold);
+            background: rgba(255,255,255,0.96); padding: 16px 18px;
+            border-radius: 20px 7px 20px 7px;
+            box-shadow: 0 12px 24px rgba(0, 34, 68, 0.14);
+            border: 1px solid rgba(0, 51, 102, 0.09);
             z-index: 2;
             animation: floatCard 4s ease-in-out infinite;
+            overflow: visible;
+        }
+        .map-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 5px;
+            background: linear-gradient(to bottom, var(--accent-orange-light), var(--accent-orange));
         }
         @keyframes floatCard {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-8px); }
         }
 
-        /* DESKTOP ZIG-ZAG LOGIC */
-        .map-item:nth-child(odd) .map-card { left: 0; text-align: right; border-left: none; border-right: 5px solid var(--accent-gold); }
-        .map-item:nth-child(even) .map-card { right: 0; text-align: left; }
+        /* DESKTOP ZIG-ZAG LOGIC */appl+
+        .map-item:nth-child(odd) .map-card { left: 0; text-align: right; padding-right: 24px; }
+        .map-item:nth-child(even) .map-card { right: 0; text-align: left; padding-left: 24px; }
+        .map-item:nth-child(odd) .map-card::before { right: 0; }
+        .map-item:nth-child(even) .map-card::before { left: 0; }
 
         /* Connecting Triangles */
         .map-card::after {
-            content: ''; position: absolute; top: 50%; width: 0; height: 0; border-style: solid; margin-top: -10px;
+            content: ''; position: absolute; top: 50%; width: 14px; height: 14px; margin-top: -7px;
+            background: var(--white);
+            border: 1px solid rgba(0, 51, 102, 0.09);
+            transform: rotate(45deg);
         }
         .map-item:nth-child(odd) .map-card::after {
-            right: -10px; border-width: 10px 0 10px 10px; border-color: transparent transparent transparent var(--accent-gold);
+            right: -8px;
+            border-left: 0;
+            border-bottom: 0;
         }
         .map-item:nth-child(even) .map-card::after {
-            left: -10px; border-width: 10px 10px 10px 0; border-color: transparent var(--accent-gold) transparent transparent;
+            left: -8px;
+            border-right: 0;
+            border-top: 0;
         }
 
         /* Card Content */
         .map-time {
-            display: inline-block; background: var(--secondary-blue); color: white;
-            padding: 5px 15px; border-radius: 20px; font-weight: bold; font-size: 0.85rem; margin-bottom: 10px;
+            display: inline-block; background: #eef4fa; color: var(--primary-blue);
+            padding: 5px 11px; border-radius: 999px; font-weight: 800; font-size: 0.74rem; margin-bottom: 7px;
+            border: 1px solid #d8e3ee;
         }
-        .map-card h3 { color: var(--primary-blue); margin: 5px 0; font-size: 1.3rem; font-weight: 800; }
-        .map-card p { color: #555; font-size: 0.95rem; margin-bottom: 8px; }
-        .map-location { font-size: 0.85rem; color: #888; font-style: italic; font-weight: 600; }
+        .map-card h3 { color: var(--primary-blue); margin: 4px 0; font-size: 1.05rem; font-weight: 800; }
+        .map-card p { color: #555; font-size: 0.82rem; margin-bottom: 6px; }
+        .map-location { font-size: 0.74rem; color: #888; font-style: italic; font-weight: 600; }
         
         .level-badge {
-            position: absolute; top: -10px; background: #28a745; color: white;
-            padding: 3px 10px; font-size: 0.7rem; font-weight: bold; border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2); text-transform: uppercase;
+            position: absolute; top: 9px; background: var(--primary-blue); color: white;
+            padding: 4px 9px; font-size: 0.58rem; font-weight: 800; border-radius: 999px;
+            box-shadow: 0 5px 14px rgba(0,51,102,0.18); text-transform: uppercase;
         }
-        .map-item:nth-child(odd) .level-badge { right: 10px; }
-        .map-item:nth-child(even) .level-badge { left: 10px; }
+        .map-item:nth-child(odd) .level-badge { left: 10px; right: auto; }
+        .map-item:nth-child(even) .level-badge { right: 10px; left: auto; }
 
         .map-deco { position: absolute; font-size: 1.5rem; opacity: 0.3; color: #6983aa; z-index: 0; }
 
@@ -270,8 +366,32 @@
             .schedule-wrapper { padding: 0 15px; margin-top: 20px; }
 
             /* Buttons */
-            .level-select { gap: 10px; margin-bottom: 40px; }
-            .level-btn { padding: 10px 20px; font-size: 0.9rem; flex: 1; }
+            .level-select {
+                grid-template-columns: 1fr;
+                gap: 9px;
+                margin-bottom: 28px;
+            }
+            .level-btn {
+                min-height: 98px;
+                font-size: 0.86rem;
+            }
+            .level-btn::before {
+                width: 100%;
+                height: auto;
+                font-size: 0.68rem;
+                margin-left: 0;
+                padding: 6px 8px;
+            }
+            .level-btn .date-num {
+                font-size: 2rem;
+                padding: 12px 12px 4px;
+            }
+            .level-btn .day-name {
+                padding-bottom: 9px;
+            }
+            .level-btn small {
+                padding-bottom: 14px;
+            }
 
             /* Header & Sliding Menu */
             header { padding: 0 15px; }
@@ -300,48 +420,52 @@
             /* --- MAP STRAIGHTENING FOR MOBILE --- */
             
             /* Move Dotted Line to Left */
-            .map-container::before { left: 35px; transform: none; } 
+            .map-container::before { left: 28px; transform: none; } 
 
             /* Align Items Left */
             .map-item { 
                 justify-content: flex-start; 
-                margin-bottom: 40px; 
+                margin-bottom: 26px; 
                 min-height: auto;
             }
 
             /* Fix Node Position */
             .map-node { 
-                width: 60px; height: 60px; 
-                font-size: 1.4rem; 
-                margin-right: 15px; /* Space between circle and card */
+                width: 50px; height: 50px; 
+                font-size: 1.08rem; 
+                margin-right: 12px; /* Space between circle and card */
                 flex-shrink: 0;
             }
 
             /* Card Styling Reset */
             .map-card {
                 position: relative; 
-                width: calc(100% - 75px); /* Full width minus circle */
+                width: calc(100% - 62px); /* Full width minus circle */
                 left: auto !important; 
                 right: auto !important;
                 text-align: left !important;
-                border-right: none !important; 
-                border-left: 5px solid var(--accent-gold) !important;
                 animation: none; /* Disable float to save space */
-                padding: 20px;
+                padding: 16px 14px 14px 19px !important;
+                border-radius: 16px 7px 16px 7px;
+            }
+            .map-card::before {
+                left: 0 !important;
+                right: auto !important;
             }
 
             /* Connecting Arrow (Always point Left) */
             .map-card::after {
-                left: -10px !important; 
+                left: -8px !important; 
                 right: auto !important;
-                border-width: 10px 10px 10px 0 !important;
-                border-color: transparent var(--accent-gold) transparent transparent !important;
+                border-right: 0 !important;
+                border-top: 0 !important;
             }
 
             /* Badge Position */
             .level-badge { 
-                right: 10px !important; 
-                left: auto !important; 
+                right: 9px !important; 
+                left: auto !important;
+                top: 8px;
             }
             
             /* Hide decorative BG icons on mobile to reduce clutter */
@@ -405,9 +529,21 @@
     <section class="schedule-wrapper">
         
         <div class="level-select">
-            <button class="level-btn active" onclick="switchMap('day1')">Day 1</button>
-            <button class="level-btn" onclick="switchMap('day2')">Day 2</button>
-            <button class="level-btn" onclick="switchMap('day3')">Day 3</button>
+            <button class="level-btn active" data-month="FEBRUARY" data-weekday="TUE" onclick="switchMap('day1', this)">
+                <span class="date-num">23</span>
+                <span class="day-name">Day 1</span>
+                <small>Opening Sessions</small>
+            </button>
+            <button class="level-btn" data-month="FEBRUARY" data-weekday="WED" onclick="switchMap('day2', this)">
+                <span class="date-num">24</span>
+                <span class="day-name">Day 2</span>
+                <small>Technical Tracks</small>
+            </button>
+            <button class="level-btn" data-month="FEBRUARY" data-weekday="THU" onclick="switchMap('day3', this)">
+                <span class="date-num">25</span>
+                <span class="day-name">Day 3</span>
+                <small>Workshop & Closing</small>
+            </button>
         </div>
 
         <div id="day1" class="map-container active">
@@ -520,11 +656,13 @@
 
     <script>
         // Map Switching Logic
-        function switchMap(dayId) {
+        function switchMap(dayId, button) {
             document.querySelectorAll('.map-container').forEach(el => el.classList.remove('active'));
             document.querySelectorAll('.level-btn').forEach(btn => btn.classList.remove('active'));
             document.getElementById(dayId).classList.add('active');
-            event.target.classList.add('active');
+            if (button) {
+                button.classList.add('active');
+            }
         }
 
         // Sliding Menu Logic
