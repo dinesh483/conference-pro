@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accommodation - National Conference 2027</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* =========================================
+           1. CORE STYLES
+           ========================================= */
+        :root { 
+            --primary-blue: #003366; 
+            --secondary-blue: #002244; 
+            --accent-gold: #f7931e; 
+            
+            --accent-orange-light: #ffc174;
+            --accent-orange: #f7931e;
+            --text-dark: #333; 
+            --light-bg: #f4f7f6; 
+            --white: #ffffff; 
+            --font-main: 'Open Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            --font-heading: 'Montserrat', 'Open Sans', 'Segoe UI', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        img, video, iframe, svg, canvas { max-width: 100%; height: auto; }
+        html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+
+        body { 
+            font-family: var(--font-main); 
+            background-color: var(--light-bg); 
+            color: var(--text-dark); 
+            padding-top: 70px; 
+            overflow-x: hidden;
+        }
+
+        /* =========================================
+           2. HEADER (Fixed & Shadowed)
+           ========================================= */
+        header {
+            background: rgba(0, 33, 68, 0.85); /* Slightly darker initial bg */
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            height: 72px;
+            width: 100%; display: flex; 
+            justify-content: space-between; align-items: center; padding: 0 2%; 
+            position: fixed; top: 0; z-index: 1000; 
+            transition: all 0.4s ease;
+        }
+
+        header.scrolled {
+            background-color: var(--white);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            height: 70px; /* Compact on scroll */
+        }
+
+        .logo { 
+            color: var(--white); 
+            font-weight: 900; 
+            font-size: 1.45rem;
+            letter-spacing: 0.5px; 
+            transition: color 0.3s; 
+        }
+        
+        .nav-menu { display: flex; list-style: none; align-items: center; height: 100%; }
+        .nav-menu li { position: relative; height: 100%; display: flex; align-items: center; }
+        
+        .nav-menu li a, .dropbtn { 
+            color: var(--white); text-decoration: none; padding: 0 18px; 
+            font-size: 0.98rem;
+            font-weight: 600; transition: color 0.3s;
+            cursor: pointer; height: 100%; display: flex; align-items: center;
+        }
+        .nav-menu li a:hover, .dropdown:hover .dropbtn { color: var(--accent-orange); }
+
+        header.scrolled .logo { color: var(--primary-blue); }
+        header.scrolled .nav-menu li a, 
+        header.scrolled .dropbtn { color: var(--primary-blue); }
+        header.scrolled .nav-menu li a:hover, 
+        header.scrolled .dropdown:hover .dropbtn { color: var(--accent-orange); }
+
+        .dropdown-content {
+            display: none; position: absolute; top: 100%; /* Fixes gap issue */
+            right: 0; 
+            background-color: var(--primary-blue); min-width: 240px; 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3); z-index: 1001; flex-direction: column;
+            border-radius: 0 0 5px 5px;
+        }
+        .dropdown-content li { width: 100%; border-top: 1px solid rgba(255,255,255,0.1); }
+        .dropdown-content li a { padding: 12px 20px; width: 100%; display: block; color: var(--white); font-size: 1rem; }
+
+        .dropdown:hover .dropdown-content { display: flex; }
+        
+        .hamburger { 
+            display: none; cursor: pointer; flex-direction: column; gap: 6px; z-index: 1002; 
+        }
+        .bar { 
+            width: 30px; height: 3px; background-color: var(--white); transition: 0.3s; 
+        }
+        header.scrolled .hamburger .bar { background-color: var(--primary-blue); }
+
+        /* =========================================
+           3. PAGE BANNER
+           ========================================= */
+        .page-banner { 
+            background: linear-gradient(rgba(0,51,102,0.9), rgba(0,51,102,0.8)), url('https://via.placeholder.com/1920x400?text=Stay+With+Us'); 
+            background-size: cover; background-position: center; 
+            height: 250px; display: flex; justify-content: center; align-items: center; 
+            text-align: center; color: var(--white); 
+        }
+        .page-banner h1 { 
+            font-size: 2.8rem; text-transform: uppercase; font-weight: 800; 
+            border-bottom: 4px solid var(--accent-gold); padding-bottom: 10px; 
+        }
+
+        /* =========================================
+           4. "SMART STAY SELECTOR"
+           ========================================= */
+        .stay-section { max-width: 1200px; margin: 50px auto; padding: 0 20px; }
+
+        /* Toggle Switch */
+        .toggle-wrapper { display: flex; justify-content: center; margin-bottom: 50px; }
+        .toggle-container { 
+            background: #e0e0e0; border-radius: 50px; padding: 5px; display: flex; position: relative; 
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.1); 
+        }
+        .toggle-btn { 
+            padding: 12px 40px; border: none; background: transparent; cursor: pointer; 
+            font-weight: 700; font-size: 1rem; color: #666; border-radius: 50px; z-index: 2; transition: 0.3s; 
+        }
+        .toggle-btn.active { color: white; background: var(--primary-blue); box-shadow: 0 4px 10px rgba(0,51,102,0.3); }
+
+        /* Card Grid */
+        .stay-grid { 
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; 
+            display: none; animation: fadeInUp 0.5s ease-out; 
+        }
+        .stay-grid.active { display: grid; }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* Stay Card */
+        .stay-card { 
+            background: white; border-radius: 15px; overflow: hidden; 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05); transition: transform 0.3s; 
+            position: relative; border: 1px solid #eee; 
+        }
+        .stay-card:hover { transform: translateY(-10px); box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
+
+        /* Image & Badge */
+        .stay-img { 
+            height: 200px; width: 100%; background-color: #ddd; position: relative; 
+            background-size: cover; background-position: center; 
+        }
+        .distance-badge { 
+            position: absolute; bottom: 10px; left: 10px; 
+            background: rgba(0,0,0,0.7); color: white; padding: 5px 12px; 
+            border-radius: 20px; font-size: 0.8rem; font-weight: bold; backdrop-filter: blur(5px); 
+        }
+        .distance-badge i { color: var(--accent-gold); margin-right: 5px; }
+
+        /* Content */
+        .stay-content { padding: 25px; }
+        .stay-type { 
+            font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; 
+            color: var(--accent-gold); font-weight: bold; display: block; margin-bottom: 5px; 
+        }
+        .stay-title { font-size: 1.4rem; color: var(--primary-blue); margin-bottom: 10px; font-weight: 700; }
+        
+        .amenities { display: flex; gap: 15px; margin-bottom: 20px; color: #777; font-size: 0.9rem; }
+        .amenities span { display: flex; align-items: center; gap: 5px; }
+        
+        .price-row { 
+            display: flex; justify-content: space-between; align-items: center; 
+            border-top: 1px solid #eee; padding-top: 15px; margin-top: 10px; 
+        }
+        .price { font-size: 1.3rem; font-weight: 800; color: #333; }
+        .price sub { font-size: 0.8rem; font-weight: normal; color: #888; bottom: 0; }
+        
+        .book-btn { 
+            background: var(--primary-blue); color: white; border: none; padding: 8px 20px; 
+            border-radius: 5px; font-weight: bold; cursor: pointer; transition: 0.3s; 
+        }
+        .book-btn:hover { background: var(--accent-gold); }
+
+        /* =========================================
+           5. TRANSPORT WIDGET
+           ========================================= */
+        .transport-section { 
+            background: #002244; color: white; padding: 40px; margin-top: 60px; 
+            border-radius: 20px; position: relative; overflow: hidden; 
+        }
+        .transport-grid { display: flex; justify-content: space-around; flex-wrap: wrap; gap: 30px; position: relative; z-index: 2; }
+        
+        .transport-item { text-align: center; flex: 1; min-width: 200px; }
+        .transport-icon { 
+            width: 60px; height: 60px; background: rgba(255,255,255,0.1); border-radius: 50%; 
+            display: flex; justify-content: center; align-items: center; margin: 0 auto 15px; 
+            font-size: 1.5rem; color: var(--accent-gold); border: 1px solid rgba(255,255,255,0.2); 
+        }
+        .transport-item h3 { margin-bottom: 10px; }
+        .transport-item p { font-size: 0.9rem; color: #ccc; }
+
+        /* =========================================
+           6. MOBILE & RESPONSIVE FIXES
+           ========================================= */
+        @media (max-width: 900px) { 
+            
+            /* General Layout */
+            body { padding-top: 70px; }
+            .stay-section { padding: 0 15px; margin: 30px auto; }
+            
+            /* Banner */
+            .page-banner { height: 140px; }
+            .page-banner h1 { font-size: 1.8rem; }
+
+            /* Toggle Switch */
+            .toggle-container { width: 100%; justify-content: space-between; }
+            .toggle-btn { padding: 10px 15px; font-size: 0.9rem; flex: 1; }
+
+            /* Grids */
+            .stay-grid { grid-template-columns: 1fr; gap: 25px; }
+            .transport-grid { flex-direction: column; gap: 40px; }
+
+            /* Sliding Menu */
+            header { padding: 0 15px; }
+            .hamburger { display: flex; }
+
+            .nav-menu { 
+                display: block; 
+                position: fixed; 
+                top: 70px; 
+                right: -100%; 
+                width: 75%; 
+                height: calc(100vh - 70px); 
+                background: var(--primary-blue); 
+                padding: 20px; 
+                transition: 0.3s ease;
+                box-shadow: -5px 0 15px rgba(0,0,0,0.2);
+                overflow-y: auto;
+            }
+            .nav-menu.active { right: 0; } 
+
+            .nav-menu li { width: 100%; border-bottom: 1px solid rgba(255,255,255,0.1); height: auto; display: block; margin-bottom: 5px; }
+            .nav-menu li a, .dropbtn { padding: 12px; font-size: 1rem; justify-content: space-between; }
+            .dropdown-content { position: relative; top: 0; box-shadow: none; background: rgba(0,0,0,0.2); width: 100%; display: none; }
+            .dropdown:hover .dropdown-content { display: block; }
+        }
+
+        /* Footer */
+        footer { background-color: var(--secondary-blue); color: #ccc; padding: 60px 0 20px; font-size: 0.9rem; margin-top: 60px; }
+        .footer-container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; padding: 0 20px; }
+        .footer-col h4 { color: var(--white); font-size: 1.1rem; margin-bottom: 20px; color: var(--accent-orange); }
+        .footer-col p, .footer-col a { display: block; color: #bbb; text-decoration: none; margin-bottom: 12px; transition: 0.3s; }
+        .footer-col a:hover { color: var(--accent-gold); padding-left: 5px; }
+        .social-links { display: flex; gap: 15px; margin-top: 15px; }
+        .social-links a { display: inline-flex; justify-content: center; align-items: center; width: 35px; height: 35px; background: rgba(255,255,255,0.1); border-radius: 50%; transition: 0.3s; color: var(--white); }
+        .social-links a:hover { background: var(--accent-gold); color: var(--primary-blue); transform: translateY(-3px); }
+        .footer-bottom { text-align: center; margin-top: 50px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">KSRCT CONF 2027</div>
+        <ul class="nav-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="speakers.html">Speakers</a></li>
+            <li><a href="call-for-papers.html">Call for Papers</a></li>
+            <li><a href="schedule.html">Schedule</a></li>
+            <li><a href="registration.html">Registration</a></li>
+            <li><a href="visa.html">Visa</a></li>
+            <li><a href="venue.html">Venue & Travel</a></li>
+            
+            <li class="dropdown">
+                <div class="dropbtn">Committees <i class="fas fa-caret-down" style="margin-left:8px;"></i></div>
+                <ul class="dropdown-content">
+                    <li><a href="advisory.html">Advisory Board</a></li>
+                    <li><a href="organizing.html">Organizing Committee</a></li>
+                    <li><a href="review.html">Research Committee</a></li>
+                </ul>
+            </li>
+
+            <li class="dropdown">
+                <div class="dropbtn">More <i class="fas fa-caret-down" style="margin-left:8px;"></i></div>
+                <ul class="dropdown-content">
+                    <li><a href="themes.html">Themes</a></li>
+                    <li><a href="accommodation.html" style="color: var(--accent-gold);">Accommodation</a></li>
+                    <li><a href="downloads.html">Downloads</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </li>
+
+        </ul>
+        <div class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </header>
+
+    <section class="page-banner">
+        <h1>Accommodation</h1>
+    </section>
+
+    <section class="stay-section">
+        
+        <div class="toggle-wrapper">
+            <div class="toggle-container">
+                <button class="toggle-btn active" onclick="toggleView('campus')">On-Campus</button>
+                <button class="toggle-btn" onclick="toggleView('hotel')">Nearby Hotels</button>
+            </div>
+        </div>
+
+        <div id="campus" class="stay-grid active">
+            
+            <div class="stay-card">
+                <div class="stay-img" style="background-image: url('https://via.placeholder.com/400x250?text=VIP+Guest+House');">
+                    <div class="distance-badge"><i class="fas fa-walking"></i> 2 min walk</div>
+                </div>
+                <div class="stay-content">
+                    <span class="stay-type">Premium</span>
+                    <h3 class="stay-title">KSRCT VIP Guest House</h3>
+                    <div class="amenities">
+                        <span><i class="fas fa-wifi"></i> Wi-Fi</span>
+                        <span><i class="fas fa-snowflake"></i> AC</span>
+                        <span><i class="fas fa-utensils"></i> Meals</span>
+                    </div>
+                    <div class="price-row">
+                        <div class="price">₹800 <sub>/ night</sub></div>
+                        <button class="book-btn">Book Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stay-card">
+                <div class="stay-img" style="background-image: url('https://via.placeholder.com/400x250?text=Intl+Hostel');">
+                    <div class="distance-badge"><i class="fas fa-walking"></i> 5 min walk</div>
+                </div>
+                <div class="stay-content">
+                    <span class="stay-type">Standard</span>
+                    <h3 class="stay-title">International Hostel</h3>
+                    <div class="amenities">
+                        <span><i class="fas fa-wifi"></i> Wi-Fi</span>
+                        <span><i class="fas fa-bed"></i> Single</span>
+                        <span><i class="fas fa-shield-alt"></i> 24x7 Security</span>
+                    </div>
+                    <div class="price-row">
+                        <div class="price">₹400 <sub>/ night</sub></div>
+                        <button class="book-btn">Book Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stay-card">
+                <div class="stay-img" style="background-image: url('https://via.placeholder.com/400x250?text=Student+Dorm');">
+                    <div class="distance-badge"><i class="fas fa-walking"></i> 8 min walk</div>
+                </div>
+                <div class="stay-content">
+                    <span class="stay-type">Budget</span>
+                    <h3 class="stay-title">Student Dormitory</h3>
+                    <div class="amenities">
+                        <span><i class="fas fa-users"></i> Shared</span>
+                        <span><i class="fas fa-shower"></i> Hot Water</span>
+                        <span><i class="fas fa-lock"></i> Locker</span>
+                    </div>
+                    <div class="price-row">
+                        <div class="price">₹200 <sub>/ night</sub></div>
+                        <button class="book-btn">Book Now</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div id="hotel" class="stay-grid">
+            
+            <div class="stay-card">
+                <div class="stay-img" style="background-image: url('https://via.placeholder.com/400x250?text=Grand+Palace');">
+                    <div class="distance-badge"><i class="fas fa-car"></i> 15 min drive</div>
+                </div>
+                <div class="stay-content">
+                    <span class="stay-type">Luxury (4 Star)</span>
+                    <h3 class="stay-title">Hotel Grand Palace</h3>
+                    <div class="amenities">
+                        <span><i class="fas fa-swimmer"></i> Pool</span>
+                        <span><i class="fas fa-dumbbell"></i> Gym</span>
+                        <span><i class="fas fa-taxi"></i> Shuttle</span>
+                    </div>
+                    <div class="price-row">
+                        <div class="price">₹2500 <sub>/ night</sub></div>
+                        <button class="book-btn">View Deal</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stay-card">
+                <div class="stay-img" style="background-image: url('https://via.placeholder.com/400x250?text=City+Residency');">
+                    <div class="distance-badge"><i class="fas fa-bus"></i> 20 min bus</div>
+                </div>
+                <div class="stay-content">
+                    <span class="stay-type">Economy (3 Star)</span>
+                    <h3 class="stay-title">City Residency Erode</h3>
+                    <div class="amenities">
+                        <span><i class="fas fa-tv"></i> TV</span>
+                        <span><i class="fas fa-coffee"></i> Breakfast</span>
+                        <span><i class="fas fa-wifi"></i> Free Net</span>
+                    </div>
+                    <div class="price-row">
+                        <div class="price">₹1200 <sub>/ night</sub></div>
+                        <button class="book-btn">View Deal</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="transport-section">
+            <h2 style="text-align: center; margin-bottom: 30px;">How to Reach Us</h2>
+            <div class="transport-grid">
+                <div class="transport-item">
+                    <div class="transport-icon"><i class="fas fa-plane"></i></div>
+                    <h3>By Air</h3>
+                    <p>Nearest Airport: Coimbatore (CJB) - 85km via NH544</p>
+                </div>
+                <div class="transport-item">
+                    <div class="transport-icon"><i class="fas fa-train"></i></div>
+                    <h3>By Train</h3>
+                    <p>Nearest Station: Erode Junction (ED) - 12km from Campus</p>
+                </div>
+                <div class="transport-item">
+                    <div class="transport-icon"><i class="fas fa-bus-alt"></i></div>
+                    <h3>By Bus</h3>
+                    <p>Direct buses available from Erode & Tiruchengode (Stop: KSR)</p>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h4>Contact Info</h4>
+                <p><i class="fas fa-map-marker-alt"></i> KSR Kalvi Nagar, Tiruchengode,<br>Tamil Nadu 637215</p>
+                <p><i class="fas fa-phone"></i> +91 98765 43210</p>
+                <p><i class="fas fa-envelope"></i> conference@ksrct.ac.in</p>
+            </div>
+            <div class="footer-col">
+                <h4>Important Links</h4>
+                <a href="registration.html">Registration Portal</a>
+                <a href="schedule.html">Program Schedule</a>
+                <a href="call-for-papers.html">Submission Guidelines</a>
+                <a href="venue.html">Venue & Travel</a>
+            </div>
+            <div class="footer-col">
+                <h4>Stay Connected</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom"><p>© 2024 KSRCT Conference Committee. All Rights Reserved.</p></div>
+    </footer>
+
+    <script>
+        function toggleView(view) {
+            // Remove active from buttons
+            const btns = document.querySelectorAll('.toggle-btn');
+            btns.forEach(b => b.classList.remove('active'));
+            event.target.classList.add('active');
+
+            // Hide all grids
+            const grids = document.querySelectorAll('.stay-grid');
+            grids.forEach(g => g.classList.remove('active'));
+
+            // Show selected grid
+            document.getElementById(view).classList.add('active');
+        }
+
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+        hamburger.addEventListener('click', () => navMenu.classList.toggle('active'));
+    </script>
+</body>
+</html>

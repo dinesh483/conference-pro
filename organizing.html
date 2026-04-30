@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organizing Committee - KSRCT CONF 2027</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root { 
+            --primary-blue: #003366; 
+            --secondary-blue: #002244; 
+            --accent-gold: #f7931e; 
+            
+            --accent-orange-light: #ffc174;
+            --accent-orange: #f7931e;
+            --light-bg: #f4f7f6; 
+            --white: #ffffff; 
+            --font-main: 'Open Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            --font-heading: 'Montserrat', 'Open Sans', 'Segoe UI', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        img, video, iframe, svg, canvas { max-width: 100%; height: auto; }
+        html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+
+        body { 
+            font-family: var(--font-main); 
+            background-color: var(--light-bg); 
+            color: #333; 
+            padding-top: 70px; 
+            background-image: radial-gradient(#d1d9e6 1px, transparent 1px); 
+            background-size: 20px 20px; 
+            overflow-x: hidden;
+        }
+
+        header {
+            background: rgba(0, 33, 68, 0.85); /* Slightly darker initial bg */
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            height: 72px;
+            width: 100%; display: flex; 
+            justify-content: space-between; align-items: center; padding: 0 2%; 
+            position: fixed; top: 0; z-index: 1000; 
+            transition: all 0.4s ease;
+        }
+
+        header.scrolled {
+            background-color: var(--white);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            height: 70px; /* Compact on scroll */
+        }
+
+        .logo { 
+            color: var(--white); 
+            font-weight: 900; 
+            font-size: 1.45rem;
+            letter-spacing: 0.5px; 
+            transition: color 0.3s; 
+        }
+        
+        .nav-menu { display: flex; list-style: none; align-items: center; height: 100%; }
+        .nav-menu li { position: relative; height: 100%; display: flex; align-items: center; }
+        
+        .nav-menu li a, .dropbtn { 
+            color: var(--white); text-decoration: none; padding: 0 18px; 
+            font-size: 0.98rem;
+            font-weight: 600; transition: color 0.3s;
+            cursor: pointer; height: 100%; display: flex; align-items: center;
+        }
+        .nav-menu li a:hover, .dropdown:hover .dropbtn { color: var(--accent-orange); }
+
+        header.scrolled .logo { color: var(--primary-blue); }
+        header.scrolled .nav-menu li a, 
+        header.scrolled .dropbtn { color: var(--primary-blue); }
+        header.scrolled .nav-menu li a:hover, 
+        header.scrolled .dropdown:hover .dropbtn { color: var(--accent-orange); }
+
+        .dropdown-content {
+            display: none; position: absolute; top: 100%; /* Fixes gap issue */
+            right: 0; 
+            background-color: var(--primary-blue); min-width: 240px; 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3); z-index: 1001; flex-direction: column;
+            border-radius: 0 0 5px 5px;
+        }
+        .dropdown-content li { width: 100%; border-top: 1px solid rgba(255,255,255,0.1); }
+        .dropdown-content li a { padding: 12px 20px; width: 100%; display: block; color: var(--white); font-size: 1rem; }
+
+        .dropdown:hover .dropdown-content { display: flex; }
+        
+        .hamburger { 
+            display: none; cursor: pointer; flex-direction: column; gap: 6px; z-index: 1002; 
+        }
+        .bar { 
+            width: 30px; height: 3px; background-color: var(--white); transition: 0.3s; 
+        }
+        header.scrolled .hamburger .bar { background-color: var(--primary-blue); }
+
+        .page-banner { 
+            background: linear-gradient(rgba(0,51,102,0.9), rgba(0,51,102,0.8)), url('https://via.placeholder.com/1920x400?text=Organizing+Committee'); 
+            background-size: cover; background-position: center; 
+            height: 160px; 
+            display: flex; justify-content: center; align-items: center; 
+            text-align: center; color: var(--white); 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3); 
+        }
+        .page-banner h1 { 
+            font-size: 2.2rem; text-transform: uppercase; font-weight: 800; 
+            border-bottom: 4px solid var(--accent-gold); padding-bottom: 5px; 
+        }
+
+        .container { max-width: 1100px; margin: 60px auto; padding: 0 20px; }
+        .org-tree { display: flex; flex-direction: column; align-items: center; gap: 40px; }
+        .org-level { display: flex; justify-content: center; flex-wrap: wrap; gap: 30px; width: 100%; }
+        
+        /* UPDATED CARD STYLES FOR IMAGE ON LEFT */
+        .org-card { 
+            background: white; 
+            width: 340px; 
+            padding: 20px; 
+            border-radius: 10px; 
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            border-left: 5px solid var(--accent-gold); 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05); 
+            transition: 0.3s; 
+        }
+        .org-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+        
+        .org-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #eee;
+            flex-shrink: 0;
+        }
+
+        .org-info { text-align: left; }
+
+        .org-title { 
+            background: var(--primary-blue); color: white; display: inline-block; 
+            padding: 3px 10px; border-radius: 4px; font-size: 0.75rem; 
+            margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px; 
+        }
+        .org-name { font-size: 1.1rem; font-weight: bold; color: #333; margin-bottom: 3px; }
+        .org-desig { font-size: 0.85rem; color: #666; line-height: 1.3; }
+
+        .org-level-title { 
+            width: 100%; text-align: center; position: relative; margin-bottom: -20px; z-index: 0; 
+        }
+        .org-level-title::after { 
+            content: ''; position: absolute; top: 50%; left: 0; width: 100%; 
+            height: 2px; background: #ddd; z-index: -1; 
+        }
+        .org-level-title span { 
+            background: var(--light-bg); padding: 0 20px; color: var(--primary-blue); 
+            font-weight: bold; letter-spacing: 2px; font-size: 0.9rem;
+        }
+
+        @media (max-width: 900px) { 
+            .org-card { width: 100%; max-width: 400px; }
+            .nav-menu { 
+                display: block; position: fixed; top: 70px; right: -100%; 
+                width: 75%; height: calc(100vh - 70px); background: var(--primary-blue); 
+                padding: 20px; transition: 0.3s ease; box-shadow: -5px 0 15px rgba(0,0,0,0.2); 
+            }
+            .nav-menu.active { right: 0; } 
+            .hamburger { display: flex; }
+        }
+
+        .minimal-footer { background-color: var(--secondary-blue); color: #aaa; padding: 20px; text-align: center; font-size: 0.9rem; margin-top: auto; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">KSRCT CONF 2027</div>
+        <ul class="nav-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="speakers.html">Speakers</a></li>
+            <li><a href="call-for-papers.html">Call for Papers</a></li>
+            <li><a href="schedule.html">Schedule</a></li>
+            <li><a href="registration.html">Registration</a></li>
+            <li><a href="visa.html">Visa</a></li>
+            <li><a href="venue.html">Venue & Travel</a></li>
+            
+            <li class="dropdown">
+                <div class="dropbtn">Committees <i class="fas fa-caret-down" style="margin-left:8px;"></i></div>
+                <ul class="dropdown-content">
+                    <li><a href="advisory.html">Advisory Board</a></li>
+                    <li><a href="organizing.html" style="color: var(--accent-gold);">Organizing Committee</a></li>
+                    <li><a href="review.html">Research Committee</a></li>
+                </ul>
+            </li>
+
+            <li class="dropdown">
+                <div class="dropbtn">More <i class="fas fa-caret-down" style="margin-left:8px;"></i></div>
+                <ul class="dropdown-content">
+                    <li><a href="themes.html">Themes</a></li>
+                    <li><a href="accommodation.html">Accommodation</a></li>
+                    <li><a href="downloads.html">Downloads</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </li>
+
+        </ul>
+        <div class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </header>
+
+    <section class="page-banner">
+        <h1>Organizing Committee</h1>
+    </section>
+
+    <div class="container">
+        <div class="org-tree">
+            
+            <div class="org-level-title"><span>CHIEF PATRONS</span></div>
+            <div class="org-level">
+                <div class="org-card">
+                    <img src="https://via.placeholder.com/80" alt="Srinivasan" class="org-img">
+                    <div class="org-info">
+                        <span class="org-title">Chairman</span>
+                        <div class="org-name">Shri. R. Srinivasan</div>
+                        <div class="org-desig">Chairman, KSR Educational Institutions</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="org-level-title"><span>PATRONS</span></div>
+            <div class="org-level">
+                <div class="org-card">
+                    <img src="https://via.placeholder.com/80" alt="Gopalakrishnan" class="org-img">
+                    <div class="org-info">
+                        <span class="org-title">Principal</span>
+                        <div class="org-name">Dr. R. Gopalakrishnan</div>
+                        <div class="org-desig">Principal, KSRCT</div>
+                    </div>
+                </div>
+                <div class="org-card">
+                    <img src="https://via.placeholder.com/80" alt="Thyagarajah" class="org-img">
+                    <div class="org-info">
+                        <span class="org-title">Director</span>
+                        <div class="org-name">Dr. K. Thyagarajah</div>
+                        <div class="org-desig">CEO, KSR Institutions</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="org-level-title"><span>ORGANIZING CHAIR</span></div>
+            <div class="org-level">
+                <div class="org-card">
+                    <img src="https://via.placeholder.com/80" alt="Organizing Chair" class="org-img">
+                    <div class="org-info">
+                        <span class="org-title">Organizing Chair</span>
+                        <div class="org-name">Dr. S. Ramesh</div>
+                        <div class="org-desig">Dean - Academics</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="org-level-title"><span>CONVENORS</span></div>
+            <div class="org-level">
+                <div class="org-card">
+                    <img src="https://via.placeholder.com/80" alt="Meenakshi" class="org-img">
+                    <div class="org-info">
+                        <span class="org-title">Convenor</span>
+                        <div class="org-name">Dr. P. Meenakshi</div>
+                        <div class="org-desig">HOD, CSE Dept</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="org-level-title"><span>ORGANIZING SECRETARIES</span></div>
+            <div class="org-level">
+                <div class="org-card">
+                    <img src="https://via.placeholder.com/80" alt="Chief" class="org-img">
+                    <div class="org-info">
+                        <span class="org-title">ORGANIZING SECRETARIES</span>
+                        <div class="org-name">Dr. V. Prabha</div>
+                        <div class="org-desig">Professor, R&D Cell</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="org-level-title"><span>COORDINATORS</span></div>
+            <div class="org-level">
+                <div class="org-card">
+                    <img src="https://via.placeholder.com/80" alt="Karthik" class="org-img">
+                    <div class="org-info">
+                        <span class="org-title">Coordinator</span>
+                        <div class="org-name">Prof. S. Karthik</div>
+                        <div class="org-desig">Associate Professor, IT</div>
+                    </div>
+                </div>
+                <div class="org-card">
+                    <img src="https://via.placeholder.com/80" alt="Divya" class="org-img">
+                    <div class="org-info">
+                        <span class="org-title">Coordinator</span>
+                        <div class="org-name">Prof. M. Divya</div>
+                        <div class="org-desig">Assistant Professor, ECE</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="minimal-footer">© 2024 KSRCT Conference Committee.</div>
+
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+        hamburger.addEventListener('click', () => navMenu.classList.toggle('active'));
+    </script>
+</body>
+</html>

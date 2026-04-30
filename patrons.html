@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patrons - National Conference 2027</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* =========================================
+           1. CORE STYLES & VARIABLES
+           ========================================= */
+        :root { 
+            --primary-blue: #003366; 
+            --secondary-blue: #002244; 
+            --accent-gold: #f7931e; 
+            
+            --accent-orange-light: #ffc174;
+            --accent-orange: #f7931e;
+            --text-dark: #333; 
+            --light-bg: #f8f9fa; 
+            --white: #ffffff; 
+            --font-main: 'Open Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            --font-heading: 'Montserrat', 'Open Sans', 'Segoe UI', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        img, video, iframe, svg, canvas { max-width: 100%; height: auto; }
+        html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+
+        body { 
+            font-family: var(--font-main); 
+            background-color: var(--light-bg); 
+            color: var(--text-dark); 
+            padding-top: 70px; 
+            overflow-x: hidden;
+        }
+
+        /* =========================================
+           2. HEADER (Fixed & Shadowed)
+           ========================================= */
+        header {
+            background: rgba(0, 33, 68, 0.85); /* Slightly darker initial bg */
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            height: 72px;
+            width: 100%; display: flex; 
+            justify-content: space-between; align-items: center; padding: 0 2%; 
+            position: fixed; top: 0; z-index: 1000; 
+            transition: all 0.4s ease;
+        }
+
+        header.scrolled {
+            background-color: var(--white);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            height: 70px; /* Compact on scroll */
+        }
+
+        .logo { 
+            color: var(--white); 
+            font-weight: 900; 
+            font-size: 1.45rem;
+            letter-spacing: 0.5px; 
+            transition: color 0.3s; 
+        }
+        
+        .nav-menu { display: flex; list-style: none; align-items: center; height: 100%; }
+        .nav-menu li { position: relative; height: 100%; display: flex; align-items: center; }
+        
+        .nav-menu li a, .dropbtn { 
+            color: var(--white); text-decoration: none; padding: 0 18px; 
+            font-size: 0.98rem;
+            font-weight: 600; transition: color 0.3s;
+            cursor: pointer; height: 100%; display: flex; align-items: center;
+        }
+        .nav-menu li a:hover, .dropdown:hover .dropbtn { color: var(--accent-orange); }
+
+        header.scrolled .logo { color: var(--primary-blue); }
+        header.scrolled .nav-menu li a, 
+        header.scrolled .dropbtn { color: var(--primary-blue); }
+        header.scrolled .nav-menu li a:hover, 
+        header.scrolled .dropdown:hover .dropbtn { color: var(--accent-orange); }
+
+        .dropdown-content {
+            display: none; position: absolute; top: 100%; /* Fixes gap issue */
+            right: 0; 
+            background-color: var(--primary-blue); min-width: 240px; 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3); z-index: 1001; flex-direction: column;
+            border-radius: 0 0 5px 5px;
+        }
+        .dropdown-content li { width: 100%; border-top: 1px solid rgba(255,255,255,0.1); }
+        .dropdown-content li a { padding: 12px 20px; width: 100%; display: block; color: var(--white); font-size: 1rem; }
+
+        .dropdown:hover .dropdown-content { display: flex; }
+        
+        .hamburger { 
+            display: none; cursor: pointer; flex-direction: column; gap: 6px; z-index: 1002; 
+        }
+        .bar { 
+            width: 30px; height: 3px; background-color: var(--white); transition: 0.3s; 
+        }
+        header.scrolled .hamburger .bar { background-color: var(--primary-blue); }
+
+        /* =========================================
+           3. PAGE BANNER
+           ========================================= */
+        .page-banner { 
+            background: linear-gradient(rgba(0, 51, 102, 0.6), rgba(0, 51, 102, 0.6)), url('https://via.placeholder.com/1920x400?text=Leadership'); 
+            background-size: cover; background-position: center; 
+            height: 250px; 
+            display: flex; justify-content: center; align-items: center; 
+            text-align: center; color: var(--white); 
+        }
+        .page-banner h1 { 
+            font-size: 2.5rem; text-transform: uppercase; font-weight: 800; 
+            border-bottom: 4px solid var(--accent-gold); padding-bottom: 5px; 
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.6); 
+        }
+
+        /* =========================================
+           4. PATRON SECTIONS
+           ========================================= */
+        .hierarchy-section { 
+            padding: 60px 20px; 
+            max-width: 1200px; 
+            margin: 0 auto; 
+        }
+
+        .section-title { 
+            text-align: center; font-size: 2rem; color: var(--primary-blue); 
+            margin-bottom: 50px; text-transform: uppercase; letter-spacing: 1px; 
+            position: relative; 
+        }
+        .section-title::after { 
+            content: ''; display: block; width: 80px; height: 3px; 
+            background: var(--accent-gold); margin: 15px auto 0; 
+        }
+
+        /* --- CHIEF PATRON STYLES --- */
+        .chief-grid { 
+            display: flex; justify-content: center; gap: 50px; flex-wrap: wrap; margin-bottom: 80px; 
+        }
+
+        .chief-card { 
+            background: white; width: 100%; max-width: 350px; padding: 40px 20px; 
+            border-radius: 20px; text-align: center; 
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08); 
+            position: relative; overflow: hidden; transition: 0.3s; 
+            border-top: 5px solid var(--accent-gold); 
+        }
+        .chief-card:hover { transform: translateY(-10px); }
+
+        .bg-blob { 
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
+            background: radial-gradient(circle at 50% 20%, rgba(247, 147, 30, 0.12), transparent 70%); 
+            z-index: 0; pointer-events: none; 
+        }
+
+        .chief-img-wrapper { 
+            width: 180px; height: 180px; margin: 0 auto 25px; 
+            position: relative; z-index: 1; 
+        }
+        .chief-img { 
+            width: 100%; height: 100%; object-fit: cover; border-radius: 50%; 
+            border: 5px solid white; box-shadow: 0 5px 15px rgba(0,0,0,0.2); 
+            position: relative; z-index: 2; 
+        }
+
+        /* Rotating Rings Animation */
+        .ring { 
+            position: absolute; top: -10px; left: -10px; right: -10px; bottom: -10px; 
+            border-radius: 50%; border: 2px dashed var(--accent-gold); 
+            animation: spinRight 20s linear infinite; z-index: 1; opacity: 0.6; 
+        }
+        .ring.inner { 
+            top: -20px; left: -20px; right: -20px; bottom: -20px; 
+            border: 2px solid var(--primary-blue); opacity: 0.2; 
+            animation: spinLeft 25s linear infinite; 
+        }
+        @keyframes spinRight { 100% { transform: rotate(360deg); } }
+        @keyframes spinLeft { 100% { transform: rotate(-360deg); } }
+
+        .chief-info { position: relative; z-index: 1; }
+        .chief-info h3 { font-size: 1.5rem; color: var(--primary-blue); margin-bottom: 5px; }
+        .chief-info .role { color: var(--accent-gold); font-weight: 800; font-size: 0.9rem; text-transform: uppercase; display: block; margin-bottom: 15px; }
+        .chief-info p { color: #666; font-size: 0.95rem; line-height: 1.6; }
+
+        /* --- PATRON STYLES (Principal) --- */
+        .patron-wrapper { display: flex; justify-content: center; margin-bottom: 80px; }
+        
+        .patron-card-single { 
+            background: white; padding: 40px; border-radius: 15px; 
+            display: flex; align-items: center; gap: 40px; 
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05); 
+            max-width: 800px; width: 100%; border-left: 5px solid var(--primary-blue); 
+            transition: 0.3s; 
+        }
+        .patron-card-single:hover { transform: scale(1.02); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        
+        .patron-img-single { 
+            width: 160px; height: 160px; border-radius: 50%; object-fit: cover; 
+            border: 4px solid var(--accent-gold); flex-shrink: 0; 
+        }
+        
+        .patron-content h3 { font-size: 1.6rem; color: var(--primary-blue); margin-bottom: 5px; }
+        .patron-content .role { color: var(--accent-gold); font-weight: 700; text-transform: uppercase; margin-bottom: 10px; display: block; }
+        .patron-content p { color: #555; line-height: 1.6; text-align: justify; }
+
+        /* --- ESTEEMED PATRONS GRID --- */
+        .esteemed-grid { 
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+            gap: 30px; margin-bottom: 60px; 
+        }
+
+        .esteemed-card { 
+            background: white; padding: 30px 20px; text-align: center; 
+            border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); 
+            transition: 0.3s; border-bottom: 3px solid transparent; 
+        }
+        .esteemed-card:hover { 
+            transform: translateY(-5px); 
+            border-bottom: 3px solid var(--accent-gold); 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1); 
+        }
+
+        .est-img-box { 
+            width: 120px; height: 120px; margin: 0 auto 15px; 
+            position: relative; 
+        }
+        .est-img { 
+            width: 100%; height: 100%; border-radius: 50%; object-fit: cover; 
+            border: 3px solid #eee; transition: 0.3s; 
+        }
+        .esteemed-card:hover .est-img { border-color: var(--primary-blue); }
+
+        .esteemed-card h4 { color: var(--primary-blue); font-size: 1.1rem; margin-bottom: 5px; }
+        .esteemed-card span { font-size: 0.85rem; color: var(--accent-gold); font-weight: 600; text-transform: uppercase; }
+        .esteemed-card p { font-size: 0.85rem; color: #777; margin-top: 5px; }
+
+        /* =========================================
+           5. MOBILE & RESPONSIVE FIXES
+           ========================================= */
+        @media (max-width: 900px) { 
+            
+            /* General */
+            body { padding-top: 70px; }
+            .hierarchy-section { padding: 40px 15px; }
+            .page-banner { height: 160px; }
+            .page-banner h1 { font-size: 1.8rem; }
+
+            /* Patron Card Stack */
+            .patron-card-single { flex-direction: column; text-align: center; padding: 25px; }
+            .patron-card-single:hover { transform: none; }
+            .patron-content p { text-align: center; font-size: 0.95rem; }
+            .patron-img-single { margin-bottom: 15px; }
+
+            /* Grid Adjustments */
+            .chief-grid { gap: 30px; }
+            .chief-card { width: 100%; padding: 30px 15px; }
+            
+            /* Sliding Menu */
+            header { padding: 0 15px; }
+            .hamburger { display: flex; }
+
+            .nav-menu { 
+                display: block; 
+                position: fixed; 
+                top: 70px; 
+                right: -100%; 
+                width: 75%; 
+                height: calc(100vh - 70px); 
+                background: var(--primary-blue); 
+                padding: 20px; 
+                transition: 0.3s ease;
+                box-shadow: -5px 0 15px rgba(0,0,0,0.2);
+                overflow-y: auto;
+            }
+            .nav-menu.active { right: 0; } 
+
+            .nav-menu li { width: 100%; border-bottom: 1px solid rgba(255,255,255,0.1); height: auto; display: block; margin-bottom: 5px; }
+            .nav-menu li a, .dropbtn { padding: 12px; font-size: 1rem; justify-content: space-between; }
+            .dropdown-content { position: relative; top: 0; box-shadow: none; background: rgba(0,0,0,0.2); width: 100%; display: none; }
+            .dropdown:hover .dropdown-content { display: block; }
+        }
+
+        /* Footer */
+        footer { background-color: var(--secondary-blue); color: #ccc; padding: 60px 0 20px; font-size: 0.9rem; }
+        .footer-container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; padding: 0 20px; }
+        .footer-col h4 { color: var(--white); font-size: 1.1rem; margin-bottom: 20px; color: var(--accent-orange); }
+        .footer-col p, .footer-col a { display: block; color: #bbb; text-decoration: none; margin-bottom: 12px; transition: 0.3s; }
+        .footer-col a:hover { color: var(--accent-gold); padding-left: 5px; }
+        .social-links { display: flex; gap: 15px; margin-top: 15px; }
+        .social-links a { display: inline-flex; justify-content: center; align-items: center; width: 35px; height: 35px; background: rgba(255,255,255,0.1); border-radius: 50%; transition: 0.3s; color: var(--white); }
+        .social-links a:hover { background: var(--accent-gold); color: var(--primary-blue); transform: translateY(-3px); }
+        .footer-bottom { text-align: center; margin-top: 50px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">KSRCT CONF 2027</div>
+        <ul class="nav-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="speakers.html">Speakers</a></li>
+            <li><a href="call-for-papers.html">Call for Papers</a></li>
+            <li><a href="schedule.html">Schedule</a></li>
+            <li><a href="registration.html">Registration</a></li>
+            <li><a href="visa.html">Visa</a></li>
+            <li><a href="venue.html">Venue & Travel</a></li>
+            
+            <li class="dropdown">
+                <div class="dropbtn">Committees <i class="fas fa-caret-down" style="margin-left:8px;"></i></div>
+                <ul class="dropdown-content">
+                    <li><a href="advisory.html">Advisory Board</a></li>
+                    <li><a href="organizing.html">Organizing Committee</a></li>
+                    <li><a href="review.html">Research Committee</a></li>
+                </ul>
+            </li>
+
+            <li class="dropdown">
+                <div class="dropbtn">More <i class="fas fa-caret-down" style="margin-left:8px;"></i></div>
+                <ul class="dropdown-content">
+                    <li><a href="themes.html">Themes</a></li>
+                    <li><a href="accommodation.html">Accommodation</a></li>
+                    <li><a href="downloads.html">Downloads</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </li>
+
+        </ul>
+        <div class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </header>
+
+    <section class="page-banner">
+        <h1>Leadership & Patrons</h1>
+    </section>
+
+    <div class="hierarchy-section">
+        
+        <h2 class="section-title">Chief Patrons</h2>
+        <div class="chief-grid">
+            
+            <div class="chief-card">
+                <div class="bg-blob"></div>
+                <div class="chief-img-wrapper">
+                    <div class="ring"></div>
+                    <div class="ring inner"></div>
+                    <img src="https://placehold.co/200x200/003366/FFF?text=Chairman" alt="Chairman" class="chief-img">
+                </div>
+                <div class="chief-info">
+                    <h3>Shri. R. Srinivasan</h3>
+                    <span class="role">Chairman</span>
+                    <p>K.S.R. Educational Institutions<br>Tiruchengode</p>
+                </div>
+            </div>
+
+            <div class="chief-card">
+                <div class="bg-blob"></div>
+                <div class="chief-img-wrapper">
+                    <div class="ring"></div>
+                    <div class="ring inner"></div>
+                    <img src="https://placehold.co/200x200/003366/FFF?text=CEO" alt="CEO" class="chief-img">
+                </div>
+                <div class="chief-info">
+                    <h3>Dr. K. Thyagarajah</h3>
+                    <span class="role">Chief Executive Officer</span>
+                    <p>K.S.R. Educational Institutions<br>Tiruchengode</p>
+                </div>
+            </div>
+
+        </div>
+
+        <h2 class="section-title">Patron</h2>
+        <div class="patron-wrapper">
+            <div class="patron-card-single">
+                <img src="img/principal.png" alt="Principal" class="patron-img-single" onerror="this.src='https://placehold.co/200x200/003366/FFF?text=Principal'">
+                <div class="patron-content">
+                    <h3>Dr. R. Gopalakrishnan</h3>
+                    <span class="role">Principal</span>
+                    <p>K.S.Rangasamy College of Technology. Under his leadership, the institution has scaled new heights in academic excellence and research. He is a strong advocate for interdisciplinary conferences that bridge the gap between industry and academia.</p>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-title">Our Esteemed Patrons</h2>
+        <div class="esteemed-grid">
+            
+            <div class="esteemed-card">
+                <div class="est-img-box">
+                    <img src="https://placehold.co/150x150/003366/FFF?text=Director" alt="Director" class="est-img">
+                </div>
+                <h4>Dr. G. Karthikeyan</h4>
+                <span>Director (Academics)</span>
+                <p>K.S.R. Educational Institutions</p>
+            </div>
+
+            <div class="esteemed-card">
+                <div class="est-img-box">
+                    <img src="https://placehold.co/150x150/003366/FFF?text=Director+Admin" alt="Director" class="est-img">
+                </div>
+                <h4>Dr. V. Mohan</h4>
+                <span>Director (Administration)</span>
+                <p>K.S.R. Educational Institutions</p>
+            </div>
+
+            <div class="esteemed-card">
+                <div class="est-img-box">
+                    <img src="https://placehold.co/150x150/003366/FFF?text=Dean" alt="Dean" class="est-img">
+                </div>
+                <h4>Dr. P. Kumar</h4>
+                <span>Dean (Research)</span>
+                <p>K.S.Rangasamy College of Technology</p>
+            </div>
+
+            <div class="esteemed-card">
+                <div class="est-img-box">
+                    <img src="https://placehold.co/150x150/003366/FFF?text=CoE" alt="CoE" class="est-img">
+                </div>
+                <h4>Dr. S. Ramesh</h4>
+                <span>Controller of Examinations</span>
+                <p>K.S.Rangasamy College of Technology</p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h4>Contact Info</h4>
+                <p><i class="fas fa-map-marker-alt"></i> KSR Kalvi Nagar, Tiruchengode,<br>Tamil Nadu 637215</p>
+                <p><i class="fas fa-phone"></i> +91 98765 43210</p>
+                <p><i class="fas fa-envelope"></i> conference@ksrct.ac.in</p>
+            </div>
+            <div class="footer-col">
+                <h4>Important Links</h4>
+                <a href="registration.html">Registration Portal</a>
+                <a href="schedule.html">Program Schedule</a>
+                <a href="call-for-papers.html">Submission Guidelines</a>
+                <a href="venue.html">Venue & Travel</a>
+            </div>
+            <div class="footer-col">
+                <h4>Stay Connected</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom"><p>© 2024 KSRCT Conference Committee. All Rights Reserved.</p></div>
+    </footer>
+
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+        if(hamburger) {
+            hamburger.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+            });
+        }
+    </script>
+</body>
+</html>

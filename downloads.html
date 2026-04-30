@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Downloads - National Conference 2027</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* =========================================
+           1. CORE STYLES
+           ========================================= */
+        :root { 
+            --primary-blue: #003366; 
+            --secondary-blue: #002244; 
+            --accent-gold: #f7931e; 
+            
+            --accent-orange-light: #ffc174;
+            --accent-orange: #f7931e;
+            --text-dark: #333; 
+            --light-bg: #f8f9fa; 
+            --white: #ffffff; 
+            --pdf-red: #e74c3c; 
+            --doc-blue: #3498db; 
+            --font-main: 'Open Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            --font-heading: 'Montserrat', 'Open Sans', 'Segoe UI', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        img, video, iframe, svg, canvas { max-width: 100%; height: auto; }
+        html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+
+        body { 
+            font-family: var(--font-main); 
+            background-color: var(--light-bg); 
+            color: var(--text-dark); 
+            padding-top: 70px; 
+            overflow-x: hidden;
+        }
+
+        /* =========================================
+           2. HEADER (Fixed & Shadowed)
+           ========================================= */
+      header {
+            background: rgba(0, 33, 68, 0.85); /* Slightly darker initial bg */
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            height: 72px;
+            width: 100%; display: flex; 
+            justify-content: space-between; align-items: center; padding: 0 2%; 
+            position: fixed; top: 0; z-index: 1000; 
+            transition: all 0.4s ease;
+        }
+
+        header.scrolled {
+            background-color: var(--white);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            height: 70px; /* Compact on scroll */
+        }
+
+        .logo { 
+            color: var(--white); 
+            font-weight: 900; 
+            font-size: 1.45rem;
+            letter-spacing: 0.5px; 
+            transition: color 0.3s; 
+        }
+        
+        .nav-menu { display: flex; list-style: none; align-items: center; height: 100%; }
+        .nav-menu li { position: relative; height: 100%; display: flex; align-items: center; }
+        
+        .nav-menu li a, .dropbtn { 
+            color: var(--white); text-decoration: none; padding: 0 18px; 
+            font-size: 0.98rem;
+            font-weight: 600; transition: color 0.3s;
+            cursor: pointer; height: 100%; display: flex; align-items: center;
+        }
+        .nav-menu li a:hover, .dropdown:hover .dropbtn { color: var(--accent-orange); }
+
+        header.scrolled .logo { color: var(--primary-blue); }
+        header.scrolled .nav-menu li a, 
+        header.scrolled .dropbtn { color: var(--primary-blue); }
+        header.scrolled .nav-menu li a:hover, 
+        header.scrolled .dropdown:hover .dropbtn { color: var(--accent-orange); }
+
+        .dropdown-content {
+            display: none; position: absolute; top: 100%; /* Fixes gap issue */
+            right: 0; 
+            background-color: var(--primary-blue); min-width: 240px; 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3); z-index: 1001; flex-direction: column;
+            border-radius: 0 0 5px 5px;
+        }
+        .dropdown-content li { width: 100%; border-top: 1px solid rgba(255,255,255,0.1); }
+        .dropdown-content li a { padding: 12px 20px; width: 100%; display: block; color: var(--white); font-size: 1rem; }
+
+        .dropdown:hover .dropdown-content { display: flex; }
+        
+        .hamburger { 
+            display: none; cursor: pointer; flex-direction: column; gap: 6px; z-index: 1002; 
+        }
+        .bar { 
+            width: 30px; height: 3px; background-color: var(--white); transition: 0.3s; 
+        }
+        header.scrolled .hamburger .bar { background-color: var(--primary-blue); }
+
+        /* =========================================
+           3. PAGE BANNER
+           ========================================= */
+        .page-banner { 
+            background: linear-gradient(rgba(0,51,102,0.9), rgba(0,51,102,0.8)), url('https://via.placeholder.com/1920x400?text=Resource+Hub'); 
+            background-size: cover; background-position: center; 
+            height: 250px; display: flex; justify-content: center; align-items: center; 
+            text-align: center; color: var(--white); 
+        }
+        .page-banner h1 { 
+            font-size: 2.8rem; text-transform: uppercase; font-weight: 800; 
+            border-bottom: 4px solid var(--accent-gold); padding-bottom: 10px; 
+        }
+
+        /* =========================================
+           4. DOWNLOAD CARDS
+           ========================================= */
+        .downloads-section { max-width: 1100px; margin: 60px auto; padding: 0 20px; }
+        
+        .category-title { 
+            font-size: 1.5rem; color: var(--primary-blue); margin-bottom: 30px; 
+            padding-left: 15px; border-left: 5px solid var(--accent-gold); 
+        }
+
+        .resource-grid { 
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 30px; margin-bottom: 60px; 
+        }
+
+        /* File Card */
+        .file-card { 
+            background: white; border-radius: 12px; padding: 25px; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05); display: flex; align-items: flex-start; gap: 20px; 
+            transition: transform 0.3s, box-shadow 0.3s; border: 1px solid #eee; position: relative; 
+            overflow: hidden; 
+        }
+        .file-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); border-color: var(--accent-orange); }
+
+        /* Icon Styling */
+        .file-icon { 
+            width: 60px; height: 60px; border-radius: 10px; display: flex; 
+            justify-content: center; align-items: center; font-size: 1.8rem; flex-shrink: 0; 
+        }
+        .file-card.pdf .file-icon { background: rgba(231, 76, 60, 0.1); color: var(--pdf-red); }
+        .file-card.doc .file-icon { background: rgba(52, 152, 219, 0.1); color: var(--doc-blue); }
+
+        .file-info h3 { font-size: 1.1rem; color: #333; margin-bottom: 5px; }
+        .file-info p { font-size: 0.85rem; color: #777; margin-bottom: 15px; }
+        .file-meta { font-size: 0.75rem; color: #aaa; text-transform: uppercase; letter-spacing: 1px; font-weight: bold; }
+        
+        /* Download Button */
+        .download-btn { 
+            position: absolute; right: 20px; bottom: 20px; 
+            width: 40px; height: 40px; border-radius: 50%; 
+            background: var(--light-bg); color: var(--primary-blue); 
+            display: flex; justify-content: center; align-items: center; 
+            transition: 0.3s; text-decoration: none; 
+        }
+        .file-card:hover .download-btn { background: var(--primary-blue); color: white; }
+
+        /* =========================================
+           5. CERTIFICATE WIDGET
+           ========================================= */
+        .cert-section { 
+            background: linear-gradient(135deg, #002244 0%, #003366 100%); 
+            padding: 50px; border-radius: 20px; text-align: center; color: white; 
+            position: relative; overflow: hidden; margin-bottom: 60px; 
+        }
+        .cert-section::before { 
+            content: ''; position: absolute; top: -50px; right: -50px; width: 200px; height: 200px; 
+            background: rgba(247, 147, 30, 0.12); border-radius: 50%; 
+        }
+
+        .cert-container { position: relative; z-index: 2; max-width: 600px; margin: 0 auto; }
+        .cert-container h2 { font-size: 2rem; margin-bottom: 10px; }
+        .cert-container p { color: #ccc; margin-bottom: 30px; }
+
+        .search-box { 
+            display: flex; background: rgba(255,255,255,0.1); padding: 5px; 
+            border-radius: 50px; border: 1px solid rgba(255,255,255,0.2); 
+        }
+        .search-box input { 
+            flex: 1; background: transparent; border: none; padding: 15px 20px; 
+            color: white; font-size: 1rem; outline: none; 
+        }
+        .search-box input::placeholder { color: #aaa; }
+        .search-btn { 
+            background: var(--accent-gold); color: var(--primary-blue); border: none; 
+            padding: 12px 30px; border-radius: 50px; font-weight: bold; cursor: pointer; transition: 0.3s; 
+        }
+        .search-btn:hover { background: white; }
+
+        /* =========================================
+           6. MOBILE & RESPONSIVE FIXES
+           ========================================= */
+        @media (max-width: 900px) { 
+            
+            /* General */
+            body { padding-top: 70px; }
+            .page-banner { height: 160px; }
+            .page-banner h1 { font-size: 1.8rem; }
+            
+            /* Grid Stack */
+            .resource-grid { grid-template-columns: 1fr; gap: 20px; }
+            .downloads-section { padding: 0 15px; margin: 30px auto; }
+
+            /* Certificate Box Mobile */
+            .cert-section { padding: 30px 20px; }
+            .search-box { 
+                flex-direction: column; background: transparent; border: none; gap: 15px; padding: 0;
+            }
+            .search-box input { 
+                background: rgba(255,255,255,0.1); border-radius: 8px; width: 100%; border: 1px solid rgba(255,255,255,0.2);
+            }
+            .search-btn { width: 100%; border-radius: 8px; }
+
+            /* Sliding Menu */
+            header { padding: 0 15px; }
+            .hamburger { display: flex; }
+
+            .nav-menu { 
+                display: block; 
+                position: fixed; 
+                top: 70px; 
+                right: -100%; 
+                width: 75%; 
+                height: calc(100vh - 70px); 
+                background: var(--primary-blue); 
+                padding: 20px; 
+                transition: 0.3s ease;
+                box-shadow: -5px 0 15px rgba(0,0,0,0.2);
+                overflow-y: auto;
+            }
+            .nav-menu.active { right: 0; } 
+
+            .nav-menu li { width: 100%; border-bottom: 1px solid rgba(255,255,255,0.1); height: auto; display: block; margin-bottom: 5px; }
+            .nav-menu li a, .dropbtn { padding: 12px; font-size: 1rem; justify-content: space-between; }
+            .dropdown-content { position: relative; top: 0; box-shadow: none; background: rgba(0,0,0,0.2); width: 100%; display: none; }
+            .dropdown:hover .dropdown-content { display: block; }
+        }
+
+        /* Footer */
+        footer { background-color: var(--secondary-blue); color: #ccc; padding: 60px 0 20px; font-size: 0.9rem; }
+        .footer-container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; padding: 0 20px; }
+        .footer-col h4 { color: var(--white); font-size: 1.1rem; margin-bottom: 20px; color: var(--accent-orange); }
+        .footer-col p, .footer-col a { display: block; color: #bbb; text-decoration: none; margin-bottom: 12px; transition: 0.3s; }
+        .footer-col a:hover { color: var(--accent-gold); padding-left: 5px; }
+        .social-links { display: flex; gap: 15px; margin-top: 15px; }
+        .social-links a { display: inline-flex; justify-content: center; align-items: center; width: 35px; height: 35px; background: rgba(255,255,255,0.1); border-radius: 50%; transition: 0.3s; color: var(--white); }
+        .social-links a:hover { background: var(--accent-gold); color: var(--primary-blue); transform: translateY(-3px); }
+        .footer-bottom { text-align: center; margin-top: 50px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">KSRCT CONF 2027</div>
+        <ul class="nav-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="speakers.html">Speakers</a></li>
+            <li><a href="call-for-papers.html">Call for Papers</a></li>
+            <li><a href="schedule.html">Schedule</a></li>
+            <li><a href="registration.html">Registration</a></li>
+            <li><a href="visa.html">Visa</a></li>
+            <li><a href="venue.html">Venue & Travel</a></li>
+            
+            <li class="dropdown">
+                <div class="dropbtn">Committees <i class="fas fa-caret-down" style="margin-left:8px;"></i></div>
+                <ul class="dropdown-content">
+                    <li><a href="advisory.html">Advisory Board</a></li>
+                    <li><a href="organizing.html">Organizing Committee</a></li>
+                    <li><a href="review.html">Research Committee</a></li>
+                </ul>
+            </li>
+
+            <li class="dropdown">
+                <div class="dropbtn">More <i class="fas fa-caret-down" style="margin-left:8px;"></i></div>
+                <ul class="dropdown-content">
+                    <li><a href="themes.html">Themes</a></li>
+                    <li><a href="accommodation.html">Accommodation</a></li>
+                    <li><a href="downloads.html" style="color: var(--accent-gold);">Downloads</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </li>
+
+        </ul>
+        <div class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </header>
+
+    <section class="page-banner">
+        <h1>Downloads & Resources</h1>
+    </section>
+
+    <section class="downloads-section">
+        
+        <h2 class="category-title">Conference Essentials</h2>
+        <div class="resource-grid">
+            
+            <div class="file-card pdf">
+                <div class="file-icon"><i class="fas fa-file-pdf"></i></div>
+                <div class="file-info">
+                    <h3>Conference Brochure</h3>
+                    <p>Official invitation and event details.</p>
+                    <span class="file-meta">2.5 MB • Updated Oct 01</span>
+                </div>
+                <a href="#" class="download-btn"><i class="fas fa-download"></i></a>
+            </div>
+
+            <div class="file-card pdf">
+                <div class="file-icon"><i class="fas fa-file-alt"></i></div>
+                <h3>Program Schedule</h3>
+                <p>Detailed day-wise agenda and tracks.</p>
+                <span class="file-meta">1.2 MB • Updated Yesterday</span>
+                <a href="#" class="download-btn"><i class="fas fa-download"></i></a>
+            </div>
+
+            <div class="file-card pdf">
+                <div class="file-icon"><i class="fas fa-image"></i></div>
+                <h3>Event Poster</h3>
+                <p>High-resolution poster for sharing.</p>
+                <span class="file-meta">5.0 MB • JPG Format</span>
+                <a href="#" class="download-btn"><i class="fas fa-download"></i></a>
+            </div>
+
+        </div>
+
+        <h2 class="category-title">Author Resources</h2>
+        <div class="resource-grid">
+            
+            <div class="file-card doc">
+                <div class="file-icon"><i class="fas fa-file-word"></i></div>
+                <div class="file-info">
+                    <h3>IEEE Paper Template</h3>
+                    <p>Double column format for MS Word.</p>
+                    <span class="file-meta">DOCX • Standard Format</span>
+                </div>
+                <a href="#" class="download-btn"><i class="fas fa-download"></i></a>
+            </div>
+
+            <div class="file-card pdf">
+                <div class="file-icon"><i class="fas fa-file-code"></i></div>
+                <h3>LaTeX Template</h3>
+                <p>Official LaTeX class files and guide.</p>
+                <span class="file-meta">ZIP • For Research Papers</span>
+                <a href="#" class="download-btn"><i class="fas fa-download"></i></a>
+            </div>
+
+            <div class="file-card pdf">
+                <div class="file-icon"><i class="fas fa-copyright"></i></div>
+                <h3>Copyright Form</h3>
+                <p>Mandatory for accepted papers.</p>
+                <span class="file-meta">PDF • Sign & Upload</span>
+                <a href="#" class="download-btn"><i class="fas fa-download"></i></a>
+            </div>
+
+        </div>
+
+        <div class="cert-section">
+            <div class="cert-container">
+                <i class="fas fa-certificate" style="font-size: 3rem; color: var(--accent-gold); margin-bottom: 20px;"></i>
+                <h2>Certificate Verification</h2>
+                <p>Participants can download their participation and presentation certificates here after the event by entering their Registration ID.</p>
+                
+                <div class="search-box">
+                    <input type="text" placeholder="Enter Registration ID (e.g., KSR24-001)">
+                    <button class="search-btn">Verify & Download</button>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h4>Contact Info</h4>
+                <p><i class="fas fa-map-marker-alt"></i> KSR Kalvi Nagar, Tiruchengode,<br>Tamil Nadu 637215</p>
+                <p><i class="fas fa-phone"></i> +91 98765 43210</p>
+                <p><i class="fas fa-envelope"></i> conference@ksrct.ac.in</p>
+            </div>
+            <div class="footer-col">
+                <h4>Important Links</h4>
+                <a href="registration.html">Registration Portal</a>
+                <a href="schedule.html">Program Schedule</a>
+                <a href="call-for-papers.html">Submission Guidelines</a>
+                <a href="venue.html">Venue & Travel</a>
+            </div>
+            <div class="footer-col">
+                <h4>Stay Connected</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom"><p>© 2024 KSRCT Conference Committee. All Rights Reserved.</p></div>
+    </footer>
+
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+        hamburger.addEventListener('click', () => navMenu.classList.toggle('active'));
+    </script>
+</body>
+</html>

@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration - National Conference 2027</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* =========================================
+           1. CORE VARIABLES & ANIMATIONS
+           ========================================= */
+        :root {
+            --primary-blue: #003366;
+            --secondary-blue: #002244;
+            --accent-gold: #f7931e;
+            
+            --accent-orange-light: #ffc174;
+            --accent-orange: #f7931e;
+            --font-main: 'Open Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            --font-heading: 'Montserrat', 'Open Sans', 'Segoe UI', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        img, video, iframe, svg, canvas { max-width: 100%; height: auto; }
+        html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+
+        body {
+            font-family: var(--font-main);
+            color: #333;
+            padding-top: 70px;
+            /* Animated Deep Tech Background */
+            background: linear-gradient(-45deg, #001f3f, #003366, #004080, #002244);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* =========================================
+           2. HEADER (Fixed & Shadowed)
+           ========================================= */
+        header {
+            background: rgba(0, 33, 68, 0.85);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            height: 72px;
+            width: 100%; display: flex; 
+            justify-content: space-between; align-items: center; padding: 0 2%; 
+            position: fixed; top: 0; z-index: 1000;
+            transition: all 0.4s ease;
+        }
+        header.scrolled {
+            background-color: var(--white);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            height: 70px;
+        }
+
+        .logo { color: var(--white); font-weight: 800; font-size: 1.45rem; letter-spacing: 0.5px; transition: color 0.3s; }
+        header.scrolled .logo { color: var(--primary-blue); }
+        
+        /* Desktop Menu */
+        .nav-menu { display: flex; list-style: none; align-items: center; height: 100%; }
+        .nav-menu li { position: relative; height: 100%; display: flex; align-items: center; }
+        .nav-menu li a, .dropbtn { 
+            color: white; text-decoration: none; padding: 0 15px; 
+            font-size: 0.98rem; font-weight: 600; transition: color 0.3s;
+            cursor: pointer; height: 100%; display: flex; align-items: center;
+        }
+        .nav-menu li a:hover, .dropdown:hover .dropbtn { color: var(--accent-orange); }
+
+        header.scrolled .nav-menu li a,
+        header.scrolled .dropbtn { color: var(--primary-blue); }
+        header.scrolled .nav-menu li a:hover,
+        header.scrolled .dropdown:hover .dropbtn { color: var(--accent-orange); }
+        
+        .dropdown-content {
+            display: none; position: absolute; top: 100%; right: 0; 
+            background-color: var(--primary-blue); min-width: 220px; 
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2); z-index: 1001; flex-direction: column;
+        }
+        .dropdown-content li { width: 100%; border-top: 1px solid rgba(255,255,255,0.1); }
+        .dropdown-content li a { padding: 12px 20px; width: 100%; display: block; }
+        .dropdown:hover .dropdown-content { display: flex; }
+        
+        .hamburger { display: none; cursor: pointer; flex-direction: column; gap: 6px; z-index: 1002; }
+        .bar { width: 30px; height: 3px; background-color: var(--white); transition: 0.3s; }
+        header.scrolled .hamburger .bar { background-color: var(--primary-blue); }
+
+        /* =========================================
+           3. PAGE BANNER
+           ========================================= */
+        .page-banner {
+            background: linear-gradient(rgba(0,51,102,0.8), rgba(0,51,102,0.8)), url('https://via.placeholder.com/1920x400?text=Access+Portal');
+            background-size: cover; background-position: center;
+            height: 160px;
+            display: flex; justify-content: center; align-items: center;
+            text-align: center; color: white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            position: relative; z-index: 2;
+            border-bottom: 2px solid var(--accent-gold);
+        }
+        .page-banner h1 { 
+            font-size: 2.2rem; text-transform: uppercase; font-weight: 800; 
+            text-shadow: 0 0 10px rgba(247, 147, 30, 0.5);
+        }
+
+        /* =========================================
+           4. FEE TABLE
+           ========================================= */
+        .fee-table-container {
+            max-width: 900px; margin: 30px auto; padding: 0 20px;
+            overflow-x: auto; /* Scroll horizontally on small screens */
+        }
+        .fee-table {
+            width: 100%; border-collapse: collapse; min-width: 600px; /* Force scroll if too small */
+            background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px);
+            border-radius: 15px; overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        .fee-table th, .fee-table td {
+            padding: 15px 20px; text-align: left; color: white;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .fee-table th {
+            background: rgba(247, 147, 30, 0.18);
+            color: var(--accent-gold); font-weight: 800; text-transform: uppercase; letter-spacing: 1px;
+        }
+        .fee-table tr:hover { background: rgba(255,255,255,0.05); }
+        .fee-table td strong { color: var(--accent-orange); }
+
+        /* =========================================
+           5. BADGE BUILDER LAYOUT
+           ========================================= */
+        .reg-container {
+            max-width: 1100px; margin: 40px auto 80px; padding: 0 20px;
+            display: flex; gap: 60px; align-items: flex-start;
+        }
+
+        /* --- LEFT: GLASS FORM --- */
+        .form-box {
+            flex: 1.5; 
+            background: rgba(255, 255, 255, 0.9); 
+            backdrop-filter: blur(20px);
+            padding: 40px; border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.5);
+        }
+        .form-box h2 { color: var(--primary-blue); margin-bottom: 25px; border-left: 5px solid var(--accent-gold); padding-left: 15px; }
+        
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; color: #444; font-weight: 700; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.5px; }
+        
+        .form-control {
+            width: 100%; padding: 15px; border: 2px solid #e0e0e0; border-radius: 10px;
+            font-size: 1rem; transition: 0.3s; background: #fff;
+        }
+        .form-control:focus { border-color: var(--accent-gold); box-shadow: 0 0 10px rgba(247, 147, 30, 0.2); outline: none; }
+        
+        .submit-btn {
+            width: 100%; padding: 18px; 
+            background: linear-gradient(45deg, var(--primary-blue), var(--secondary-blue));
+            color: white; border: none; border-radius: 10px; 
+            font-size: 1.2rem; font-weight: bold; text-transform: uppercase; letter-spacing: 1px;
+            cursor: pointer; transition: 0.3s; margin-top: 20px;
+            box-shadow: 0 10px 20px rgba(0, 51, 102, 0.3);
+            position: relative; overflow: hidden;
+        }
+        .submit-btn::after {
+            content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: 0.5s;
+        }
+        .submit-btn:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(0, 51, 102, 0.4); }
+        .submit-btn:hover::after { left: 100%; }
+
+        /* --- RIGHT: LIVE HOLOGRAPHIC BADGE --- */
+        .preview-box {
+            flex: 1; 
+            position: sticky; top: 100px; 
+            display: flex; flex-direction: column; align-items: center;
+            perspective: 1000px;
+        }
+        .preview-label { color: var(--accent-gold); margin-bottom: 15px; font-weight: bold; letter-spacing: 2px; text-transform: uppercase; font-size: 0.8rem; }
+
+        /* THE CARD */
+        .id-card {
+            width: 320px; height: 480px;
+            background: #fff; border-radius: 20px;
+            position: relative; overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+            transition: transform 0.1s ease-out;
+            transform-style: preserve-3d;
+            border: 1px solid rgba(0,0,0,0.1);
+        }
+
+        /* Holographic Layer */
+        .holo-sheen {
+            position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0) 40%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0) 60%);
+            z-index: 10; pointer-events: none; opacity: 0.6;
+            background-size: 200% 200%;
+        }
+
+        .lanyard-hole {
+            position: absolute; top: 20px; left: 50%; transform: translateX(-50%);
+            width: 80px; height: 12px; background: #222; border-radius: 10px; z-index: 5;
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.5);
+        }
+
+        /* Header Design */
+        .id-header {
+            height: 140px; background: var(--primary-blue);
+            display: flex; justify-content: center; align-items: flex-start; padding-top: 40px;
+            position: relative; overflow: hidden;
+        }
+        .id-header::before {
+            content: ''; position: absolute; width: 150%; height: 100px;
+            background: var(--accent-gold); bottom: -50px; left: -25%;
+            transform: rotate(-5deg); opacity: 0.3;
+        }
+        .id-header::after {
+            content: ''; position: absolute; width: 150%; height: 100px;
+            background: var(--accent-gold); bottom: -60px; left: -25%;
+            transform: rotate(5deg); opacity: 0.2;
+        }
+        .id-logo-text { color: white; font-weight: 900; font-size: 1.4rem; letter-spacing: 2px; z-index: 2; }
+
+        /* Avatar Upload */
+        .id-avatar-container {
+            position: absolute; top: 90px; left: 50%; transform: translateX(-50%);
+            width: 110px; height: 110px; border-radius: 50%;
+            padding: 5px; background: white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2); z-index: 6;
+            cursor: pointer;
+        }
+        .id-avatar {
+            width: 100%; height: 100%; border-radius: 50%;
+            background: #eee; overflow: hidden; position: relative;
+            display: flex; justify-content: center; align-items: center;
+        }
+        .id-avatar img { width: 100%; height: 100%; object-fit: cover; display: none; }
+        .id-avatar i { font-size: 3rem; color: #ccc; }
+        
+        .upload-hint {
+            position: absolute; bottom: 0; left: 0; width: 100%; 
+            background: rgba(0,0,0,0.6); color: white; font-size: 0.6rem;
+            text-align: center; padding: 2px 0; opacity: 0; transition: 0.3s;
+        }
+        .id-avatar-container:hover .upload-hint { opacity: 1; }
+
+        /* Body Content */
+        .id-body { text-align: center; padding-top: 70px; padding-bottom: 20px; }
+        .id-name { font-size: 1.6rem; font-weight: 800; color: var(--primary-blue); margin: 0; min-height: 35px; text-transform: uppercase; }
+        .id-role { 
+            display: inline-block; background: var(--accent-gold); color: var(--primary-blue);
+            padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; font-weight: bold;
+            margin: 10px 0 20px; text-transform: uppercase; letter-spacing: 1px;
+        }
+        .id-details { font-size: 0.9rem; color: #555; margin-bottom: 5px; }
+        .id-details i { color: var(--primary-blue); margin-right: 5px; width: 20px; }
+
+        /* QR Code Area */
+        .id-footer {
+            margin-top: 20px; border-top: 2px dashed #eee; padding-top: 15px;
+            display: flex; flex-direction: column; align-items: center;
+        }
+        .id-qr {
+            width: 80px; height: 80px; 
+            background: url('https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=CONFERENCE2024') center/cover;
+            position: relative; overflow: hidden; border: 4px solid white; box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .id-qr::after {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 2px;
+            background: red; box-shadow: 0 0 5px red;
+            animation: scanQR 1.5s linear infinite;
+        }
+        @keyframes scanQR { 0% { top: 0; } 100% { top: 100%; } }
+
+        .lanyard-string {
+            position: absolute; top: -150px; left: 50%; transform: translateX(-50%);
+            width: 160px; height: 180px; 
+            border: 15px solid #b82e2e;
+            border-bottom: none; border-radius: 100px 100px 0 0;
+            z-index: -1;
+        }
+
+        /* =========================================
+           6. RESPONSIVE DESIGN (FINALIZED)
+           ========================================= */
+        @media (max-width: 900px) {
+            
+            /* General Layout */
+            body { padding-top: 70px; }
+            .reg-container { flex-direction: column-reverse; align-items: center; margin-top: 20px; }
+            .form-box { width: 100%; padding: 25px; }
+            .preview-box { position: static; margin-bottom: 30px; width: 100%; }
+
+            /* Scale down ID Card for small screens */
+            .id-card { transform: scale(0.9); margin-bottom: -20px; }
+
+            /* Header & Sliding Menu */
+            header { padding: 0 15px; }
+            .hamburger { display: flex; }
+
+            .nav-menu { 
+                display: block; 
+                position: fixed; 
+                top: 70px; 
+                right: -100%; /* Hidden off-screen */
+                width: 75%; 
+                height: calc(100vh - 70px); 
+                background: var(--primary-blue); 
+                padding: 20px; 
+                transition: 0.3s ease;
+                box-shadow: -5px 0 15px rgba(0,0,0,0.2);
+                overflow-y: auto;
+            }
+            .nav-menu.active { right: 0; } /* Slide in */
+
+            .nav-menu li { width: 100%; border-bottom: 1px solid rgba(255,255,255,0.1); height: auto; display: block; margin-bottom: 5px; }
+            .nav-menu li a, .dropbtn { padding: 12px; font-size: 1rem; justify-content: space-between; }
+            .dropdown-content { position: relative; top: 0; box-shadow: none; background: rgba(0,0,0,0.2); width: 100%; display: none; }
+            .dropdown:hover .dropdown-content { display: block; }
+        }
+
+        .minimal-footer { background-color: var(--secondary-blue); color: #aaa; padding: 20px; text-align: center; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">KSRCT CONF 2027</div>
+        <ul class="nav-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="speakers.html">Speakers</a></li>
+            <li><a href="call-for-papers.html">Call for Papers</a></li>
+            <li><a href="schedule.html">Schedule</a></li>
+            <li><a href="registration.html" style="color: var(--accent-gold);">Registration</a></li>
+            <li><a href="visa.html">Visa</a></li>
+            <li><a href="venue.html">Venue & Travel</a></li>
+            
+            <li class="dropdown">
+                <div class="dropbtn">Committees <i class="fas fa-caret-down" style="margin-left:8px;"></i></div>
+                <ul class="dropdown-content">
+                    <li><a href="advisory.html">Advisory Board</a></li>
+                    <li><a href="organizing.html">Organizing Committee</a></li>
+                    <li><a href="review.html">Research Committee</a></li>
+                </ul>
+            </li>
+
+            <li class="dropdown">
+                <div class="dropbtn">More <i class="fas fa-caret-down" style="margin-left:8px;"></i></div>
+                <ul class="dropdown-content">
+                    <li><a href="themes.html">Themes</a></li>
+                    <li><a href="accommodation.html">Accommodation</a></li>
+                    <li><a href="downloads.html">Downloads</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </li>
+
+        </ul>
+        <div class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </header>
+
+    <section class="page-banner">
+        <h1>Registration Portal</h1>
+    </section>
+
+    <div class="fee-table-container">
+        <table class="fee-table">
+            <thead>
+                <tr>
+                    <th>Category</th>
+                    <th>Fee (Indian Delegates)</th>
+                    <th>Fee (Foreign Delegates)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Students / Scholars</td>
+                    <td><strong>₹1,500</strong></td>
+                    <td>$50</td>
+                </tr>
+                <tr>
+                    <td>Faculty Members</td>
+                    <td><strong>₹2,000</strong></td>
+                    <td>$100</td>
+                </tr>
+                <tr>
+                    <td>Industry Delegates</td>
+                    <td><strong>₹3,000</strong></td>
+                    <td>$150</td>
+                </tr>
+                <tr>
+                    <td>Listeners / Attendees</td>
+                    <td><strong>₹500</strong></td>
+                    <td>$20</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="reg-container">
+        
+        <div class="form-box">
+            <h2>Delegate Registration</h2>
+            <form>
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" class="form-control" id="inputName" placeholder="Enter your name" oninput="updateBadge()">
+                </div>
+                
+                <div class="form-group">
+                    <label>Registration Category</label>
+                    <select class="form-control" id="inputType" onchange="updateBadge()">
+                        <option value="Delegate">General Delegate</option>
+                        <option value="Student">Student / Scholar</option>
+                        <option value="Faculty">Academician</option>
+                        <option value="Industry">Industry Expert</option>
+                        <option value="Speaker">Guest Speaker</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Organization / Institution</label>
+                    <input type="text" class="form-control" id="inputOrg" placeholder="Enter organization name" oninput="updateBadge()">
+                </div>
+
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" class="form-control" id="inputEmail" placeholder="name@example.com">
+                </div>
+
+                <div class="form-group">
+                    <label>Mobile Number</label>
+                    <input type="tel" class="form-control" id="inputPhone" placeholder="+91 98765 43210" oninput="updateBadge()">
+                </div>
+                
+                <input type="file" id="avatarUpload" accept="image/*" style="display: none;" onchange="loadAvatar(event)">
+
+                <button type="button" class="submit-btn" onclick="alert('Redirecting to Payment Gateway...')">Proceed to Payment <i class="fas fa-arrow-right"></i></button>
+            </form>
+        </div>
+
+        <div class="preview-box">
+            <div class="preview-label"><i class="fas fa-eye"></i> Live Preview</div>
+            <div class="lanyard-string"></div>
+            
+            <div class="id-card" id="idCard">
+                <div class="holo-sheen"></div>
+                <div class="lanyard-hole"></div>
+                
+                <div class="id-header">
+                    <div class="id-logo-text">KSRCT 2027</div>
+                </div>
+
+                <div class="id-avatar-container" onclick="document.getElementById('avatarUpload').click()">
+                    <div class="id-avatar">
+                        <i class="fas fa-user" id="defaultIcon"></i>
+                        <img id="badgeAvatar" src="" alt="Avatar">
+                    </div>
+                    <div class="upload-hint">Upload Photo</div>
+                </div>
+
+                <div class="id-body">
+                    <h2 class="id-name" id="badgeName">Your Name</h2>
+                    <span class="id-role" id="badgeRole">Delegate</span>
+                    
+                    <div class="id-details" id="badgeOrg"><i class="fas fa-building"></i> Organization Name</div>
+                    <div class="id-details" id="badgePhone"><i class="fas fa-phone"></i> +91 XXXXX XXXXX</div>
+                    
+                    <div class="id-footer">
+                        <div class="id-qr"></div>
+                        <small style="color:#999; margin-top:5px; font-size:0.65rem;">AUTHORIZED ENTRY</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="minimal-footer">
+        © 2024 KSRCT Conference Committee. 
+    </div>
+
+    <script>
+        // 1. Live Text Update
+        function updateBadge() {
+            const name = document.getElementById('inputName').value;
+            const type = document.getElementById('inputType').value;
+            const org = document.getElementById('inputOrg').value;
+            const phone = document.getElementById('inputPhone').value;
+
+            document.getElementById('badgeName').innerText = name ? name : "Your Name";
+            document.getElementById('badgeRole').innerText = type;
+            document.getElementById('badgeOrg').innerHTML = `<i class="fas fa-building"></i> ${org ? org : "Organization Name"}`;
+            document.getElementById('badgePhone').innerHTML = `<i class="fas fa-phone"></i> ${phone ? phone : "+91 XXXXX XXXXX"}`;
+        }
+
+        // 2. Avatar Upload Logic
+        function loadAvatar(event) {
+            const reader = new FileReader();
+            reader.onload = function() {
+                const img = document.getElementById('badgeAvatar');
+                const icon = document.getElementById('defaultIcon');
+                img.src = reader.result;
+                img.style.display = 'block';
+                icon.style.display = 'none';
+            }
+            if(event.target.files[0]) {
+                reader.readAsDataURL(event.target.files[0]);
+            }
+        }
+
+        // 3. 3D Holographic Tilt Effect
+        const card = document.getElementById('idCard');
+        const container = document.querySelector('.preview-box');
+
+        container.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+            
+            // Rotate calculation
+            card.style.transform = `perspective(1000px) rotateY(${x * 0.05}deg) rotateX(${-y * 0.05}deg)`;
+            
+            // Holographic sheen movement
+            const sheen = document.querySelector('.holo-sheen');
+            sheen.style.backgroundPosition = `${x}px ${y}px`;
+        });
+
+        container.addEventListener('mouseleave', () => {
+            card.style.transform = `perspective(1000px) rotateY(0deg) rotateX(0deg)`;
+        });
+
+        // 4. Hamburger Menu Logic
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+        hamburger.addEventListener('click', () => navMenu.classList.toggle('active'));
+    </script>
+</body>
+</html>

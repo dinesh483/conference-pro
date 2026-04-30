@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Visa - National Conference 2027</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <style>
+        /* =========================================
+           1. CORE STYLES & VARIABLES
+           ========================================= */
+        :root {
+            --primary-blue: #003366;
+            --secondary-blue: #002244;
+            --accent-gold: #f7931e;
+            --accent-orange-light: #ffc174;
+            --accent-orange: #f7931e;
+            --text-dark: #222;
+            --text-muted: #4f5b67;
+            --light-bg: #f8f9fa;
+            --white: #ffffff;
+            --font-main: 'Open Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            --font-heading: 'Montserrat', 'Open Sans', 'Segoe UI', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        img, video, iframe, svg, canvas { max-width: 100%; height: auto; }
+        html { font-size: 15px; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--light-bg);
+            color: var(--text-dark);
+            width: 100%;
+            overflow-x: hidden;
+            line-height: 1.65;
+            font-size: 1rem;
+            letter-spacing: 0.01em;
+            padding-top: 72px; /* fixed header offset */
+        }
+
+        p {
+            color: var(--text-muted);
+            font-size: clamp(1rem, 0.95rem + 0.2vw, 1.08rem);
+            line-height: 1.75;
+        }
+
+        a { color: inherit; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 16px; }
+
+        /* =========================================
+           2. HEADER & NAVIGATION (MATCHES OTHER PAGES)
+           ========================================= */
+        header {
+            background: rgba(0, 33, 68, 0.85);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            height: 72px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 4%;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.4s ease;
+        }
+
+        header.scrolled {
+            background-color: var(--white);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            height: 70px;
+        }
+
+        .logo {
+            color: var(--white);
+            font-weight: 900;
+            font-size: 1.45rem;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+            white-space: nowrap;
+        }
+
+        .nav-menu { display: flex; list-style: none; align-items: center; height: 100%; }
+        .nav-menu li { position: relative; height: 100%; display: flex; align-items: center; }
+        .nav-menu li a, .dropbtn {
+            color: var(--white);
+            text-decoration: none;
+            padding: 0 18px;
+            font-size: 0.98rem;
+            font-weight: 600;
+            transition: color 0.3s;
+            cursor: pointer;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            white-space: nowrap;
+        }
+        .nav-menu li a:hover, .dropdown:hover .dropbtn { color: var(--accent-orange); }
+
+        header.scrolled .logo { color: var(--primary-blue); }
+        header.scrolled .nav-menu li a,
+        header.scrolled .dropbtn { color: var(--primary-blue); }
+        header.scrolled .nav-menu li a:hover,
+        header.scrolled .dropdown:hover .dropbtn { color: var(--accent-orange); }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background-color: var(--primary-blue);
+            min-width: 240px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            z-index: 1001;
+            flex-direction: column;
+            border-radius: 0 0 5px 5px;
+        }
+        .dropdown-content li { width: 100%; border-top: 1px solid rgba(255,255,255,0.1); }
+        .dropdown-content li a { padding: 12px 20px; width: 100%; display: block; color: var(--white); font-size: 1rem; }
+        .dropdown:hover .dropdown-content { display: flex; }
+
+        .hamburger { display: none; cursor: pointer; flex-direction: column; gap: 6px; z-index: 1002; }
+        .bar { width: 30px; height: 3px; background-color: var(--white); transition: 0.3s; }
+        header.scrolled .hamburger .bar { background-color: var(--primary-blue); }
+
+        /* =========================================
+           3. PAGE BANNER + CONTENT
+           ========================================= */
+        .page-banner {
+            background: linear-gradient(rgba(0,51,102,0.86), rgba(0,51,102,0.86)), url('https://via.placeholder.com/1920x400?text=Visa');
+            background-size: cover;
+            background-position: center;
+            height: 160px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            margin-bottom: 34px;
+        }
+        .page-banner h1 {
+            font-size: 2rem;
+            text-transform: uppercase;
+            font-weight: 800;
+            border-bottom: 3px solid var(--accent-gold);
+            padding-bottom: 6px;
+            font-family: var(--font-heading);
+        }
+
+        .content { padding: 0 0 44px; }
+        .content .lead { max-width: 78ch; margin: 0 auto 18px; text-align: center; }
+
+        .info-card {
+            background: var(--white);
+            border: 1px solid #eee;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+            padding: 22px 18px;
+            margin: 0 auto 16px;
+            border-left: 4px solid var(--accent-gold);
+        }
+        .info-card h2 {
+            color: var(--primary-blue);
+            font-size: clamp(1.25rem, 1.05rem + 0.8vw, 1.55rem);
+            margin-bottom: 10px;
+            font-family: var(--font-heading);
+        }
+        .info-card p { max-width: none; }
+
+        .key-link {
+            display: inline-flex;
+            gap: 10px;
+            align-items: center;
+            padding: 10px 12px;
+            border-radius: 10px;
+            background: #fff5ec;
+            border: 1px solid rgba(247,147,30,0.35);
+            margin-top: 12px;
+            color: var(--primary-blue);
+            font-weight: 700;
+            text-decoration: none;
+        }
+        .key-link i { color: var(--accent-orange); }
+        .key-link:hover { filter: saturate(1.1); }
+
+        .content-list {
+            margin-top: 10px;
+            padding-left: 20px;
+            color: var(--text-muted);
+        }
+        .content-list li { margin: 8px 0; line-height: 1.7; }
+        .content-list strong { color: var(--text-dark); }
+
+        .notice {
+            margin-top: 14px;
+            padding: 12px 14px;
+            border-radius: 10px;
+            background: #f8d7da;
+            border: 1px solid rgba(114,28,36,0.18);
+            color: #721c24;
+            font-size: 0.95rem;
+        }
+
+        /* =========================================
+           4. FOOTER (MATCHES OTHER PAGES)
+           ========================================= */
+        footer { background-color: var(--secondary-blue); color: #ccc; padding: 40px 0 20px; font-size: 0.95rem; }
+        .footer-container {
+            max-width: 1000px; margin: 0 auto; display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px; padding: 0 16px;
+        }
+        .footer-col h4 { color: var(--accent-gold); font-size: 1.3rem; margin-bottom: 25px; font-weight: 700; letter-spacing: 1px; }
+        .footer-col p { line-height: 1.8; margin-bottom: 12px; font-size: 1rem; color: #c7d0da; }
+        .footer-col a { display: block; color: #c7d0da; text-decoration: none; margin-bottom: 10px; transition: 0.3s; font-size: 1rem; }
+        .footer-col a:hover { color: var(--accent-orange-light); padding-left: 8px; }
+        .footer-col i { margin-right: 10px; color: var(--accent-gold); }
+        .social-links { display: flex; gap: 10px; margin-top: 12px; }
+        .social-links a {
+            display: inline-flex; justify-content: center; align-items: center; width: 34px; height: 34px;
+            background: rgba(255,255,255,0.1); border-radius: 50%; transition: 0.3s; color: var(--white); font-size: 0.9rem;
+        }
+        .social-links a:hover { background: linear-gradient(135deg, var(--accent-orange-light), var(--accent-orange)); color: var(--primary-blue); transform: translateY(-5px); }
+        .footer-bottom { text-align: center; margin-top: 24px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.1); color: #888; }
+
+        /* =========================================
+           5. MOBILE NAV
+           ========================================= */
+        @media (max-width: 900px) {
+            header { padding: 0 14px; height: 64px; }
+            body { padding-top: 64px; }
+            .hamburger { display: flex !important; }
+            .nav-menu {
+                display: block;
+                position: fixed;
+                top: 64px;
+                right: -100%;
+                width: 78%;
+                height: 100vh;
+                background: var(--secondary-blue);
+                flex-direction: column;
+                padding: 18px;
+                transition: 0.3s ease;
+                box-shadow: -5px 0 20px rgba(0,0,0,0.4);
+            }
+            .nav-menu.active { right: 0; }
+            .nav-menu li { width: 100%; border-bottom: 1px solid rgba(255,255,255,0.05); display: block; height: auto; margin-bottom: 0; }
+            .nav-menu li a, .dropbtn { padding: 10px 8px; font-size: 0.96rem; justify-content: space-between; }
+            .dropdown-content { position: relative; top: 0; width: 100%; box-shadow: none; background: rgba(0,0,0,0.2); display: none; }
+            .dropdown:hover .dropdown-content { display: block; }
+            .page-banner { height: 150px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">KSRCT CONF 2027</div>
+        <ul class="nav-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="speakers.html">Speakers</a></li>
+            <li><a href="call-for-papers.html">Call for Papers</a></li>
+            <li><a href="schedule.html">Schedule</a></li>
+            <li><a href="registration.html">Registration</a></li>
+            <li><a href="visa.html" style="color: var(--accent-gold);">Visa</a></li>
+
+            <li class="dropdown">
+                <div class="dropbtn">Committees <i class="fas fa-caret-down" style="margin-left:8px;"></i></div>
+                <ul class="dropdown-content">
+                    <li><a href="advisory.html">Advisory Board</a></li>
+                    <li><a href="organizing.html">Organizing Committee</a></li>
+                    <li><a href="review.html">Research Committee</a></li>
+                </ul>
+            </li>
+
+            <li><a href="venue.html">Venue & Travel</a></li>
+
+            <li class="dropdown">
+                <div class="dropbtn">More <i class="fas fa-caret-down" style="margin-left:8px;"></i></div>
+                <ul class="dropdown-content">
+                    <li><a href="themes.html">Themes</a></li>
+                    <li><a href="accommodation.html">Accommodation</a></li>
+                    <li><a href="downloads.html">Downloads</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </li>
+        </ul>
+        <div class="hamburger" aria-label="Toggle navigation" role="button" tabindex="0">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </header>
+
+    <section class="page-banner">
+        <h1>Visa</h1>
+    </section>
+
+    <main class="content">
+        <div class="container">
+            <p class="lead">
+                International participants traveling to India for the conference generally require a <strong>Conference Visa</strong>.
+                Please start the process at least <strong>6–8 weeks</strong> before the event.
+            </p>
+
+            <section class="info-card">
+                <h2>General Requirements</h2>
+                <p>
+                    Visa requirements can vary by nationality and consulate. Always verify the latest rules with your nearest Indian embassy/consulate
+                    and the official e‑Visa portal.
+                </p>
+                <a class="key-link" href="https://indianvisaonline.gov.in/" target="_blank" rel="noreferrer">
+                    <i class="fas fa-arrow-up-right-from-square"></i>
+                    Official Indian Visa Online Portal
+                </a>
+            </section>
+
+            <section class="info-card">
+                <h2>Requesting an Invitation Letter</h2>
+                <p>An official invitation letter is issued only to registered participants. To request one:</p>
+                <ol class="content-list">
+                    <li>Complete the <strong>full registration</strong> and payment process.</li>
+                    <li>Email the conference team with the subject <strong>“Visa Invitation Request – [Your Name]”</strong>.</li>
+                    <li>Attach a scanned copy of your <strong>passport (bio‑data page)</strong>.</li>
+                    <li>Include your <strong>Paper ID</strong> (authors) or <strong>Registration ID</strong> (listeners).</li>
+                </ol>
+            </section>
+
+            <section class="info-card">
+                <h2>Required Documents (Typical)</h2>
+                <p>While requirements may vary by country, you will typically need:</p>
+                <ul class="content-list">
+                    <li>Passport with at least <strong>6 months validity</strong>.</li>
+                    <li>Copy of the <strong>official invitation letter</strong>.</li>
+                    <li>Recent <strong>passport‑size photographs</strong> (as per consulate guidelines).</li>
+                    <li>Additional supporting documents as requested by your embassy/consulate.</li>
+                </ul>
+
+                <div class="notice">
+                    <strong>Disclaimer:</strong> The conference organizers can provide supporting letters (where applicable),
+                    but the final decision on visa issuance is made solely by the respective embassy/consulate.
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h4>Contact Info</h4>
+                <p><i class="fas fa-map-marker-alt"></i> KSR Kalvi Nagar, Tiruchengode,<br />Tamil Nadu 637215</p>
+                <p><i class="fas fa-phone"></i> +91 98765 43210</p>
+                <p><i class="fas fa-envelope"></i> conference@ksrct.ac.in</p>
+            </div>
+            <div class="footer-col">
+                <h4>Important Links</h4>
+                <a href="registration.html">Registration Portal</a>
+                <a href="schedule.html">Program Schedule</a>
+                <a href="call-for-papers.html">Submission Guidelines</a>
+                <a href="venue.html">Venue & Travel</a>
+            </div>
+            <div class="footer-col">
+                <h4>Stay Connected</h4>
+                <p>Follow us for the latest updates.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom"><p>© 2026 KSRCT Conference Committee. All Rights Reserved.</p></div>
+    </footer>
+
+    <script>
+        // Mobile menu
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+        if (hamburger && navMenu) {
+            const toggle = () => navMenu.classList.toggle('active');
+            hamburger.addEventListener('click', toggle);
+            hamburger.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') toggle();
+            });
+        }
+
+        // Header color swap on scroll (consistent behavior)
+        const header = document.querySelector('header');
+        const setHeaderState = () => {
+            if (!header) return;
+            if (window.scrollY > 30) header.classList.add('scrolled');
+            else header.classList.remove('scrolled');
+        };
+        window.addEventListener('scroll', setHeaderState);
+        setHeaderState();
+    </script>
+</body>
+</html>
