@@ -151,13 +151,36 @@
             height: 70px; /* Compact on scroll */
         }
 
-        .logo { 
-            color: var(--white); 
-            font-weight: 900; 
-            font-size: 1.45rem;
-            letter-spacing: 1px; 
-            transition: color 0.3s; 
+        .logo {
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            transition: color 0.3s;
         }
+
+        .logo-mark {
+            width: 46px;
+            height: 46px;
+            object-fit: contain;
+            flex: 0 0 auto;
+            background: var(--white);
+            border-radius: 50%;
+            padding: 2px;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            font-family: var(--font-heading);
+            font-weight: 900;
+            line-height: 1;
+            letter-spacing: 0.8px;
+        }
+
+        .logo-text span:first-child { font-size: 1.12rem; }
+        .logo-text span:last-child { font-size: 0.72rem; letter-spacing: 1.4px; margin-top: 3px; }
         
         .nav-menu { display: flex; list-style: none; align-items: center; height: 100%; }
         .nav-menu li { position: relative; height: 100%; display: flex; align-items: center; }
@@ -201,7 +224,7 @@
            ========================================= */
         .hero {
             position: relative; 
-            height: 78vh;
+            height: 100vh;
             width: 100%; overflow: hidden; 
             display: flex; flex-direction: column; justify-content: center; align-items: center;
             text-align: center; color: var(--white);
@@ -843,15 +866,21 @@
     <a href="#" class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></a>
 
     <header>
-        <div class="logo">KSRCT CONF 2027</div>
+        <a class="logo" href="index.html" aria-label="KSRCT CONF 2027 home">
+            <img src="img/download (7).png" alt="KSRCT symbol" class="logo-mark">
+            <span class="logo-text">
+                <span>KSRCT</span>
+                <span>CONF 2027</span>
+            </span>
+        </a>
         <ul class="nav-menu">
             <li><a href="index.html" style="color: var(--accent-gold);">Home</a></li>
+             <li><a href="themes.html">Themes</a></li>
             <li><a href="speakers.html">Speakers</a></li>
             <li><a href="call-for-papers.html">Call for Papers</a></li>
-            <li><a href="schedule.html">Schedule</a></li>
             <li><a href="registration.html">Registration</a></li>
+            <li><a href="schedule.html">Schedule</a></li>
             <li><a href="visa.html">Visa</a></li>
-            <li><a href="venue.html">Venue & Travel</a></li>
             
             <li class="dropdown">
                 <div class="dropbtn">Committees <i class="fas fa-caret-down" style="margin-left:8px;"></i></div>
@@ -865,8 +894,8 @@
             <li class="dropdown">
                 <div class="dropbtn">More <i class="fas fa-caret-down" style="margin-left:8px;"></i></div>
                 <ul class="dropdown-content">
-                    <li><a href="themes.html">Themes</a></li>
                     <li><a href="accommodation.html">Accommodation</a></li>
+                    <li><a href="venue.html">Venue & Travel</a></li>
                     <li><a href="downloads.html">Downloads</a></li>
                     <li><a href="contact.html">Contact Us</a></li>
                 </ul>
