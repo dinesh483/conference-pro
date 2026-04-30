@@ -321,28 +321,6 @@
         .ticker__item span { color: var(--accent-gold); margin-right: 8px; font-weight: 800; }
         @keyframes ticker { 0% { transform: translate3d(0, 0, 0); } 100% { transform: translate3d(-50%, 0, 0); } }
 
-        /* =========================================
-           5. COUNTDOWN & TIMELINE
-           ========================================= */
-        .countdown-section {
-            background: var(--secondary-blue); color: var(--white);
-            padding: 30px 20px;
-            text-align: center; border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
-        .countdown-wrapper {
-            max-width: 860px; margin: 0 auto; display: flex; justify-content: center; gap: 30px; flex-wrap: wrap;
-        }
-        .time-box { display: flex; flex-direction: column; align-items: center; }
-        .time-val { font-size: 2.2rem; font-weight: 800; color: var(--accent-gold); line-height: 1; }
-        .time-label { font-size: 1rem; text-transform: uppercase; letter-spacing: 2px; margin-top: 8px; opacity: 0.9; }
-        .countdown-header {
-            margin-bottom: 20px;
-            font-size: clamp(1.05rem, 0.95rem + 0.7vw, 1.3rem);
-            text-transform: uppercase;
-            letter-spacing: 0.14em;
-            font-weight: 700;
-        }
-
         /* --- IMPORTANT DATES (WIDER) --- */
         .dates-section {
             background: #fff;
@@ -1137,16 +1115,6 @@
         </div>
     </section>
 
-    <section class="countdown-section">
-        <div class="countdown-header">Conference Begins In</div>
-        <div class="countdown-wrapper" id="countdown">
-            <div class="time-box"><span class="time-val" id="days">00</span><span class="time-label">Days</span></div>
-            <div class="time-box"><span class="time-val" id="hours">00</span><span class="time-label">Hours</span></div>
-            <div class="time-box"><span class="time-val" id="minutes">00</span><span class="time-label">Minutes</span></div>
-            <div class="time-box"><span class="time-val" id="seconds">00</span><span class="time-label">Seconds</span></div>
-        </div>
-    </section>
-
     <section class="dates-section reveal">
         <h2 class="section-heading">Important Dates</h2>
         <div class="dates-grid">
@@ -1496,24 +1464,6 @@
                 }
             }
             if(textElement) type();
-
-            // 3. COUNTDOWN (FIXED DATE)
-            const countDate = new Date('April 23, 2026 09:00:00').getTime();
-            const daysEl = document.getElementById('days');
-            const hoursEl = document.getElementById('hours');
-            const minutesEl = document.getElementById('minutes');
-            const secondsEl = document.getElementById('seconds');
-            setInterval(function(){
-                if (!daysEl || !hoursEl || !minutesEl || !secondsEl) {
-                    return;
-                }
-                const now = new Date().getTime();
-                const gap = countDate - now;
-                daysEl.innerText = Math.floor(gap / (1000 * 60 * 60 * 24));
-                hoursEl.innerText = Math.floor((gap % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                minutesEl.innerText = Math.floor((gap % (1000 * 60 * 60)) / (1000 * 60));
-                secondsEl.innerText = Math.floor((gap % (1000 * 60)) / 1000);
-            }, 1000);
 
             // 4. ACCORDION
             var acc = document.getElementsByClassName("accordion-header");

@@ -408,9 +408,122 @@
             }
             .dropdown:hover .dropdown-content { display: block; }
         }
+        /* Shared inner-page header and announcement ticker */
+        body {
+            padding-top: 110px;
+        }
+        .top-glass-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 110px;
+            z-index: 998;
+            pointer-events: none;
+            background: linear-gradient(180deg, #001a36 0%, #002144 74%, rgba(0, 33, 68, 0) 100%);
+        }
+        .ticker-wrap {
+            position: fixed;
+            top: 0;
+            left: 50%;
+            width: min(1120px, calc(100% - 48px));
+            height: 32px;
+            overflow: hidden;
+            transform: translateX(-50%);
+            z-index: 1002;
+            background: linear-gradient(90deg, rgba(0, 26, 54, 0.96), rgba(0, 51, 102, 0.92), rgba(0, 26, 54, 0.96));
+            border-bottom: 1px solid rgba(247, 147, 30, 0.42);
+        }
+        .ticker {
+            display: flex;
+            width: max-content;
+            height: 32px;
+            line-height: 32px;
+            white-space: nowrap;
+            animation: ticker 28s linear infinite;
+        }
+        .ticker__group {
+            display: flex;
+            flex: 0 0 auto;
+        }
+        .ticker__item {
+            display: inline-block;
+            padding: 0 1.9rem;
+            font-size: 0.86rem;
+            color: rgba(255,255,255,0.92);
+            font-weight: 700;
+        }
+        .ticker__item span {
+            color: var(--accent-gold);
+            margin-right: 8px;
+            font-weight: 800;
+        }
+        @keyframes ticker {
+            0% { transform: translate3d(0, 0, 0); }
+            100% { transform: translate3d(-50%, 0, 0); }
+        }
+        header {
+            top: 32px;
+            background: #002144;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+            box-shadow: 0 8px 24px rgba(0, 20, 40, 0.16);
+        }
+        header.scrolled {
+            background: #002144;
+            box-shadow: 0 8px 24px rgba(0, 20, 40, 0.18);
+        }
+        header.scrolled .logo,
+        header.scrolled .nav-menu li a,
+        header.scrolled .dropbtn {
+            color: var(--white);
+        }
+        header.scrolled .nav-menu li a:hover,
+        header.scrolled .dropdown:hover .dropbtn {
+            color: var(--accent-orange);
+        }
+        header.scrolled .hamburger .bar {
+            background-color: var(--white);
+        }
+        @media (max-width: 900px) {
+            body {
+                padding-top: 100px;
+            }
+            .top-glass-bg {
+                height: 100px;
+            }
+            .ticker-wrap {
+                width: calc(100% - 20px);
+            }
+            header {
+                top: 32px;
+            }
+            .nav-menu {
+                top: 100px;
+                height: calc(100vh - 100px);
+            }
+        }
     </style>
 </head>
 <body>
+
+    <div class="top-glass-bg" aria-hidden="true"></div>
+
+    <div class="ticker-wrap">
+        <div class="ticker">
+            <div class="ticker__group">
+                <div class="ticker__item"><span>LATEST:</span> Paper submission deadline extended to Oct 20th!</div>
+                <div class="ticker__item"><span>UPDATE:</span> New Keynote Speaker Dr. Alan Turing joins the panel.</div>
+                <div class="ticker__item"><span>ALERT:</span> Early Bird Registration closes in 3 days.</div>
+                <div class="ticker__item"><span>VENUE:</span> Accommodation booking is now open at KSRCT Guest House.</div>
+            </div>
+            <div class="ticker__group" aria-hidden="true">
+                <div class="ticker__item"><span>LATEST:</span> Paper submission deadline extended to Oct 20th!</div>
+                <div class="ticker__item"><span>UPDATE:</span> New Keynote Speaker Dr. Alan Turing joins the panel.</div>
+                <div class="ticker__item"><span>ALERT:</span> Early Bird Registration closes in 3 days.</div>
+                <div class="ticker__item"><span>VENUE:</span> Accommodation booking is now open at KSRCT Guest House.</div>
+            </div>
+        </div>
+    </div>
     <header>
         <a class="logo" href="index.html" aria-label="KSRCT CONF 2027 home">
             <img src="img/download (7).png" alt="KSRCT symbol" class="logo-mark">
