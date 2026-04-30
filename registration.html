@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration - National Conference 2027</title>
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <style>
         /* =========================================
            1. CORE VARIABLES & ANIMATIONS
@@ -18,7 +18,7 @@
             --primary-blue: #003366;
             --secondary-blue: #002244;
             --accent-gold: #f7931e;
-            
+
             --accent-orange-light: #ffc174;
             --accent-orange: #f7931e;
             --map-bg: #f8f9fa;
@@ -34,7 +34,7 @@
         body {
             font-family: var(--font-main);
             color: #333;
-            padding-top: 70px;
+            padding-top: 78px;
             background-color: var(--map-bg);
             min-height: 100vh;
             overflow-x: hidden;
@@ -50,13 +50,13 @@
            2. HEADER (Fixed & Shadowed)
            ========================================= */
         header {
-            background: rgba(0, 33, 68, 0.85);
+            background: #002144;
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.2);
             height: 72px;
-            width: 100%; display: flex; 
-            justify-content: space-between; align-items: center; padding: 0 2%; 
+            width: 100%; display: flex;
+            justify-content: space-between; align-items: center; padding: 0 2%;
             position: fixed; top: 0; z-index: 1000;
             transition: all 0.4s ease;
         }
@@ -98,12 +98,12 @@
         .logo-text span:last-child { font-size: 0.72rem; letter-spacing: 1.4px; margin-top: 3px; }
 
         header.scrolled .logo { color: var(--primary-blue); }
-        
+
         /* Desktop Menu */
         .nav-menu { display: flex; list-style: none; align-items: center; height: 100%; }
         .nav-menu li { position: relative; height: 100%; display: flex; align-items: center; }
-        .nav-menu li a, .dropbtn { 
-            color: white; text-decoration: none; padding: 0 15px; 
+        .nav-menu li a, .dropbtn {
+            color: white; text-decoration: none; padding: 0 15px;
             font-size: 0.98rem; font-weight: 600; transition: color 0.3s;
             cursor: pointer; height: 100%; display: flex; align-items: center;
         }
@@ -113,16 +113,16 @@
         header.scrolled .dropbtn { color: var(--primary-blue); }
         header.scrolled .nav-menu li a:hover,
         header.scrolled .dropdown:hover .dropbtn { color: var(--accent-orange); }
-        
+
         .dropdown-content {
-            display: none; position: absolute; top: 100%; right: 0; 
-            background-color: var(--primary-blue); min-width: 220px; 
+            display: none; position: absolute; top: 100%; right: 0;
+            background-color: var(--primary-blue); min-width: 220px;
             box-shadow: 0 8px 16px rgba(0,0,0,0.2); z-index: 1001; flex-direction: column;
         }
         .dropdown-content li { width: 100%; border-top: 1px solid rgba(255,255,255,0.1); }
         .dropdown-content li a { padding: 12px 20px; width: 100%; display: block; }
         .dropdown:hover .dropdown-content { display: flex; }
-        
+
         .hamburger { display: none; cursor: pointer; flex-direction: column; gap: 6px; z-index: 1002; }
         .bar { width: 30px; height: 3px; background-color: var(--white); transition: 0.3s; }
         header.scrolled .hamburger .bar { background-color: var(--primary-blue); }
@@ -140,8 +140,8 @@
             position: relative; z-index: 2;
             border-bottom: 2px solid var(--accent-gold);
         }
-        .page-banner h1 { 
-            font-size: 2.2rem; text-transform: uppercase; font-weight: 800; 
+        .page-banner h1 {
+            font-size: 2.2rem; text-transform: uppercase; font-weight: 800;
             text-shadow: 0 0 10px rgba(247, 147, 30, 0.5);
         }
 
@@ -181,7 +181,7 @@
 
         /* --- LEFT: GLASS FORM --- */
         .form-box {
-            flex: 1.5; 
+            flex: 1.5;
             background: linear-gradient(-45deg, #001f3f, #003366, #004080, #002244);
             backdrop-filter: blur(20px);
             padding: 40px; border-radius: 20px;
@@ -189,20 +189,20 @@
             border: 1px solid rgba(255,255,255,0.2);
         }
         .form-box h2 { color: var(--accent-gold); margin-bottom: 25px; border-left: 5px solid var(--accent-gold); padding-left: 15px; }
-        
+
         .form-group { margin-bottom: 20px; }
         .form-group label { display: block; margin-bottom: 8px; color: var(--white); font-weight: 700; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.5px; }
-        
+
         .form-control {
             width: 100%; padding: 15px; border: 2px solid #e0e0e0; border-radius: 10px;
             font-size: 1rem; transition: 0.3s; background: #fff;
         }
         .form-control:focus { border-color: var(--accent-gold); box-shadow: 0 0 10px rgba(247, 147, 30, 0.2); outline: none; }
-        
+
         .submit-btn {
-            width: 100%; padding: 18px; 
+            width: 100%; padding: 18px;
             background: linear-gradient(45deg, var(--primary-blue), var(--secondary-blue));
-            color: white; border: none; border-radius: 10px; 
+            color: white; border: none; border-radius: 10px;
             font-size: 1.2rem; font-weight: bold; text-transform: uppercase; letter-spacing: 1px;
             cursor: pointer; transition: 0.3s; margin-top: 20px;
             box-shadow: 0 10px 20px rgba(0, 51, 102, 0.3);
@@ -218,8 +218,8 @@
 
         /* --- RIGHT: LIVE HOLOGRAPHIC BADGE --- */
         .preview-box {
-            flex: 1; 
-            position: sticky; top: 100px; 
+            flex: 1;
+            position: sticky; top: 100px;
             display: flex; flex-direction: column; align-items: center;
             perspective: 1000px;
         }
@@ -283,9 +283,9 @@
         }
         .id-avatar img { width: 100%; height: 100%; object-fit: cover; display: none; }
         .id-avatar i { font-size: 3rem; color: #ccc; }
-        
+
         .upload-hint {
-            position: absolute; bottom: 0; left: 0; width: 100%; 
+            position: absolute; bottom: 0; left: 0; width: 100%;
             background: rgba(0,0,0,0.6); color: white; font-size: 0.6rem;
             text-align: center; padding: 2px 0; opacity: 0; transition: 0.3s;
         }
@@ -294,7 +294,7 @@
         /* Body Content */
         .id-body { text-align: center; padding-top: 70px; padding-bottom: 20px; }
         .id-name { font-size: 1.6rem; font-weight: 800; color: var(--primary-blue); margin: 0; min-height: 35px; text-transform: uppercase; }
-        .id-role { 
+        .id-role {
             display: inline-block; background: var(--accent-gold); color: var(--primary-blue);
             padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; font-weight: bold;
             margin: 10px 0 20px; text-transform: uppercase; letter-spacing: 1px;
@@ -308,7 +308,7 @@
             display: flex; flex-direction: column; align-items: center;
         }
         .id-qr {
-            width: 80px; height: 80px; 
+            width: 80px; height: 80px;
             background: url('https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=CONFERENCE2024') center/cover;
             position: relative; overflow: hidden; border: 4px solid white; box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
@@ -321,7 +321,7 @@
 
         .lanyard-string {
             position: absolute; top: -150px; left: 50%; transform: translateX(-50%);
-            width: 160px; height: 180px; 
+            width: 160px; height: 180px;
             border: 15px solid #b82e2e;
             border-bottom: none; border-radius: 100px 100px 0 0;
             z-index: -1;
@@ -331,9 +331,9 @@
            6. RESPONSIVE DESIGN (FINALIZED)
            ========================================= */
         @media (max-width: 900px) {
-            
+
             /* General Layout */
-            body { padding-top: 70px; }
+            body { padding-top: 78px; }
             .reg-container { flex-direction: column-reverse; align-items: center; margin-top: 20px; }
             .form-box { width: 100%; padding: 25px; }
             .preview-box { position: static; margin-bottom: 30px; width: 100%; }
@@ -345,15 +345,15 @@
             header { padding: 0 15px; }
             .hamburger { display: flex; }
 
-            .nav-menu { 
-                display: block; 
-                position: fixed; 
-                top: 70px; 
+            .nav-menu {
+                display: block;
+                position: fixed;
+                top: 70px;
                 right: -100%; /* Hidden off-screen */
-                width: 75%; 
-                height: calc(100vh - 70px); 
-                background: var(--primary-blue); 
-                padding: 20px; 
+                width: 75%;
+                height: calc(100vh - 70px);
+                background: var(--primary-blue);
+                padding: 20px;
                 transition: 0.3s ease;
                 box-shadow: -5px 0 15px rgba(0,0,0,0.2);
                 overflow-y: auto;
@@ -367,6 +367,134 @@
         }
 
         .minimal-footer { background-color: var(--secondary-blue); color: #aaa; padding: 20px; text-align: center; font-size: 0.9rem; }
+        /* Unified header styling */
+        header {
+            background: #002144;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            height: 78px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 4%;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.4s ease;
+        }
+
+        header.scrolled {
+            background-color: var(--white);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            height: 76px;
+        }
+
+        .logo {
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .logo-mark {
+            width: 46px;
+            height: 46px;
+            object-fit: contain;
+            flex: 0 0 auto;
+            background: var(--white);
+            border-radius: 50%;
+            padding: 2px;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            font-family: var(--font-heading);
+            font-weight: 900;
+            line-height: 1;
+            letter-spacing: 0.8px;
+        }
+
+        .logo-text span:first-child { font-size: 1.12rem; }
+        .logo-text span:last-child { font-size: 0.72rem; letter-spacing: 1.4px; margin-top: 3px; }
+        .nav-menu { display: flex; list-style: none; align-items: center; height: 100%; }
+        .nav-menu li { position: relative; height: 100%; display: flex; align-items: center; }
+        .nav-menu li a, .dropbtn {
+            color: var(--white);
+            text-decoration: none;
+            padding: 0 18px;
+            font-size: 0.98rem;
+            font-weight: 600;
+            transition: color 0.3s;
+            cursor: pointer;
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+        .nav-menu li a:hover, .dropdown:hover .dropbtn { color: var(--accent-orange); }
+        header.scrolled .logo { color: var(--primary-blue); }
+        header.scrolled .nav-menu li a,
+        header.scrolled .dropbtn { color: var(--primary-blue); }
+        header.scrolled .nav-menu li a:hover,
+        header.scrolled .dropdown:hover .dropbtn { color: var(--accent-orange); }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background-color: var(--primary-blue);
+            min-width: 240px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            z-index: 1001;
+            flex-direction: column;
+            border-radius: 0 0 5px 5px;
+        }
+        .dropdown-content li { width: 100%; border-top: 1px solid rgba(255,255,255,0.1); }
+        .dropdown-content li a { padding: 12px 20px; width: 100%; display: block; color: var(--white); font-size: 1rem; }
+        .dropdown:hover .dropdown-content { display: flex; }
+        .hamburger { display: none; cursor: pointer; flex-direction: column; gap: 6px; z-index: 1002; }
+        .bar { width: 30px; height: 3px; background-color: var(--white); transition: 0.3s; }
+        header.scrolled .hamburger .bar { background-color: var(--primary-blue); }
+
+        @media (max-width: 900px) {
+            header { padding: 0 14px; height: 68px; }
+            .hamburger { display: flex !important; }
+            .nav-menu {
+                display: block;
+                position: fixed;
+                top: 68px;
+                right: -100%;
+                width: 78%;
+                height: 100vh;
+                background: var(--secondary-blue);
+                flex-direction: column;
+                padding: 18px;
+                transition: 0.3s ease;
+                box-shadow: -5px 0 20px rgba(0,0,0,0.4);
+            }
+            .nav-menu.active { right: 0; }
+            .nav-menu li {
+                width: 100%;
+                border-bottom: 1px solid rgba(255,255,255,0.05);
+                display: block;
+                height: auto;
+                margin-bottom: 0;
+            }
+            .nav-menu li a, .dropbtn { padding: 10px 8px; font-size: 0.96rem; justify-content: space-between; }
+            .dropdown-content {
+                position: relative;
+                top: 0;
+                width: 100%;
+                box-shadow: none;
+                background: rgba(0,0,0,0.2);
+                display: none;
+            }
+            .dropdown:hover .dropdown-content { display: block; }
+        }
     </style>
 </head>
 <body>
@@ -381,13 +509,13 @@
         </a>
         <ul class="nav-menu">
             <li><a href="index.html">Home</a></li>
+            <li><a href="themes.html">Themes</a></li>
             <li><a href="speakers.html">Speakers</a></li>
             <li><a href="call-for-papers.html">Call for Papers</a></li>
-            <li><a href="schedule.html">Schedule</a></li>
             <li><a href="registration.html" style="color: var(--accent-gold);">Registration</a></li>
+            <li><a href="schedule.html">Schedule</a></li>
             <li><a href="visa.html">Visa</a></li>
-            <li><a href="venue.html">Venue & Travel</a></li>
-            
+
             <li class="dropdown">
                 <div class="dropbtn">Committees <i class="fas fa-caret-down" style="margin-left:8px;"></i></div>
                 <ul class="dropdown-content">
@@ -400,13 +528,12 @@
             <li class="dropdown">
                 <div class="dropbtn">More <i class="fas fa-caret-down" style="margin-left:8px;"></i></div>
                 <ul class="dropdown-content">
-                    <li><a href="themes.html">Themes</a></li>
                     <li><a href="accommodation.html">Accommodation</a></li>
+                    <li><a href="venue.html">Venue & Travel</a></li>
                     <li><a href="downloads.html">Downloads</a></li>
                     <li><a href="contact.html">Contact Us</a></li>
                 </ul>
             </li>
-
         </ul>
         <div class="hamburger">
             <span class="bar"></span>
@@ -454,7 +581,7 @@
     </div>
 
     <div class="reg-container">
-        
+
         <div class="form-box">
             <h2>Delegate Registration</h2>
             <form>
@@ -462,7 +589,7 @@
                     <label>Full Name</label>
                     <input type="text" class="form-control" id="inputName" placeholder="Enter your name" oninput="updateBadge()">
                 </div>
-                
+
                 <div class="form-group">
                     <label>Registration Category</label>
                     <select class="form-control" id="inputType" onchange="updateBadge()">
@@ -488,7 +615,7 @@
                     <label>Mobile Number</label>
                     <input type="tel" class="form-control" id="inputPhone" placeholder="+91 98765 43210" oninput="updateBadge()">
                 </div>
-                
+
                 <input type="file" id="avatarUpload" accept="image/*" style="display: none;" onchange="loadAvatar(event)">
 
                 <button type="button" class="submit-btn" onclick="alert('Redirecting to Payment Gateway...')">Proceed to Payment <i class="fas fa-arrow-right"></i></button>
@@ -498,11 +625,11 @@
         <div class="preview-box">
             <div class="preview-label"><i class="fas fa-eye"></i> Live Preview</div>
             <div class="lanyard-string"></div>
-            
+
             <div class="id-card" id="idCard">
                 <div class="holo-sheen"></div>
                 <div class="lanyard-hole"></div>
-                
+
                 <div class="id-header">
                     <div class="id-logo-text">KSRCT 2027</div>
                 </div>
@@ -518,10 +645,10 @@
                 <div class="id-body">
                     <h2 class="id-name" id="badgeName">Your Name</h2>
                     <span class="id-role" id="badgeRole">Delegate</span>
-                    
+
                     <div class="id-details" id="badgeOrg"><i class="fas fa-building"></i> Organization Name</div>
                     <div class="id-details" id="badgePhone"><i class="fas fa-phone"></i> +91 XXXXX XXXXX</div>
-                    
+
                     <div class="id-footer">
                         <div class="id-qr"></div>
                         <small style="color:#999; margin-top:5px; font-size:0.65rem;">AUTHORIZED ENTRY</small>
@@ -533,7 +660,7 @@
     </div>
 
     <div class="minimal-footer">
-        © 2024 KSRCT Conference Committee. 
+        © 2024 KSRCT Conference Committee.
     </div>
 
     <script>
@@ -573,10 +700,10 @@
             const rect = card.getBoundingClientRect();
             const x = e.clientX - rect.left - rect.width / 2;
             const y = e.clientY - rect.top - rect.height / 2;
-            
+
             // Rotate calculation
             card.style.transform = `perspective(1000px) rotateY(${x * 0.05}deg) rotateX(${-y * 0.05}deg)`;
-            
+
             // Holographic sheen movement
             const sheen = document.querySelector('.holo-sheen');
             sheen.style.backgroundPosition = `${x}px ${y}px`;

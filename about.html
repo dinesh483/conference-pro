@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About - National Conference 2027</title>
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <style>
         /* =========================================
            1. CORE STYLES & VARIABLES
@@ -18,7 +18,7 @@
             --primary-blue: #003366;
             --secondary-blue: #002244;
             --accent-gold: #f7931e;
-            
+
             --accent-orange-light: #ffc174;
             --accent-orange: #f7931e;
             --text-dark: #333;
@@ -36,21 +36,21 @@
             font-family: var(--font-main);
             background-color: var(--light-bg);
             color: var(--text-dark);
-            padding-top: 70px;
+            padding-top: 78px;
         }
 
         /* =========================================
            2. HEADER & NAVIGATION
            ========================================= */
         header {
-            background: rgba(0, 33, 68, 0.85); /* Slightly darker initial bg */
+            background: #002144; /* Slightly darker initial bg */
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.2);
             height: 72px;
-            width: 100%; display: flex; 
-            justify-content: space-between; align-items: center; padding: 0 2%; 
-            position: fixed; top: 0; z-index: 1000; 
+            width: 100%; display: flex;
+            justify-content: space-between; align-items: center; padding: 0 2%;
+            position: fixed; top: 0; z-index: 1000;
             transition: all 0.4s ease;
         }
 
@@ -90,12 +90,12 @@
 
         .logo-text span:first-child { font-size: 1.12rem; }
         .logo-text span:last-child { font-size: 0.72rem; letter-spacing: 1.4px; margin-top: 3px; }
-        
+
         .nav-menu { display: flex; list-style: none; align-items: center; height: 100%; }
         .nav-menu li { position: relative; height: 100%; display: flex; align-items: center; }
-        
-        .nav-menu li a, .dropbtn { 
-            color: var(--white); text-decoration: none; padding: 0 18px; 
+
+        .nav-menu li a, .dropbtn {
+            color: var(--white); text-decoration: none; padding: 0 18px;
             font-size: 0.98rem;
             font-weight: 600; transition: color 0.3s;
             cursor: pointer; height: 100%; display: flex; align-items: center;
@@ -103,15 +103,15 @@
         .nav-menu li a:hover, .dropdown:hover .dropbtn { color: var(--accent-orange); }
 
         header.scrolled .logo { color: var(--primary-blue); }
-        header.scrolled .nav-menu li a, 
+        header.scrolled .nav-menu li a,
         header.scrolled .dropbtn { color: var(--primary-blue); }
-        header.scrolled .nav-menu li a:hover, 
+        header.scrolled .nav-menu li a:hover,
         header.scrolled .dropdown:hover .dropbtn { color: var(--accent-orange); }
 
         .dropdown-content {
             display: none; position: absolute; top: 100%; /* Fixes gap issue */
-            right: 0; 
-            background-color: var(--primary-blue); min-width: 240px; 
+            right: 0;
+            background-color: var(--primary-blue); min-width: 240px;
             box-shadow: 0 10px 25px rgba(0,0,0,0.3); z-index: 1001; flex-direction: column;
             border-radius: 0 0 5px 5px;
         }
@@ -119,12 +119,12 @@
         .dropdown-content li a { padding: 12px 20px; width: 100%; display: block; color: var(--white); font-size: 1rem; }
 
         .dropdown:hover .dropdown-content { display: flex; }
-        
-        .hamburger { 
-            display: none; cursor: pointer; flex-direction: column; gap: 6px; z-index: 1002; 
+
+        .hamburger {
+            display: none; cursor: pointer; flex-direction: column; gap: 6px; z-index: 1002;
         }
-        .bar { 
-            width: 30px; height: 3px; background-color: var(--white); transition: 0.3s; 
+        .bar {
+            width: 30px; height: 3px; background-color: var(--white); transition: 0.3s;
         }
         header.scrolled .hamburger .bar { background-color: var(--primary-blue); }
         /* =========================================
@@ -138,33 +138,33 @@
             text-align: center; color: var(--white);
             margin-bottom: 50px;
         }
-        .page-banner h1 { 
-            font-size: 2rem; text-transform: uppercase; font-weight: 800; 
-            border-bottom: 3px solid var(--accent-gold); padding-bottom: 5px; 
+        .page-banner h1 {
+            font-size: 2rem; text-transform: uppercase; font-weight: 800;
+            border-bottom: 3px solid var(--accent-gold); padding-bottom: 5px;
         }
 
         /* =========================================
            4. WIDE CARD SECTION
            ========================================= */
         .cards-container {
-            max-width: 1300px; 
+            max-width: 1300px;
             margin: 0 auto 80px auto;
             padding: 0 20px;
             display: grid;
             grid-template-columns: 1fr; /* Single Column */
-            gap: 50px; 
+            gap: 50px;
         }
 
         /* The Card Container */
         .flip-card {
             background-color: transparent;
             width: 100%;
-            perspective: 1000px; 
+            perspective: 1000px;
         }
 
         /* --- CUSTOM HEIGHTS BASED ON CONTENT --- */
         /* These heights ensure the card fits the text without too much empty space */
-        
+
         #card1 { height: 500px; } /* Conference (Medium Text) */
         #card2 { height: 430px; } /* CFRD (Long Text) */
         #card3 { height: 560px; } /* KSRCT (Very Long Text) */
@@ -206,15 +206,15 @@
         .flip-card-front {
             background-color: var(--white);
             color: var(--text-dark);
-            padding: 30px; 
-            border-left: 10px solid var(--accent-gold); 
+            padding: 30px;
+            border-left: 10px solid var(--accent-gold);
             background-image: radial-gradient(circle at top right, #f8f9fa 0%, #ffffff 40%);
             align-items: stretch;
         }
 
         .flip-card-front h2 {
             color: var(--primary-blue);
-            font-size: 2.2rem; 
+            font-size: 2.2rem;
             margin-bottom: 10px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
@@ -230,7 +230,7 @@
             max-width: 100%;
             width: 100%;
         }
-        
+
         /* SPECIAL CLASS FOR LONG TEXT ALIGNMENT */
         .long-text {
             text-align: justify;
@@ -269,7 +269,7 @@
             box-shadow: 0 4px 15px rgba(0,51,102,0.3);
             animation: pulse 2s infinite;
         }
-        
+
         .play-btn:hover {
             background: var(--accent-gold);
             color: var(--primary-blue);
@@ -301,7 +301,7 @@
         .flip-card-back video {
             width: 100%;
             height: 100%;
-            object-fit: cover; 
+            object-fit: cover;
         }
 
         /* Close/Return Button */
@@ -348,59 +348,59 @@
            MOBILE ADJUSTMENTS (Paste at bottom of CSS)
            ========================================= */
         @media (max-width: 900px) {
-            
+
             /* --- 1. GENERAL LAYOUT --- */
-            body { padding-top: 70px; overflow-x: hidden; }
-            
-            .page-banner { 
-                height: 120px; 
+            body { padding-top: 78px; overflow-x: hidden; }
+
+            .page-banner {
+                height: 120px;
                 margin-bottom: 30px;
             }
             .page-banner h1 { font-size: 1.5rem; }
 
-            .cards-container { 
-                padding: 0 15px; 
-                gap: 30px; 
+            .cards-container {
+                padding: 0 15px;
+                gap: 30px;
             }
 
             /* --- 2. HEADER & MENU (Sliding Drawer) --- */
             header { padding: 0 15px; }
             .hamburger { display: flex; z-index: 1002; }
-            
-            .nav-menu { 
-                display: block; 
-                position: fixed; 
-                top: 70px; 
+
+            .nav-menu {
+                display: block;
+                position: fixed;
+                top: 70px;
                 right: -100%; /* Hidden off-screen */
-                width: 75%; 
-                height: calc(100vh - 70px); 
-                background: var(--primary-blue); 
-                padding: 20px; 
+                width: 75%;
+                height: calc(100vh - 70px);
+                background: var(--primary-blue);
+                padding: 20px;
                 transition: 0.3s ease;
                 box-shadow: -5px 0 15px rgba(0,0,0,0.2);
                 overflow-y: auto;
             }
             .nav-menu.active { right: 0; } /* Slide in */
-            
-            .nav-menu li { 
-                width: 100%; 
-                border-bottom: 1px solid rgba(255,255,255,0.1); 
-                height: auto; 
+
+            .nav-menu li {
+                width: 100%;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+                height: auto;
                 display: block;
                 margin-bottom: 5px;
             }
-            
-            .nav-menu li a, .dropbtn { 
-                padding: 12px; 
-                font-size: 1rem; 
+
+            .nav-menu li a, .dropbtn {
+                padding: 12px;
+                font-size: 1rem;
                 justify-content: space-between;
             }
 
-            .dropdown-content { 
-                position: relative; 
-                top: 0; 
-                box-shadow: none; 
-                background: rgba(0,0,0,0.2); 
+            .dropdown-content {
+                position: relative;
+                top: 0;
+                box-shadow: none;
+                background: rgba(0,0,0,0.2);
                 width: 100%;
                 display: none; /* Hidden until hover/click */
             }
@@ -408,40 +408,168 @@
 
             /* --- 3. FLIP CARD HEIGHTS (Critical for Mobile) --- */
             /* Text wraps more on mobile, so we must increase height */
-            
+
             #card1 { height: 600px; } /* Conference */
             #card2 { height: 680px; } /* CFRD */
             #card3 { height: 1150px; } /* KSRCT (Very Long Text) */
             #card4 { height: 400px; } /* Mission */
 
             /* --- 4. CARD INTERIOR STYLING --- */
-            .flip-card-front { 
-                padding: 25px 15px; 
+            .flip-card-front {
+                padding: 25px 15px;
                 align-items: stretch;
             }
 
-            .flip-card-front h2 { 
-                font-size: 1.6rem; 
+            .flip-card-front h2 {
+                font-size: 1.6rem;
                 margin-bottom: 15px;
             }
 
             /* Left-aligned body on small screens for readability */
-            .flip-card-front p.long-text { 
-                text-align: left; 
-                font-size: 0.9rem !important; 
+            .flip-card-front p.long-text {
+                text-align: left;
+                font-size: 0.9rem !important;
                 line-height: 1.5;
                 max-width: 100% !important;
             }
-            
+
             .icon-header { font-size: 2.5rem; margin-bottom: 10px; }
 
             /* --- 5. FOOTER ALIGNMENT --- */
-            .footer-container { 
-                grid-template-columns: 1fr; 
-                text-align: center; 
+            .footer-container {
+                grid-template-columns: 1fr;
+                text-align: center;
                 gap: 40px;
             }
             .social-links { justify-content: center; }
+        }
+        /* Unified header styling */
+        header {
+            background: #002144;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            height: 78px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 4%;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.4s ease;
+        }
+
+        header.scrolled {
+            background-color: var(--white);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            height: 76px;
+        }
+
+        .logo {
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .logo-mark {
+            width: 46px;
+            height: 46px;
+            object-fit: contain;
+            flex: 0 0 auto;
+            background: var(--white);
+            border-radius: 50%;
+            padding: 2px;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            font-family: var(--font-heading);
+            font-weight: 900;
+            line-height: 1;
+            letter-spacing: 0.8px;
+        }
+
+        .logo-text span:first-child { font-size: 1.12rem; }
+        .logo-text span:last-child { font-size: 0.72rem; letter-spacing: 1.4px; margin-top: 3px; }
+        .nav-menu { display: flex; list-style: none; align-items: center; height: 100%; }
+        .nav-menu li { position: relative; height: 100%; display: flex; align-items: center; }
+        .nav-menu li a, .dropbtn {
+            color: var(--white);
+            text-decoration: none;
+            padding: 0 18px;
+            font-size: 0.98rem;
+            font-weight: 600;
+            transition: color 0.3s;
+            cursor: pointer;
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+        .nav-menu li a:hover, .dropdown:hover .dropbtn { color: var(--accent-orange); }
+        header.scrolled .logo { color: var(--primary-blue); }
+        header.scrolled .nav-menu li a,
+        header.scrolled .dropbtn { color: var(--primary-blue); }
+        header.scrolled .nav-menu li a:hover,
+        header.scrolled .dropdown:hover .dropbtn { color: var(--accent-orange); }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background-color: var(--primary-blue);
+            min-width: 240px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            z-index: 1001;
+            flex-direction: column;
+            border-radius: 0 0 5px 5px;
+        }
+        .dropdown-content li { width: 100%; border-top: 1px solid rgba(255,255,255,0.1); }
+        .dropdown-content li a { padding: 12px 20px; width: 100%; display: block; color: var(--white); font-size: 1rem; }
+        .dropdown:hover .dropdown-content { display: flex; }
+        .hamburger { display: none; cursor: pointer; flex-direction: column; gap: 6px; z-index: 1002; }
+        .bar { width: 30px; height: 3px; background-color: var(--white); transition: 0.3s; }
+        header.scrolled .hamburger .bar { background-color: var(--primary-blue); }
+
+        @media (max-width: 900px) {
+            header { padding: 0 14px; height: 68px; }
+            .hamburger { display: flex !important; }
+            .nav-menu {
+                display: block;
+                position: fixed;
+                top: 68px;
+                right: -100%;
+                width: 78%;
+                height: 100vh;
+                background: var(--secondary-blue);
+                flex-direction: column;
+                padding: 18px;
+                transition: 0.3s ease;
+                box-shadow: -5px 0 20px rgba(0,0,0,0.4);
+            }
+            .nav-menu.active { right: 0; }
+            .nav-menu li {
+                width: 100%;
+                border-bottom: 1px solid rgba(255,255,255,0.05);
+                display: block;
+                height: auto;
+                margin-bottom: 0;
+            }
+            .nav-menu li a, .dropbtn { padding: 10px 8px; font-size: 0.96rem; justify-content: space-between; }
+            .dropdown-content {
+                position: relative;
+                top: 0;
+                width: 100%;
+                box-shadow: none;
+                background: rgba(0,0,0,0.2);
+                display: none;
+            }
+            .dropdown:hover .dropdown-content { display: block; }
         }
     </style>
 </head>
@@ -457,14 +585,13 @@
         </a>
         <ul class="nav-menu">
             <li><a href="index.html">Home</a></li>
-            <li><a href="about.html" style="color: var(--accent-gold);">About</a></li>
+            <li><a href="themes.html">Themes</a></li>
             <li><a href="speakers.html">Speakers</a></li>
             <li><a href="call-for-papers.html">Call for Papers</a></li>
-            <li><a href="schedule.html">Schedule</a></li>
             <li><a href="registration.html">Registration</a></li>
+            <li><a href="schedule.html">Schedule</a></li>
             <li><a href="visa.html">Visa</a></li>
-            <li><a href="venue.html">Venue & Travel</a></li>
-            
+
             <li class="dropdown">
                 <div class="dropbtn">Committees <i class="fas fa-caret-down" style="margin-left:8px;"></i></div>
                 <ul class="dropdown-content">
@@ -477,13 +604,12 @@
             <li class="dropdown">
                 <div class="dropbtn">More <i class="fas fa-caret-down" style="margin-left:8px;"></i></div>
                 <ul class="dropdown-content">
-                    <li><a href="themes.html">Themes</a></li>
                     <li><a href="accommodation.html">Accommodation</a></li>
+                    <li><a href="venue.html">Venue & Travel</a></li>
                     <li><a href="downloads.html">Downloads</a></li>
                     <li><a href="contact.html">Contact Us</a></li>
                 </ul>
             </li>
-
         </ul>
         <div class="hamburger">
             <span class="bar"></span>
@@ -558,7 +684,7 @@
             </div>
         </div>
 
-        
+
 
     </section>
 

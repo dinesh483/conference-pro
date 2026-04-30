@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Speakers - National Conference 2027</title>
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -17,7 +17,7 @@
             --primary-blue: #003366;
             --secondary-blue: #002244;
             --accent-gold: #f7931e;
-            
+
             --accent-orange-light: #ffc174;
             --accent-orange: #f7931e;
             --text-dark: #333;
@@ -35,7 +35,7 @@
             font-family: var(--font-main);
             background-color: var(--light-bg);
             color: var(--text-dark);
-            padding-top: 70px; 
+            padding-top: 78px;
             overflow-x: hidden;
         }
 
@@ -43,14 +43,14 @@
            2. HEADER & NAVIGATION
            ========================================= */
         header {
-            background: rgba(0, 33, 68, 0.85); /* Slightly darker initial bg */
+            background: #002144; /* Slightly darker initial bg */
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.2);
             height: 72px;
-            width: 100%; display: flex; 
-            justify-content: space-between; align-items: center; padding: 0 2%; 
-            position: fixed; top: 0; z-index: 1000; 
+            width: 100%; display: flex;
+            justify-content: space-between; align-items: center; padding: 0 2%;
+            position: fixed; top: 0; z-index: 1000;
             transition: all 0.4s ease;
         }
 
@@ -90,12 +90,12 @@
 
         .logo-text span:first-child { font-size: 1.12rem; }
         .logo-text span:last-child { font-size: 0.72rem; letter-spacing: 1.4px; margin-top: 3px; }
-        
+
         .nav-menu { display: flex; list-style: none; align-items: center; height: 100%; }
         .nav-menu li { position: relative; height: 100%; display: flex; align-items: center; }
-        
-        .nav-menu li a, .dropbtn { 
-            color: var(--white); text-decoration: none; padding: 0 18px; 
+
+        .nav-menu li a, .dropbtn {
+            color: var(--white); text-decoration: none; padding: 0 18px;
             font-size: 0.98rem;
             font-weight: 600; transition: color 0.3s;
             cursor: pointer; height: 100%; display: flex; align-items: center;
@@ -103,15 +103,15 @@
         .nav-menu li a:hover, .dropdown:hover .dropbtn { color: var(--accent-orange); }
 
         header.scrolled .logo { color: var(--primary-blue); }
-        header.scrolled .nav-menu li a, 
+        header.scrolled .nav-menu li a,
         header.scrolled .dropbtn { color: var(--primary-blue); }
-        header.scrolled .nav-menu li a:hover, 
+        header.scrolled .nav-menu li a:hover,
         header.scrolled .dropdown:hover .dropbtn { color: var(--accent-orange); }
 
         .dropdown-content {
             display: none; position: absolute; top: 100%; /* Fixes gap issue */
-            right: 0; 
-            background-color: var(--primary-blue); min-width: 240px; 
+            right: 0;
+            background-color: var(--primary-blue); min-width: 240px;
             box-shadow: 0 10px 25px rgba(0,0,0,0.3); z-index: 1001; flex-direction: column;
             border-radius: 0 0 5px 5px;
         }
@@ -119,12 +119,12 @@
         .dropdown-content li a { padding: 12px 20px; width: 100%; display: block; color: var(--white); font-size: 1rem; }
 
         .dropdown:hover .dropdown-content { display: flex; }
-        
-        .hamburger { 
-            display: none; cursor: pointer; flex-direction: column; gap: 6px; z-index: 1002; 
+
+        .hamburger {
+            display: none; cursor: pointer; flex-direction: column; gap: 6px; z-index: 1002;
         }
-        .bar { 
-            width: 30px; height: 3px; background-color: var(--white); transition: 0.3s; 
+        .bar {
+            width: 30px; height: 3px; background-color: var(--white); transition: 0.3s;
         }
         header.scrolled .hamburger .bar { background-color: var(--primary-blue); }
         /* =========================================
@@ -275,6 +275,134 @@
             .hamburger { display: flex; }
             .page-banner h1 { font-size: 1.8rem; }
         }
+        /* Unified header styling */
+        header {
+            background: #002144;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            height: 78px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 4%;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.4s ease;
+        }
+
+        header.scrolled {
+            background-color: var(--white);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            height: 76px;
+        }
+
+        .logo {
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .logo-mark {
+            width: 46px;
+            height: 46px;
+            object-fit: contain;
+            flex: 0 0 auto;
+            background: var(--white);
+            border-radius: 50%;
+            padding: 2px;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            font-family: var(--font-heading);
+            font-weight: 900;
+            line-height: 1;
+            letter-spacing: 0.8px;
+        }
+
+        .logo-text span:first-child { font-size: 1.12rem; }
+        .logo-text span:last-child { font-size: 0.72rem; letter-spacing: 1.4px; margin-top: 3px; }
+        .nav-menu { display: flex; list-style: none; align-items: center; height: 100%; }
+        .nav-menu li { position: relative; height: 100%; display: flex; align-items: center; }
+        .nav-menu li a, .dropbtn {
+            color: var(--white);
+            text-decoration: none;
+            padding: 0 18px;
+            font-size: 0.98rem;
+            font-weight: 600;
+            transition: color 0.3s;
+            cursor: pointer;
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+        .nav-menu li a:hover, .dropdown:hover .dropbtn { color: var(--accent-orange); }
+        header.scrolled .logo { color: var(--primary-blue); }
+        header.scrolled .nav-menu li a,
+        header.scrolled .dropbtn { color: var(--primary-blue); }
+        header.scrolled .nav-menu li a:hover,
+        header.scrolled .dropdown:hover .dropbtn { color: var(--accent-orange); }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background-color: var(--primary-blue);
+            min-width: 240px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            z-index: 1001;
+            flex-direction: column;
+            border-radius: 0 0 5px 5px;
+        }
+        .dropdown-content li { width: 100%; border-top: 1px solid rgba(255,255,255,0.1); }
+        .dropdown-content li a { padding: 12px 20px; width: 100%; display: block; color: var(--white); font-size: 1rem; }
+        .dropdown:hover .dropdown-content { display: flex; }
+        .hamburger { display: none; cursor: pointer; flex-direction: column; gap: 6px; z-index: 1002; }
+        .bar { width: 30px; height: 3px; background-color: var(--white); transition: 0.3s; }
+        header.scrolled .hamburger .bar { background-color: var(--primary-blue); }
+
+        @media (max-width: 900px) {
+            header { padding: 0 14px; height: 68px; }
+            .hamburger { display: flex !important; }
+            .nav-menu {
+                display: block;
+                position: fixed;
+                top: 68px;
+                right: -100%;
+                width: 78%;
+                height: 100vh;
+                background: var(--secondary-blue);
+                flex-direction: column;
+                padding: 18px;
+                transition: 0.3s ease;
+                box-shadow: -5px 0 20px rgba(0,0,0,0.4);
+            }
+            .nav-menu.active { right: 0; }
+            .nav-menu li {
+                width: 100%;
+                border-bottom: 1px solid rgba(255,255,255,0.05);
+                display: block;
+                height: auto;
+                margin-bottom: 0;
+            }
+            .nav-menu li a, .dropbtn { padding: 10px 8px; font-size: 0.96rem; justify-content: space-between; }
+            .dropdown-content {
+                position: relative;
+                top: 0;
+                width: 100%;
+                box-shadow: none;
+                background: rgba(0,0,0,0.2);
+                display: none;
+            }
+            .dropdown:hover .dropdown-content { display: block; }
+        }
     </style>
 </head>
 <body>
@@ -289,13 +417,13 @@
         </a>
         <ul class="nav-menu">
             <li><a href="index.html">Home</a></li>
+            <li><a href="themes.html">Themes</a></li>
             <li><a href="speakers.html" style="color: var(--accent-gold);">Speakers</a></li>
             <li><a href="call-for-papers.html">Call for Papers</a></li>
-            <li><a href="schedule.html">Schedule</a></li>
             <li><a href="registration.html">Registration</a></li>
+            <li><a href="schedule.html">Schedule</a></li>
             <li><a href="visa.html">Visa</a></li>
-            <li><a href="venue.html">Venue & Travel</a></li>
-            
+
             <li class="dropdown">
                 <div class="dropbtn">Committees <i class="fas fa-caret-down" style="margin-left:8px;"></i></div>
                 <ul class="dropdown-content">
@@ -308,13 +436,12 @@
             <li class="dropdown">
                 <div class="dropbtn">More <i class="fas fa-caret-down" style="margin-left:8px;"></i></div>
                 <ul class="dropdown-content">
-                    <li><a href="themes.html">Themes</a></li>
                     <li><a href="accommodation.html">Accommodation</a></li>
+                    <li><a href="venue.html">Venue & Travel</a></li>
                     <li><a href="downloads.html">Downloads</a></li>
                     <li><a href="contact.html">Contact Us</a></li>
                 </ul>
             </li>
-
         </ul>
         <div class="hamburger">
             <span class="bar"></span>
@@ -328,12 +455,12 @@
     </section>
 
     <section class="speakers-section">
-        
+
         <div class="group-title"><h3>International Speakers</h3></div>
         <div class="speakers-grid">
-            
-            <div class="speaker-card" onclick="openModal(this)" 
-                 data-name="Prof. Bruno D’Aguanno" data-role="Keynote Speaker" data-uni="University of Lincoln, U.K." 
+
+            <div class="speaker-card" onclick="openModal(this)"
+                 data-name="Prof. Bruno D’Aguanno" data-role="Keynote Speaker" data-uni="University of Lincoln, U.K."
                  data-img="https://via.placeholder.com/400x400?text=Bruno" data-bio="Prof. Bruno is an expert in Solar Thermal Energy and Advanced Materials with over 200 published papers.">
                 <div class="badge keynote">KEYNOTE</div>
                 <div class="speaker-img-box"><img src="https://via.placeholder.com/400x400?text=Bruno" alt=""></div>
@@ -344,8 +471,8 @@
                 <div class="view-btn">View Bio</div>
             </div>
 
-            <div class="speaker-card" onclick="openModal(this)" 
-                 data-name="Dr. Sarah Jenkins" data-role="Keynote Speaker" data-uni="Stanford University, USA" 
+            <div class="speaker-card" onclick="openModal(this)"
+                 data-name="Dr. Sarah Jenkins" data-role="Keynote Speaker" data-uni="Stanford University, USA"
                  data-img="https://via.placeholder.com/400x400?text=Sarah" data-bio="Dr. Sarah Jenkins leads research in Sustainable Nanotechnology and its applications in water purification.">
                 <div class="badge keynote">KEYNOTE</div>
                 <div class="speaker-img-box"><img src="https://via.placeholder.com/400x400?text=Sarah" alt=""></div>
@@ -356,8 +483,8 @@
                 <div class="view-btn">View Bio</div>
             </div>
 
-            <div class="speaker-card" onclick="openModal(this)" 
-                 data-name="Prof. Hiroshi Tanaka" data-role="Guest Speaker" data-uni="University of Tokyo, Japan" 
+            <div class="speaker-card" onclick="openModal(this)"
+                 data-name="Prof. Hiroshi Tanaka" data-role="Guest Speaker" data-uni="University of Tokyo, Japan"
                  data-img="https://via.placeholder.com/400x400?text=Hiroshi" data-bio="Prof. Tanaka is a pioneer in Robotics and AI integration for manufacturing industries.">
                 <div class="badge keynote">KEYNOTE</div>
                 <div class="speaker-img-box"><img src="https://via.placeholder.com/400x400?text=Hiroshi" alt=""></div>
@@ -371,9 +498,9 @@
 
         <div class="group-title"><h3>National Speakers</h3></div>
         <div class="speakers-grid">
-            
-            <div class="speaker-card" onclick="openModal(this)" 
-                 data-name="Dr. Karthick Mani" data-role="Senior Scientist" data-uni="ARCI, Hyderabad" 
+
+            <div class="speaker-card" onclick="openModal(this)"
+                 data-name="Dr. Karthick Mani" data-role="Senior Scientist" data-uni="ARCI, Hyderabad"
                  data-img="https://via.placeholder.com/400x400?text=Karthick" data-bio="Dr. Mani specializes in thin-film coatings and surface engineering for aerospace applications.">
                 <div class="badge invited">INVITED</div>
                 <div class="speaker-img-box"><img src="https://via.placeholder.com/400x400?text=Karthick" alt=""></div>
@@ -385,8 +512,8 @@
                 <div class="view-btn">View Bio</div>
             </div>
 
-            <div class="speaker-card" onclick="openModal(this)" 
-                 data-name="Dr. P. Suresh" data-role="Assistant Professor" data-uni="IIT-Hyderabad" 
+            <div class="speaker-card" onclick="openModal(this)"
+                 data-name="Dr. P. Suresh" data-role="Assistant Professor" data-uni="IIT-Hyderabad"
                  data-img="https://via.placeholder.com/400x400?text=Anjali" data-bio="Dr. Desai is a renowned researcher in Chemical Engineering and Green Catalysis.">
                 <div class="badge invited">INVITED</div>
                 <div class="speaker-img-box"><img src="https://via.placeholder.com/400x400?text=Anjali" alt=""></div>
@@ -398,8 +525,8 @@
                 <div class="view-btn">View Bio</div>
             </div>
 
-            <div class="speaker-card" onclick="openModal(this)" 
-                 data-name="Dr. N. Pradeep"  data-role="Assistant Professor" data-uni="NIT-TRICHY" 
+            <div class="speaker-card" onclick="openModal(this)"
+                 data-name="Dr. N. Pradeep"  data-role="Assistant Professor" data-uni="NIT-TRICHY"
                  data-img="https://via.placeholder.com/400x400?text=Rajesh" data-bio="Prof. Kumar oversees large-scale energy storage projects and national power grid enhancements.">
                 <div class="badge invited">INVITED</div>
                 <div class="speaker-img-box"><img src="https://via.placeholder.com/400x400?text=Rajesh" alt=""></div>

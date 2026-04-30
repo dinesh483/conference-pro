@@ -4,26 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Themes - National Conference 2027</title>
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <style>
         /* =========================================
            1. CORE STYLES
            ========================================= */
-        :root { 
-            --primary-blue: #003366; 
-            --secondary-blue: #002244; 
-            --accent-gold: #f7931e; 
-            
+        :root {
+            --primary-blue: #003366;
+            --secondary-blue: #002244;
+            --accent-gold: #f7931e;
+
             --accent-orange-light: #ffc174;
             --accent-orange: #f7931e;
-            --text-dark: #333; 
-            --light-bg: #f8f9fa; 
-            --white: #ffffff; 
+            --text-dark: #333;
+            --light-bg: #f8f9fa;
+            --white: #ffffff;
             --font-main: 'Open Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             --font-heading: 'Montserrat', 'Open Sans', 'Segoe UI', sans-serif;
         }
@@ -32,11 +32,11 @@
         img, video, iframe, svg, canvas { max-width: 100%; height: auto; }
         html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
 
-        body { 
-            font-family: var(--font-main); 
-            background-color: var(--light-bg); 
-            color: var(--text-dark); 
-            padding-top: 70px; 
+        body {
+            font-family: var(--font-main);
+            background-color: var(--light-bg);
+            color: var(--text-dark);
+            padding-top: 78px;
             overflow-x: hidden;
         }
 
@@ -44,14 +44,14 @@
            2. HEADER (Fixed & Shadowed)
            ========================================= */
          header {
-            background: rgba(0, 33, 68, 0.85); /* Slightly darker initial bg */
+            background: #002144; /* Slightly darker initial bg */
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.2);
             height: 72px;
-            width: 100%; display: flex; 
-            justify-content: space-between; align-items: center; padding: 0 2%; 
-            position: fixed; top: 0; z-index: 1000; 
+            width: 100%; display: flex;
+            justify-content: space-between; align-items: center; padding: 0 2%;
+            position: fixed; top: 0; z-index: 1000;
             transition: all 0.4s ease;
         }
 
@@ -91,12 +91,12 @@
 
         .logo-text span:first-child { font-size: 1.12rem; }
         .logo-text span:last-child { font-size: 0.72rem; letter-spacing: 1.4px; margin-top: 3px; }
-        
+
         .nav-menu { display: flex; list-style: none; align-items: center; height: 100%; }
         .nav-menu li { position: relative; height: 100%; display: flex; align-items: center; }
-        
-        .nav-menu li a, .dropbtn { 
-            color: var(--white); text-decoration: none; padding: 0 18px; 
+
+        .nav-menu li a, .dropbtn {
+            color: var(--white); text-decoration: none; padding: 0 18px;
             font-size: 0.98rem;
             font-weight: 600; transition: color 0.3s;
             cursor: pointer; height: 100%; display: flex; align-items: center;
@@ -104,15 +104,15 @@
         .nav-menu li a:hover, .dropdown:hover .dropbtn { color: var(--accent-orange); }
 
         header.scrolled .logo { color: var(--primary-blue); }
-        header.scrolled .nav-menu li a, 
+        header.scrolled .nav-menu li a,
         header.scrolled .dropbtn { color: var(--primary-blue); }
-        header.scrolled .nav-menu li a:hover, 
+        header.scrolled .nav-menu li a:hover,
         header.scrolled .dropdown:hover .dropbtn { color: var(--accent-orange); }
 
         .dropdown-content {
             display: none; position: absolute; top: 100%; /* Fixes gap issue */
-            right: 0; 
-            background-color: var(--primary-blue); min-width: 240px; 
+            right: 0;
+            background-color: var(--primary-blue); min-width: 240px;
             box-shadow: 0 10px 25px rgba(0,0,0,0.3); z-index: 1001; flex-direction: column;
             border-radius: 0 0 5px 5px;
         }
@@ -120,85 +120,85 @@
         .dropdown-content li a { padding: 12px 20px; width: 100%; display: block; color: var(--white); font-size: 1rem; }
 
         .dropdown:hover .dropdown-content { display: flex; }
-        
-        .hamburger { 
-            display: none; cursor: pointer; flex-direction: column; gap: 6px; z-index: 1002; 
+
+        .hamburger {
+            display: none; cursor: pointer; flex-direction: column; gap: 6px; z-index: 1002;
         }
-        .bar { 
-            width: 30px; height: 3px; background-color: var(--white); transition: 0.3s; 
+        .bar {
+            width: 30px; height: 3px; background-color: var(--white); transition: 0.3s;
         }
         header.scrolled .hamburger .bar { background-color: var(--primary-blue); }
         /* =========================================
            3. PAGE BANNER
            ========================================= */
-        .page-banner { 
-            background: linear-gradient(rgba(0,51,102,0.9), rgba(0,51,102,0.8)), url('https://via.placeholder.com/1920x400?text=Conference+Themes'); 
-            background-size: cover; background-position: center; 
-            height: 180px; 
-            display: flex; justify-content: center; align-items: center; 
-            text-align: center; color: var(--white); 
+        .page-banner {
+            background: linear-gradient(rgba(0,51,102,0.9), rgba(0,51,102,0.8)), url('https://via.placeholder.com/1920x400?text=Conference+Themes');
+            background-size: cover; background-position: center;
+            height: 180px;
+            display: flex; justify-content: center; align-items: center;
+            text-align: center; color: var(--white);
         }
-        .page-banner h1 { 
-            font-size: 2.5rem; text-transform: uppercase; font-weight: 800; 
-            border-bottom: 4px solid var(--accent-gold); padding-bottom: 10px; 
+        .page-banner h1 {
+            font-size: 2.5rem; text-transform: uppercase; font-weight: 800;
+            border-bottom: 4px solid var(--accent-gold); padding-bottom: 10px;
         }
 
         /* =========================================
            4. 3D FLIP CARD GRID
            ========================================= */
         .themes-section { max-width: 1200px; margin: 60px auto; padding: 0 20px; }
-        
+
         .section-intro { text-align: center; margin-bottom: 50px; max-width: 800px; margin-left: auto; margin-right: auto; }
         .section-intro h2 { color: var(--primary-blue); font-size: 2.2rem; margin-bottom: 15px; }
         .section-intro p { color: #666; font-size: 1.1rem; }
 
-        .themes-grid { 
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; 
+        .themes-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px;
         }
 
         /* Card Container */
-        .flip-card { 
-            background-color: transparent; 
-            width: 100%; 
-            height: 350px; 
-            perspective: 1000px; 
+        .flip-card {
+            background-color: transparent;
+            width: 100%;
+            height: 350px;
+            perspective: 1000px;
         }
 
         /* Moving Part */
-        .flip-card-inner { 
-            position: relative; width: 100%; height: 100%; text-align: center; 
-            transition: transform 0.8s; transform-style: preserve-3d; 
-            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); border-radius: 15px; 
+        .flip-card-inner {
+            position: relative; width: 100%; height: 100%; text-align: center;
+            transition: transform 0.8s; transform-style: preserve-3d;
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); border-radius: 15px;
         }
 
         /* Flip Action */
         .flip-card:hover .flip-card-inner { transform: rotateY(180deg); }
 
         /* Faces */
-        .flip-card-front, .flip-card-back { 
-            position: absolute; width: 100%; height: 100%; 
-            -webkit-backface-visibility: hidden; backface-visibility: hidden; 
-            border-radius: 15px; display: flex; flex-direction: column; 
-            justify-content: center; align-items: center; padding: 20px; 
+        .flip-card-front, .flip-card-back {
+            position: absolute; width: 100%; height: 100%;
+            -webkit-backface-visibility: hidden; backface-visibility: hidden;
+            border-radius: 15px; display: flex; flex-direction: column;
+            justify-content: center; align-items: center; padding: 20px;
         }
 
         /* Front Styling */
-        .flip-card-front { 
-            background-color: var(--white); color: var(--text-dark); 
-            border-bottom: 5px solid var(--accent-gold); 
+        .flip-card-front {
+            background-color: var(--white); color: var(--text-dark);
+            border-bottom: 5px solid var(--accent-gold);
         }
         .flip-card-front i { font-size: 4rem; color: var(--primary-blue); margin-bottom: 20px; }
         .flip-card-front h3 { font-size: 1.4rem; color: var(--primary-blue); text-transform: uppercase; padding: 0 10px; }
         .flip-hint { margin-top: 20px; font-size: 0.8rem; color: #999; text-transform: uppercase; letter-spacing: 1px; }
 
         /* Back Styling */
-        .flip-card-back { 
-            background: linear-gradient(135deg, #003366 0%, #001a33 100%); 
-            color: white; transform: rotateY(180deg); 
-            border-top: 5px solid var(--accent-gold); 
+        .flip-card-back {
+            background: linear-gradient(135deg, #003366 0%, #001a33 100%);
+            color: white; transform: rotateY(180deg);
+            border-top: 5px solid var(--accent-gold);
         }
         .flip-card-back h3 { margin-bottom: 20px; color: var(--accent-gold); font-size: 1.1rem; text-transform: uppercase; }
-        
+
         .topic-list { list-style: none; padding: 0; text-align: left; width: 100%; }
         .topic-list li { margin-bottom: 8px; font-size: 0.9rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 5px; line-height: 1.4; }
         .topic-list li:last-child { border-bottom: none; }
@@ -207,11 +207,11 @@
         /* =========================================
            5. MOBILE & RESPONSIVE FIXES
            ========================================= */
-        @media (max-width: 900px) { 
-            
+        @media (max-width: 900px) {
+
             /* General Layout */
-            body { padding-top: 70px; }
-            
+            body { padding-top: 78px; }
+
             /* Banner */
             .page-banner { height: 140px; }
             .page-banner h1 { font-size: 1.8rem; }
@@ -229,20 +229,20 @@
             header { padding: 0 15px; }
             .hamburger { display: flex; }
 
-            .nav-menu { 
-                display: block; 
-                position: fixed; 
-                top: 70px; 
-                right: -100%; 
-                width: 75%; 
-                height: calc(100vh - 70px); 
-                background: var(--primary-blue); 
-                padding: 20px; 
+            .nav-menu {
+                display: block;
+                position: fixed;
+                top: 70px;
+                right: -100%;
+                width: 75%;
+                height: calc(100vh - 70px);
+                background: var(--primary-blue);
+                padding: 20px;
                 transition: 0.3s ease;
                 box-shadow: -5px 0 15px rgba(0,0,0,0.2);
                 overflow-y: auto;
             }
-            .nav-menu.active { right: 0; } 
+            .nav-menu.active { right: 0; }
 
             .nav-menu li { width: 100%; border-bottom: 1px solid rgba(255,255,255,0.1); height: auto; display: block; margin-bottom: 5px; }
             .nav-menu li a, .dropbtn { padding: 12px; font-size: 1rem; justify-content: space-between; }
@@ -260,6 +260,134 @@
         .social-links a { display: inline-flex; justify-content: center; align-items: center; width: 35px; height: 35px; background: rgba(255,255,255,0.1); border-radius: 50%; transition: 0.3s; color: var(--white); }
         .social-links a:hover { background: var(--accent-gold); color: var(--primary-blue); transform: translateY(-3px); }
         .footer-bottom { text-align: center; margin-top: 50px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); }
+        /* Unified header styling */
+        header {
+            background: #002144;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            height: 78px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 4%;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.4s ease;
+        }
+
+        header.scrolled {
+            background-color: var(--white);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            height: 76px;
+        }
+
+        .logo {
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .logo-mark {
+            width: 46px;
+            height: 46px;
+            object-fit: contain;
+            flex: 0 0 auto;
+            background: var(--white);
+            border-radius: 50%;
+            padding: 2px;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            font-family: var(--font-heading);
+            font-weight: 900;
+            line-height: 1;
+            letter-spacing: 0.8px;
+        }
+
+        .logo-text span:first-child { font-size: 1.12rem; }
+        .logo-text span:last-child { font-size: 0.72rem; letter-spacing: 1.4px; margin-top: 3px; }
+        .nav-menu { display: flex; list-style: none; align-items: center; height: 100%; }
+        .nav-menu li { position: relative; height: 100%; display: flex; align-items: center; }
+        .nav-menu li a, .dropbtn {
+            color: var(--white);
+            text-decoration: none;
+            padding: 0 18px;
+            font-size: 0.98rem;
+            font-weight: 600;
+            transition: color 0.3s;
+            cursor: pointer;
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+        .nav-menu li a:hover, .dropdown:hover .dropbtn { color: var(--accent-orange); }
+        header.scrolled .logo { color: var(--primary-blue); }
+        header.scrolled .nav-menu li a,
+        header.scrolled .dropbtn { color: var(--primary-blue); }
+        header.scrolled .nav-menu li a:hover,
+        header.scrolled .dropdown:hover .dropbtn { color: var(--accent-orange); }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background-color: var(--primary-blue);
+            min-width: 240px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            z-index: 1001;
+            flex-direction: column;
+            border-radius: 0 0 5px 5px;
+        }
+        .dropdown-content li { width: 100%; border-top: 1px solid rgba(255,255,255,0.1); }
+        .dropdown-content li a { padding: 12px 20px; width: 100%; display: block; color: var(--white); font-size: 1rem; }
+        .dropdown:hover .dropdown-content { display: flex; }
+        .hamburger { display: none; cursor: pointer; flex-direction: column; gap: 6px; z-index: 1002; }
+        .bar { width: 30px; height: 3px; background-color: var(--white); transition: 0.3s; }
+        header.scrolled .hamburger .bar { background-color: var(--primary-blue); }
+
+        @media (max-width: 900px) {
+            header { padding: 0 14px; height: 68px; }
+            .hamburger { display: flex !important; }
+            .nav-menu {
+                display: block;
+                position: fixed;
+                top: 68px;
+                right: -100%;
+                width: 78%;
+                height: 100vh;
+                background: var(--secondary-blue);
+                flex-direction: column;
+                padding: 18px;
+                transition: 0.3s ease;
+                box-shadow: -5px 0 20px rgba(0,0,0,0.4);
+            }
+            .nav-menu.active { right: 0; }
+            .nav-menu li {
+                width: 100%;
+                border-bottom: 1px solid rgba(255,255,255,0.05);
+                display: block;
+                height: auto;
+                margin-bottom: 0;
+            }
+            .nav-menu li a, .dropbtn { padding: 10px 8px; font-size: 0.96rem; justify-content: space-between; }
+            .dropdown-content {
+                position: relative;
+                top: 0;
+                width: 100%;
+                box-shadow: none;
+                background: rgba(0,0,0,0.2);
+                display: none;
+            }
+            .dropdown:hover .dropdown-content { display: block; }
+        }
     </style>
 </head>
 <body>
@@ -274,13 +402,13 @@
         </a>
         <ul class="nav-menu">
             <li><a href="index.html">Home</a></li>
+            <li><a href="themes.html" style="color: var(--accent-gold);">Themes</a></li>
             <li><a href="speakers.html">Speakers</a></li>
             <li><a href="call-for-papers.html">Call for Papers</a></li>
-            <li><a href="schedule.html">Schedule</a></li>
             <li><a href="registration.html">Registration</a></li>
+            <li><a href="schedule.html">Schedule</a></li>
             <li><a href="visa.html">Visa</a></li>
-            <li><a href="venue.html">Venue & Travel</a></li>
-            
+
             <li class="dropdown">
                 <div class="dropbtn">Committees <i class="fas fa-caret-down" style="margin-left:8px;"></i></div>
                 <ul class="dropdown-content">
@@ -293,13 +421,12 @@
             <li class="dropdown">
                 <div class="dropbtn">More <i class="fas fa-caret-down" style="margin-left:8px;"></i></div>
                 <ul class="dropdown-content">
-                    <li><a href="themes.html" style="color: var(--accent-gold);">Themes</a></li>
                     <li><a href="accommodation.html">Accommodation</a></li>
+                    <li><a href="venue.html">Venue & Travel</a></li>
                     <li><a href="downloads.html">Downloads</a></li>
                     <li><a href="contact.html">Contact Us</a></li>
                 </ul>
             </li>
-
         </ul>
         <div class="hamburger">
             <span class="bar"></span>
@@ -312,14 +439,14 @@
     </section>
 
     <section class="themes-section">
-        
+
         <div class="section-intro">
             <h2>Track Details</h2>
             <p>The conference focuses on cutting-edge research in sustainable materials. Hover (or tap on mobile) over the cards below to view specific sub-themes.</p>
         </div>
 
         <div class="themes-grid">
-            
+
             <div class="flip-card">
                 <div class="flip-card-inner">
                     <div class="flip-card-front">

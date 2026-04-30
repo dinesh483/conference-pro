@@ -57,7 +57,7 @@
            2. HEADER & NAVIGATION (MATCHES OTHER PAGES)
            ========================================= */
         header {
-            background: rgba(0, 33, 68, 0.85);
+            background: #002144;
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.2);
@@ -258,7 +258,7 @@
            ========================================= */
         @media (max-width: 900px) {
             header { padding: 0 14px; height: 64px; }
-            body { padding-top: 64px; }
+            body { padding-top: 68px; }
             .hamburger { display: flex !important; }
             .nav-menu {
                 display: block;
@@ -280,6 +280,134 @@
             .dropdown:hover .dropdown-content { display: block; }
             .page-banner { height: 150px; }
         }
+        /* Unified header styling */
+        header {
+            background: #002144;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            height: 78px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 4%;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.4s ease;
+        }
+
+        header.scrolled {
+            background-color: var(--white);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            height: 76px;
+        }
+
+        .logo {
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .logo-mark {
+            width: 46px;
+            height: 46px;
+            object-fit: contain;
+            flex: 0 0 auto;
+            background: var(--white);
+            border-radius: 50%;
+            padding: 2px;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            font-family: var(--font-heading);
+            font-weight: 900;
+            line-height: 1;
+            letter-spacing: 0.8px;
+        }
+
+        .logo-text span:first-child { font-size: 1.12rem; }
+        .logo-text span:last-child { font-size: 0.72rem; letter-spacing: 1.4px; margin-top: 3px; }
+        .nav-menu { display: flex; list-style: none; align-items: center; height: 100%; }
+        .nav-menu li { position: relative; height: 100%; display: flex; align-items: center; }
+        .nav-menu li a, .dropbtn {
+            color: var(--white);
+            text-decoration: none;
+            padding: 0 18px;
+            font-size: 0.98rem;
+            font-weight: 600;
+            transition: color 0.3s;
+            cursor: pointer;
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+        .nav-menu li a:hover, .dropdown:hover .dropbtn { color: var(--accent-orange); }
+        header.scrolled .logo { color: var(--primary-blue); }
+        header.scrolled .nav-menu li a,
+        header.scrolled .dropbtn { color: var(--primary-blue); }
+        header.scrolled .nav-menu li a:hover,
+        header.scrolled .dropdown:hover .dropbtn { color: var(--accent-orange); }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background-color: var(--primary-blue);
+            min-width: 240px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            z-index: 1001;
+            flex-direction: column;
+            border-radius: 0 0 5px 5px;
+        }
+        .dropdown-content li { width: 100%; border-top: 1px solid rgba(255,255,255,0.1); }
+        .dropdown-content li a { padding: 12px 20px; width: 100%; display: block; color: var(--white); font-size: 1rem; }
+        .dropdown:hover .dropdown-content { display: flex; }
+        .hamburger { display: none; cursor: pointer; flex-direction: column; gap: 6px; z-index: 1002; }
+        .bar { width: 30px; height: 3px; background-color: var(--white); transition: 0.3s; }
+        header.scrolled .hamburger .bar { background-color: var(--primary-blue); }
+
+        @media (max-width: 900px) {
+            header { padding: 0 14px; height: 68px; }
+            .hamburger { display: flex !important; }
+            .nav-menu {
+                display: block;
+                position: fixed;
+                top: 68px;
+                right: -100%;
+                width: 78%;
+                height: 100vh;
+                background: var(--secondary-blue);
+                flex-direction: column;
+                padding: 18px;
+                transition: 0.3s ease;
+                box-shadow: -5px 0 20px rgba(0,0,0,0.4);
+            }
+            .nav-menu.active { right: 0; }
+            .nav-menu li {
+                width: 100%;
+                border-bottom: 1px solid rgba(255,255,255,0.05);
+                display: block;
+                height: auto;
+                margin-bottom: 0;
+            }
+            .nav-menu li a, .dropbtn { padding: 10px 8px; font-size: 0.96rem; justify-content: space-between; }
+            .dropdown-content {
+                position: relative;
+                top: 0;
+                width: 100%;
+                box-shadow: none;
+                background: rgba(0,0,0,0.2);
+                display: none;
+            }
+            .dropdown:hover .dropdown-content { display: block; }
+        }
     </style>
 </head>
 <body>
@@ -293,10 +421,11 @@
         </a>
         <ul class="nav-menu">
             <li><a href="index.html">Home</a></li>
+            <li><a href="themes.html">Themes</a></li>
             <li><a href="speakers.html">Speakers</a></li>
             <li><a href="call-for-papers.html">Call for Papers</a></li>
-            <li><a href="schedule.html">Schedule</a></li>
             <li><a href="registration.html">Registration</a></li>
+            <li><a href="schedule.html">Schedule</a></li>
             <li><a href="visa.html" style="color: var(--accent-gold);">Visa</a></li>
 
             <li class="dropdown">
@@ -308,13 +437,11 @@
                 </ul>
             </li>
 
-            <li><a href="venue.html">Venue & Travel</a></li>
-
             <li class="dropdown">
                 <div class="dropbtn">More <i class="fas fa-caret-down" style="margin-left:8px;"></i></div>
                 <ul class="dropdown-content">
-                    <li><a href="themes.html">Themes</a></li>
                     <li><a href="accommodation.html">Accommodation</a></li>
+                    <li><a href="venue.html">Venue & Travel</a></li>
                     <li><a href="downloads.html">Downloads</a></li>
                     <li><a href="contact.html">Contact Us</a></li>
                 </ul>

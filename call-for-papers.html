@@ -4,26 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Call for Papers - National Conference 2027</title>
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <style>
         /* =========================================
            1. CORE STYLES
            ========================================= */
-        :root { 
-            --primary-blue: #003366; 
-            --secondary-blue: #002244; 
-            --accent-gold: #f7931e; 
-            
+        :root {
+            --primary-blue: #003366;
+            --secondary-blue: #002244;
+            --accent-gold: #f7931e;
+
             --accent-orange-light: #ffc174;
             --accent-orange: #f7931e;
-            --text-dark: #333; 
-            --light-bg: #f8f9fa; 
-            --white: #ffffff; 
+            --text-dark: #333;
+            --light-bg: #f8f9fa;
+            --white: #ffffff;
             --font-main: 'Open Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             --font-heading: 'Montserrat', 'Open Sans', 'Segoe UI', sans-serif;
         }
@@ -32,13 +32,13 @@
         img, video, iframe, svg, canvas { max-width: 100%; height: auto; }
         html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
 
-        body { 
-            font-family: var(--font-main); 
-            background-color: var(--light-bg); 
-            color: var(--text-dark); 
-            padding-top: 70px; 
-            min-height: 100vh; 
-            display: flex; flex-direction: column; 
+        body {
+            font-family: var(--font-main);
+            background-color: var(--light-bg);
+            color: var(--text-dark);
+            padding-top: 78px;
+            min-height: 100vh;
+            display: flex; flex-direction: column;
             overflow-x: hidden;
         }
 
@@ -46,14 +46,14 @@
            2. HEADER (Fixed & Shadowed)
            ========================================= */
        header {
-            background: rgba(0, 33, 68, 0.85); /* Slightly darker initial bg */
+            background: #002144; /* Slightly darker initial bg */
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.2);
             height: 72px;
-            width: 100%; display: flex; 
-            justify-content: space-between; align-items: center; padding: 0 2%; 
-            position: fixed; top: 0; z-index: 1000; 
+            width: 100%; display: flex;
+            justify-content: space-between; align-items: center; padding: 0 2%;
+            position: fixed; top: 0; z-index: 1000;
             transition: all 0.4s ease;
         }
 
@@ -93,12 +93,12 @@
 
         .logo-text span:first-child { font-size: 1.12rem; }
         .logo-text span:last-child { font-size: 0.72rem; letter-spacing: 1.4px; margin-top: 3px; }
-        
+
         .nav-menu { display: flex; list-style: none; align-items: center; height: 100%; }
         .nav-menu li { position: relative; height: 100%; display: flex; align-items: center; }
-        
-        .nav-menu li a, .dropbtn { 
-            color: var(--white); text-decoration: none; padding: 0 18px; 
+
+        .nav-menu li a, .dropbtn {
+            color: var(--white); text-decoration: none; padding: 0 18px;
             font-size: 0.98rem;
             font-weight: 600; transition: color 0.3s;
             cursor: pointer; height: 100%; display: flex; align-items: center;
@@ -106,15 +106,15 @@
         .nav-menu li a:hover, .dropdown:hover .dropbtn { color: var(--accent-orange); }
 
         header.scrolled .logo { color: var(--primary-blue); }
-        header.scrolled .nav-menu li a, 
+        header.scrolled .nav-menu li a,
         header.scrolled .dropbtn { color: var(--primary-blue); }
-        header.scrolled .nav-menu li a:hover, 
+        header.scrolled .nav-menu li a:hover,
         header.scrolled .dropdown:hover .dropbtn { color: var(--accent-orange); }
 
         .dropdown-content {
             display: none; position: absolute; top: 100%; /* Fixes gap issue */
-            right: 0; 
-            background-color: var(--primary-blue); min-width: 240px; 
+            right: 0;
+            background-color: var(--primary-blue); min-width: 240px;
             box-shadow: 0 10px 25px rgba(0,0,0,0.3); z-index: 1001; flex-direction: column;
             border-radius: 0 0 5px 5px;
         }
@@ -122,26 +122,26 @@
         .dropdown-content li a { padding: 12px 20px; width: 100%; display: block; color: var(--white); font-size: 1rem; }
 
         .dropdown:hover .dropdown-content { display: flex; }
-        
-        .hamburger { 
-            display: none; cursor: pointer; flex-direction: column; gap: 6px; z-index: 1002; 
+
+        .hamburger {
+            display: none; cursor: pointer; flex-direction: column; gap: 6px; z-index: 1002;
         }
-        .bar { 
-            width: 30px; height: 3px; background-color: var(--white); transition: 0.3s; 
+        .bar {
+            width: 30px; height: 3px; background-color: var(--white); transition: 0.3s;
         }
         header.scrolled .hamburger .bar { background-color: var(--primary-blue); }
         /* =========================================
            3. PAGE BANNER
            ========================================= */
-        .page-banner { 
-            background: linear-gradient(rgba(0,51,102,0.9), rgba(0,51,102,0.8)), url('https://via.placeholder.com/1920x400?text=Submit+Your+Research'); 
-            background-size: cover; background-position: center; 
-            height: 300px; display: flex; justify-content: center; align-items: center; 
-            text-align: center; color: var(--white); 
+        .page-banner {
+            background: linear-gradient(rgba(0,51,102,0.9), rgba(0,51,102,0.8)), url('https://via.placeholder.com/1920x400?text=Submit+Your+Research');
+            background-size: cover; background-position: center;
+            height: 300px; display: flex; justify-content: center; align-items: center;
+            text-align: center; color: var(--white);
         }
-        .page-banner h1 { 
-            font-size: 3rem; text-transform: uppercase; font-weight: 800; 
-            border-bottom: 4px solid var(--accent-gold); padding-bottom: 10px; 
+        .page-banner h1 {
+            font-size: 3rem; text-transform: uppercase; font-weight: 800;
+            border-bottom: 4px solid var(--accent-gold); padding-bottom: 10px;
         }
 
         /* =========================================
@@ -150,26 +150,26 @@
         .papers-section { max-width: 1200px; margin: 60px auto; padding: 0 20px; }
         .section-header { text-align: center; margin-bottom: 60px; }
         .section-header h2 { color: var(--primary-blue); font-size: 2.2rem; }
-        
-        .roadmap-container { 
-            display: flex; justify-content: space-between; align-items: center; 
-            position: relative; margin-bottom: 80px; padding: 0 20px; 
+
+        .roadmap-container {
+            display: flex; justify-content: space-between; align-items: center;
+            position: relative; margin-bottom: 80px; padding: 0 20px;
         }
-        .roadmap-container::before { 
-            content: ''; position: absolute; top: 40px; left: 50px; right: 50px; 
-            height: 4px; background: #ddd; z-index: 0; 
+        .roadmap-container::before {
+            content: ''; position: absolute; top: 40px; left: 50px; right: 50px;
+            height: 4px; background: #ddd; z-index: 0;
         }
-        
-        .step-box { 
-            position: relative; z-index: 1; text-align: center; width: 200px; 
-            transition: transform 0.3s; cursor: default; 
+
+        .step-box {
+            position: relative; z-index: 1; text-align: center; width: 200px;
+            transition: transform 0.3s; cursor: default;
         }
         .step-box:hover { transform: translateY(-10px); }
-        
-        .step-icon { 
-            width: 80px; height: 80px; background: white; border: 4px solid #ddd; 
-            border-radius: 50%; margin: 0 auto 15px; display: flex; justify-content: center; 
-            align-items: center; font-size: 1.8rem; color: #999; transition: 0.3s; 
+
+        .step-icon {
+            width: 80px; height: 80px; background: white; border: 4px solid #ddd;
+            border-radius: 50%; margin: 0 auto 15px; display: flex; justify-content: center;
+            align-items: center; font-size: 1.8rem; color: #999; transition: 0.3s;
         }
         .step-box.active .step-icon { border-color: var(--accent-gold); color: var(--primary-blue); background: #fff8e1; }
         .step-box.active h3 { color: var(--primary-blue); }
@@ -181,57 +181,57 @@
            ========================================= */
         .submission-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: start; }
 
-        .info-card { 
-            background: white; padding: 30px; border-radius: 15px; 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-left: 5px solid var(--primary-blue); 
+        .info-card {
+            background: white; padding: 30px; border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-left: 5px solid var(--primary-blue);
         }
         .info-card h3 { color: var(--primary-blue); margin-bottom: 20px; font-size: 1.5rem; }
         .info-card p { margin-bottom: 15px; color: #555; line-height: 1.7; }
-        
-        .template-btn { 
-            display: inline-block; background: #eee; color: #333; padding: 10px 20px; 
-            border-radius: 5px; text-decoration: none; font-weight: bold; margin-top: 10px; 
-            transition: 0.3s; border: 1px solid #ddd; 
+
+        .template-btn {
+            display: inline-block; background: #eee; color: #333; padding: 10px 20px;
+            border-radius: 5px; text-decoration: none; font-weight: bold; margin-top: 10px;
+            transition: 0.3s; border: 1px solid #ddd;
         }
         .template-btn:hover { background: var(--primary-blue); color: white; border-color: var(--primary-blue); }
 
-        .checklist-wrapper { 
-            background: white; padding: 30px; border-radius: 15px; 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-top: 5px solid var(--accent-gold); 
+        .checklist-wrapper {
+            background: white; padding: 30px; border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-top: 5px solid var(--accent-gold);
         }
         .checklist-title { font-size: 1.3rem; font-weight: 800; color: var(--secondary-blue); margin-bottom: 20px; }
-        
-        .check-item { 
-            display: flex; align-items: center; padding: 12px; margin-bottom: 10px; 
-            background: #f9f9f9; border-radius: 8px; cursor: pointer; transition: 0.3s; 
-            border: 1px solid transparent; 
+
+        .check-item {
+            display: flex; align-items: center; padding: 12px; margin-bottom: 10px;
+            background: #f9f9f9; border-radius: 8px; cursor: pointer; transition: 0.3s;
+            border: 1px solid transparent;
         }
         .check-item:hover { background: #f0f0f0; }
         .check-item.checked { background: #e8f5e9; border-color: #28a745; }
-        
-        .check-box-ui { 
-            width: 20px; height: 20px; border: 2px solid #ccc; border-radius: 4px; 
-            margin-right: 15px; display: flex; justify-content: center; align-items: center; 
-            background: white; 
+
+        .check-box-ui {
+            width: 20px; height: 20px; border: 2px solid #ccc; border-radius: 4px;
+            margin-right: 15px; display: flex; justify-content: center; align-items: center;
+            background: white;
         }
         .check-item.checked .check-box-ui { border-color: #28a745; background: #28a745; color: white; }
         .check-item.checked .check-box-ui::after { content: '\2713'; font-size: 12px; }
-        
-        .submit-final-btn { 
-            display: block; width: 100%; padding: 15px; text-align: center; 
-            background: linear-gradient(45deg, #003366, #004080); color: white; 
-            font-size: 1.2rem; font-weight: bold; border: none; border-radius: 8px; 
-            margin-top: 20px; cursor: pointer; transition: transform 0.2s; 
-            box-shadow: 0 5px 15px rgba(0,51,102,0.3); text-decoration: none; 
+
+        .submit-final-btn {
+            display: block; width: 100%; padding: 15px; text-align: center;
+            background: linear-gradient(45deg, #003366, #004080); color: white;
+            font-size: 1.2rem; font-weight: bold; border: none; border-radius: 8px;
+            margin-top: 20px; cursor: pointer; transition: transform 0.2s;
+            box-shadow: 0 5px 15px rgba(0,51,102,0.3); text-decoration: none;
         }
         .submit-final-btn:hover { transform: translateY(-3px); }
 
         /* =========================================
            6. PUBLICATION BAR
            ========================================= */
-        .publication-bar { 
-            background: white; padding: 40px 0; margin-top: 80px; overflow: hidden; 
-            border-top: 1px solid #eee; border-bottom: 1px solid #eee; 
+        .publication-bar {
+            background: white; padding: 40px 0; margin-top: 80px; overflow: hidden;
+            border-top: 1px solid #eee; border-bottom: 1px solid #eee;
         }
         .pub-title { text-align: center; color: #999; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 30px; font-size: 0.9rem; }
         .marquee-container { display: flex; width: 200%; animation: scroll 20s linear infinite; }
@@ -243,92 +243,220 @@
         /* =========================================
            7. CONTACT FOOTER
            ========================================= */
-        .contact-grid-section { 
-            margin-top: auto; background-color: #f0f2f5; padding: 50px 20px; border-top: 1px solid #e0e0e0; 
+        .contact-grid-section {
+            margin-top: auto; background-color: #f0f2f5; padding: 50px 20px; border-top: 1px solid #e0e0e0;
         }
-        .contact-grid { 
-            max-width: 1100px; margin: 0 auto; display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; 
+        .contact-grid {
+            max-width: 1100px; margin: 0 auto; display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;
         }
-        
-        .contact-card { 
-            background: white; padding: 30px; border-radius: 12px; text-align: center; 
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: transform 0.3s, box-shadow 0.3s; 
-            position: relative; overflow: hidden; border: 1px solid #eee; 
+
+        .contact-card {
+            background: white; padding: 30px; border-radius: 12px; text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: transform 0.3s, box-shadow 0.3s;
+            position: relative; overflow: hidden; border: 1px solid #eee;
         }
         .contact-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
-        
-        .contact-icon { 
-            width: 60px; height: 60px; background: #f8f9fa; border-radius: 50%; 
-            display: flex; justify-content: center; align-items: center; margin: 0 auto 20px; 
-            font-size: 1.5rem; color: var(--primary-blue); transition: 0.3s; 
+
+        .contact-icon {
+            width: 60px; height: 60px; background: #f8f9fa; border-radius: 50%;
+            display: flex; justify-content: center; align-items: center; margin: 0 auto 20px;
+            font-size: 1.5rem; color: var(--primary-blue); transition: 0.3s;
         }
         .contact-card:hover .contact-icon { background: var(--primary-blue); color: white; }
-        
+
         .contact-card h3 { font-size: 1.2rem; color: #333; margin-bottom: 10px; }
         .contact-card p { color: #666; font-size: 0.9rem; margin-bottom: 20px; line-height: 1.5; }
-        
-        .contact-btn { 
-            display: inline-block; padding: 8px 25px; border: 2px solid var(--accent-gold); 
-            color: var(--accent-gold); text-decoration: none; border-radius: 20px; 
-            font-weight: bold; font-size: 0.9rem; transition: 0.3s; 
+
+        .contact-btn {
+            display: inline-block; padding: 8px 25px; border: 2px solid var(--accent-gold);
+            color: var(--accent-gold); text-decoration: none; border-radius: 20px;
+            font-weight: bold; font-size: 0.9rem; transition: 0.3s;
         }
         .contact-btn:hover { background: var(--accent-gold); color: white; }
-        
+
         .minimal-copyright { text-align: center; color: #999; margin-top: 40px; font-size: 0.85rem; }
 
         /* =========================================
            8. MOBILE & RESPONSIVE FIXES
            ========================================= */
-        @media (max-width: 900px) { 
-            
+        @media (max-width: 900px) {
+
             /* General Layout */
-            body { padding-top: 70px; }
+            body { padding-top: 78px; }
             .page-banner { height: 180px; }
             .page-banner h1 { font-size: 1.8rem; }
 
             /* Roadmap Vertical Stack */
-            .roadmap-container { 
-                flex-direction: column; gap: 30px; 
+            .roadmap-container {
+                flex-direction: column; gap: 30px;
                 align-items: flex-start; /* Align left */
                 padding-left: 40px; /* Space for line */
             }
-            .roadmap-container::before { 
-                width: 4px; height: 100%; left: 20px; top: 0; right: auto; 
+            .roadmap-container::before {
+                width: 4px; height: 100%; left: 20px; top: 0; right: auto;
             }
-            .step-box { 
-                width: 100%; text-align: left; 
+            .step-box {
+                width: 100%; text-align: left;
                 display: flex; align-items: center; gap: 20px;
             }
-            .step-icon { 
+            .step-icon {
                 margin: 0; width: 60px; height: 60px; font-size: 1.2rem; flex-shrink: 0;
             }
-            
+
             /* Grid Stack */
             .submission-grid { grid-template-columns: 1fr; gap: 30px; }
-            
+
             /* Sliding Menu */
             header { padding: 0 15px; }
             .hamburger { display: flex; }
 
-            .nav-menu { 
-                display: block; 
-                position: fixed; 
-                top: 70px; 
-                right: -100%; 
-                width: 75%; 
-                height: calc(100vh - 70px); 
-                background: var(--primary-blue); 
-                padding: 20px; 
+            .nav-menu {
+                display: block;
+                position: fixed;
+                top: 70px;
+                right: -100%;
+                width: 75%;
+                height: calc(100vh - 70px);
+                background: var(--primary-blue);
+                padding: 20px;
                 transition: 0.3s ease;
                 box-shadow: -5px 0 15px rgba(0,0,0,0.2);
                 overflow-y: auto;
             }
-            .nav-menu.active { right: 0; } 
+            .nav-menu.active { right: 0; }
 
             .nav-menu li { width: 100%; border-bottom: 1px solid rgba(255,255,255,0.1); height: auto; display: block; margin-bottom: 5px; }
             .nav-menu li a, .dropbtn { padding: 12px; font-size: 1rem; justify-content: space-between; }
             .dropdown-content { position: relative; top: 0; box-shadow: none; background: rgba(0,0,0,0.2); width: 100%; display: none; }
+            .dropdown:hover .dropdown-content { display: block; }
+        }
+        /* Unified header styling */
+        header {
+            background: #002144;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            height: 78px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 4%;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.4s ease;
+        }
+
+        header.scrolled {
+            background-color: var(--white);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            height: 76px;
+        }
+
+        .logo {
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .logo-mark {
+            width: 46px;
+            height: 46px;
+            object-fit: contain;
+            flex: 0 0 auto;
+            background: var(--white);
+            border-radius: 50%;
+            padding: 2px;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            font-family: var(--font-heading);
+            font-weight: 900;
+            line-height: 1;
+            letter-spacing: 0.8px;
+        }
+
+        .logo-text span:first-child { font-size: 1.12rem; }
+        .logo-text span:last-child { font-size: 0.72rem; letter-spacing: 1.4px; margin-top: 3px; }
+        .nav-menu { display: flex; list-style: none; align-items: center; height: 100%; }
+        .nav-menu li { position: relative; height: 100%; display: flex; align-items: center; }
+        .nav-menu li a, .dropbtn {
+            color: var(--white);
+            text-decoration: none;
+            padding: 0 18px;
+            font-size: 0.98rem;
+            font-weight: 600;
+            transition: color 0.3s;
+            cursor: pointer;
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+        .nav-menu li a:hover, .dropdown:hover .dropbtn { color: var(--accent-orange); }
+        header.scrolled .logo { color: var(--primary-blue); }
+        header.scrolled .nav-menu li a,
+        header.scrolled .dropbtn { color: var(--primary-blue); }
+        header.scrolled .nav-menu li a:hover,
+        header.scrolled .dropdown:hover .dropbtn { color: var(--accent-orange); }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background-color: var(--primary-blue);
+            min-width: 240px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            z-index: 1001;
+            flex-direction: column;
+            border-radius: 0 0 5px 5px;
+        }
+        .dropdown-content li { width: 100%; border-top: 1px solid rgba(255,255,255,0.1); }
+        .dropdown-content li a { padding: 12px 20px; width: 100%; display: block; color: var(--white); font-size: 1rem; }
+        .dropdown:hover .dropdown-content { display: flex; }
+        .hamburger { display: none; cursor: pointer; flex-direction: column; gap: 6px; z-index: 1002; }
+        .bar { width: 30px; height: 3px; background-color: var(--white); transition: 0.3s; }
+        header.scrolled .hamburger .bar { background-color: var(--primary-blue); }
+
+        @media (max-width: 900px) {
+            header { padding: 0 14px; height: 68px; }
+            .hamburger { display: flex !important; }
+            .nav-menu {
+                display: block;
+                position: fixed;
+                top: 68px;
+                right: -100%;
+                width: 78%;
+                height: 100vh;
+                background: var(--secondary-blue);
+                flex-direction: column;
+                padding: 18px;
+                transition: 0.3s ease;
+                box-shadow: -5px 0 20px rgba(0,0,0,0.4);
+            }
+            .nav-menu.active { right: 0; }
+            .nav-menu li {
+                width: 100%;
+                border-bottom: 1px solid rgba(255,255,255,0.05);
+                display: block;
+                height: auto;
+                margin-bottom: 0;
+            }
+            .nav-menu li a, .dropbtn { padding: 10px 8px; font-size: 0.96rem; justify-content: space-between; }
+            .dropdown-content {
+                position: relative;
+                top: 0;
+                width: 100%;
+                box-shadow: none;
+                background: rgba(0,0,0,0.2);
+                display: none;
+            }
             .dropdown:hover .dropdown-content { display: block; }
         }
     </style>
@@ -345,13 +473,13 @@
         </a>
         <ul class="nav-menu">
             <li><a href="index.html">Home</a></li>
+            <li><a href="themes.html">Themes</a></li>
             <li><a href="speakers.html">Speakers</a></li>
             <li><a href="call-for-papers.html" style="color: var(--accent-gold);">Call for Papers</a></li>
-            <li><a href="schedule.html">Schedule</a></li>
             <li><a href="registration.html">Registration</a></li>
+            <li><a href="schedule.html">Schedule</a></li>
             <li><a href="visa.html">Visa</a></li>
-            <li><a href="venue.html">Venue & Travel</a></li>
-            
+
             <li class="dropdown">
                 <div class="dropbtn">Committees <i class="fas fa-caret-down" style="margin-left:8px;"></i></div>
                 <ul class="dropdown-content">
@@ -364,13 +492,12 @@
             <li class="dropdown">
                 <div class="dropbtn">More <i class="fas fa-caret-down" style="margin-left:8px;"></i></div>
                 <ul class="dropdown-content">
-                    <li><a href="themes.html">Themes</a></li>
                     <li><a href="accommodation.html">Accommodation</a></li>
+                    <li><a href="venue.html">Venue & Travel</a></li>
                     <li><a href="downloads.html">Downloads</a></li>
                     <li><a href="contact.html">Contact Us</a></li>
                 </ul>
             </li>
-
         </ul>
         <div class="hamburger">
             <span class="bar"></span>
@@ -384,7 +511,7 @@
     </section>
 
     <section class="papers-section">
-        
+
         <div class="section-header">
             <h2>Your Path to Publication</h2>
         </div>
@@ -468,7 +595,7 @@
 
 
         <div class="submission-grid">
-            
+
             <div class="info-card">
                 <h3><i class="fas fa-info-circle"></i> Important Guidelines</h3>
                 <p>All papers must be original and not simultaneously submitted to another journal or conference.</p>
@@ -522,7 +649,7 @@
 
     <div class="contact-grid-section">
         <div class="contact-grid">
-            
+
             <div class="contact-card">
                 <div class="contact-icon"><i class="fas fa-code"></i></div>
                 <h3>Technical Issues?</h3>
@@ -552,7 +679,7 @@
 
     <script>
         function toggleCheck(element) { element.classList.toggle('checked'); }
-        
+
         const hamburger = document.querySelector('.hamburger');
         const navMenu = document.querySelector('.nav-menu');
         hamburger.addEventListener('click', () => navMenu.classList.toggle('active'));
