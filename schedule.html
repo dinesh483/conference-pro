@@ -33,7 +33,7 @@
 
         body {
             font-family: var(--font-main);
-            background-color: var(--map-bg);
+            background-color: var(--white);
             color: #333;
             padding-top: 78px;
             overflow-x: hidden;
@@ -131,8 +131,8 @@
            3. PAGE BANNER
            ========================================= */
         .page-banner {
-            background: linear-gradient(rgba(0,51,102,0.9), rgba(0,51,102,0.8)), url('https://via.placeholder.com/1920x400?text=Conference+Schedule');
-            background-size: cover; background-position: center;
+            background: linear-gradient(rgba(0,51,102,0.22), rgba(0,51,102,0.34)), url('img/6491d3b3-74be-4536-a33e-0d4dc1d98e3c.png');
+            background-size: cover; background-position: center 35%;
             height: 260px;
             display: flex; justify-content: center; align-items: center;
             text-align: center; color: var(--white);
@@ -326,7 +326,7 @@
         .map-container.active { display: block; animation: zoomIn 0.5s; }
         @keyframes zoomIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
 
-        /* ANIMATED PATH (The dotted line) */
+        /* Timeline path */
         .map-container::before {
             content: '';
             position: absolute;
@@ -352,9 +352,9 @@
 
         /* Map Items */
         .map-item {
-            position: relative; width: 100%; min-height: 142px;
+            position: relative; width: 100%; min-height: 132px;
             display: flex; justify-content: center; align-items: center;
-            margin-bottom: 14px;
+            margin-bottom: 18px;
         }
 
         /* NODES (Circles) */
@@ -377,11 +377,10 @@
         .map-card {
             position: absolute; width: 42%;
             background: rgba(255,255,255,0.96); padding: 16px 18px;
-            border-radius: 20px 7px 20px 7px;
+            border-radius: 14px 7px 14px 7px;
             box-shadow: 0 12px 24px rgba(0, 34, 68, 0.14);
             border: 1px solid rgba(0, 51, 102, 0.09);
             z-index: 2;
-            animation: floatCard 4s ease-in-out infinite;
             overflow: visible;
         }
         .map-card::before {
@@ -392,16 +391,11 @@
             width: 5px;
             background: linear-gradient(to bottom, var(--accent-orange-light), var(--accent-orange));
         }
-        @keyframes floatCard {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-8px); }
-        }
-
-        /* DESKTOP ZIG-ZAG LOGIC */appl+
-        .map-item:nth-child(odd) .map-card { left: 0; text-align: right; padding-right: 24px; }
-        .map-item:nth-child(even) .map-card { right: 0; text-align: left; padding-left: 24px; }
-        .map-item:nth-child(odd) .map-card::before { right: 0; }
-        .map-item:nth-child(even) .map-card::before { left: 0; }
+        /* DESKTOP ZIG-ZAG LOGIC */
+        .map-item:nth-of-type(odd) .map-card { left: 0; text-align: right; padding-right: 24px; }
+        .map-item:nth-of-type(even) .map-card { right: 0; text-align: left; padding-left: 24px; }
+        .map-item:nth-of-type(odd) .map-card::before { right: 0; }
+        .map-item:nth-of-type(even) .map-card::before { left: 0; }
 
         /* Connecting Triangles */
         .map-card::after {
@@ -410,12 +404,12 @@
             border: 1px solid rgba(0, 51, 102, 0.09);
             transform: rotate(45deg);
         }
-        .map-item:nth-child(odd) .map-card::after {
+        .map-item:nth-of-type(odd) .map-card::after {
             right: -8px;
             border-left: 0;
             border-bottom: 0;
         }
-        .map-item:nth-child(even) .map-card::after {
+        .map-item:nth-of-type(even) .map-card::after {
             left: -8px;
             border-right: 0;
             border-top: 0;
@@ -436,10 +430,10 @@
             padding: 4px 9px; font-size: 0.58rem; font-weight: 800; border-radius: 999px;
             box-shadow: 0 5px 14px rgba(0,51,102,0.18); text-transform: uppercase;
         }
-        .map-item:nth-child(odd) .level-badge { left: 10px; right: auto; }
-        .map-item:nth-child(even) .level-badge { right: 10px; left: auto; }
+        .map-item:nth-of-type(odd) .level-badge { left: 10px; right: auto; }
+        .map-item:nth-of-type(even) .level-badge { right: 10px; left: auto; }
 
-        .map-deco { position: absolute; font-size: 1.5rem; opacity: 0.3; color: #6983aa; z-index: 0; }
+        .map-deco { display: none; }
 
         /* =========================================
            5. MOBILE & RESPONSIVE FIXES (FINALIZED)
@@ -800,6 +794,70 @@
                 height: calc(100vh - 100px);
             }
         }
+        /* Shared inner-page banner sizing and orange bottom rule */
+        body {
+            padding-top: 104px;
+        }
+        header {
+            height: 72px;
+        }
+        header.scrolled {
+            height: 72px;
+        }
+        .page-banner,
+        .venue-hero {
+            height: 180px;
+            position: relative;
+            justify-content: center;
+            padding: 0 24px;
+            text-align: center;
+        }
+        .page-banner::after,
+        .venue-hero::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 5px;
+            background: var(--accent-orange);
+            box-shadow: 0 -1px 12px rgba(247, 147, 30, 0.45);
+        }
+        .page-banner h1,
+        .venue-hero h1 {
+            display: inline-block;
+            margin: 0 auto;
+            padding-bottom: 10px;
+            border-bottom: 4px solid var(--accent-orange);
+            font-size: clamp(1.75rem, 1.25rem + 1.4vw, 2.15rem);
+            color: var(--primary-blue);
+            max-width: min(520px, 46%);
+            line-height: 1.12;
+            text-align: center;
+            text-transform: uppercase;
+            font-weight: 800;
+            text-shadow: none;
+        }
+        @media (max-width: 900px) {
+            body {
+                padding-top: 100px;
+            }
+            header,
+            header.scrolled {
+                height: 68px;
+            }
+            .page-banner,
+            .venue-hero {
+                height: 140px;
+            }
+            .page-banner h1,
+            .venue-hero h1 {
+                font-size: 1.5rem;
+                max-width: min(420px, 78%);
+                text-align: center;
+                padding-bottom: 8px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -844,7 +902,7 @@
                 <ul class="dropdown-content">
                     <li><a href="advisory.html">Advisory Board</a></li>
                     <li><a href="organizing.html">Organizing Committee</a></li>
-                    <li><a href="review.html">Research Committee</a></li>
+                    <li><a href="review.html">Review Committee</a></li>
                 </ul>
             </li>
 
@@ -854,6 +912,7 @@
                     <li><a href="accommodation.html">Accommodation</a></li>
                     <li><a href="venue.html">Venue & Travel</a></li>
                     <li><a href="downloads.html">Downloads</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
                     <li><a href="journal.html">Journal</a></li>
                     <li><a href="contact.html">Contact Us</a></li>
                 </ul>

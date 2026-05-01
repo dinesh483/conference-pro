@@ -133,8 +133,8 @@
            3. PAGE BANNER
            ========================================= */
         .page-banner {
-            background: linear-gradient(rgba(0, 51, 102, 0.6), rgba(0, 51, 102, 0.6)), url('https://via.placeholder.com/1920x400?text=Leadership');
-            background-size: cover; background-position: center;
+            background: linear-gradient(rgba(0,51,102,0.22), rgba(0,51,102,0.34)), url('img/6491d3b3-74be-4536-a33e-0d4dc1d98e3c.png');
+            background-size: cover; background-position: center 35%;
             height: 250px;
             display: flex; justify-content: center; align-items: center;
             text-align: center; color: var(--white);
@@ -543,6 +543,70 @@
                 height: calc(100vh - 100px);
             }
         }
+        /* Shared inner-page banner sizing and orange bottom rule */
+        body {
+            padding-top: 104px;
+        }
+        header {
+            height: 72px;
+        }
+        header.scrolled {
+            height: 72px;
+        }
+        .page-banner,
+        .venue-hero {
+            height: 180px;
+            position: relative;
+            justify-content: center;
+            padding: 0 24px;
+            text-align: center;
+        }
+        .page-banner::after,
+        .venue-hero::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 5px;
+            background: var(--accent-orange);
+            box-shadow: 0 -1px 12px rgba(247, 147, 30, 0.45);
+        }
+        .page-banner h1,
+        .venue-hero h1 {
+            display: inline-block;
+            margin: 0 auto;
+            padding-bottom: 10px;
+            border-bottom: 4px solid var(--accent-orange);
+            font-size: clamp(1.75rem, 1.25rem + 1.4vw, 2.15rem);
+            color: var(--primary-blue);
+            max-width: min(520px, 46%);
+            line-height: 1.12;
+            text-align: center;
+            text-transform: uppercase;
+            font-weight: 800;
+            text-shadow: none;
+        }
+        @media (max-width: 900px) {
+            body {
+                padding-top: 100px;
+            }
+            header,
+            header.scrolled {
+                height: 68px;
+            }
+            .page-banner,
+            .venue-hero {
+                height: 140px;
+            }
+            .page-banner h1,
+            .venue-hero h1 {
+                font-size: 1.5rem;
+                max-width: min(420px, 78%);
+                text-align: center;
+                padding-bottom: 8px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -587,7 +651,7 @@
                 <ul class="dropdown-content">
                     <li><a href="advisory.html">Advisory Board</a></li>
                     <li><a href="organizing.html">Organizing Committee</a></li>
-                    <li><a href="review.html">Research Committee</a></li>
+                    <li><a href="review.html">Review Committee</a></li>
                 </ul>
             </li>
 
@@ -597,6 +661,7 @@
                     <li><a href="accommodation.html">Accommodation</a></li>
                     <li><a href="venue.html">Venue & Travel</a></li>
                     <li><a href="downloads.html">Downloads</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
                     <li><a href="journal.html">Journal</a></li>
                     <li><a href="contact.html">Contact Us</a></li>
                 </ul>

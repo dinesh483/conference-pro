@@ -132,11 +132,22 @@
            3. PAGE BANNER
            ========================================= */
         .page-banner {
-            background: linear-gradient(rgba(0,51,102,0.9), rgba(0,51,102,0.8)), url('https://via.placeholder.com/1920x400?text=Conference+Themes');
-            background-size: cover; background-position: center;
+            background: linear-gradient(rgba(0,51,102,0.22), rgba(0,51,102,0.34)), url('img/6491d3b3-74be-4536-a33e-0d4dc1d98e3c.png');
+            background-size: cover; background-position: center 35%;
             height: 180px;
             display: flex; justify-content: center; align-items: center;
             text-align: center; color: var(--white);
+            position: relative;
+        }
+        .page-banner::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 5px;
+            background: var(--accent-orange);
+            box-shadow: 0 -1px 12px rgba(247, 147, 30, 0.45);
         }
         .page-banner h1 {
             font-size: 2.5rem; text-transform: uppercase; font-weight: 800;
@@ -146,63 +157,330 @@
         /* =========================================
            4. 3D FLIP CARD GRID
            ========================================= */
-        .themes-section { max-width: 1200px; margin: 60px auto; padding: 0 20px; }
+        .themes-section { max-width: 1080px; margin: 50px auto 60px; padding: 0 20px; }
 
-        .section-intro { text-align: center; margin-bottom: 50px; max-width: 800px; margin-left: auto; margin-right: auto; }
+        .section-intro { text-align: center; margin-bottom: 36px; max-width: 800px; margin-left: auto; margin-right: auto; }
         .section-intro h2 { color: var(--primary-blue); font-size: 2.2rem; margin-bottom: 15px; }
         .section-intro p { color: #666; font-size: 1.1rem; }
 
+        .theme-focus-ribbon {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 18px;
+            margin: 0 auto 34px;
+            padding: 18px 24px;
+            background: linear-gradient(90deg, rgba(0,51,102,0.96), rgba(0,34,68,0.94));
+            color: var(--white);
+            border-left: 5px solid var(--accent-gold);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 16px 34px rgba(0, 33, 68, 0.16);
+        }
+        .theme-focus-ribbon::before {
+            content: "";
+            position: absolute;
+            left: 7%;
+            right: 7%;
+            top: 50%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(247,147,30,0.62), transparent);
+            pointer-events: none;
+        }
+        .focus-point {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            min-width: 0;
+        }
+        .focus-point i {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--accent-gold);
+            color: var(--primary-blue);
+            flex: 0 0 auto;
+            box-shadow: 0 0 0 7px rgba(247,147,30,0.12);
+        }
+        .focus-point span {
+            font-size: 0.82rem;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.92);
+            white-space: nowrap;
+        }
+
         .themes-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 24px;
         }
 
         /* Card Container */
         .flip-card {
+            --card-accent: #f7931e;
+            --track-number: "01";
             background-color: transparent;
             width: 100%;
-            height: 350px;
+            height: 260px;
             perspective: 1000px;
+            cursor: pointer;
+            outline: none;
         }
+        .flip-card:nth-child(2) { --card-accent: #1f8a70; --track-number: "02"; }
+        .flip-card:nth-child(3) { --card-accent: #d94f70; --track-number: "03"; }
+        .flip-card:nth-child(4) { --card-accent: #6d5dfc; --track-number: "04"; }
+        .flip-card:nth-child(5) { --card-accent: #0096c7; --track-number: "05"; }
+        .flip-card:nth-child(6) { --card-accent: #4f9d69; --track-number: "06"; }
+        .flip-card:nth-child(7) { --card-accent: #bb6bd9; --track-number: "07"; }
+        .flip-card:nth-child(8) { --card-accent: #ff8a3d; --track-number: "08"; }
 
         /* Moving Part */
         .flip-card-inner {
             position: relative; width: 100%; height: 100%; text-align: center;
-            transition: transform 0.8s; transform-style: preserve-3d;
-            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); border-radius: 15px;
+            transition: transform 0.72s cubic-bezier(0.2, 0.72, 0.22, 1), box-shadow 0.28s ease;
+            transform-style: preserve-3d;
+            box-shadow: 0 14px 30px rgba(0, 33, 68, 0.12);
+            border-radius: 8px;
         }
 
-        /* Flip Action */
-        .flip-card:hover .flip-card-inner { transform: rotateY(180deg); }
+        /* Hover/Focus Flip Action */
+        .flip-card:hover .flip-card-inner {
+            box-shadow: 0 20px 40px rgba(0, 33, 68, 0.18);
+        }
+        .flip-card:hover .flip-card-inner,
+        .flip-card:focus-visible .flip-card-inner {
+            transform: rotateY(180deg);
+        }
 
         /* Faces */
         .flip-card-front, .flip-card-back {
             position: absolute; width: 100%; height: 100%;
             -webkit-backface-visibility: hidden; backface-visibility: hidden;
-            border-radius: 15px; display: flex; flex-direction: column;
-            justify-content: center; align-items: center; padding: 20px;
+            border-radius: 8px; display: flex; flex-direction: column;
+            justify-content: center; align-items: center; padding: 18px;
         }
 
         /* Front Styling */
         .flip-card-front {
-            background-color: var(--white); color: var(--text-dark);
-            border-bottom: 5px solid var(--accent-gold);
+            background:
+                linear-gradient(135deg, rgba(0, 51, 102, 0.06), transparent 42%),
+                radial-gradient(circle at 50% 48%, color-mix(in srgb, var(--card-accent) 18%, transparent), transparent 46%),
+                var(--white);
+            color: var(--text-dark);
+            border: 1px solid rgba(0, 51, 102, 0.1);
+            border-bottom: 4px solid var(--accent-orange);
+            overflow: hidden;
         }
-        .flip-card-front i { font-size: 4rem; color: var(--primary-blue); margin-bottom: 20px; }
-        .flip-card-front h3 { font-size: 1.4rem; color: var(--primary-blue); text-transform: uppercase; padding: 0 10px; }
-        .flip-hint { margin-top: 20px; font-size: 0.8rem; color: #999; text-transform: uppercase; letter-spacing: 1px; }
+        .flip-card-front::before {
+            content: "Theme " var(--track-number);
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            padding: 5px 9px;
+            border-radius: 999px;
+            background: rgba(0, 51, 102, 0.08);
+            color: var(--primary-blue);
+            font-size: 0.68rem;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+        .flip-card-front::after {
+            content: "";
+            position: absolute;
+            inset: -60% auto auto -40%;
+            width: 70%;
+            height: 220%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.74), transparent);
+            transform: rotate(24deg) translateX(-120%);
+            transition: transform 0.7s ease;
+        }
+        .flip-card:hover .flip-card-front::after,
+        .flip-card:focus-visible .flip-card-front::after {
+            transform: rotate(24deg) translateX(260%);
+        }
+        .flip-card-front i {
+            width: 96px;
+            height: 96px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255,255,255,0.7);
+            border: 1px solid color-mix(in srgb, var(--card-accent) 38%, transparent);
+            box-shadow: 0 12px 26px rgba(0, 33, 68, 0.12);
+            font-size: 2.9rem;
+            color: var(--primary-blue);
+            margin: 0;
+            transition: transform 0.3s ease, color 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+        .flip-card-front h3 { display: none; }
+        .flip-card:hover .flip-card-front i,
+        .flip-card:focus-visible .flip-card-front i {
+            color: var(--card-accent);
+            transform: scale(0.9) rotate(-4deg);
+        }
+        .flip-hint { display: none; }
 
         /* Back Styling */
         .flip-card-back {
-            background: linear-gradient(135deg, #003366 0%, #001a33 100%);
+            background:
+                linear-gradient(145deg, rgba(0, 51, 102, 0.96), rgba(0, 20, 42, 0.98)),
+                linear-gradient(135deg, var(--card-accent), transparent 56%);
             color: white; transform: rotateY(180deg);
-            border-top: 5px solid var(--accent-gold);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-top: 4px solid var(--accent-orange);
+            overflow: hidden;
         }
-        .flip-card-back h3 { margin-bottom: 20px; color: var(--accent-gold); font-size: 1.1rem; text-transform: uppercase; }
+        .flip-card-back::before {
+            content: var(--track-number);
+            position: absolute;
+            right: 14px;
+            bottom: 4px;
+            color: rgba(255,255,255,0.08);
+            font-family: var(--font-heading);
+            font-size: 4.7rem;
+            font-weight: 800;
+            line-height: 1;
+        }
+        .flip-card-back h3 {
+            color: var(--white);
+            font-size: 1rem;
+            line-height: 1.35;
+            text-transform: uppercase;
+            max-width: 16ch;
+            overflow-wrap: anywhere;
+            position: relative;
+            z-index: 1;
+        }
+        .flip-card-back::after {
+            content: "Click to view sub-topics";
+            margin-top: 16px;
+            padding: 7px 10px;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.86);
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            position: relative;
+            z-index: 1;
+        }
 
         .topic-list { list-style: none; padding: 0; text-align: left; width: 100%; }
+        .flip-card-back .topic-list { display: none; }
         .topic-list li { margin-bottom: 8px; font-size: 0.9rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 5px; line-height: 1.4; }
         .topic-list li:last-child { border-bottom: none; }
         .topic-list li i { margin-right: 10px; color: var(--accent-gold); font-size: 0.8rem; }
+
+        /* Glass sub-topic popup */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.68);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            z-index: 2000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 22px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .glass-modal {
+            width: min(620px, 100%);
+            max-height: min(82vh, 620px);
+            overflow-y: auto;
+            background: linear-gradient(145deg, var(--primary-blue), var(--secondary-blue));
+            border: 1px solid rgba(247, 147, 30, 0.35);
+            border-radius: 20px;
+            box-shadow: 0 24px 70px rgba(0, 20, 40, 0.38);
+            color: var(--white);
+            padding: 38px;
+            position: relative;
+            text-align: left;
+            transform: scale(0.88);
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            backdrop-filter: none;
+            -webkit-backdrop-filter: none;
+        }
+        .modal-overlay.active .glass-modal { transform: scale(1); }
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 36px;
+            height: 36px;
+            border: 0;
+            border-radius: 50%;
+            background: var(--accent-gold);
+            color: var(--primary-blue);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+        }
+        .modal-icon {
+            width: 68px;
+            height: 68px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(247, 147, 30, 0.18);
+            border: 1px solid rgba(247, 147, 30, 0.46);
+            color: var(--accent-gold);
+            font-size: 1.9rem;
+            margin-bottom: 16px;
+        }
+        .glass-modal h2 {
+            color: var(--accent-gold);
+            font-family: var(--font-heading);
+            font-size: 1.55rem;
+            line-height: 1.3;
+            margin: 0 44px 18px 0;
+            text-transform: uppercase;
+        }
+        .modal-topic-list {
+            list-style: none;
+            margin: 0;
+            padding: 18px;
+            background: rgba(0, 0, 0, 0.28);
+            border-radius: 12px;
+        }
+        .modal-topic-list li {
+            display: flex;
+            gap: 10px;
+            color: rgba(255,255,255,0.94);
+            font-size: 0.98rem;
+            line-height: 1.55;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.14);
+        }
+        .modal-topic-list li:last-child { border-bottom: 0; }
+        .modal-topic-list i {
+            color: var(--accent-gold);
+            margin-top: 5px;
+            font-size: 0.78rem;
+            flex: 0 0 auto;
+        }
 
         /* =========================================
            5. MOBILE & RESPONSIVE FIXES
@@ -217,13 +495,46 @@
             .page-banner h1 { font-size: 1.8rem; }
 
             /* Grid Stack */
-            .themes-grid { grid-template-columns: 1fr; gap: 30px; }
+            .themes-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 16px;
+            }
             .themes-section { padding: 0 15px; margin: 40px auto; }
             .section-intro h2 { font-size: 1.8rem; }
             .section-intro p { font-size: 1rem; }
+            .theme-focus-ribbon {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 16px;
+                padding: 16px;
+            }
+            .theme-focus-ribbon::before { display: none; }
+            .focus-point span {
+                font-size: 0.72rem;
+                white-space: normal;
+            }
+            .flip-card { height: 210px; }
+            .flip-card-front,
+            .flip-card-back { padding: 14px; }
+            .flip-card-front i {
+                width: 80px;
+                height: 80px;
+                font-size: 2.35rem;
+            }
+            .flip-card-back h3 {
+                font-size: 0.82rem;
+                max-width: 15ch;
+            }
+            .flip-card-back::after {
+                font-size: 0.58rem;
+                padding: 6px 8px;
+            }
 
             /* Mobile Flip Hint */
             .flip-hint { content: "Tap to View Topics"; } /* Update text for touch devices via CSS if supported or keep generic */
+            .flip-card:active .flip-card-inner { transform: rotateY(180deg); }
+            .glass-modal { padding: 30px 22px 24px; }
+            .glass-modal h2 { font-size: 1.25rem; margin-right: 36px; }
 
             /* Sliding Menu */
             header { padding: 0 15px; }
@@ -248,6 +559,56 @@
             .nav-menu li a, .dropbtn { padding: 12px; font-size: 1rem; justify-content: space-between; }
             .dropdown-content { position: relative; top: 0; box-shadow: none; background: rgba(0,0,0,0.2); width: 100%; display: none; }
             .dropdown:hover .dropdown-content { display: block; }
+        }
+
+        @media (max-width: 560px) {
+            .themes-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 12px;
+            }
+            .flip-card { height: 182px; }
+            .theme-focus-ribbon {
+                gap: 12px;
+                margin-bottom: 24px;
+            }
+            .focus-point {
+                gap: 8px;
+            }
+            .focus-point i {
+                width: 32px;
+                height: 32px;
+                font-size: 0.86rem;
+                box-shadow: 0 0 0 5px rgba(247,147,30,0.12);
+            }
+            .flip-card-front::before {
+                top: 9px;
+                left: 9px;
+                padding: 4px 7px;
+                font-size: 0.58rem;
+            }
+            .flip-card-front i {
+                width: 68px;
+                height: 68px;
+                font-size: 2rem;
+            }
+            .flip-card-back h3 {
+                font-size: 0.74rem;
+                line-height: 1.3;
+            }
+            .flip-card-back::before { font-size: 3.6rem; }
+            .flip-card-back::after {
+                margin-top: 10px;
+                max-width: 112px;
+                line-height: 1.25;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .flip-card-inner,
+            .flip-card-front::after,
+            .glass-modal {
+                transition: none;
+            }
         }
 
         /* Footer */
@@ -482,6 +843,70 @@
                 height: calc(100vh - 100px);
             }
         }
+        /* Shared inner-page banner sizing and orange bottom rule */
+        body {
+            padding-top: 104px;
+        }
+        header {
+            height: 72px;
+        }
+        header.scrolled {
+            height: 72px;
+        }
+        .page-banner,
+        .venue-hero {
+            height: 180px;
+            position: relative;
+            justify-content: center;
+            padding: 0 24px;
+            text-align: center;
+        }
+        .page-banner::after,
+        .venue-hero::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 5px;
+            background: var(--accent-orange);
+            box-shadow: 0 -1px 12px rgba(247, 147, 30, 0.45);
+        }
+        .page-banner h1,
+        .venue-hero h1 {
+            display: inline-block;
+            margin: 0 auto;
+            padding-bottom: 10px;
+            border-bottom: 4px solid var(--accent-orange);
+            font-size: clamp(1.75rem, 1.25rem + 1.4vw, 2.15rem);
+            color: var(--primary-blue);
+            max-width: min(520px, 46%);
+            line-height: 1.12;
+            text-align: center;
+            text-transform: uppercase;
+            font-weight: 800;
+            text-shadow: none;
+        }
+        @media (max-width: 900px) {
+            body {
+                padding-top: 100px;
+            }
+            header,
+            header.scrolled {
+                height: 68px;
+            }
+            .page-banner,
+            .venue-hero {
+                height: 140px;
+            }
+            .page-banner h1,
+            .venue-hero h1 {
+                font-size: 1.5rem;
+                max-width: min(420px, 78%);
+                text-align: center;
+                padding-bottom: 8px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -526,7 +951,7 @@
                 <ul class="dropdown-content">
                     <li><a href="advisory.html">Advisory Board</a></li>
                     <li><a href="organizing.html">Organizing Committee</a></li>
-                    <li><a href="review.html">Research Committee</a></li>
+                    <li><a href="review.html">Review Committee</a></li>
                 </ul>
             </li>
 
@@ -536,6 +961,7 @@
                     <li><a href="accommodation.html">Accommodation</a></li>
                     <li><a href="venue.html">Venue & Travel</a></li>
                     <li><a href="downloads.html">Downloads</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
                     <li><a href="journal.html">Journal</a></li>
                     <li><a href="contact.html">Contact Us</a></li>
                 </ul>
@@ -555,7 +981,14 @@
 
         <div class="section-intro">
             <h2>Track Details</h2>
-            <p>The conference focuses on cutting-edge research in sustainable materials. Hover (or tap on mobile) over the cards below to view specific sub-themes.</p>
+            <p>The conference focuses on cutting-edge research in sustainable materials. Hover over an icon to view its theme, then click the card to see the sub-topics.</p>
+        </div>
+
+        <div class="theme-focus-ribbon" aria-label="Conference theme focus areas">
+            <div class="focus-point"><i class="fas fa-lightbulb"></i><span>Ideas</span></div>
+            <div class="focus-point"><i class="fas fa-flask"></i><span>Research</span></div>
+            <div class="focus-point"><i class="fas fa-users"></i><span>Collaboration</span></div>
+            <div class="focus-point"><i class="fas fa-file-alt"></i><span>Publication</span></div>
         </div>
 
         <div class="themes-grid">
@@ -568,7 +1001,7 @@
                         <span class="flip-hint">Hover to View Topics</span>
                     </div>
                     <div class="flip-card-back">
-                        <h3>Sub-Themes</h3>
+                        <h3>Advanced Functional Materials</h3>
                         <ul class="topic-list">
                             <li><i class="fas fa-chevron-right"></i> Multifunctional, smart, and responsive materials</li>
                             <li><i class="fas fa-chevron-right"></i> Materials for sensors, actuators, and electronic devices</li>
@@ -585,7 +1018,7 @@
                         <span class="flip-hint">Hover to View Topics</span>
                     </div>
                     <div class="flip-card-back">
-                        <h3>Sub-Themes</h3>
+                        <h3>Energy Materials</h3>
                         <ul class="topic-list">
                             <li><i class="fas fa-chevron-right"></i> Renewable energy (solar, wind, thermoelectric)</li>
                             <li><i class="fas fa-chevron-right"></i> Energy storage (batteries, supercapacitors, fuel cells)</li>
@@ -602,7 +1035,7 @@
                         <span class="flip-hint">Hover to View Topics</span>
                     </div>
                     <div class="flip-card-back">
-                        <h3>Sub-Themes</h3>
+                        <h3>Biomedical & Healthcare Materials</h3>
                         <ul class="topic-list">
                             <li><i class="fas fa-chevron-right"></i> Biomaterials, bio-nanocomposites, scaffolds</li>
                             <li><i class="fas fa-chevron-right"></i> Drug delivery systems, medical devices, biosensors</li>
@@ -619,7 +1052,7 @@
                         <span class="flip-hint">Hover to View Topics</span>
                     </div>
                     <div class="flip-card-back">
-                        <h3>Sub-Themes</h3>
+                        <h3>Structural & Mechanical Materials</h3>
                         <ul class="topic-list">
                             <li><i class="fas fa-chevron-right"></i> High-performance alloys, composites, ceramics</li>
                             <li><i class="fas fa-chevron-right"></i> Materials for aerospace, automotive, and infrastructure</li>
@@ -636,7 +1069,7 @@
                         <span class="flip-hint">Hover to View Topics</span>
                     </div>
                     <div class="flip-card-back">
-                        <h3>Sub-Themes</h3>
+                        <h3>Nanomaterials & Nanotechnology</h3>
                         <ul class="topic-list">
                             <li><i class="fas fa-chevron-right"></i> Nanostructured materials, thin films, 2D materials</li>
                             <li><i class="fas fa-chevron-right"></i> Nanomaterials for electronic, energy, biomedical apps</li>
@@ -653,7 +1086,7 @@
                         <span class="flip-hint">Hover to View Topics</span>
                     </div>
                     <div class="flip-card-back">
-                        <h3>Sub-Themes</h3>
+                        <h3>Sustainable & Green Materials</h3>
                         <ul class="topic-list">
                             <li><i class="fas fa-chevron-right"></i> Environmentally friendly, recyclable, bio-based materials</li>
                             <li><i class="fas fa-chevron-right"></i> Materials for waste management and circular economy</li>
@@ -670,7 +1103,7 @@
                         <span class="flip-hint">Hover to View Topics</span>
                     </div>
                     <div class="flip-card-back">
-                        <h3>Sub-Themes</h3>
+                        <h3>Characterization & Modelling</h3>
                         <ul class="topic-list">
                             <li><i class="fas fa-chevron-right"></i> Experimental and computational techniques</li>
                             <li><i class="fas fa-chevron-right"></i> AI and machine learning in materials development</li>
@@ -687,7 +1120,7 @@
                         <span class="flip-hint">Hover to View Topics</span>
                     </div>
                     <div class="flip-card-back">
-                        <h3>Sub-Themes</h3>
+                        <h3>Quantum & Topological Materials</h3>
                         <ul class="topic-list">
                             <li><i class="fas fa-chevron-right"></i> Quantum Materials Research</li>
                             <li><i class="fas fa-chevron-right"></i> Topological Insulators and Superconductors</li>
@@ -698,6 +1131,15 @@
 
         </div>
     </section>
+
+    <div class="modal-overlay" id="topicModal" aria-hidden="true">
+        <div class="glass-modal" role="dialog" aria-modal="true" aria-labelledby="topicModalTitle">
+            <button class="close-modal" type="button" aria-label="Close sub-topics"><i class="fas fa-times"></i></button>
+            <div class="modal-icon" id="topicModalIcon" aria-hidden="true"><i class="fas fa-layer-group"></i></div>
+            <h2 id="topicModalTitle"></h2>
+            <ul class="modal-topic-list" id="topicModalList"></ul>
+        </div>
+    </div>
 
     <footer>
         <div class="footer-container">
@@ -730,6 +1172,54 @@
         const hamburger = document.querySelector('.hamburger');
         const navMenu = document.querySelector('.nav-menu');
         hamburger.addEventListener('click', () => navMenu.classList.toggle('active'));
+
+        document.querySelectorAll('.flip-card').forEach((card) => {
+            card.setAttribute('tabindex', '0');
+            card.setAttribute('role', 'button');
+            card.setAttribute('aria-haspopup', 'dialog');
+
+            card.addEventListener('click', () => openTopicModal(card));
+            card.addEventListener('keydown', (event) => {
+                if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    openTopicModal(card);
+                }
+            });
+        });
+
+        const topicModal = document.getElementById('topicModal');
+        const modalTitle = document.getElementById('topicModalTitle');
+        const modalList = document.getElementById('topicModalList');
+        const modalIcon = document.getElementById('topicModalIcon');
+        const closeModalBtn = topicModal.querySelector('.close-modal');
+
+        function openTopicModal(card) {
+            const title = card.querySelector('.flip-card-back h3').textContent.trim();
+            const icon = card.querySelector('.flip-card-front i').className;
+            const topics = [...card.querySelectorAll('.topic-list li')].map((item) => item.textContent.trim());
+
+            modalTitle.textContent = title;
+            modalIcon.innerHTML = `<i class="${icon}"></i>`;
+            modalList.innerHTML = topics.map((topic) => `<li><i class="fas fa-chevron-right"></i><span>${topic}</span></li>`).join('');
+            topicModal.classList.add('active');
+            topicModal.setAttribute('aria-hidden', 'false');
+            closeModalBtn.focus();
+        }
+
+        function closeTopicModal() {
+            topicModal.classList.remove('active');
+            topicModal.setAttribute('aria-hidden', 'true');
+        }
+
+        closeModalBtn.addEventListener('click', closeTopicModal);
+        topicModal.addEventListener('click', (event) => {
+            if (event.target === topicModal) closeTopicModal();
+        });
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && topicModal.classList.contains('active')) {
+                closeTopicModal();
+            }
+        });
     </script>
 </body>
 </html>
