@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accommodation - National Conference 2027</title>
+    <title>Gallery - National Conference 2027</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,8 +22,10 @@
             --accent-orange-light: #ffc174;
             --accent-orange: #f7931e;
             --text-dark: #333;
-            --light-bg: #f4f7f6;
+            --light-bg: #f8f9fa;
             --white: #ffffff;
+            --pdf-red: #e74c3c;
+            --doc-blue: #3498db;
             --font-main: 'Open Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             --font-heading: 'Montserrat', 'Open Sans', 'Segoe UI', sans-serif;
         }
@@ -43,7 +45,7 @@
         /* =========================================
            2. HEADER (Fixed & Shadowed)
            ========================================= */
-        header {
+      header {
             background: #002144; /* Slightly darker initial bg */
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
@@ -142,114 +144,84 @@
             font-size: 2.8rem; text-transform: uppercase; font-weight: 800;
             border-bottom: 4px solid var(--accent-gold); padding-bottom: 10px;
         }
-
         /* =========================================
-           4. "SMART STAY SELECTOR"
+           4. GALLERY GRID
            ========================================= */
-        .stay-section { max-width: 1200px; margin: 50px auto; padding: 0 20px; }
-
-        /* Toggle Switch */
-        .toggle-wrapper { display: flex; justify-content: center; margin-bottom: 50px; }
-        .toggle-container {
-            background: #e0e0e0; border-radius: 50px; padding: 5px; display: flex; position: relative;
-            box-shadow: inset 0 2px 5px rgba(0,0,0,0.1);
+        .gallery-section {
+            max-width: 1180px;
+            margin: 54px auto 70px;
+            padding: 0 20px;
         }
-        .toggle-btn {
-            padding: 12px 40px; border: none; background: transparent; cursor: pointer;
-            font-weight: 700; font-size: 1rem; color: #666; border-radius: 50px; z-index: 2; transition: 0.3s;
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 22px;
         }
-        .toggle-btn.active { color: white; background: var(--primary-blue); box-shadow: 0 4px 10px rgba(0,51,102,0.3); }
-
-        /* Card Grid */
-        .stay-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px;
-            display: none; animation: fadeInUp 0.5s ease-out;
+        .gallery-item {
+            position: relative;
+            min-height: 260px;
+            overflow: hidden;
+            border-radius: 8px;
+            background: var(--white);
+            box-shadow: 0 14px 30px rgba(0, 33, 68, 0.12);
+            border: 1px solid rgba(0, 51, 102, 0.08);
         }
-        .stay-grid.active { display: grid; }
-        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-
-        /* Stay Card */
-        .stay-card {
-            background: white; border-radius: 15px; overflow: hidden;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05); transition: transform 0.3s;
-            position: relative; border: 1px solid #eee;
+        .gallery-item.featured {
+            grid-column: span 2;
         }
-        .stay-card:hover { transform: translateY(-10px); box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
-
-        /* Image & Badge */
-        .stay-img {
-            height: 200px; width: 100%; background-color: #ddd; position: relative;
-            background-size: cover; background-position: center;
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            min-height: 260px;
+            display: block;
+            object-fit: cover;
+            transition: transform 0.35s ease, filter 0.35s ease;
         }
-        .distance-badge {
-            position: absolute; bottom: 10px; left: 10px;
-            background: rgba(0,0,0,0.7); color: white; padding: 5px 12px;
-            border-radius: 20px; font-size: 0.8rem; font-weight: bold; backdrop-filter: blur(5px);
+        .gallery-item:hover img {
+            transform: scale(1.05);
+            filter: saturate(1.08);
         }
-        .distance-badge i { color: var(--accent-gold); margin-right: 5px; }
-
-        /* Content */
-        .stay-content { padding: 25px; }
-        .stay-type {
-            font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px;
-            color: var(--accent-gold); font-weight: bold; display: block; margin-bottom: 5px;
+        .gallery-caption {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            padding: 18px;
+            background: linear-gradient(180deg, transparent, rgba(0, 34, 68, 0.88));
+            color: var(--white);
         }
-        .stay-title { font-size: 1.4rem; color: var(--primary-blue); margin-bottom: 10px; font-weight: 700; }
-
-        .amenities { display: flex; gap: 15px; margin-bottom: 20px; color: #777; font-size: 0.9rem; }
-        .amenities span { display: flex; align-items: center; gap: 5px; }
-
-        .price-row {
-            display: flex; justify-content: space-between; align-items: center;
-            border-top: 1px solid #eee; padding-top: 15px; margin-top: 10px;
+        .gallery-caption h3 {
+            font-family: var(--font-heading);
+            font-size: 1rem;
+            line-height: 1.3;
+            text-transform: uppercase;
+            margin-bottom: 4px;
         }
-        .price { font-size: 1.3rem; font-weight: 800; color: #333; }
-        .price sub { font-size: 0.8rem; font-weight: normal; color: #888; bottom: 0; }
-
-        .book-btn {
-            background: var(--primary-blue); color: white; border: none; padding: 8px 20px;
-            border-radius: 5px; font-weight: bold; cursor: pointer; transition: 0.3s;
+        .gallery-caption p {
+            color: rgba(255,255,255,0.86);
+            font-size: 0.86rem;
+            line-height: 1.5;
         }
-        .book-btn:hover { background: var(--accent-gold); }
-
-        /* =========================================
-           5. TRANSPORT WIDGET
-           ========================================= */
-        .transport-section {
-            background: #002244; color: white; padding: 40px; margin-top: 60px;
-            border-radius: 20px; position: relative; overflow: hidden;
+        @media (max-width: 900px) {
+            .gallery-section { margin: 36px auto 52px; padding: 0 15px; }
+            .gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+            .gallery-item,
+            .gallery-item img { min-height: 210px; }
+            .gallery-item.featured { grid-column: span 2; }
         }
-        .transport-grid { display: flex; justify-content: space-around; flex-wrap: wrap; gap: 30px; position: relative; z-index: 2; }
-
-        .transport-item { text-align: center; flex: 1; min-width: 200px; }
-        .transport-icon {
-            width: 60px; height: 60px; background: rgba(255,255,255,0.1); border-radius: 50%;
-            display: flex; justify-content: center; align-items: center; margin: 0 auto 15px;
-            font-size: 1.5rem; color: var(--accent-gold); border: 1px solid rgba(255,255,255,0.2);
+        @media (max-width: 560px) {
+            .gallery-grid { grid-template-columns: 1fr; }
+            .gallery-item.featured { grid-column: span 1; }
         }
-        .transport-item h3 { margin-bottom: 10px; }
-        .transport-item p { font-size: 0.9rem; color: #ccc; }
-
         /* =========================================
            6. MOBILE & RESPONSIVE FIXES
            ========================================= */
         @media (max-width: 900px) {
 
-            /* General Layout */
+            /* General */
             body { padding-top: 78px; }
-            .stay-section { padding: 0 15px; margin: 30px auto; }
-
-            /* Banner */
-            .page-banner { height: 140px; }
+            .page-banner { height: 160px; }
             .page-banner h1 { font-size: 1.8rem; }
-
-            /* Toggle Switch */
-            .toggle-container { width: 100%; justify-content: space-between; }
-            .toggle-btn { padding: 10px 15px; font-size: 0.9rem; flex: 1; }
-
-            /* Grids */
-            .stay-grid { grid-template-columns: 1fr; gap: 25px; }
-            .transport-grid { flex-direction: column; gap: 40px; }
 
             /* Sliding Menu */
             header { padding: 0 15px; }
@@ -277,7 +249,7 @@
         }
 
         /* Footer */
-        footer { background-color: var(--secondary-blue); color: #ccc; padding: 60px 0 20px; font-size: 0.9rem; margin-top: 60px; }
+        footer { background-color: var(--secondary-blue); color: #ccc; padding: 60px 0 20px; font-size: 0.9rem; }
         .footer-container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; padding: 0 20px; }
         .footer-col h4 { color: var(--white); font-size: 1.1rem; margin-bottom: 20px; color: var(--accent-orange); }
         .footer-col p, .footer-col a { display: block; color: #bbb; text-decoration: none; margin-bottom: 12px; transition: 0.3s; }
@@ -623,10 +595,10 @@
             <li class="dropdown">
                 <div class="dropbtn">More <i class="fas fa-caret-down" style="margin-left:8px;"></i></div>
                 <ul class="dropdown-content">
-                    <li><a href="accommodation.html" style="color: var(--accent-gold);">Accommodation</a></li>
+                    <li><a href="accommodation.html">Accommodation</a></li>
                     <li><a href="venue.html">Venue & Travel</a></li>
                     <li><a href="downloads.html">Downloads</a></li>
-                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="gallery.html" style="color: var(--accent-gold);">Gallery</a></li>
                     <li><a href="journal.html">Journal</a></li>
                     <li><a href="contact.html">Contact Us</a></li>
                 </ul>
@@ -640,142 +612,53 @@
     </header>
 
     <section class="page-banner">
-        <h1>Accommodation</h1>
+        <h1>Gallery</h1>
     </section>
-
-    <section class="stay-section">
-
-        <div class="toggle-wrapper">
-            <div class="toggle-container">
-                <button class="toggle-btn active" onclick="toggleView('campus')">On-Campus</button>
-                <button class="toggle-btn" onclick="toggleView('hotel')">Nearby Hotels</button>
-            </div>
+    <section class="gallery-section">
+        <div class="gallery-grid">
+            <article class="gallery-item featured">
+                <img src="img/hall.jpeg" alt="Conference hall prepared for delegates">
+                <div class="gallery-caption">
+                    <h3>Conference Hall</h3>
+                    <p>Main venue arranged for paper presentations and keynote sessions.</p>
+                </div>
+            </article>
+            <article class="gallery-item">
+                <img src="img/hero-bg.jpg" alt="KSRCT campus exterior view">
+                <div class="gallery-caption">
+                    <h3>Campus View</h3>
+                    <p>A look at the academic setting for the conference.</p>
+                </div>
+            </article>
+            <article class="gallery-item">
+                <img src="img/principal.png" alt="Principal portrait">
+                <div class="gallery-caption">
+                    <h3>Leadership</h3>
+                    <p>Institutional guidance and support for the event.</p>
+                </div>
+            </article>
+            <article class="gallery-item">
+                <img src="img/partner1.jpeg" alt="Conference collaboration partner">
+                <div class="gallery-caption">
+                    <h3>Collaboration</h3>
+                    <p>Academic and professional partners supporting the conference.</p>
+                </div>
+            </article>
+            <article class="gallery-item featured">
+                <img src="img/6491d3b3-74be-4536-a33e-0d4dc1d98e3c.png" alt="Conference branded campus banner">
+                <div class="gallery-caption">
+                    <h3>Conference Identity</h3>
+                    <p>Official visual theme for SUSTAINMAT 2027.</p>
+                </div>
+            </article>
+            <article class="gallery-item">
+                <img src="img/partner2.jpeg" alt="Conference collaboration partner logo">
+                <div class="gallery-caption">
+                    <h3>Partner Network</h3>
+                    <p>Organizations connected with the research community.</p>
+                </div>
+            </article>
         </div>
-
-        <div id="campus" class="stay-grid active">
-
-            <div class="stay-card">
-                <div class="stay-img" style="background-image: url('https://via.placeholder.com/400x250?text=VIP+Guest+House');">
-                    <div class="distance-badge"><i class="fas fa-walking"></i> 2 min walk</div>
-                </div>
-                <div class="stay-content">
-                    <span class="stay-type">Premium</span>
-                    <h3 class="stay-title">KSRCT VIP Guest House</h3>
-                    <div class="amenities">
-                        <span><i class="fas fa-wifi"></i> Wi-Fi</span>
-                        <span><i class="fas fa-snowflake"></i> AC</span>
-                        <span><i class="fas fa-utensils"></i> Meals</span>
-                    </div>
-                    <div class="price-row">
-                        <div class="price">₹800 <sub>/ night</sub></div>
-                        <button class="book-btn">Book Now</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="stay-card">
-                <div class="stay-img" style="background-image: url('https://via.placeholder.com/400x250?text=Intl+Hostel');">
-                    <div class="distance-badge"><i class="fas fa-walking"></i> 5 min walk</div>
-                </div>
-                <div class="stay-content">
-                    <span class="stay-type">Standard</span>
-                    <h3 class="stay-title">International Hostel</h3>
-                    <div class="amenities">
-                        <span><i class="fas fa-wifi"></i> Wi-Fi</span>
-                        <span><i class="fas fa-bed"></i> Single</span>
-                        <span><i class="fas fa-shield-alt"></i> 24x7 Security</span>
-                    </div>
-                    <div class="price-row">
-                        <div class="price">₹400 <sub>/ night</sub></div>
-                        <button class="book-btn">Book Now</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="stay-card">
-                <div class="stay-img" style="background-image: url('https://via.placeholder.com/400x250?text=Student+Dorm');">
-                    <div class="distance-badge"><i class="fas fa-walking"></i> 8 min walk</div>
-                </div>
-                <div class="stay-content">
-                    <span class="stay-type">Budget</span>
-                    <h3 class="stay-title">Student Dormitory</h3>
-                    <div class="amenities">
-                        <span><i class="fas fa-users"></i> Shared</span>
-                        <span><i class="fas fa-shower"></i> Hot Water</span>
-                        <span><i class="fas fa-lock"></i> Locker</span>
-                    </div>
-                    <div class="price-row">
-                        <div class="price">₹200 <sub>/ night</sub></div>
-                        <button class="book-btn">Book Now</button>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-        <div id="hotel" class="stay-grid">
-
-            <div class="stay-card">
-                <div class="stay-img" style="background-image: url('https://via.placeholder.com/400x250?text=Grand+Palace');">
-                    <div class="distance-badge"><i class="fas fa-car"></i> 15 min drive</div>
-                </div>
-                <div class="stay-content">
-                    <span class="stay-type">Luxury (4 Star)</span>
-                    <h3 class="stay-title">Hotel Grand Palace</h3>
-                    <div class="amenities">
-                        <span><i class="fas fa-swimmer"></i> Pool</span>
-                        <span><i class="fas fa-dumbbell"></i> Gym</span>
-                        <span><i class="fas fa-taxi"></i> Shuttle</span>
-                    </div>
-                    <div class="price-row">
-                        <div class="price">₹2500 <sub>/ night</sub></div>
-                        <button class="book-btn">View Deal</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="stay-card">
-                <div class="stay-img" style="background-image: url('https://via.placeholder.com/400x250?text=City+Residency');">
-                    <div class="distance-badge"><i class="fas fa-bus"></i> 20 min bus</div>
-                </div>
-                <div class="stay-content">
-                    <span class="stay-type">Economy (3 Star)</span>
-                    <h3 class="stay-title">City Residency Erode</h3>
-                    <div class="amenities">
-                        <span><i class="fas fa-tv"></i> TV</span>
-                        <span><i class="fas fa-coffee"></i> Breakfast</span>
-                        <span><i class="fas fa-wifi"></i> Free Net</span>
-                    </div>
-                    <div class="price-row">
-                        <div class="price">₹1200 <sub>/ night</sub></div>
-                        <button class="book-btn">View Deal</button>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="transport-section">
-            <h2 style="text-align: center; margin-bottom: 30px;">How to Reach Us</h2>
-            <div class="transport-grid">
-                <div class="transport-item">
-                    <div class="transport-icon"><i class="fas fa-plane"></i></div>
-                    <h3>By Air</h3>
-                    <p>Nearest Airport: Coimbatore (CJB) - 85km via NH544</p>
-                </div>
-                <div class="transport-item">
-                    <div class="transport-icon"><i class="fas fa-train"></i></div>
-                    <h3>By Train</h3>
-                    <p>Nearest Station: Erode Junction (ED) - 12km from Campus</p>
-                </div>
-                <div class="transport-item">
-                    <div class="transport-icon"><i class="fas fa-bus-alt"></i></div>
-                    <h3>By Bus</h3>
-                    <p>Direct buses available from Erode & Tiruchengode (Stop: KSR)</p>
-                </div>
-            </div>
-        </div>
-
     </section>
 
     <footer>
@@ -806,20 +689,6 @@
     </footer>
 
     <script>
-        function toggleView(view) {
-            // Remove active from buttons
-            const btns = document.querySelectorAll('.toggle-btn');
-            btns.forEach(b => b.classList.remove('active'));
-            event.target.classList.add('active');
-
-            // Hide all grids
-            const grids = document.querySelectorAll('.stay-grid');
-            grids.forEach(g => g.classList.remove('active'));
-
-            // Show selected grid
-            document.getElementById(view).classList.add('active');
-        }
-
         const hamburger = document.querySelector('.hamburger');
         const navMenu = document.querySelector('.nav-menu');
         hamburger.addEventListener('click', () => navMenu.classList.toggle('active'));
