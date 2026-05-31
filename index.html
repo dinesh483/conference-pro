@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -590,66 +590,148 @@
            COLLABORATION SECTION
            ========================================= */
         .collab-section {
-            padding: 44px 20px 48px;
-            background: #f7f9fc;
-            border-top: 1px solid #e5ebf2;
-            border-bottom: 1px solid #e5ebf2;
+            padding: 50px 20px 56px;
+            background: #ffffff;
+            border-top: 1px solid #e5edf6;
+            border-bottom: 1px solid #dfe8f2;
             overflow: hidden;
             position: relative;
         }
         .collab-section::before {
             content: '';
             position: absolute;
-            left: 50%;
+            left: 0;
+            right: 0;
             top: 0;
-            width: min(520px, 70vw);
-            height: 3px;
-            background: linear-gradient(90deg, transparent, var(--accent-orange), transparent);
-            transform: translateX(-50%);
+            height: 4px;
+            background: linear-gradient(90deg, transparent, var(--accent-gold), var(--accent-orange), transparent);
+            box-shadow: 0 0 18px rgba(247, 147, 30, 0.18);
+            pointer-events: none;
+        }
+        .collab-section::after {
+            content: '';
+            position: absolute;
+            inset: auto 8% 18px 8%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(0, 89, 179, 0.12), transparent);
+            pointer-events: none;
         }
         .collab-inner {
-            max-width: 980px;
+            max-width: 1080px;
             margin: 0 auto;
             position: relative;
             z-index: 1;
         }
         .collab-section .section-heading {
-            margin-bottom: 8px;
+            margin-bottom: 26px;
             font-size: clamp(1.35rem, 1.05rem + 1vw, 2rem);
+            color: var(--primary-blue);
+            text-shadow: none;
         }
-        .collab-note {
-            max-width: 56ch;
-            margin: 0 auto 22px;
-            color: var(--text-muted);
+        .collab-network {
+            position: relative;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            padding: 26px 28px 30px;
+            background: #ffffff;
+            border: 1px solid rgba(0, 89, 179, 0.11);
+            border-radius: 8px;
+            box-shadow: 0 16px 38px rgba(0, 51, 102, 0.08);
+        }
+        .collab-network::before {
+            content: '';
+            position: absolute;
+            left: 28px;
+            right: 28px;
+            top: 104px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(247, 147, 30, 0.45), rgba(0, 89, 179, 0.14), transparent);
+            pointer-events: none;
+        }
+        .collab-hub {
+            min-height: auto;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            justify-self: center;
+            padding: 10px 18px;
             text-align: center;
-            font-weight: 600;
-            line-height: 1.55;
-            font-size: 0.95rem;
+            color: var(--primary-blue);
+            background: #fff8e8;
+            border: 1px solid rgba(247, 147, 30, 0.24);
+            border-radius: 8px;
+            box-shadow: 0 8px 20px rgba(247, 147, 30, 0.09);
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+        }
+        .collab-hub::before {
+            display: none;
+        }
+        .collab-hub i {
+            width: 34px;
+            height: 34px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            color: #ffffff;
+            background: linear-gradient(135deg, rgba(255, 199, 44, 0.96), rgba(247, 147, 30, 0.9));
+            font-size: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+        .collab-hub span {
+            max-width: none;
+            font-size: 0.88rem;
+            font-weight: 800;
+            line-height: 1.2;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            position: relative;
+            z-index: 1;
         }
         .collab-grid {
             display: grid;
             grid-template-columns: repeat(6, minmax(0, 1fr));
-            gap: 10px;
+            gap: 14px;
             align-items: stretch;
+            position: relative;
+            z-index: 1;
         }
         .collab-partner {
             display: flex;
             align-items: center;
             justify-content: center;
-            min-height: 86px;
-            padding: 14px 12px;
-            background: var(--white);
-            border: 1px solid #dfe6ee;
+            min-height: 108px;
+            padding: 18px 14px;
+            background: #ffffff;
+            border: 1px solid rgba(0, 89, 179, 0.12);
             border-radius: 8px;
-            box-shadow: 0 8px 18px rgba(0, 51, 102, 0.05);
-            transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+            box-shadow: 0 10px 24px rgba(0, 51, 102, 0.07);
+            transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease, background 0.25s ease;
             position: relative;
             overflow: hidden;
         }
+        .collab-partner::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, var(--accent-gold), var(--accent-orange));
+        }
+        .collab-partner::after {
+            display: none;
+        }
         .collab-partner:hover {
-            border-color: rgba(247, 147, 30, 0.5);
-            box-shadow: 0 12px 24px rgba(0, 51, 102, 0.09);
-            transform: translateY(-3px);
+            background: #fffdf8;
+            border-color: rgba(247, 147, 30, 0.42);
+            box-shadow: 0 18px 34px rgba(0, 51, 102, 0.14);
+            transform: translateY(-4px);
         }
         .collab-partner:focus-visible {
             outline: 2px solid var(--accent-gold);
@@ -657,12 +739,12 @@
         }
         .collab-partner img {
             max-width: 100%;
-            max-height: 48px;
+            max-height: 60px;
             width: auto;
             height: auto;
             object-fit: contain;
-            filter: grayscale(8%);
-            opacity: 0.92;
+            filter: none;
+            opacity: 0.96;
             transition: filter 0.25s ease, opacity 0.25s ease, transform 0.25s ease;
             position: relative;
             z-index: 1;
@@ -1150,10 +1232,33 @@
             }
             .date-icon { margin-bottom: 18px; }
             .date-value { max-width: none; }
-            .collab-section { padding: 38px 16px 42px; }
-            .collab-note { margin-bottom: 18px; font-size: 0.92rem; }
-            .collab-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
-            .collab-partner { min-height: 78px; padding: 13px 10px; }
+            .collab-section { padding: 42px 16px 50px; }
+            .collab-network {
+                grid-template-columns: 1fr;
+                gap: 18px;
+                padding: 18px;
+            }
+            .collab-network::before {
+                left: 18px;
+                right: 18px;
+                top: 78px;
+                bottom: auto;
+                width: auto;
+                height: 1px;
+                transform: none;
+                background: linear-gradient(90deg, transparent, rgba(247, 147, 30, 0.5), transparent);
+            }
+            .collab-hub {
+                min-height: auto;
+                padding: 9px 14px;
+            }
+            .collab-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+            .collab-partner {
+                min-height: 96px;
+                padding: 14px 10px;
+            }
+            .collab-partner img { max-height: 54px; }
+            .collab-partner:hover { transform: translateY(-3px); }
             .about-section { padding: 36px 16px; }
             .about-text p {
                 text-align: left;
@@ -1413,7 +1518,403 @@
                 padding-top: 100px;
             }
         }
-    </style>
+    
+        /* Site-wide mobile fit overrides */
+        html, body {
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+
+        *, *::before, *::after {
+            min-width: 0;
+        }
+
+        img, video, iframe, svg, canvas {
+            max-width: 100%;
+            height: auto;
+        }
+
+        table {
+            display: block;
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        @media (max-width: 1180px) and (min-width: 901px) {
+            header {
+                padding-inline: 14px !important;
+            }
+
+            .nav-menu li a,
+            .dropbtn {
+                padding-inline: 8px !important;
+                font-size: 0.82rem !important;
+                white-space: nowrap;
+            }
+
+            .logo-text span:first-child {
+                font-size: 0.98rem !important;
+            }
+
+            .logo-text span:last-child {
+                font-size: 0.64rem !important;
+            }
+        }
+
+        @media (max-width: 900px) {
+            body {
+                width: 100%;
+                overflow-x: hidden !important;
+            }
+
+            header,
+            header.scrolled {
+                width: 100%;
+                max-width: 100vw;
+                padding-inline: 14px !important;
+            }
+
+            .logo {
+                max-width: calc(100vw - 82px);
+            }
+
+            .logo-mark {
+                width: 42px !important;
+                height: 42px !important;
+            }
+
+            .logo-text {
+                min-width: 0;
+            }
+
+            .logo-text span:first-child {
+                font-size: 0.95rem !important;
+            }
+
+            .logo-text span:last-child {
+                font-size: 0.62rem !important;
+                letter-spacing: 0.1em !important;
+            }
+
+            .hamburger {
+                display: flex !important;
+                flex: 0 0 auto;
+            }
+
+            .nav-menu {
+                position: fixed !important;
+                left: auto !important;
+                right: -110% !important;
+                width: min(86vw, 360px) !important;
+                max-width: calc(100vw - 20px) !important;
+                height: calc(100dvh - 100px) !important;
+                max-height: calc(100dvh - 80px) !important;
+                overflow-y: auto !important;
+                overflow-x: hidden !important;
+                flex-direction: column !important;
+                align-items: stretch !important;
+                justify-content: flex-start !important;
+                gap: 0 !important;
+                padding: 16px !important;
+                box-shadow: -18px 0 44px rgba(0, 0, 0, 0.24);
+            }
+
+            .nav-menu.active {
+                right: 10px !important;
+            }
+
+            .nav-menu li {
+                width: 100% !important;
+                height: auto !important;
+                display: block !important;
+                margin: 0 !important;
+            }
+
+            .nav-menu li a,
+            .dropbtn {
+                width: 100% !important;
+                min-height: 44px;
+                padding: 10px 8px !important;
+                justify-content: space-between !important;
+                white-space: normal !important;
+                overflow-wrap: anywhere;
+            }
+
+            .dropdown-content {
+                position: static !important;
+                min-width: 0 !important;
+                width: 100% !important;
+                margin: 0 !important;
+                border-radius: 0 0 8px 8px !important;
+                box-shadow: none !important;
+            }
+
+            .dropdown:hover .dropdown-content,
+            .dropdown:focus-within .dropdown-content {
+                display: flex !important;
+            }
+
+            .page-banner,
+            .venue-hero,
+            .hero {
+                max-width: 100vw;
+            }
+
+            .page-banner h1,
+            .venue-hero h1,
+            h1,
+            h2,
+            h3 {
+                overflow-wrap: anywhere;
+                letter-spacing: 0 !important;
+            }
+
+            .page-banner h1,
+            .venue-hero h1 {
+                max-width: 92vw !important;
+                font-size: clamp(1.35rem, 7vw, 1.85rem) !important;
+                line-height: 1.15 !important;
+            }
+
+            section,
+            .section,
+            .content-section,
+            .container,
+            .main-container,
+            .about-container,
+            .footer-container {
+                max-width: 100% !important;
+            }
+
+            [class*="grid"],
+            [class*="Grid"] {
+                grid-template-columns: 1fr !important;
+            }
+
+            [class*="row"],
+            [class*="Row"] {
+                flex-wrap: wrap !important;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr !important;
+                gap: 26px !important;
+                padding-inline: 18px !important;
+            }
+
+            .footer-bottom p {
+                padding-inline: 16px;
+                overflow-wrap: anywhere;
+            }
+        }
+
+        @media (max-width: 520px) {
+            body {
+                font-size: 15px;
+            }
+
+            section,
+            .content-section,
+            .themes-section,
+            .schedule-section,
+            .registration-section,
+            .speakers-section,
+            .committee-section,
+            .contact-section,
+            .downloads-section,
+            .gallery-section,
+            .journal-section,
+            .venue-section,
+            .visa-section,
+            .accommodation-section {
+                padding-inline: 16px !important;
+            }
+
+            .btn,
+            .button,
+            .btn-hero,
+            button,
+            input,
+            select,
+            textarea {
+                max-width: 100%;
+            }
+
+            .hero-btns,
+            .hero-actions,
+            .cta-buttons,
+            .form-row {
+                flex-direction: column !important;
+                align-items: stretch !important;
+            }
+
+            .hero-btns a,
+            .hero-actions a,
+            .cta-buttons a {
+                width: 100%;
+                text-align: center;
+            }
+        }
+                /* KSRCT reference footer */
+        .ksr-footer {
+            background: #061f45 !important;
+            color: #ffffff !important;
+            padding: 32px 44px 34px !important;
+            margin: 0 !important;
+            font-family: 'Open Sans', 'Segoe UI', Arial, sans-serif !important;
+            font-size: 14px !important;
+            line-height: 1.5 !important;
+        }
+
+        .ksr-footer-grid {
+            width: 100% !important;
+            max-width: 1180px !important;
+            margin: 0 auto !important;
+            display: grid !important;
+            grid-template-columns: 1.08fr 1.2fr 0.72fr !important;
+            gap: clamp(34px, 6vw, 86px) !important;
+            align-items: start !important;
+        }
+
+        .ksr-footer p,
+        .ksr-footer a {
+            color: rgba(255, 255, 255, 0.93) !important;
+            font-size: 14px !important;
+            font-weight: 500 !important;
+            line-height: 1.55 !important;
+            text-decoration: none !important;
+            margin: 0 !important;
+        }
+
+        .ksr-footer-contact > p {
+            margin-bottom: 14px !important;
+        }
+
+        .ksr-location-row {
+            display: grid !important;
+            grid-template-columns: 76px minmax(0, 1fr) !important;
+            gap: 14px !important;
+            align-items: center !important;
+            margin-top: 14px !important;
+        }
+
+        .ksr-footer-logo {
+            width: 88px !important;
+            max-width: 88px !important;
+            height: auto !important;
+            margin-left: -16px !important;
+            object-fit: contain !important;
+            background: transparent !important;
+            border-radius: 0 !important;
+            padding: 0 !important;
+        }
+
+        .ksr-footer h3 {
+            color: #ff7b2c !important;
+            font-family: 'Montserrat', 'Open Sans', 'Segoe UI', Arial, sans-serif !important;
+            font-size: 18px !important;
+            font-weight: 800 !important;
+            line-height: 1.2 !important;
+            letter-spacing: 0 !important;
+            margin: 0 0 14px !important;
+            text-transform: none !important;
+        }
+
+        .ksr-footer-links {
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 12px !important;
+        }
+
+        .ksr-footer-links a {
+            transition: color 0.2s ease !important;
+        }
+
+        .ksr-footer-links a:hover {
+            color: #ff9a52 !important;
+            padding-left: 0 !important;
+        }
+
+        .ksr-useful-links {
+            min-width: 180px !important;
+        }
+
+
+        .ksr-footer-bottom {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            min-height: 34px !important;
+            padding: 6px 16px !important;
+            background: #ffffff !important;
+            color: #163047 !important;
+            font-family: 'Open Sans', 'Segoe UI', Arial, sans-serif !important;
+            font-size: 14px !important;
+            font-weight: 500 !important;
+            line-height: 1.4 !important;
+            text-align: center !important;
+        }
+
+        @media (max-width: 560px) {
+            .ksr-footer-bottom {
+                min-height: 32px !important;
+                font-size: 13px !important;
+            }
+        }
+
+        @media (max-width: 980px) {
+            .ksr-footer {
+                padding: 30px 22px !important;
+            }
+
+            .ksr-footer-grid {
+                grid-template-columns: 1fr !important;
+                gap: 26px !important;
+            }
+
+            .ksr-location-row {
+                grid-template-columns: 72px minmax(0, 1fr) !important;
+                align-items: start !important;
+            }
+
+            .ksr-footer-logo {
+                width: 72px !important;
+                max-width: 72px !important;
+                margin-left: 0 !important;
+            }
+        }
+
+        @media (max-width: 560px) {
+            .ksr-footer {
+                padding: 26px 16px !important;
+                font-size: 13px !important;
+            }
+
+            .ksr-footer p,
+            .ksr-footer a {
+                font-size: 13px !important;
+            }
+
+            .ksr-footer h3 {
+                font-size: 14px !important;
+                margin-bottom: 10px !important;
+            }
+
+            .ksr-footer-links {
+                gap: 9px !important;
+            }
+
+            .ksr-location-row {
+                grid-template-columns: 62px minmax(0, 1fr) !important;
+                gap: 12px !important;
+            }
+
+            .ksr-footer-logo {
+                width: 62px !important;
+                max-width: 62px !important;
+            }
+        }</style>
 </head>
 <body>
 
@@ -1455,7 +1956,7 @@
             </span>
         </a>
         <ul class="nav-menu">
-            <li><a href="index.html" style="color: var(--accent-gold);"><i class="fas fa-home" style="margin-right:7px;"></i>Home</a></li>
+            <li><a href="index.html" style="color: var(--accent-gold);" aria-label="Home" title="Home"><i class="fas fa-home"></i></a></li>
             <li><a href="themes.html">Themes</a></li>
             <li><a href="speakers.html">Speakers</a></li>
             <li><a href="call-for-papers.html">Call for Papers</a></li>
@@ -1559,14 +2060,19 @@
     <section class="collab-section reveal" aria-labelledby="collab-heading">
         <h2 id="collab-heading" class="section-heading">In Collaboration With</h2>
         <div class="collab-inner">
-            <p class="collab-note">Partnering with academic and industry communities to support research exchange, publication quality, and applied innovation.</p>
-            <div class="collab-grid">
-                <div class="collab-partner"><img src="img/partner1.jpeg" alt="Partner organization 1" width="180" height="64" loading="eager" decoding="async"></div>
-                <div class="collab-partner"><img src="img/partner2.jpeg" alt="Partner organization 2" width="180" height="64" loading="eager" decoding="async"></div>
-                <div class="collab-partner"><img src="img/partner3.jpeg" alt="Partner organization 3" width="180" height="64" loading="eager" decoding="async"></div>
-                <div class="collab-partner"><img src="img/partner4.jpeg" alt="Partner organization 4" width="180" height="64" loading="eager" decoding="async"></div>
-                <div class="collab-partner"><img src="img/download (7).png" alt="KSRCT partner organization" width="180" height="64" loading="eager" decoding="async"></div>
-                <div class="collab-partner"><img src="img/download (7).png" alt="KSRCT partner organization" width="180" height="64" loading="eager" decoding="async"></div>
+            <div class="collab-network">
+                <div class="collab-hub" aria-hidden="true">
+                    <i class="fas fa-handshake"></i>
+                    <span>Support Network</span>
+                </div>
+                <div class="collab-grid">
+                    <div class="collab-partner"><img src="img/partner1.jpeg" alt="Partner organization 1" width="180" height="64" loading="eager" decoding="async"></div>
+                    <div class="collab-partner"><img src="img/partner2.jpeg" alt="Partner organization 2" width="180" height="64" loading="eager" decoding="async"></div>
+                    <div class="collab-partner"><img src="img/partner3.jpeg" alt="Partner organization 3" width="180" height="64" loading="eager" decoding="async"></div>
+                    <div class="collab-partner"><img src="img/partner4.jpeg" alt="Partner organization 4" width="180" height="64" loading="eager" decoding="async"></div>
+                    <div class="collab-partner"><img src="img/download (7).png" alt="KSRCT partner organization" width="180" height="64" loading="eager" decoding="async"></div>
+                    <div class="collab-partner"><img src="img/download (7).png" alt="KSRCT partner organization" width="180" height="64" loading="eager" decoding="async"></div>
+                </div>
             </div>
         </div>
     </section>
@@ -1619,6 +2125,15 @@
         </div>
     </section>
 
+    <section class="stats-section reveal">
+        <div class="stats-container">
+            <div class="stat-box"><span class="stat-number">500+</span><span class="stat-label">Attendees</span></div>
+            <div class="stat-box"><span class="stat-number">150+</span><span class="stat-label">Papers</span></div>
+            <div class="stat-box"><span class="stat-number">20</span><span class="stat-label">Keynote Speakers</span></div>
+            <div class="stat-box"><span class="stat-number">10</span><span class="stat-label">Countries</span></div>
+        </div>
+    </section>
+
     <section class="split-info-section reveal" id="author-guidelines">
         <div class="split-info-inner">
             <div class="split-info-main">
@@ -1662,15 +2177,6 @@
         </div>
     </section>
 
-    <section class="stats-section reveal">
-        <div class="stats-container">
-            <div class="stat-box"><span class="stat-number">500+</span><span class="stat-label">Attendees</span></div>
-            <div class="stat-box"><span class="stat-number">150+</span><span class="stat-label">Papers</span></div>
-            <div class="stat-box"><span class="stat-number">20</span><span class="stat-label">Keynote Speakers</span></div>
-            <div class="stat-box"><span class="stat-number">10</span><span class="stat-label">Countries</span></div>
-        </div>
-    </section>
-
     <section class="faq-section reveal">
         <h2 class="section-heading">Frequently Asked Questions</h2>
         <div class="accordion">
@@ -1693,34 +2199,47 @@
         <iframe style="width:100%; height:100%; border:0;" src="https://maps.google.com/maps?q=KSR+College+of+Technology&t=&z=13&ie=UTF8&iwloc=&output=embed" allowfullscreen="" loading="lazy"></iframe>
     </section>
 
-    <footer>
-        <div class="footer-container">
-            <div class="footer-col">
-                <h4>Contact Info</h4>
-                <p><i class="fas fa-map-marker-alt" style="margin-right:10px; color:var(--accent-gold);"></i> KSR Kalvi Nagar, Tiruchengode,<br>Tamil Nadu 637215</p>
-                <p><i class="fas fa-phone" style="margin-right:10px; color:var(--accent-gold);"></i> +91 98765 43210</p>
-                <p><i class="fas fa-envelope" style="margin-right:10px; color:var(--accent-gold);"></i> conference@ksrct.ac.in</p>
-            </div>
-            <div class="footer-col">
-                <h4>Important Links</h4>
-                <a href="registration.html">Registration Portal</a>
-                <a href="schedule.html">Program Schedule</a>
-                <a href="call-for-papers.html">Submission Guidelines</a>
-                <a href="venue.html">Venue & Travel</a>
-            </div>
-            <div class="footer-col">
-                <h4>Stay Connected</h4>
-                <p>Follow us for the latest updates on speakers and sessions.</p>
-                <div class="social-links">
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
+        <footer class="ksr-footer">
+        <div class="ksr-footer-grid">
+            <div class="ksr-footer-contact">
+                <p>E-mail: office@ksrct.ac.in, info@ksrct.ac.in</p>
+                <p>Telephone: (04288) 274741 to 274744</p>
+                <p>Fax: 04288 &ndash; 274745</p>
+                <div class="ksr-location-row">
+                    <img src="img/footer-logo-transparent.png" alt="K S Rangasamy College of Technology logo" class="ksr-footer-logo">
+                    <div>
+                        <h3>Location:</h3>
+                        <p>K S Rangasamy College of<br>Technology, KSR Kalvi Nagar,<br>Tiruchengode- 637 215, TamilNadu,<br>India.</p>
+                    </div>
                 </div>
             </div>
+
+            <div class="ksr-footer-links">
+                <h3>Popular Links</h3>
+                <a href="https://erp.ksrei.org/PrimeERP_KSR/Login.aspx">Online Fee Payment</a>
+                <a href="https://ksrctdigipro.in/">Programming Skill Development System (PSDS)</a>
+                <a href="https://ksrct.edugrievance.com/">Online Grievance Portal</a>
+                <a href="https://ksrct.ac.in/anti-ragging.php">Anti-Ragging</a>
+                <a href="https://ksrct.ac.in/icc.php">Internal Complaints and Women</a>
+                <a href="#">Feedback / Suggestions</a>
+                <a href="https://ksrct.directverify.in/student/#">Verification Genuineness / Verification&gt;</a>
+                <a href="https://ksrct.ac.in/innovation.php">Incubation</a>
+            </div>
+
+            <div class="ksr-footer-links ksr-useful-links">
+                <h3>Useful links</h3>
+                <a href="https://ksrct.ac.in/accredation.php">NBA &ndash; Accreditation</a>
+                <a href="https://ksrct.ac.in/assets/pdf/quicklinks_pdfs/AICTE-MandatoryDisclosure2025_26.pdf">AICTE Mandatory Disclosure</a>
+                <a href="https://ksrct.ac.in/assets/pdf/quicklinks_pdfs/KSRCT_RTI.pdf">RTI</a>
+                <a href="https://ksrct.ac.in/accredation.php">AICTE Approvals</a>
+                <a href="https://ksrct.ac.in/aictefeedback.php">AICTE Feedback Facility</a>
+                <a href="https://ksrct.ac.in/assets/pdf/quicklinks_pdfs/AICTE-SCHEMES.pdf">AICTE Schemes</a>
+                <a href="https://ksrct.ac.in/accredation.php">NIRF</a>
+                <a href="https://ksrct.ac.in/iqac.php">IQAC</a>
+            </div>
         </div>
-        <div class="footer-bottom"><p>© 2026 KSRCT Conference Committee. All Rights Reserved.</p></div>
     </footer>
+    <div class="ksr-footer-bottom">&copy; 2026 KSRCT. All Rights Reserved</div>
 
     <div class="corner-popup-container" id="companionPopup">
         <div class="sleek-bubble">
@@ -1736,7 +2255,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
 
-            // 1. PRELOADER & SCROLL BAR (no artificial delay — hide when ready, max ~400ms fallback)
+            // 1. PRELOADER & SCROLL BAR (no artificial delay â€” hide when ready, max ~400ms fallback)
             const preloader = document.querySelector('.preloader');
             if (preloader) {
                 let preloaderHidden = false;
