@@ -1,5 +1,6 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +8,10 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="prefetch" href="index.html" as="document">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Open+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
@@ -27,9 +31,25 @@
             --font-heading: 'Montserrat', 'Open Sans', 'Segoe UI', sans-serif;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        img, video, iframe, svg, canvas { max-width: 100%; height: auto; }
-        html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        img,
+        video,
+        iframe,
+        svg,
+        canvas {
+            max-width: 100%;
+            height: auto;
+        }
+
+        html {
+            -webkit-text-size-adjust: 100%;
+            text-size-adjust: 100%;
+        }
 
         body {
             font-family: var(--font-main);
@@ -42,22 +62,29 @@
         /* =========================================
            2. HEADER (Fixed & Shadowed)
            ========================================= */
- header {
-            background: #002144; /* Slightly darker initial bg */
+        header {
+            background: #002144;
+            /* Slightly darker initial bg */
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.2);
             height: 72px;
-            width: 100%; display: flex;
-            justify-content: space-between; align-items: center; padding: 0 2%;
-            position: fixed; top: 0; z-index: 1000;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2%;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
             transition: all 0.4s ease;
         }
 
         header.scrolled {
             background-color: var(--white);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-            height: 70px; /* Compact on scroll */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            height: 70px;
+            /* Compact on scroll */
         }
 
         .logo {
@@ -88,67 +115,147 @@
             letter-spacing: 0.8px;
         }
 
-        .logo-text span:first-child { font-size: 1.12rem; }
-        .logo-text span:last-child { font-size: 0.72rem; letter-spacing: 1.4px; margin-top: 3px; }
-
-        .nav-menu { display: flex; list-style: none; align-items: center; height: 100%; }
-        .nav-menu li { position: relative; height: 100%; display: flex; align-items: center; }
-
-        .nav-menu li a, .dropbtn {
-            color: var(--white); text-decoration: none; padding: 0 18px;
-            font-size: 0.98rem;
-            font-weight: 600; transition: color 0.3s;
-            cursor: pointer; height: 100%; display: flex; align-items: center;
+        .logo-text span:first-child {
+            font-size: 1.12rem;
         }
-        .nav-menu li a:hover, .dropdown:hover .dropbtn { color: var(--accent-orange); }
 
-        header.scrolled .logo { color: var(--primary-blue); }
+        .logo-text span:last-child {
+            font-size: 0.72rem;
+            letter-spacing: 1.4px;
+            margin-top: 3px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            align-items: center;
+            height: 100%;
+        }
+
+        .nav-menu li {
+            position: relative;
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-menu li a,
+        .dropbtn {
+            color: var(--white);
+            text-decoration: none;
+            padding: 0 18px;
+            font-size: 0.98rem;
+            font-weight: 600;
+            transition: color 0.3s;
+            cursor: pointer;
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-menu li a:hover,
+        .dropdown:hover .dropbtn {
+            color: var(--accent-orange);
+        }
+
+        header.scrolled .logo {
+            color: var(--primary-blue);
+        }
+
         header.scrolled .nav-menu li a,
-        header.scrolled .dropbtn { color: var(--primary-blue); }
+        header.scrolled .dropbtn {
+            color: var(--primary-blue);
+        }
+
         header.scrolled .nav-menu li a:hover,
-        header.scrolled .dropdown:hover .dropbtn { color: var(--accent-orange); }
+        header.scrolled .dropdown:hover .dropbtn {
+            color: var(--accent-orange);
+        }
 
         .dropdown-content {
-            display: none; position: absolute; top: 100%; /* Fixes gap issue */
+            display: none;
+            position: absolute;
+            top: 100%;
+            /* Fixes gap issue */
             right: 0;
-            background-color: var(--primary-blue); min-width: 240px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3); z-index: 1001; flex-direction: column;
+            background-color: var(--primary-blue);
+            min-width: 240px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            z-index: 1001;
+            flex-direction: column;
             border-radius: 0 0 5px 5px;
         }
-        .dropdown-content li { width: 100%; border-top: 1px solid rgba(255,255,255,0.1); }
-        .dropdown-content li a { padding: 12px 20px; width: 100%; display: block; color: var(--white); font-size: 1rem; }
 
-        .dropdown:hover .dropdown-content { display: flex; }
+        .dropdown-content li {
+            width: 100%;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .dropdown-content li a {
+            padding: 12px 20px;
+            width: 100%;
+            display: block;
+            color: var(--white);
+            font-size: 1rem;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: flex;
+        }
 
         .hamburger {
-            display: none; cursor: pointer; flex-direction: column; gap: 6px; z-index: 1002;
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 6px;
+            z-index: 1002;
         }
+
         .bar {
-            width: 30px; height: 3px; background-color: var(--white); transition: 0.3s;
+            width: 30px;
+            height: 3px;
+            background-color: var(--white);
+            transition: 0.3s;
         }
-        header.scrolled .hamburger .bar { background-color: var(--primary-blue); }
+
+        header.scrolled .hamburger .bar {
+            background-color: var(--primary-blue);
+        }
+
         /* =========================================
            3. PAGE BANNER
            ========================================= */
         .page-banner {
-            background: linear-gradient(rgba(0,51,102,0.22), rgba(0,51,102,0.34)), url('img/6491d3b3-74be-4536-a33e-0d4dc1d98e3c.png');
-            background-size: cover; background-position: center 35%;
+            background: linear-gradient(rgba(0, 51, 102, 0.22), rgba(0, 51, 102, 0.34)), url('img/6491d3b3-74be-4536-a33e-0d4dc1d98e3c.png');
+            background-size: cover;
+            background-position: center 35%;
             height: 260px;
-            display: flex; justify-content: center; align-items: center;
-            text-align: center; color: var(--white);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-            position: relative; z-index: 2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 2;
         }
+
         .page-banner h1 {
-            font-size: 2.2rem; text-transform: uppercase; font-weight: 800;
-            border-bottom: 4px solid var(--accent-gold); padding-bottom: 5px;
+            font-size: 2.2rem;
+            text-transform: uppercase;
+            font-weight: 800;
+            border-bottom: 4px solid var(--accent-gold);
+            padding-bottom: 5px;
         }
 
         /* =========================================
            4. "GAME MAP" SCHEDULE STYLES
            ========================================= */
         .schedule-wrapper {
-            max-width: 900px; margin: 32px auto; padding: 0 18px; position: relative;
+            max-width: 900px;
+            margin: 32px auto;
+            padding: 0 18px;
+            position: relative;
         }
 
         .countdown-section {
@@ -158,10 +265,11 @@
             position: relative;
             z-index: 3;
         }
+
         .countdown-panel {
             background: linear-gradient(135deg, var(--primary-blue), #123f78);
             color: var(--white);
-            border: 1px solid rgba(255,255,255,0.16);
+            border: 1px solid rgba(255, 255, 255, 0.16);
             border-radius: 14px;
             box-shadow: 0 16px 36px rgba(0, 34, 68, 0.22);
             padding: 24px;
@@ -170,6 +278,7 @@
             gap: 22px;
             align-items: center;
         }
+
         .countdown-header {
             font-family: var(--font-heading);
             font-size: clamp(1rem, 0.9rem + 0.7vw, 1.35rem);
@@ -177,6 +286,7 @@
             text-transform: uppercase;
             letter-spacing: 0.08em;
         }
+
         .countdown-date {
             display: block;
             color: var(--accent-gold);
@@ -185,18 +295,21 @@
             letter-spacing: 0.03em;
             text-transform: none;
         }
+
         .countdown-wrapper {
             display: grid;
             grid-template-columns: repeat(4, minmax(0, 1fr));
             gap: 12px;
         }
+
         .time-box {
-            background: rgba(255,255,255,0.1);
-            border: 1px solid rgba(255,255,255,0.14);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.14);
             border-radius: 10px;
             padding: 14px 10px;
             text-align: center;
         }
+
         .time-val {
             display: block;
             font-size: clamp(1.45rem, 1rem + 1.8vw, 2.2rem);
@@ -205,9 +318,10 @@
             color: var(--accent-gold);
             font-family: var(--font-heading);
         }
+
         .time-label {
             display: block;
-            color: rgba(255,255,255,0.82);
+            color: rgba(255, 255, 255, 0.82);
             font-size: 0.72rem;
             font-weight: 800;
             letter-spacing: 0.1em;
@@ -223,6 +337,7 @@
             margin: 0 auto 42px;
             max-width: 680px;
         }
+
         .level-btn {
             background: #ffffff;
             color: var(--primary-blue);
@@ -244,6 +359,7 @@
             align-items: stretch;
             text-align: center;
         }
+
         .level-btn:hover,
         .level-btn:focus-visible {
             transform: translateY(-4px);
@@ -251,11 +367,16 @@
             box-shadow: 0 16px 30px rgba(0, 51, 102, 0.18);
             outline: none;
         }
-        .level-btn:active { transform: translateY(-1px); }
+
+        .level-btn:active {
+            transform: translateY(-1px);
+        }
+
         .level-btn.active {
             border-color: rgba(0, 51, 102, 0.45);
             box-shadow: 0 14px 28px rgba(0, 51, 102, 0.2);
         }
+
         .level-btn::before {
             content: attr(data-month);
             width: 100%;
@@ -273,10 +394,12 @@
             font-weight: 800;
             letter-spacing: 0.12em;
         }
+
         .level-btn.active::before {
             background: var(--primary-blue);
             color: var(--white);
         }
+
         .level-btn::after {
             content: attr(data-weekday);
             position: absolute;
@@ -287,13 +410,16 @@
             font-weight: 800;
             letter-spacing: 0.08em;
         }
+
         .level-btn.active::after {
             color: var(--primary-blue);
         }
+
         .level-btn span {
             display: block;
             line-height: 1;
         }
+
         .level-btn .date-num {
             color: var(--primary-blue);
             font-family: var(--font-heading);
@@ -301,14 +427,17 @@
             font-weight: 800;
             padding: 15px 12px 5px;
         }
+
         .level-btn.active .date-num {
             color: var(--primary-blue);
         }
+
         .level-btn .day-name {
             color: var(--accent-gold);
             font-size: 0.82rem;
             padding: 0 12px 12px;
         }
+
         .level-btn small {
             display: block;
             text-transform: none;
@@ -321,68 +450,107 @@
 
         /* Map Container */
         .map-container {
-            display: none; position: relative; padding: 28px 0;
+            display: none;
+            position: relative;
+            padding: 28px 0;
         }
-        .map-container.active { display: block; animation: zoomIn 0.5s; }
-        @keyframes zoomIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
+
+        .map-container.active {
+            display: block;
+            animation: zoomIn 0.5s;
+        }
+
+        @keyframes zoomIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
 
         /* Timeline path */
         .map-container::before {
             content: '';
             position: absolute;
-            top: 0; bottom: 0; left: 50%;
+            top: 0;
+            bottom: 0;
+            left: 50%;
             width: 8px;
             transform: translateX(-50%);
             border-radius: 10px;
-            background: repeating-linear-gradient(
-                to bottom,
-                var(--accent-gold) 0,
-                var(--accent-gold) 15px,
-                transparent 15px,
-                transparent 30px
-            );
+            background: repeating-linear-gradient(to bottom,
+                    var(--accent-gold) 0,
+                    var(--accent-gold) 15px,
+                    transparent 15px,
+                    transparent 30px);
             background-size: 8px 60px;
             animation: pathFlow 2s linear infinite;
             z-index: 0;
         }
+
         @keyframes pathFlow {
-            0% { background-position: 0 0; }
-            100% { background-position: 0 60px; }
+            0% {
+                background-position: 0 0;
+            }
+
+            100% {
+                background-position: 0 60px;
+            }
         }
 
         /* Map Items */
         .map-item {
-            position: relative; width: 100%; min-height: 132px;
-            display: flex; justify-content: center; align-items: center;
+            position: relative;
+            width: 100%;
+            min-height: 132px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             margin-bottom: 18px;
         }
 
         /* NODES (Circles) */
         .map-node {
-            width: 62px; height: 62px;
+            width: 62px;
+            height: 62px;
             background: radial-gradient(circle at 30% 30%, #0059b3, #002244);
             border: 3px solid var(--white);
             border-radius: 50%;
             z-index: 5;
-            display: flex; justify-content: center; align-items: center;
-            color: var(--white); font-size: 1.35rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--white);
+            font-size: 1.35rem;
             box-shadow: 0 0 20px rgba(0, 51, 102, 0.6);
             transition: 0.3s;
             cursor: pointer;
             position: relative;
         }
-        .map-node:hover { transform: scale(1.1); background: radial-gradient(circle at 30% 30%, #ffc174, #f7931e); color: #002244; }
+
+        .map-node:hover {
+            transform: scale(1.1);
+            background: radial-gradient(circle at 30% 30%, #ffc174, #f7931e);
+            color: #002244;
+        }
 
         /* Schedule Ticket Card */
         .map-card {
-            position: absolute; width: 42%;
-            background: rgba(255,255,255,0.96); padding: 16px 18px;
+            position: absolute;
+            width: 42%;
+            background: rgba(255, 255, 255, 0.96);
+            padding: 16px 18px;
             border-radius: 14px 7px 14px 7px;
             box-shadow: 0 12px 24px rgba(0, 34, 68, 0.14);
             border: 1px solid rgba(0, 51, 102, 0.09);
             z-index: 2;
             overflow: visible;
         }
+
         .map-card::before {
             content: '';
             position: absolute;
@@ -391,24 +559,47 @@
             width: 5px;
             background: linear-gradient(to bottom, var(--accent-orange-light), var(--accent-orange));
         }
+
         /* DESKTOP ZIG-ZAG LOGIC */
-        .map-item:nth-of-type(odd) .map-card { left: 0; text-align: right; padding-right: 24px; }
-        .map-item:nth-of-type(even) .map-card { right: 0; text-align: left; padding-left: 24px; }
-        .map-item:nth-of-type(odd) .map-card::before { right: 0; }
-        .map-item:nth-of-type(even) .map-card::before { left: 0; }
+        .map-item:nth-of-type(odd) .map-card {
+            left: 0;
+            text-align: right;
+            padding-right: 24px;
+        }
+
+        .map-item:nth-of-type(even) .map-card {
+            right: 0;
+            text-align: left;
+            padding-left: 24px;
+        }
+
+        .map-item:nth-of-type(odd) .map-card::before {
+            right: 0;
+        }
+
+        .map-item:nth-of-type(even) .map-card::before {
+            left: 0;
+        }
 
         /* Connecting Triangles */
         .map-card::after {
-            content: ''; position: absolute; top: 50%; width: 14px; height: 14px; margin-top: -7px;
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 14px;
+            height: 14px;
+            margin-top: -7px;
             background: var(--white);
             border: 1px solid rgba(0, 51, 102, 0.09);
             transform: rotate(45deg);
         }
+
         .map-item:nth-of-type(odd) .map-card::after {
             right: -8px;
             border-left: 0;
             border-bottom: 0;
         }
+
         .map-item:nth-of-type(even) .map-card::after {
             left: -8px;
             border-right: 0;
@@ -417,23 +608,63 @@
 
         /* Card Content */
         .map-time {
-            display: inline-block; background: #eef4fa; color: var(--primary-blue);
-            padding: 5px 11px; border-radius: 999px; font-weight: 800; font-size: 0.74rem; margin-bottom: 7px;
+            display: inline-block;
+            background: #eef4fa;
+            color: var(--primary-blue);
+            padding: 5px 11px;
+            border-radius: 999px;
+            font-weight: 800;
+            font-size: 0.74rem;
+            margin-bottom: 7px;
             border: 1px solid #d8e3ee;
         }
-        .map-card h3 { color: var(--primary-blue); margin: 4px 0; font-size: 1.05rem; font-weight: 800; }
-        .map-card p { color: #555; font-size: 0.82rem; margin-bottom: 6px; }
-        .map-location { font-size: 0.74rem; color: #888; font-style: italic; font-weight: 600; }
+
+        .map-card h3 {
+            color: var(--primary-blue);
+            margin: 4px 0;
+            font-size: 1.05rem;
+            font-weight: 800;
+        }
+
+        .map-card p {
+            color: #555;
+            font-size: 0.82rem;
+            margin-bottom: 6px;
+        }
+
+        .map-location {
+            font-size: 0.74rem;
+            color: #888;
+            font-style: italic;
+            font-weight: 600;
+        }
 
         .level-badge {
-            position: absolute; top: 9px; background: var(--primary-blue); color: white;
-            padding: 4px 9px; font-size: 0.58rem; font-weight: 800; border-radius: 999px;
-            box-shadow: 0 5px 14px rgba(0,51,102,0.18); text-transform: uppercase;
+            position: absolute;
+            top: 9px;
+            background: var(--primary-blue);
+            color: white;
+            padding: 4px 9px;
+            font-size: 0.58rem;
+            font-weight: 800;
+            border-radius: 999px;
+            box-shadow: 0 5px 14px rgba(0, 51, 102, 0.18);
+            text-transform: uppercase;
         }
-        .map-item:nth-of-type(odd) .level-badge { left: 10px; right: auto; }
-        .map-item:nth-of-type(even) .level-badge { right: 10px; left: auto; }
 
-        .map-deco { display: none; }
+        .map-item:nth-of-type(odd) .level-badge {
+            left: 10px;
+            right: auto;
+        }
+
+        .map-item:nth-of-type(even) .level-badge {
+            right: 10px;
+            left: auto;
+        }
+
+        .map-deco {
+            display: none;
+        }
 
         /* =========================================
            5. MOBILE & RESPONSIVE FIXES (FINALIZED)
@@ -441,17 +672,36 @@
         @media (max-width: 900px) {
 
             /* General */
-            body { padding-top: 78px; overflow-x: hidden; }
-            .page-banner { height: 140px; }
-            .page-banner h1 { font-size: 1.6rem; }
-            .schedule-wrapper { padding: 0 15px; margin-top: 20px; }
-            .countdown-section { margin: -20px auto 24px; padding: 0 15px; }
+            body {
+                padding-top: 78px;
+                overflow-x: hidden;
+            }
+
+            .page-banner {
+                height: 140px;
+            }
+
+            .page-banner h1 {
+                font-size: 1.6rem;
+            }
+
+            .schedule-wrapper {
+                padding: 0 15px;
+                margin-top: 20px;
+            }
+
+            .countdown-section {
+                margin: -20px auto 24px;
+                padding: 0 15px;
+            }
+
             .countdown-panel {
                 grid-template-columns: 1fr;
                 gap: 16px;
                 padding: 18px;
                 border-radius: 12px;
             }
+
             .countdown-wrapper {
                 grid-template-columns: repeat(2, minmax(0, 1fr));
                 gap: 10px;
@@ -463,10 +713,12 @@
                 gap: 9px;
                 margin-bottom: 28px;
             }
+
             .level-btn {
                 min-height: 98px;
                 font-size: 0.86rem;
             }
+
             .level-btn::before {
                 width: 100%;
                 height: auto;
@@ -474,20 +726,28 @@
                 margin-left: 0;
                 padding: 6px 8px;
             }
+
             .level-btn .date-num {
                 font-size: 2rem;
                 padding: 12px 12px 4px;
             }
+
             .level-btn .day-name {
                 padding-bottom: 9px;
             }
+
             .level-btn small {
                 padding-bottom: 14px;
             }
 
             /* Header & Sliding Menu */
-            header { padding: 0 15px; }
-            .hamburger { display: flex; }
+            header {
+                padding: 0 15px;
+            }
+
+            .hamburger {
+                display: flex;
+            }
 
             .nav-menu {
                 display: block;
@@ -499,20 +759,49 @@
                 background: var(--primary-blue);
                 padding: 20px;
                 transition: 0.3s ease;
-                box-shadow: -5px 0 15px rgba(0,0,0,0.2);
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
                 overflow-y: auto;
             }
-            .nav-menu.active { right: 0; }
 
-            .nav-menu li { width: 100%; border-bottom: 1px solid rgba(255,255,255,0.1); height: auto; display: block; margin-bottom: 5px; }
-            .nav-menu li a, .dropbtn { padding: 12px; font-size: 1rem; justify-content: space-between; }
-            .dropdown-content { position: relative; top: 0; box-shadow: none; background: rgba(0,0,0,0.2); width: 100%; display: none; }
-            .dropdown:hover .dropdown-content { display: block; }
+            .nav-menu.active {
+                right: 0;
+            }
+
+            .nav-menu li {
+                width: 100%;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                height: auto;
+                display: block;
+                margin-bottom: 5px;
+            }
+
+            .nav-menu li a,
+            .dropbtn {
+                padding: 12px;
+                font-size: 1rem;
+                justify-content: space-between;
+            }
+
+            .dropdown-content {
+                position: relative;
+                top: 0;
+                box-shadow: none;
+                background: rgba(0, 0, 0, 0.2);
+                width: 100%;
+                display: none;
+            }
+
+            .dropdown:hover .dropdown-content {
+                display: block;
+            }
 
             /* --- MAP STRAIGHTENING FOR MOBILE --- */
 
             /* Move Dotted Line to Left */
-            .map-container::before { left: 28px; transform: none; }
+            .map-container::before {
+                left: 28px;
+                transform: none;
+            }
 
             /* Align Items Left */
             .map-item {
@@ -523,23 +812,28 @@
 
             /* Fix Node Position */
             .map-node {
-                width: 50px; height: 50px;
+                width: 50px;
+                height: 50px;
                 font-size: 1.08rem;
-                margin-right: 12px; /* Space between circle and card */
+                margin-right: 12px;
+                /* Space between circle and card */
                 flex-shrink: 0;
             }
 
             /* Card Styling Reset */
             .map-card {
                 position: relative;
-                width: calc(100% - 62px); /* Full width minus circle */
+                width: calc(100% - 62px);
+                /* Full width minus circle */
                 left: auto !important;
                 right: auto !important;
                 text-align: left !important;
-                animation: none; /* Disable float to save space */
+                animation: none;
+                /* Disable float to save space */
                 padding: 16px 14px 14px 19px !important;
                 border-radius: 16px 7px 16px 7px;
             }
+
             .map-card::before {
                 left: 0 !important;
                 right: auto !important;
@@ -561,17 +855,29 @@
             }
 
             /* Hide decorative BG icons on mobile to reduce clutter */
-            .map-deco { display: none; }
+            .map-deco {
+                display: none;
+            }
         }
 
         /* =========================================
            6. FOOTER
            ========================================= */
         .minimal-footer {
-            background-color: var(--secondary-blue); color: #aaa;
-            padding: 20px; text-align: center; font-size: 0.9rem; margin-top: 50px;
+            background-color: var(--secondary-blue);
+            color: #aaa;
+            padding: 20px;
+            text-align: center;
+            font-size: 0.9rem;
+            margin-top: 50px;
         }
-        .minimal-footer a { color: var(--accent-gold); text-decoration: none; margin-left: 10px; }
+
+        .minimal-footer a {
+            color: var(--accent-gold);
+            text-decoration: none;
+            margin-left: 10px;
+        }
+
         /* Unified header styling */
         header {
             background: #002144;
@@ -592,7 +898,7 @@
 
         header.scrolled {
             background-color: var(--white);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
             height: 76px;
         }
 
@@ -624,11 +930,32 @@
             letter-spacing: 0.8px;
         }
 
-        .logo-text span:first-child { font-size: 1.12rem; }
-        .logo-text span:last-child { font-size: 0.72rem; letter-spacing: 1.4px; margin-top: 3px; }
-        .nav-menu { display: flex; list-style: none; align-items: center; height: 100%; }
-        .nav-menu li { position: relative; height: 100%; display: flex; align-items: center; }
-        .nav-menu li a, .dropbtn {
+        .logo-text span:first-child {
+            font-size: 1.12rem;
+        }
+
+        .logo-text span:last-child {
+            font-size: 0.72rem;
+            letter-spacing: 1.4px;
+            margin-top: 3px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            align-items: center;
+            height: 100%;
+        }
+
+        .nav-menu li {
+            position: relative;
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-menu li a,
+        .dropbtn {
             color: var(--white);
             text-decoration: none;
             padding: 0 18px;
@@ -640,12 +967,26 @@
             display: flex;
             align-items: center;
         }
-        .nav-menu li a:hover, .dropdown:hover .dropbtn { color: var(--accent-orange); }
-        header.scrolled .logo { color: var(--primary-blue); }
+
+        .nav-menu li a:hover,
+        .dropdown:hover .dropbtn {
+            color: var(--accent-orange);
+        }
+
+        header.scrolled .logo {
+            color: var(--primary-blue);
+        }
+
         header.scrolled .nav-menu li a,
-        header.scrolled .dropbtn { color: var(--primary-blue); }
+        header.scrolled .dropbtn {
+            color: var(--primary-blue);
+        }
+
         header.scrolled .nav-menu li a:hover,
-        header.scrolled .dropdown:hover .dropbtn { color: var(--accent-orange); }
+        header.scrolled .dropdown:hover .dropbtn {
+            color: var(--accent-orange);
+        }
+
         .dropdown-content {
             display: none;
             position: absolute;
@@ -653,21 +994,58 @@
             right: 0;
             background-color: var(--primary-blue);
             min-width: 240px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
             z-index: 1001;
             flex-direction: column;
             border-radius: 0 0 5px 5px;
         }
-        .dropdown-content li { width: 100%; border-top: 1px solid rgba(255,255,255,0.1); }
-        .dropdown-content li a { padding: 12px 20px; width: 100%; display: block; color: var(--white); font-size: 1rem; }
-        .dropdown:hover .dropdown-content { display: flex; }
-        .hamburger { display: none; cursor: pointer; flex-direction: column; gap: 6px; z-index: 1002; }
-        .bar { width: 30px; height: 3px; background-color: var(--white); transition: 0.3s; }
-        header.scrolled .hamburger .bar { background-color: var(--primary-blue); }
+
+        .dropdown-content li {
+            width: 100%;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .dropdown-content li a {
+            padding: 12px 20px;
+            width: 100%;
+            display: block;
+            color: var(--white);
+            font-size: 1rem;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: flex;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 6px;
+            z-index: 1002;
+        }
+
+        .bar {
+            width: 30px;
+            height: 3px;
+            background-color: var(--white);
+            transition: 0.3s;
+        }
+
+        header.scrolled .hamburger .bar {
+            background-color: var(--primary-blue);
+        }
 
         @media (max-width: 900px) {
-            header { padding: 0 14px; height: 68px; }
-            .hamburger { display: flex !important; }
+            header {
+                padding: 0 14px;
+                height: 68px;
+            }
+
+            .hamburger {
+                display: flex !important;
+            }
+
             .nav-menu {
                 display: block;
                 position: fixed;
@@ -679,31 +1057,47 @@
                 flex-direction: column;
                 padding: 18px;
                 transition: 0.3s ease;
-                box-shadow: -5px 0 20px rgba(0,0,0,0.4);
+                box-shadow: -5px 0 20px rgba(0, 0, 0, 0.4);
             }
-            .nav-menu.active { right: 0; }
+
+            .nav-menu.active {
+                right: 0;
+            }
+
             .nav-menu li {
                 width: 100%;
-                border-bottom: 1px solid rgba(255,255,255,0.05);
+                border-bottom: 1px solid rgba(255, 255, 255, 0.05);
                 display: block;
                 height: auto;
                 margin-bottom: 0;
             }
-            .nav-menu li a, .dropbtn { padding: 10px 8px; font-size: 0.96rem; justify-content: space-between; }
+
+            .nav-menu li a,
+            .dropbtn {
+                padding: 10px 8px;
+                font-size: 0.96rem;
+                justify-content: space-between;
+            }
+
             .dropdown-content {
                 position: relative;
                 top: 0;
                 width: 100%;
                 box-shadow: none;
-                background: rgba(0,0,0,0.2);
+                background: rgba(0, 0, 0, 0.2);
                 display: none;
             }
-            .dropdown:hover .dropdown-content { display: block; }
+
+            .dropdown:hover .dropdown-content {
+                display: block;
+            }
         }
+
         /* Shared inner-page header and announcement ticker */
         body {
             padding-top: 110px;
         }
+
         .top-glass-bg {
             position: fixed;
             top: 0;
@@ -714,6 +1108,7 @@
             pointer-events: none;
             background: linear-gradient(180deg, #001a36 0%, #002144 74%, rgba(0, 33, 68, 0) 100%);
         }
+
         .ticker-wrap {
             position: fixed;
             top: 0;
@@ -726,6 +1121,7 @@
             background: linear-gradient(90deg, rgba(0, 26, 54, 0.96), rgba(0, 51, 102, 0.92), rgba(0, 26, 54, 0.96));
             border-bottom: 1px solid rgba(247, 147, 30, 0.42);
         }
+
         .ticker {
             display: flex;
             width: max-content;
@@ -734,76 +1130,99 @@
             white-space: nowrap;
             animation: ticker 28s linear infinite;
         }
+
         .ticker__group {
             display: flex;
             flex: 0 0 auto;
         }
+
         .ticker__item {
             display: inline-block;
             padding: 0 1.9rem;
             font-size: 0.86rem;
-            color: rgba(255,255,255,0.92);
+            color: rgba(255, 255, 255, 0.92);
             font-weight: 700;
         }
+
         .ticker__item span {
             color: var(--accent-gold);
             margin-right: 8px;
             font-weight: 800;
         }
+
         @keyframes ticker {
-            0% { transform: translate3d(0, 0, 0); }
-            100% { transform: translate3d(-50%, 0, 0); }
+            0% {
+                transform: translate3d(0, 0, 0);
+            }
+
+            100% {
+                transform: translate3d(-50%, 0, 0);
+            }
         }
+
         header {
             top: 32px;
             background: #002144;
             border-bottom: 1px solid rgba(255, 255, 255, 0.18);
             box-shadow: 0 8px 24px rgba(0, 20, 40, 0.16);
         }
+
         header.scrolled {
             background: #002144;
             box-shadow: 0 8px 24px rgba(0, 20, 40, 0.18);
         }
+
         header.scrolled .logo,
         header.scrolled .nav-menu li a,
         header.scrolled .dropbtn {
             color: var(--white);
         }
+
         header.scrolled .nav-menu li a:hover,
         header.scrolled .dropdown:hover .dropbtn {
             color: var(--accent-orange);
         }
+
         header.scrolled .hamburger .bar {
             background-color: var(--white);
         }
+
         @media (max-width: 900px) {
             body {
                 padding-top: 100px;
             }
+
             .top-glass-bg {
                 height: 100px;
             }
+
             .ticker-wrap {
                 width: calc(100% - 20px);
             }
+
             header {
                 top: 32px;
             }
+
             .nav-menu {
                 top: 100px;
                 height: calc(100vh - 100px);
             }
         }
+
         /* Shared inner-page banner sizing and orange bottom rule */
         body {
             padding-top: 104px;
         }
+
         header {
             height: 72px;
         }
+
         header.scrolled {
             height: 72px;
         }
+
         .page-banner,
         .venue-hero {
             height: 180px;
@@ -812,6 +1231,7 @@
             padding: 0 24px;
             text-align: center;
         }
+
         .page-banner::after,
         .venue-hero::after {
             content: "";
@@ -823,6 +1243,7 @@
             background: var(--accent-orange);
             box-shadow: 0 -1px 12px rgba(247, 147, 30, 0.45);
         }
+
         .page-banner h1,
         .venue-hero h1 {
             display: inline-block;
@@ -838,18 +1259,22 @@
             font-weight: 800;
             text-shadow: none;
         }
+
         @media (max-width: 900px) {
             body {
                 padding-top: 100px;
             }
+
             header,
             header.scrolled {
                 height: 68px;
             }
+
             .page-banner,
             .venue-hero {
                 height: 140px;
             }
+
             .page-banner h1,
             .venue-hero h1 {
                 font-size: 1.5rem;
@@ -858,18 +1283,25 @@
                 padding-bottom: 8px;
             }
         }
-    
+
         /* Site-wide mobile fit overrides */
-        html, body {
+        html,
+        body {
             max-width: 100%;
             overflow-x: hidden;
         }
 
-        *, *::before, *::after {
+        *,
+        *::before,
+        *::after {
             min-width: 0;
         }
 
-        img, video, iframe, svg, canvas {
+        img,
+        video,
+        iframe,
+        svg,
+        canvas {
             max-width: 100%;
             height: auto;
         }
@@ -1096,7 +1528,8 @@
                 text-align: center;
             }
         }
-                /* KSRCT reference footer */
+
+        /* KSRCT reference footer */
         .ksr-footer {
             background: #061f45 !important;
             color: #ffffff !important;
@@ -1127,7 +1560,7 @@
             margin: 0 !important;
         }
 
-        .ksr-footer-contact > p {
+        .ksr-footer-contact>p {
             margin-bottom: 14px !important;
         }
 
@@ -1254,8 +1687,10 @@
                 width: 62px !important;
                 max-width: 62px !important;
             }
-        }</style>
+        }
+    </style>
 </head>
+
 <body>
 
     <div class="top-glass-bg" aria-hidden="true"></div>
@@ -1264,15 +1699,19 @@
         <div class="ticker">
             <div class="ticker__group">
                 <div class="ticker__item"><span>LATEST:</span> Paper submission deadline extended to Oct 20th!</div>
-                <div class="ticker__item"><span>UPDATE:</span> New Keynote Speaker Dr. Alan Turing joins the panel.</div>
+                <div class="ticker__item"><span>UPDATE:</span> New Keynote Speaker Dr. Alan Turing joins the panel.
+                </div>
                 <div class="ticker__item"><span>ALERT:</span> Early Bird Registration closes in 3 days.</div>
-                <div class="ticker__item"><span>VENUE:</span> Accommodation booking is now open at KSRCT Guest House.</div>
+                <div class="ticker__item"><span>VENUE:</span> Accommodation booking is now open at KSRCT Guest House.
+                </div>
             </div>
             <div class="ticker__group" aria-hidden="true">
                 <div class="ticker__item"><span>LATEST:</span> Paper submission deadline extended to Oct 20th!</div>
-                <div class="ticker__item"><span>UPDATE:</span> New Keynote Speaker Dr. Alan Turing joins the panel.</div>
+                <div class="ticker__item"><span>UPDATE:</span> New Keynote Speaker Dr. Alan Turing joins the panel.
+                </div>
                 <div class="ticker__item"><span>ALERT:</span> Early Bird Registration closes in 3 days.</div>
-                <div class="ticker__item"><span>VENUE:</span> Accommodation booking is now open at KSRCT Guest House.</div>
+                <div class="ticker__item"><span>VENUE:</span> Accommodation booking is now open at KSRCT Guest House.
+                </div>
             </div>
         </div>
     </div>
@@ -1280,7 +1719,8 @@
         <a class="logo" href="index.html" aria-label="KSRCT CONF 2027 home">
             <img src="img/download (7).png" alt="KSRCT symbol" class="logo-mark">
             <span class="logo-text">
-                <span style="font-size:1.12rem; transform:translateY(-2px); font-weight:900; text-transform:uppercase;">SUSTAINMENT</span>
+                <span
+                    style="font-size:1.12rem; transform:translateY(-2px); font-weight:900; text-transform:uppercase;">SUSTAINMENT</span>
                 <span style="font-size:0.95rem; letter-spacing:1.6px; margin-top:2px; font-weight:800;">2027</span>
             </span>
         </a>
@@ -1332,10 +1772,14 @@
                 <span class="countdown-date">23-24 February 2027</span>
             </div>
             <div class="countdown-wrapper" id="countdown">
-                <div class="time-box"><span class="time-val" id="days">00</span><span class="time-label">Days</span></div>
-                <div class="time-box"><span class="time-val" id="hours">00</span><span class="time-label">Hours</span></div>
-                <div class="time-box"><span class="time-val" id="minutes">00</span><span class="time-label">Minutes</span></div>
-                <div class="time-box"><span class="time-val" id="seconds">00</span><span class="time-label">Seconds</span></div>
+                <div class="time-box"><span class="time-val" id="days">00</span><span class="time-label">Days</span>
+                </div>
+                <div class="time-box"><span class="time-val" id="hours">00</span><span class="time-label">Hours</span>
+                </div>
+                <div class="time-box"><span class="time-val" id="minutes">00</span><span
+                        class="time-label">Minutes</span></div>
+                <div class="time-box"><span class="time-val" id="seconds">00</span><span
+                        class="time-label">Seconds</span></div>
             </div>
         </div>
     </section>
@@ -1463,17 +1907,19 @@
 
     </section>
 
-        <footer class="ksr-footer">
+    <footer class="ksr-footer">
         <div class="ksr-footer-grid">
             <div class="ksr-footer-contact">
                 <p>E-mail: office@ksrct.ac.in, info@ksrct.ac.in</p>
                 <p>Telephone: (04288) 274741 to 274744</p>
                 <p>Fax: 04288 &ndash; 274745</p>
                 <div class="ksr-location-row">
-                    <img src="img/footer-logo-transparent.png" alt="K S Rangasamy College of Technology logo" class="ksr-footer-logo">
+                    <img src="img/footer-logo-transparent.png" alt="K S Rangasamy College of Technology logo"
+                        class="ksr-footer-logo">
                     <div>
                         <h3>Location:</h3>
-                        <p>K S Rangasamy College of<br>Technology, KSR Kalvi Nagar,<br>Tiruchengode- 637 215, TamilNadu,<br>India.</p>
+                        <p>K S Rangasamy College of<br>Technology, KSR Kalvi Nagar,<br>Tiruchengode- 637 215,
+                            TamilNadu,<br>India.</p>
                     </div>
                 </div>
             </div>
@@ -1493,7 +1939,8 @@
             <div class="ksr-footer-links ksr-useful-links">
                 <h3>Useful links</h3>
                 <a href="https://ksrct.ac.in/accredation.php">NBA &ndash; Accreditation</a>
-                <a href="https://ksrct.ac.in/assets/pdf/quicklinks_pdfs/AICTE-MandatoryDisclosure2025_26.pdf">AICTE Mandatory Disclosure</a>
+                <a href="https://ksrct.ac.in/assets/pdf/quicklinks_pdfs/AICTE-MandatoryDisclosure2025_26.pdf">AICTE
+                    Mandatory Disclosure</a>
                 <a href="https://ksrct.ac.in/assets/pdf/quicklinks_pdfs/KSRCT_RTI.pdf">RTI</a>
                 <a href="https://ksrct.ac.in/accredation.php">AICTE Approvals</a>
                 <a href="https://ksrct.ac.in/aictefeedback.php">AICTE Feedback Facility</a>
@@ -1551,4 +1998,5 @@
         setInterval(updateCountdown, 1000);
     </script>
 </body>
+
 </html>

@@ -1,5 +1,6 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +8,10 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="prefetch" href="index.html" as="document">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Open+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* =========================================
@@ -27,9 +31,25 @@
             --font-heading: 'Montserrat', 'Open Sans', 'Segoe UI', sans-serif;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        img, video, iframe, svg, canvas { max-width: 100%; height: auto; }
-        html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        img,
+        video,
+        iframe,
+        svg,
+        canvas {
+            max-width: 100%;
+            height: auto;
+        }
+
+        html {
+            -webkit-text-size-adjust: 100%;
+            text-size-adjust: 100%;
+        }
 
         body {
             font-family: var(--font-main);
@@ -43,21 +63,28 @@
            2. HEADER & NAVIGATION
            ========================================= */
         header {
-            background: #002144; /* Slightly darker initial bg */
+            background: #002144;
+            /* Slightly darker initial bg */
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.2);
             height: 72px;
-            width: 100%; display: flex;
-            justify-content: space-between; align-items: center; padding: 0 2%;
-            position: fixed; top: 0; z-index: 1000;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2%;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
             transition: all 0.4s ease;
         }
 
         header.scrolled {
             background-color: var(--white);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-            height: 70px; /* Compact on scroll */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            height: 70px;
+            /* Compact on scroll */
         }
 
         .logo {
@@ -88,45 +115,113 @@
             letter-spacing: 0.8px;
         }
 
-        .logo-text span:first-child { font-size: 1.12rem; }
-        .logo-text span:last-child { font-size: 0.72rem; letter-spacing: 1.4px; margin-top: 3px; }
-
-        .nav-menu { display: flex; list-style: none; align-items: center; height: 100%; }
-        .nav-menu li { position: relative; height: 100%; display: flex; align-items: center; }
-
-        .nav-menu li a, .dropbtn {
-            color: var(--white); text-decoration: none; padding: 0 18px;
-            font-size: 0.98rem;
-            font-weight: 600; transition: color 0.3s;
-            cursor: pointer; height: 100%; display: flex; align-items: center;
+        .logo-text span:first-child {
+            font-size: 1.12rem;
         }
-        .nav-menu li a:hover, .dropdown:hover .dropbtn { color: var(--accent-orange); }
 
-        header.scrolled .logo { color: var(--primary-blue); }
+        .logo-text span:last-child {
+            font-size: 0.72rem;
+            letter-spacing: 1.4px;
+            margin-top: 3px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            align-items: center;
+            height: 100%;
+        }
+
+        .nav-menu li {
+            position: relative;
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-menu li a,
+        .dropbtn {
+            color: var(--white);
+            text-decoration: none;
+            padding: 0 18px;
+            font-size: 0.98rem;
+            font-weight: 600;
+            transition: color 0.3s;
+            cursor: pointer;
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-menu li a:hover,
+        .dropdown:hover .dropbtn {
+            color: var(--accent-orange);
+        }
+
+        header.scrolled .logo {
+            color: var(--primary-blue);
+        }
+
         header.scrolled .nav-menu li a,
-        header.scrolled .dropbtn { color: var(--primary-blue); }
+        header.scrolled .dropbtn {
+            color: var(--primary-blue);
+        }
+
         header.scrolled .nav-menu li a:hover,
-        header.scrolled .dropdown:hover .dropbtn { color: var(--accent-orange); }
+        header.scrolled .dropdown:hover .dropbtn {
+            color: var(--accent-orange);
+        }
 
         .dropdown-content {
-            display: none; position: absolute; top: 100%; /* Fixes gap issue */
+            display: none;
+            position: absolute;
+            top: 100%;
+            /* Fixes gap issue */
             right: 0;
-            background-color: var(--primary-blue); min-width: 240px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3); z-index: 1001; flex-direction: column;
+            background-color: var(--primary-blue);
+            min-width: 240px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            z-index: 1001;
+            flex-direction: column;
             border-radius: 0 0 5px 5px;
         }
-        .dropdown-content li { width: 100%; border-top: 1px solid rgba(255,255,255,0.1); }
-        .dropdown-content li a { padding: 12px 20px; width: 100%; display: block; color: var(--white); font-size: 1rem; }
 
-        .dropdown:hover .dropdown-content { display: flex; }
+        .dropdown-content li {
+            width: 100%;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .dropdown-content li a {
+            padding: 12px 20px;
+            width: 100%;
+            display: block;
+            color: var(--white);
+            font-size: 1rem;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: flex;
+        }
 
         .hamburger {
-            display: none; cursor: pointer; flex-direction: column; gap: 6px; z-index: 1002;
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 6px;
+            z-index: 1002;
         }
+
         .bar {
-            width: 30px; height: 3px; background-color: var(--white); transition: 0.3s;
+            width: 30px;
+            height: 3px;
+            background-color: var(--white);
+            transition: 0.3s;
         }
-        header.scrolled .hamburger .bar { background-color: var(--primary-blue); }
+
+        header.scrolled .hamburger .bar {
+            background-color: var(--primary-blue);
+        }
+
         /* =========================================
            3. BANNER & SECTION TITLES
            ========================================= */
@@ -148,6 +243,7 @@
             overflow: hidden;
             position: relative;
         }
+
         .page-banner::before {
             content: "";
             position: absolute;
@@ -159,6 +255,7 @@
             -webkit-backdrop-filter: blur(1.5px) saturate(120%);
             pointer-events: none;
         }
+
         .page-banner::after {
             content: "";
             position: absolute;
@@ -169,6 +266,7 @@
             background: var(--accent-orange);
             box-shadow: 0 -1px 12px rgba(247, 147, 30, 0.45);
         }
+
         .page-banner h1 {
             position: relative;
             z-index: 1;
@@ -181,7 +279,12 @@
             text-shadow: 0 7px 24px rgba(0, 0, 0, 0.62);
         }
 
-        .group-title { margin: 60px 0 30px; text-align: center; position: relative; }
+        .group-title {
+            margin: 60px 0 30px;
+            text-align: center;
+            position: relative;
+        }
+
         .group-title h3 {
             display: inline-block;
             font-size: 1.5rem;
@@ -191,6 +294,7 @@
             position: relative;
             z-index: 2;
         }
+
         .group-title::before {
             content: "";
             position: absolute;
@@ -205,7 +309,12 @@
         /* =========================================
            4. SPEAKER CARDS
            ========================================= */
-        .speakers-section { max-width: 1200px; margin: 40px auto 80px; padding: 0 20px; }
+        .speakers-section {
+            max-width: 1200px;
+            margin: 40px auto 80px;
+            padding: 0 20px;
+        }
+
         .speakers-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -219,13 +328,14 @@
             text-align: center;
             position: relative;
             border-top: 6px solid var(--primary-blue);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
             transition: 0.4s ease;
             cursor: pointer;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
         }
+
         .speaker-card::after {
             content: "🎤";
             position: absolute;
@@ -243,30 +353,77 @@
             pointer-events: none;
             transition: 0.3s ease;
         }
-        .speaker-card:hover { transform: translateY(-10px); border-top-color: var(--accent-gold); box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
-        .speaker-card:hover::after { background: var(--accent-gold); color: var(--primary-blue); }
+
+        .speaker-card:hover {
+            transform: translateY(-10px);
+            border-top-color: var(--accent-gold);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        .speaker-card:hover::after {
+            background: var(--accent-gold);
+            color: var(--primary-blue);
+        }
 
         .speaker-img-box {
-            width: 140px; height: 140px;
+            width: 140px;
+            height: 140px;
             margin: 0 auto 20px;
             border-radius: 50%;
             overflow: hidden;
             border: 5px solid #f0f0f0;
             transition: 0.3s;
         }
-        .speaker-card:hover .speaker-img-box { border-color: var(--accent-orange); }
-        .speaker-img-box img { width: 100%; height: 100%; object-fit: cover; }
+
+        .speaker-card:hover .speaker-img-box {
+            border-color: var(--accent-orange);
+        }
+
+        .speaker-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
 
         .badge {
-            position: absolute; top: 15px; right: 15px;
-            padding: 4px 10px; font-size: 0.7rem; font-weight: bold; border-radius: 3px;
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            padding: 4px 10px;
+            font-size: 0.7rem;
+            font-weight: bold;
+            border-radius: 3px;
         }
-        .badge.keynote { background: var(--accent-gold); color: var(--primary-blue); }
-        .badge.invited { background: var(--primary-blue); color: white; }
 
-        .speaker-info h3 { color: var(--primary-blue); font-size: 1.25rem; margin-bottom: 5px; }
-        .designation { color: #666; font-size: 0.9rem; font-weight: 600; display: block; }
-        .university { color: var(--accent-gold); font-size: 0.85rem; font-weight: 700; margin-top: 5px; }
+        .badge.keynote {
+            background: var(--accent-gold);
+            color: var(--primary-blue);
+        }
+
+        .badge.invited {
+            background: var(--primary-blue);
+            color: white;
+        }
+
+        .speaker-info h3 {
+            color: var(--primary-blue);
+            font-size: 1.25rem;
+            margin-bottom: 5px;
+        }
+
+        .designation {
+            color: #666;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: block;
+        }
+
+        .university {
+            color: var(--accent-gold);
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-top: 5px;
+        }
 
         .view-btn {
             margin-top: 20px;
@@ -279,59 +436,148 @@
             font-weight: bold;
             transition: 0.3s;
         }
-        .speaker-card:hover .view-btn { background: var(--accent-gold); color: var(--primary-blue); }
+
+        .speaker-card:hover .view-btn {
+            background: var(--accent-gold);
+            color: var(--primary-blue);
+        }
 
         /* =========================================
            5. GLASS MODAL
            ========================================= */
         .modal-overlay {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             background: rgba(0, 0, 0, 0.7);
             backdrop-filter: blur(8px);
             z-index: 2000;
-            display: flex; justify-content: center; align-items: center;
-            opacity: 0; visibility: hidden; transition: 0.3s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.3s;
         }
-        .modal-overlay.active { opacity: 1; visibility: visible; }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
 
         .glass-modal {
             background: linear-gradient(145deg, var(--primary-blue), var(--secondary-blue));
             backdrop-filter: none;
             border: 1px solid rgba(247, 147, 30, 0.35);
-            width: 90%; max-width: 600px;
-            padding: 40px; border-radius: 20px;
-            position: relative; color: white; text-align: center;
+            width: 90%;
+            max-width: 600px;
+            padding: 40px;
+            border-radius: 20px;
+            position: relative;
+            color: white;
+            text-align: center;
             box-shadow: 0 24px 70px rgba(0, 20, 40, 0.38);
-            transform: scale(0.8); transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transform: scale(0.8);
+            transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
-        .modal-overlay.active .glass-modal { transform: scale(1); }
+
+        .modal-overlay.active .glass-modal {
+            transform: scale(1);
+        }
 
         .close-modal {
-            position: absolute; top: 15px; right: 15px;
-            width: 35px; height: 35px; background: var(--accent-gold);
-            border-radius: 50%; cursor: pointer; display: flex;
-            align-items: center; justify-content: center; color: var(--primary-blue);
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 35px;
+            height: 35px;
+            background: var(--accent-gold);
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-blue);
         }
 
-        .modal-img { width: 120px; height: 120px; border-radius: 50%; border: 4px solid var(--accent-gold); margin-bottom: 15px; }
-        .modal-bio { background: rgba(0,0,0,0.3); padding: 20px; border-radius: 10px; margin: 20px 0; font-size: 0.95rem; line-height: 1.6; text-align: justify; }
+        .modal-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid var(--accent-gold);
+            margin-bottom: 15px;
+        }
+
+        .modal-bio {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            text-align: justify;
+        }
 
         /* =========================================
            6. FOOTER
            ========================================= */
-        footer { background: var(--secondary-blue); color: #bbb; padding: 60px 0 20px; }
-        .footer-container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; padding: 0 20px; }
-        .footer-col h4 { color: var(--accent-gold); margin-bottom: 20px; }
-        .footer-col a { color: #bbb; text-decoration: none; display: block; margin-bottom: 10px; transition: 0.3s; }
-        .footer-col a:hover { color: var(--accent-gold); padding-left: 5px; }
-        .footer-bottom { text-align: center; margin-top: 50px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); }
+        footer {
+            background: var(--secondary-blue);
+            color: #bbb;
+            padding: 60px 0 20px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            padding: 0 20px;
+        }
+
+        .footer-col h4 {
+            color: var(--accent-gold);
+            margin-bottom: 20px;
+        }
+
+        .footer-col a {
+            color: #bbb;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+            transition: 0.3s;
+        }
+
+        .footer-col a:hover {
+            color: var(--accent-gold);
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
 
         /* Mobile */
         @media (max-width: 900px) {
-            .nav-menu { display: none; }
-            .hamburger { display: flex; }
-            .page-banner h1 { font-size: 1.8rem; }
+            .nav-menu {
+                display: none;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .page-banner h1 {
+                font-size: 1.8rem;
+            }
         }
+
         /* Unified header styling */
         header {
             background: #002144;
@@ -352,7 +598,7 @@
 
         header.scrolled {
             background-color: var(--white);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
             height: 76px;
         }
 
@@ -384,11 +630,32 @@
             letter-spacing: 0.8px;
         }
 
-        .logo-text span:first-child { font-size: 1.12rem; }
-        .logo-text span:last-child { font-size: 0.72rem; letter-spacing: 1.4px; margin-top: 3px; }
-        .nav-menu { display: flex; list-style: none; align-items: center; height: 100%; }
-        .nav-menu li { position: relative; height: 100%; display: flex; align-items: center; }
-        .nav-menu li a, .dropbtn {
+        .logo-text span:first-child {
+            font-size: 1.12rem;
+        }
+
+        .logo-text span:last-child {
+            font-size: 0.72rem;
+            letter-spacing: 1.4px;
+            margin-top: 3px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            align-items: center;
+            height: 100%;
+        }
+
+        .nav-menu li {
+            position: relative;
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-menu li a,
+        .dropbtn {
             color: var(--white);
             text-decoration: none;
             padding: 0 18px;
@@ -400,12 +667,26 @@
             display: flex;
             align-items: center;
         }
-        .nav-menu li a:hover, .dropdown:hover .dropbtn { color: var(--accent-orange); }
-        header.scrolled .logo { color: var(--primary-blue); }
+
+        .nav-menu li a:hover,
+        .dropdown:hover .dropbtn {
+            color: var(--accent-orange);
+        }
+
+        header.scrolled .logo {
+            color: var(--primary-blue);
+        }
+
         header.scrolled .nav-menu li a,
-        header.scrolled .dropbtn { color: var(--primary-blue); }
+        header.scrolled .dropbtn {
+            color: var(--primary-blue);
+        }
+
         header.scrolled .nav-menu li a:hover,
-        header.scrolled .dropdown:hover .dropbtn { color: var(--accent-orange); }
+        header.scrolled .dropdown:hover .dropbtn {
+            color: var(--accent-orange);
+        }
+
         .dropdown-content {
             display: none;
             position: absolute;
@@ -413,21 +694,58 @@
             right: 0;
             background-color: var(--primary-blue);
             min-width: 240px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
             z-index: 1001;
             flex-direction: column;
             border-radius: 0 0 5px 5px;
         }
-        .dropdown-content li { width: 100%; border-top: 1px solid rgba(255,255,255,0.1); }
-        .dropdown-content li a { padding: 12px 20px; width: 100%; display: block; color: var(--white); font-size: 1rem; }
-        .dropdown:hover .dropdown-content { display: flex; }
-        .hamburger { display: none; cursor: pointer; flex-direction: column; gap: 6px; z-index: 1002; }
-        .bar { width: 30px; height: 3px; background-color: var(--white); transition: 0.3s; }
-        header.scrolled .hamburger .bar { background-color: var(--primary-blue); }
+
+        .dropdown-content li {
+            width: 100%;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .dropdown-content li a {
+            padding: 12px 20px;
+            width: 100%;
+            display: block;
+            color: var(--white);
+            font-size: 1rem;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: flex;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 6px;
+            z-index: 1002;
+        }
+
+        .bar {
+            width: 30px;
+            height: 3px;
+            background-color: var(--white);
+            transition: 0.3s;
+        }
+
+        header.scrolled .hamburger .bar {
+            background-color: var(--primary-blue);
+        }
 
         @media (max-width: 900px) {
-            header { padding: 0 14px; height: 68px; }
-            .hamburger { display: flex !important; }
+            header {
+                padding: 0 14px;
+                height: 68px;
+            }
+
+            .hamburger {
+                display: flex !important;
+            }
+
             .nav-menu {
                 display: block;
                 position: fixed;
@@ -439,31 +757,47 @@
                 flex-direction: column;
                 padding: 18px;
                 transition: 0.3s ease;
-                box-shadow: -5px 0 20px rgba(0,0,0,0.4);
+                box-shadow: -5px 0 20px rgba(0, 0, 0, 0.4);
             }
-            .nav-menu.active { right: 0; }
+
+            .nav-menu.active {
+                right: 0;
+            }
+
             .nav-menu li {
                 width: 100%;
-                border-bottom: 1px solid rgba(255,255,255,0.05);
+                border-bottom: 1px solid rgba(255, 255, 255, 0.05);
                 display: block;
                 height: auto;
                 margin-bottom: 0;
             }
-            .nav-menu li a, .dropbtn { padding: 10px 8px; font-size: 0.96rem; justify-content: space-between; }
+
+            .nav-menu li a,
+            .dropbtn {
+                padding: 10px 8px;
+                font-size: 0.96rem;
+                justify-content: space-between;
+            }
+
             .dropdown-content {
                 position: relative;
                 top: 0;
                 width: 100%;
                 box-shadow: none;
-                background: rgba(0,0,0,0.2);
+                background: rgba(0, 0, 0, 0.2);
                 display: none;
             }
-            .dropdown:hover .dropdown-content { display: block; }
+
+            .dropdown:hover .dropdown-content {
+                display: block;
+            }
         }
+
         /* Shared inner-page header and announcement ticker */
         body {
             padding-top: 110px;
         }
+
         .top-glass-bg {
             position: fixed;
             top: 0;
@@ -474,6 +808,7 @@
             pointer-events: none;
             background: linear-gradient(180deg, #001a36 0%, #002144 74%, rgba(0, 33, 68, 0) 100%);
         }
+
         .ticker-wrap {
             position: fixed;
             top: 0;
@@ -486,6 +821,7 @@
             background: linear-gradient(90deg, rgba(0, 26, 54, 0.96), rgba(0, 51, 102, 0.92), rgba(0, 26, 54, 0.96));
             border-bottom: 1px solid rgba(247, 147, 30, 0.42);
         }
+
         .ticker {
             display: flex;
             width: max-content;
@@ -494,76 +830,99 @@
             white-space: nowrap;
             animation: ticker 28s linear infinite;
         }
+
         .ticker__group {
             display: flex;
             flex: 0 0 auto;
         }
+
         .ticker__item {
             display: inline-block;
             padding: 0 1.9rem;
             font-size: 0.86rem;
-            color: rgba(255,255,255,0.92);
+            color: rgba(255, 255, 255, 0.92);
             font-weight: 700;
         }
+
         .ticker__item span {
             color: var(--accent-gold);
             margin-right: 8px;
             font-weight: 800;
         }
+
         @keyframes ticker {
-            0% { transform: translate3d(0, 0, 0); }
-            100% { transform: translate3d(-50%, 0, 0); }
+            0% {
+                transform: translate3d(0, 0, 0);
+            }
+
+            100% {
+                transform: translate3d(-50%, 0, 0);
+            }
         }
+
         header {
             top: 32px;
             background: #002144;
             border-bottom: 1px solid rgba(255, 255, 255, 0.18);
             box-shadow: 0 8px 24px rgba(0, 20, 40, 0.16);
         }
+
         header.scrolled {
             background: #002144;
             box-shadow: 0 8px 24px rgba(0, 20, 40, 0.18);
         }
+
         header.scrolled .logo,
         header.scrolled .nav-menu li a,
         header.scrolled .dropbtn {
             color: var(--white);
         }
+
         header.scrolled .nav-menu li a:hover,
         header.scrolled .dropdown:hover .dropbtn {
             color: var(--accent-orange);
         }
+
         header.scrolled .hamburger .bar {
             background-color: var(--white);
         }
+
         @media (max-width: 900px) {
             body {
                 padding-top: 100px;
             }
+
             .top-glass-bg {
                 height: 100px;
             }
+
             .ticker-wrap {
                 width: calc(100% - 20px);
             }
+
             header {
                 top: 32px;
             }
+
             .nav-menu {
                 top: 100px;
                 height: calc(100vh - 100px);
             }
         }
+
         /* Shared inner-page banner sizing and orange bottom rule */
         body {
             padding-top: 104px;
         }
+
         header {
             height: 72px;
         }
+
         header.scrolled {
             height: 72px;
         }
+
         .page-banner,
         .venue-hero {
             height: 180px;
@@ -572,6 +931,7 @@
             padding: 0 24px;
             text-align: center;
         }
+
         .page-banner::after,
         .venue-hero::after {
             content: "";
@@ -583,6 +943,7 @@
             background: var(--accent-orange);
             box-shadow: 0 -1px 12px rgba(247, 147, 30, 0.45);
         }
+
         .page-banner h1,
         .venue-hero h1 {
             display: inline-block;
@@ -598,18 +959,22 @@
             font-weight: 800;
             text-shadow: none;
         }
+
         @media (max-width: 900px) {
             body {
                 padding-top: 100px;
             }
+
             header,
             header.scrolled {
                 height: 68px;
             }
+
             .page-banner,
             .venue-hero {
                 height: 140px;
             }
+
             .page-banner h1,
             .venue-hero h1 {
                 font-size: 1.5rem;
@@ -618,18 +983,25 @@
                 padding-bottom: 8px;
             }
         }
-    
+
         /* Site-wide mobile fit overrides */
-        html, body {
+        html,
+        body {
             max-width: 100%;
             overflow-x: hidden;
         }
 
-        *, *::before, *::after {
+        *,
+        *::before,
+        *::after {
             min-width: 0;
         }
 
-        img, video, iframe, svg, canvas {
+        img,
+        video,
+        iframe,
+        svg,
+        canvas {
             max-width: 100%;
             height: auto;
         }
@@ -917,6 +1289,7 @@
                 max-width: min(420px, 78%) !important;
             }
         }
+
         /* KSRCT reference footer */
         .ksr-footer {
             background: #061f45 !important;
@@ -948,7 +1321,7 @@
             margin: 0 !important;
         }
 
-        .ksr-footer-contact > p {
+        .ksr-footer-contact>p {
             margin-bottom: 14px !important;
         }
 
@@ -1075,8 +1448,10 @@
                 width: 62px !important;
                 max-width: 62px !important;
             }
-        }</style>
+        }
+    </style>
 </head>
+
 <body>
 
     <div class="top-glass-bg" aria-hidden="true"></div>
@@ -1085,15 +1460,19 @@
         <div class="ticker">
             <div class="ticker__group">
                 <div class="ticker__item"><span>LATEST:</span> Paper submission deadline extended to Oct 20th!</div>
-                <div class="ticker__item"><span>UPDATE:</span> New Keynote Speaker Dr. Alan Turing joins the panel.</div>
+                <div class="ticker__item"><span>UPDATE:</span> New Keynote Speaker Dr. Alan Turing joins the panel.
+                </div>
                 <div class="ticker__item"><span>ALERT:</span> Early Bird Registration closes in 3 days.</div>
-                <div class="ticker__item"><span>VENUE:</span> Accommodation booking is now open at KSRCT Guest House.</div>
+                <div class="ticker__item"><span>VENUE:</span> Accommodation booking is now open at KSRCT Guest House.
+                </div>
             </div>
             <div class="ticker__group" aria-hidden="true">
                 <div class="ticker__item"><span>LATEST:</span> Paper submission deadline extended to Oct 20th!</div>
-                <div class="ticker__item"><span>UPDATE:</span> New Keynote Speaker Dr. Alan Turing joins the panel.</div>
+                <div class="ticker__item"><span>UPDATE:</span> New Keynote Speaker Dr. Alan Turing joins the panel.
+                </div>
                 <div class="ticker__item"><span>ALERT:</span> Early Bird Registration closes in 3 days.</div>
-                <div class="ticker__item"><span>VENUE:</span> Accommodation booking is now open at KSRCT Guest House.</div>
+                <div class="ticker__item"><span>VENUE:</span> Accommodation booking is now open at KSRCT Guest House.
+                </div>
             </div>
         </div>
     </div>
@@ -1101,7 +1480,8 @@
         <a class="logo" href="index.html" aria-label="KSRCT CONF 2027 home">
             <img src="img/download (7).png" alt="KSRCT symbol" class="logo-mark">
             <span class="logo-text">
-                <span style="font-size:1.12rem; transform:translateY(-2px); font-weight:900; text-transform:uppercase;">SUSTAINMENT</span>
+                <span
+                    style="font-size:1.12rem; transform:translateY(-2px); font-weight:900; text-transform:uppercase;">SUSTAINMENT</span>
                 <span style="font-size:0.95rem; letter-spacing:1.6px; margin-top:2px; font-weight:800;">2027</span>
             </span>
         </a>
@@ -1148,12 +1528,15 @@
 
     <section class="speakers-section">
 
-        <div class="group-title"><h3>International Speakers</h3></div>
+        <div class="group-title">
+            <h3>International Speakers</h3>
+        </div>
         <div class="speakers-grid">
 
-            <div class="speaker-card" onclick="openModal(this)"
-                 data-name="Prof. Bruno D’Aguanno" data-role="Keynote Speaker" data-uni="University of Lincoln, U.K."
-                 data-img="https://via.placeholder.com/400x400?text=Bruno" data-bio="Prof. Bruno is an expert in Solar Thermal Energy and Advanced Materials with over 200 published papers.">
+            <div class="speaker-card" onclick="openModal(this)" data-name="Prof. Bruno D’Aguanno"
+                data-role="Keynote Speaker" data-uni="University of Lincoln, U.K."
+                data-img="https://via.placeholder.com/400x400?text=Bruno"
+                data-bio="Prof. Bruno is an expert in Solar Thermal Energy and Advanced Materials with over 200 published papers.">
                 <div class="badge keynote">KEYNOTE</div>
                 <div class="speaker-img-box"><img src="https://via.placeholder.com/400x400?text=Bruno" alt=""></div>
                 <div class="speaker-info">
@@ -1163,9 +1546,10 @@
                 <div class="view-btn">View Bio</div>
             </div>
 
-            <div class="speaker-card" onclick="openModal(this)"
-                 data-name="Dr. Sarah Jenkins" data-role="Keynote Speaker" data-uni="Stanford University, USA"
-                 data-img="https://via.placeholder.com/400x400?text=Sarah" data-bio="Dr. Sarah Jenkins leads research in Sustainable Nanotechnology and its applications in water purification.">
+            <div class="speaker-card" onclick="openModal(this)" data-name="Dr. Sarah Jenkins"
+                data-role="Keynote Speaker" data-uni="Stanford University, USA"
+                data-img="https://via.placeholder.com/400x400?text=Sarah"
+                data-bio="Dr. Sarah Jenkins leads research in Sustainable Nanotechnology and its applications in water purification.">
                 <div class="badge keynote">KEYNOTE</div>
                 <div class="speaker-img-box"><img src="https://via.placeholder.com/400x400?text=Sarah" alt=""></div>
                 <div class="speaker-info">
@@ -1175,9 +1559,10 @@
                 <div class="view-btn">View Bio</div>
             </div>
 
-            <div class="speaker-card" onclick="openModal(this)"
-                 data-name="Prof. Hiroshi Tanaka" data-role="Guest Speaker" data-uni="University of Tokyo, Japan"
-                 data-img="https://via.placeholder.com/400x400?text=Hiroshi" data-bio="Prof. Tanaka is a pioneer in Robotics and AI integration for manufacturing industries.">
+            <div class="speaker-card" onclick="openModal(this)" data-name="Prof. Hiroshi Tanaka"
+                data-role="Guest Speaker" data-uni="University of Tokyo, Japan"
+                data-img="https://via.placeholder.com/400x400?text=Hiroshi"
+                data-bio="Prof. Tanaka is a pioneer in Robotics and AI integration for manufacturing industries.">
                 <div class="badge keynote">KEYNOTE</div>
                 <div class="speaker-img-box"><img src="https://via.placeholder.com/400x400?text=Hiroshi" alt=""></div>
                 <div class="speaker-info">
@@ -1188,12 +1573,15 @@
             </div>
         </div>
 
-        <div class="group-title"><h3>National Speakers</h3></div>
+        <div class="group-title">
+            <h3>National Speakers</h3>
+        </div>
         <div class="speakers-grid">
 
-            <div class="speaker-card" onclick="openModal(this)"
-                 data-name="Dr. Karthick Mani" data-role="Senior Scientist" data-uni="ARCI, Hyderabad"
-                 data-img="https://via.placeholder.com/400x400?text=Karthick" data-bio="Dr. Mani specializes in thin-film coatings and surface engineering for aerospace applications.">
+            <div class="speaker-card" onclick="openModal(this)" data-name="Dr. Karthick Mani"
+                data-role="Senior Scientist" data-uni="ARCI, Hyderabad"
+                data-img="https://via.placeholder.com/400x400?text=Karthick"
+                data-bio="Dr. Mani specializes in thin-film coatings and surface engineering for aerospace applications.">
                 <div class="badge invited">INVITED</div>
                 <div class="speaker-img-box"><img src="https://via.placeholder.com/400x400?text=Karthick" alt=""></div>
                 <div class="speaker-info">
@@ -1204,9 +1592,10 @@
                 <div class="view-btn">View Bio</div>
             </div>
 
-            <div class="speaker-card" onclick="openModal(this)"
-                 data-name="Dr. P. Suresh" data-role="Assistant Professor" data-uni="IIT-Hyderabad"
-                 data-img="https://via.placeholder.com/400x400?text=Anjali" data-bio="Dr. Desai is a renowned researcher in Chemical Engineering and Green Catalysis.">
+            <div class="speaker-card" onclick="openModal(this)" data-name="Dr. P. Suresh"
+                data-role="Assistant Professor" data-uni="IIT-Hyderabad"
+                data-img="https://via.placeholder.com/400x400?text=Anjali"
+                data-bio="Dr. Desai is a renowned researcher in Chemical Engineering and Green Catalysis.">
                 <div class="badge invited">INVITED</div>
                 <div class="speaker-img-box"><img src="https://via.placeholder.com/400x400?text=Anjali" alt=""></div>
                 <div class="speaker-info">
@@ -1217,9 +1606,10 @@
                 <div class="view-btn">View Bio</div>
             </div>
 
-            <div class="speaker-card" onclick="openModal(this)"
-                 data-name="Dr. N. Pradeep"  data-role="Assistant Professor" data-uni="NIT-TRICHY"
-                 data-img="https://via.placeholder.com/400x400?text=Rajesh" data-bio="Prof. Kumar oversees large-scale energy storage projects and national power grid enhancements.">
+            <div class="speaker-card" onclick="openModal(this)" data-name="Dr. N. Pradeep"
+                data-role="Assistant Professor" data-uni="NIT-TRICHY"
+                data-img="https://via.placeholder.com/400x400?text=Rajesh"
+                data-bio="Prof. Kumar oversees large-scale energy storage projects and national power grid enhancements.">
                 <div class="badge invited">INVITED</div>
                 <div class="speaker-img-box"><img src="https://via.placeholder.com/400x400?text=Rajesh" alt=""></div>
                 <div class="speaker-info">
@@ -1248,17 +1638,19 @@
         </div>
     </div>
 
-        <footer class="ksr-footer">
+    <footer class="ksr-footer">
         <div class="ksr-footer-grid">
             <div class="ksr-footer-contact">
                 <p>E-mail: office@ksrct.ac.in, info@ksrct.ac.in</p>
                 <p>Telephone: (04288) 274741 to 274744</p>
                 <p>Fax: 04288 &ndash; 274745</p>
                 <div class="ksr-location-row">
-                    <img src="img/footer-logo-transparent.png" alt="K S Rangasamy College of Technology logo" class="ksr-footer-logo">
+                    <img src="img/footer-logo-transparent.png" alt="K S Rangasamy College of Technology logo"
+                        class="ksr-footer-logo">
                     <div>
                         <h3>Location:</h3>
-                        <p>K S Rangasamy College of<br>Technology, KSR Kalvi Nagar,<br>Tiruchengode- 637 215, TamilNadu,<br>India.</p>
+                        <p>K S Rangasamy College of<br>Technology, KSR Kalvi Nagar,<br>Tiruchengode- 637 215,
+                            TamilNadu,<br>India.</p>
                     </div>
                 </div>
             </div>
@@ -1278,7 +1670,8 @@
             <div class="ksr-footer-links ksr-useful-links">
                 <h3>Useful links</h3>
                 <a href="https://ksrct.ac.in/accredation.php">NBA &ndash; Accreditation</a>
-                <a href="https://ksrct.ac.in/assets/pdf/quicklinks_pdfs/AICTE-MandatoryDisclosure2025_26.pdf">AICTE Mandatory Disclosure</a>
+                <a href="https://ksrct.ac.in/assets/pdf/quicklinks_pdfs/AICTE-MandatoryDisclosure2025_26.pdf">AICTE
+                    Mandatory Disclosure</a>
                 <a href="https://ksrct.ac.in/assets/pdf/quicklinks_pdfs/KSRCT_RTI.pdf">RTI</a>
                 <a href="https://ksrct.ac.in/accredation.php">AICTE Approvals</a>
                 <a href="https://ksrct.ac.in/aictefeedback.php">AICTE Feedback Facility</a>
@@ -1323,4 +1716,5 @@
         });
     </script>
 </body>
+
 </html>
