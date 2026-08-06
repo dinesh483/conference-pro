@@ -324,7 +324,7 @@
         .speaker-card {
             background: var(--white);
             border-radius: 15px;
-            padding: 40px 20px 25px;
+            padding: 36px 20px 28px;
             text-align: center;
             position: relative;
             border-top: 6px solid var(--primary-blue);
@@ -333,7 +333,8 @@
             cursor: pointer;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            justify-content: flex-start;
+            align-items: center;
         }
 
         .speaker-card::after {
@@ -366,9 +367,9 @@
         }
 
         .speaker-img-box {
-            width: 140px;
-            height: 140px;
-            margin: 0 auto 20px;
+            width: 170px;
+            height: 170px;
+            margin: 0 auto 32px;
             border-radius: 50%;
             overflow: hidden;
             border: 5px solid #f0f0f0;
@@ -405,6 +406,11 @@
             color: white;
         }
 
+        .speaker-info {
+            margin-top: 4px;
+            width: 100%;
+        }
+
         .speaker-info h3 {
             color: var(--primary-blue);
             font-size: 1.25rem;
@@ -423,23 +429,6 @@
             font-size: 0.85rem;
             font-weight: 700;
             margin-top: 5px;
-        }
-
-        .view-btn {
-            margin-top: 20px;
-            margin-inline: auto;
-            padding: 8px 20px;
-            background: var(--primary-blue);
-            color: white;
-            border-radius: 25px;
-            font-size: 0.8rem;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-
-        .speaker-card:hover .view-btn {
-            background: var(--accent-gold);
-            color: var(--primary-blue);
         }
 
         /* =========================================
@@ -947,7 +936,7 @@
         }
 
         .page-banner h1,
-        .venue-hero h1 {
+        .venue-hero h1 {
             text-transform: uppercase;
             text-transform: uppercase;
             display: inline-block;
@@ -979,7 +968,7 @@
             }
 
             .page-banner h1,
-            .venue-hero h1 {
+            .venue-hero h1 {
             text-transform: uppercase;
             text-transform: uppercase;
                 font-size: 1.5rem;
@@ -1148,7 +1137,7 @@
             }
 
             .page-banner h1,
-            .venue-hero h1 {
+            .venue-hero h1 {
             text-transform: uppercase;
             text-transform: uppercase;
                 max-width: 92vw !important;
@@ -1489,7 +1478,7 @@
             <img src="img/download (7).png" alt="KSRCT symbol" class="logo-mark">
             <span class="logo-text">
                 <span
-                    style="font-size:1.12rem; transform:translateY(-2px); font-weight:900;">SUSTAINMENT</span>
+                    style="font-size:1.12rem; transform:translateY(-2px); font-weight:900;">SUSTAINMAT</span>
                 <span style="font-size:0.95rem; letter-spacing:1.6px; margin-top:2px; font-weight:800;">2027</span>
             </span>
         </a>
@@ -1506,7 +1495,7 @@
                 <div class="dropbtn">Committees <i class="fas fa-caret-down" style="margin-left:8px;"></i></div>
                 <ul class="dropdown-content">
                     <li><a href="advisory.html">Advisory Board</a></li>
-                    <li><a href="organizing.html">Organizing Committee</a></li>
+                    <li><a href="unknown.html">Unknown</a></li>
                     <li><a href="review.html">Review Committee</a></li>
                 </ul>
             </li>
@@ -1552,7 +1541,6 @@
                     <h3>Prof. Bruno D'Aguanno</h3>
                     <p class="university">University of Lincoln, U.K.</p>
                 </div>
-                <div class="view-btn">View Bio</div>
             </div>
 
             <div class="speaker-card" onclick="openModal(this)" data-name="Dr. Sarah Jenkins"
@@ -1565,7 +1553,6 @@
                     <h3>Dr. Sarah Jenkins</h3>
                     <p class="university">Stanford University, USA</p>
                 </div>
-                <div class="view-btn">View Bio</div>
             </div>
 
             <div class="speaker-card" onclick="openModal(this)" data-name="Prof. Hiroshi Tanaka"
@@ -1578,7 +1565,6 @@
                     <h3>Prof. Hiroshi Tanaka</h3>
                     <p class="university">University of Tokyo, Japan</p>
                 </div>
-                <div class="view-btn">View Bio</div>
             </div>
         </div>
 
@@ -1598,7 +1584,6 @@
                     <span class="designation">Senior Scientist</span>
                     <p class="university">IIT-Hyderabad</p>
                 </div>
-                <div class="view-btn">View Bio</div>
             </div>
 
             <div class="speaker-card" onclick="openModal(this)" data-name="Dr. P. Suresh"
@@ -1612,7 +1597,6 @@
                     <span class="designation">Assistant Professor</span>
                     <p class="university">IIT-Hyderabad</p>
                 </div>
-                <div class="view-btn">View Bio</div>
             </div>
 
             <div class="speaker-card" onclick="openModal(this)" data-name="Dr. N. Pradeep"
@@ -1626,7 +1610,6 @@
                     <span class="designation">Assistant Professor</span>
                     <p class="university">NIT-TRICHY</p>
                 </div>
-                <div class="view-btn">View Bio</div>
             </div>
 
         </div>
@@ -1727,3 +1710,4 @@
 </body>
 
 </html>
+

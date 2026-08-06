@@ -230,9 +230,10 @@
            3. PAGE BANNER
            ========================================= */
         .page-banner {
-            background: linear-gradient(rgba(0, 51, 102, 0.22), rgba(0, 51, 102, 0.34)), url('img/6491d3b3-74be-4536-a33e-0d4dc1d98e3c.png');
+            background: url('img/call-for-papers-banner.png');
             background-size: cover;
-            background-position: center 35%;
+            background-position: center center;
+            background-repeat: no-repeat;
             height: 180px;
             display: flex;
             justify-content: center;
@@ -243,10 +244,11 @@
 
         .page-banner h1 {
             text-transform: uppercase;
-            font-size: 3rem;
+            font-size: 2.5rem;
             font-weight: 800;
-            border-bottom: 4px solid var(--accent-gold);
-            padding-bottom: 10px;
+            color: var(--accent-orange);
+            border-bottom: 0;
+            padding-bottom: 0;
         }
 
         /* =========================================
@@ -1096,20 +1098,23 @@
         }
 
         .page-banner h1,
-        .venue-hero h1 {
-            text-transform: uppercase;
+        .venue-hero h1 {
             text-transform: uppercase;
             display: inline-block;
             margin: 0 auto;
-            padding-bottom: 10px;
-            border-bottom: 4px solid var(--accent-orange);
+            padding-bottom: 0;
+            border-bottom: 0;
             font-size: clamp(1.75rem, 1.25rem + 1.4vw, 2.15rem);
-            color: var(--primary-blue);
+            color: var(--accent-orange);
             max-width: min(520px, 46%);
             line-height: 1.12;
             text-align: center;
             font-weight: 800;
             text-shadow: none;
+        }
+
+        .page-banner h1 {
+            color: var(--accent-orange);
         }
 
         @media (max-width: 900px) {
@@ -1128,13 +1133,12 @@
             }
 
             .page-banner h1,
-            .venue-hero h1 {
-            text-transform: uppercase;
+            .venue-hero h1 {
             text-transform: uppercase;
                 font-size: 1.5rem;
                 max-width: min(420px, 78%);
                 text-align: center;
-                padding-bottom: 8px;
+                padding-bottom: 0;
             }
         }
 
@@ -1297,7 +1301,7 @@
             }
 
             .page-banner h1,
-            .venue-hero h1 {
+            .venue-hero h1 {
             text-transform: uppercase;
             text-transform: uppercase;
                 max-width: 92vw !important;
@@ -1576,7 +1580,7 @@
             <img src="img/download (7).png" alt="KSRCT symbol" class="logo-mark">
             <span class="logo-text">
                 <span
-                    style="font-size:1.12rem; transform:translateY(-2px); font-weight:900;">SUSTAINMENT</span>
+                    style="font-size:1.12rem; transform:translateY(-2px); font-weight:900;">SUSTAINMAT</span>
                 <span style="font-size:0.95rem; letter-spacing:1.6px; margin-top:2px; font-weight:800;">2027</span>
             </span>
         </a>
@@ -1593,7 +1597,7 @@
                 <div class="dropbtn">Committees <i class="fas fa-caret-down" style="margin-left:8px;"></i></div>
                 <ul class="dropdown-content">
                     <li><a href="advisory.html">Advisory Board</a></li>
-                    <li><a href="organizing.html">Organizing Committee</a></li>
+                    <li><a href="unknown.html">Unknown</a></li>
                     <li><a href="review.html">Review Committee</a></li>
                 </ul>
             </li>
@@ -1707,7 +1711,7 @@
 
             <p><strong>(3)</strong> Poster size: <strong>90 × 120 cm</strong>.</p>
 
-            <p><strong>(4)</strong> Posters will be printed and displayed by the conference organizing committee.</p>
+            <p><strong>(4)</strong> Posters will be printed and displayed by the conference Unknown.</p>
 
             <p><strong>(5)</strong> Professional judges will select the Outstanding Poster Awards. Recipients will be
                 awarded cash prizes and certificates.</p>
@@ -1851,4 +1855,5 @@
 </body>
 
 </html>
+
 
