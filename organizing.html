@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -231,8 +231,8 @@
         }
 
         .page-banner h1 {
-            font-size: 2.2rem;
             text-transform: uppercase;
+            font-size: 2.2rem;
             font-weight: 800;
             border-bottom: 4px solid var(--accent-gold);
             padding-bottom: 5px;
@@ -262,12 +262,13 @@
         /* UPDATED CARD STYLES FOR IMAGE ON LEFT */
         .org-card {
             background: white;
-            width: 340px;
-            padding: 20px;
+            width: 390px;
+            min-height: 132px;
+            padding: 26px;
             border-radius: 10px;
             display: flex;
             align-items: center;
-            gap: 20px;
+            gap: 24px;
             border-left: 5px solid var(--accent-gold);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             transition: 0.3s;
@@ -279,8 +280,8 @@
         }
 
         .org-img {
-            width: 80px;
-            height: 80px;
+            width: 96px;
+            height: 96px;
             border-radius: 50%;
             object-fit: cover;
             border: 2px solid #eee;
@@ -289,31 +290,29 @@
 
         .org-info {
             text-align: left;
+            min-width: 0;
         }
 
         .org-title {
-            background: var(--primary-blue);
-            color: white;
-            display: inline-block;
-            padding: 3px 10px;
-            border-radius: 4px;
-            font-size: 0.75rem;
-            margin-bottom: 8px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            color: var(--primary-blue);
+            display: block;
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+            letter-spacing: 0;
         }
 
         .org-name {
-            font-size: 1.1rem;
+            font-size: 1.22rem;
             font-weight: bold;
             color: #333;
-            margin-bottom: 3px;
+            margin-bottom: 6px;
         }
 
         .org-desig {
-            font-size: 0.85rem;
+            font-size: 0.95rem;
             color: #666;
-            line-height: 1.3;
+            line-height: 1.35;
         }
 
         .org-level-title {
@@ -347,7 +346,8 @@
         @media (max-width: 900px) {
             .org-card {
                 width: 100%;
-                max-width: 400px;
+                max-width: 440px;
+                padding: 22px;
             }
 
             .nav-menu {
@@ -748,7 +748,9 @@
         }
 
         .page-banner h1,
-        .venue-hero h1 {
+        .venue-hero h1 {
+            text-transform: uppercase;
+            text-transform: uppercase;
             display: inline-block;
             margin: 0 auto;
             padding-bottom: 10px;
@@ -758,7 +760,6 @@
             max-width: min(520px, 46%);
             line-height: 1.12;
             text-align: center;
-            text-transform: uppercase;
             font-weight: 800;
             text-shadow: none;
         }
@@ -779,7 +780,9 @@
             }
 
             .page-banner h1,
-            .venue-hero h1 {
+            .venue-hero h1 {
+            text-transform: uppercase;
+            text-transform: uppercase;
                 font-size: 1.5rem;
                 max-width: min(420px, 78%);
                 text-align: center;
@@ -946,7 +949,9 @@
             }
 
             .page-banner h1,
-            .venue-hero h1 {
+            .venue-hero h1 {
+            text-transform: uppercase;
+            text-transform: uppercase;
                 max-width: 92vw !important;
                 font-size: clamp(1.35rem, 7vw, 1.85rem) !important;
                 line-height: 1.15 !important;
@@ -1223,7 +1228,7 @@
             <img src="img/download (7).png" alt="KSRCT symbol" class="logo-mark">
             <span class="logo-text">
                 <span
-                    style="font-size:1.12rem; transform:translateY(-2px); font-weight:900; text-transform:uppercase;">SUSTAINMENT</span>
+                    style="font-size:1.12rem; transform:translateY(-2px); font-weight:900;">SUSTAINMENT</span>
                 <span style="font-size:0.95rem; letter-spacing:1.6px; margin-top:2px; font-weight:800;">2027</span>
             </span>
         </a>
@@ -1271,90 +1276,90 @@
     <div class="container">
         <div class="org-tree">
 
-            <div class="org-level-title"><span>CHIEF PATRONS</span></div>
+            <div class="org-level-title"><span>Chief Patrons</span></div>
             <div class="org-level">
                 <div class="org-card">
-                    <img src="https://via.placeholder.com/80" alt="Srinivasan" class="org-img">
+                    <img src="img/advisor-placeholder.svg" alt="Shri. R. Srinivasan" class="org-img">
                     <div class="org-info">
-                        <span class="org-title">Chairman</span>
                         <div class="org-name">Shri. R. Srinivasan</div>
-                        <div class="org-desig">Chairman, KSR Educational Institutions</div>
+                        <span class="org-title">Chairman</span>
+                        <div class="org-desig">KSR Educational Institutions</div>
                     </div>
                 </div>
             </div>
 
-            <div class="org-level-title"><span>PATRONS</span></div>
+            <div class="org-level-title"><span>Patrons</span></div>
             <div class="org-level">
                 <div class="org-card">
-                    <img src="https://via.placeholder.com/80" alt="Gopalakrishnan" class="org-img">
+                    <img src="img/advisor-placeholder.svg" alt="Dr. R. Gopalakrishnan" class="org-img">
                     <div class="org-info">
-                        <span class="org-title">Principal</span>
                         <div class="org-name">Dr. R. Gopalakrishnan</div>
-                        <div class="org-desig">Principal, KSRCT</div>
+                        <span class="org-title">Principal</span>
+                        <div class="org-desig">KSRCT</div>
                     </div>
                 </div>
                 <div class="org-card">
-                    <img src="https://via.placeholder.com/80" alt="Thyagarajah" class="org-img">
+                    <img src="img/advisor-placeholder.svg" alt="Dr. K. Thyagarajah" class="org-img">
                     <div class="org-info">
-                        <span class="org-title">Director</span>
                         <div class="org-name">Dr. K. Thyagarajah</div>
-                        <div class="org-desig">CEO, KSR Institutions</div>
+                        <span class="org-title">CEO</span>
+                        <div class="org-desig">KSR Institutions</div>
                     </div>
                 </div>
             </div>
 
-            <div class="org-level-title"><span>ORGANIZING CHAIR</span></div>
+            <div class="org-level-title"><span>Organizing Chair</span></div>
             <div class="org-level">
                 <div class="org-card">
-                    <img src="https://via.placeholder.com/80" alt="Organizing Chair" class="org-img">
+                    <img src="img/advisor-placeholder.svg" alt="Dr. S. Ramesh" class="org-img">
                     <div class="org-info">
-                        <span class="org-title">Organizing Chair</span>
                         <div class="org-name">Dr. S. Ramesh</div>
-                        <div class="org-desig">Dean - Academics</div>
+                        <span class="org-title">Dean - Academics</span>
+                        <div class="org-desig">KSRCT</div>
                     </div>
                 </div>
             </div>
 
-            <div class="org-level-title"><span>CONVENORS</span></div>
+            <div class="org-level-title"><span>Convenors</span></div>
             <div class="org-level">
                 <div class="org-card">
-                    <img src="https://via.placeholder.com/80" alt="Meenakshi" class="org-img">
+                    <img src="img/advisor-placeholder.svg" alt="Dr. P. Meenakshi" class="org-img">
                     <div class="org-info">
-                        <span class="org-title">Convenor</span>
                         <div class="org-name">Dr. P. Meenakshi</div>
-                        <div class="org-desig">HOD, CSE Dept</div>
+                        <span class="org-title">HOD</span>
+                        <div class="org-desig">CSE Dept</div>
                     </div>
                 </div>
             </div>
 
-            <div class="org-level-title"><span>ORGANIZING SECRETARIES</span></div>
+            <div class="org-level-title"><span>Organizing Secretaries</span></div>
             <div class="org-level">
                 <div class="org-card">
-                    <img src="https://via.placeholder.com/80" alt="Chief" class="org-img">
+                    <img src="img/advisor-placeholder.svg" alt="Dr. V. Prabha" class="org-img">
                     <div class="org-info">
-                        <span class="org-title">ORGANIZING SECRETARIES</span>
                         <div class="org-name">Dr. V. Prabha</div>
-                        <div class="org-desig">Professor, R&D Cell</div>
+                        <span class="org-title">Professor</span>
+                        <div class="org-desig">R&D Cell</div>
                     </div>
                 </div>
             </div>
 
-            <div class="org-level-title"><span>COORDINATORS</span></div>
+            <div class="org-level-title"><span>Coordinators</span></div>
             <div class="org-level">
                 <div class="org-card">
-                    <img src="https://via.placeholder.com/80" alt="Karthik" class="org-img">
+                    <img src="img/advisor-placeholder.svg" alt="Prof. S. Karthik" class="org-img">
                     <div class="org-info">
-                        <span class="org-title">Coordinator</span>
                         <div class="org-name">Prof. S. Karthik</div>
-                        <div class="org-desig">Associate Professor, IT</div>
+                        <span class="org-title">Associate Professor</span>
+                        <div class="org-desig">IT</div>
                     </div>
                 </div>
                 <div class="org-card">
-                    <img src="https://via.placeholder.com/80" alt="Divya" class="org-img">
+                    <img src="img/advisor-placeholder.svg" alt="Prof. M. Divya" class="org-img">
                     <div class="org-info">
-                        <span class="org-title">Coordinator</span>
                         <div class="org-name">Prof. M. Divya</div>
-                        <div class="org-desig">Assistant Professor, ECE</div>
+                        <span class="org-title">Assistant Professor</span>
+                        <div class="org-desig">ECE</div>
                     </div>
                 </div>
             </div>

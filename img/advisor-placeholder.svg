@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="240" viewBox="0 0 240 240" role="img" aria-labelledby="title desc">
+  <title id="title">Advisor profile placeholder</title>
+  <desc id="desc">A neutral profile illustration for advisory board members.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f7fbff"/>
+      <stop offset="1" stop-color="#e8eff7"/>
+    </linearGradient>
+  </defs>
+  <rect width="240" height="240" rx="120" fill="url(#bg)"/>
+  <circle cx="120" cy="88" r="42" fill="#17446f"/>
+  <path d="M48 210c8-47 37-73 72-73s64 26 72 73" fill="#d4a017"/>
+  <path d="M72 207c9-31 27-47 48-47s39 16 48 47" fill="#17446f" opacity=".18"/>
+</svg>

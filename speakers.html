@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -268,10 +268,10 @@
         }
 
         .page-banner h1 {
+            text-transform: uppercase;
             position: relative;
             z-index: 1;
             font-size: clamp(1.8rem, 3.2vw, 2.5rem);
-            text-transform: uppercase;
             font-weight: 800;
             color: var(--accent-orange);
             border-bottom: 0;
@@ -337,7 +337,7 @@
         }
 
         .speaker-card::after {
-            content: "🎤";
+            content: "\1F3A4";
             position: absolute;
             right: 16px;
             bottom: 14px;
@@ -451,8 +451,9 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(8px);
+            background: rgba(0, 18, 36, 0.38);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
             z-index: 2000;
             display: flex;
             justify-content: center;
@@ -574,6 +575,7 @@
             }
 
             .page-banner h1 {
+            text-transform: uppercase;
                 font-size: 1.8rem;
             }
         }
@@ -945,7 +947,9 @@
         }
 
         .page-banner h1,
-        .venue-hero h1 {
+        .venue-hero h1 {
+            text-transform: uppercase;
+            text-transform: uppercase;
             display: inline-block;
             margin: 0 auto;
             padding-bottom: 10px;
@@ -955,7 +959,6 @@
             max-width: min(520px, 46%);
             line-height: 1.12;
             text-align: center;
-            text-transform: uppercase;
             font-weight: 800;
             text-shadow: none;
         }
@@ -976,7 +979,9 @@
             }
 
             .page-banner h1,
-            .venue-hero h1 {
+            .venue-hero h1 {
+            text-transform: uppercase;
+            text-transform: uppercase;
                 font-size: 1.5rem;
                 max-width: min(420px, 78%);
                 text-align: center;
@@ -1143,7 +1148,9 @@
             }
 
             .page-banner h1,
-            .venue-hero h1 {
+            .venue-hero h1 {
+            text-transform: uppercase;
+            text-transform: uppercase;
                 max-width: 92vw !important;
                 font-size: clamp(1.35rem, 7vw, 1.85rem) !important;
                 line-height: 1.15 !important;
@@ -1263,6 +1270,7 @@
         }
 
         .page-banner h1 {
+            text-transform: uppercase;
             display: inline-block !important;
             margin: 0 auto !important;
             padding: 0 !important;
@@ -1273,7 +1281,6 @@
             font-weight: 700 !important;
             line-height: 1.12 !important;
             text-align: center !important;
-            text-transform: uppercase !important;
             letter-spacing: 0 !important;
             text-shadow: none !important;
             max-width: min(520px, 46%) !important;
@@ -1285,6 +1292,7 @@
             }
 
             .page-banner h1 {
+            text-transform: uppercase;
                 font-size: 1.5rem !important;
                 max-width: min(420px, 78%) !important;
             }
@@ -1481,7 +1489,7 @@
             <img src="img/download (7).png" alt="KSRCT symbol" class="logo-mark">
             <span class="logo-text">
                 <span
-                    style="font-size:1.12rem; transform:translateY(-2px); font-weight:900; text-transform:uppercase;">SUSTAINMENT</span>
+                    style="font-size:1.12rem; transform:translateY(-2px); font-weight:900;">SUSTAINMENT</span>
                 <span style="font-size:0.95rem; letter-spacing:1.6px; margin-top:2px; font-weight:800;">2027</span>
             </span>
         </a>
@@ -1533,14 +1541,15 @@
         </div>
         <div class="speakers-grid">
 
-            <div class="speaker-card" onclick="openModal(this)" data-name="Prof. Bruno D’Aguanno"
+            <div class="speaker-card" onclick="openModal(this)" data-name="Prof. Bruno D'Aguanno"
                 data-role="Keynote Speaker" data-uni="University of Lincoln, U.K."
-                data-img="https://via.placeholder.com/400x400?text=Bruno"
+                data-img="img/advisor-placeholder.svg"
                 data-bio="Prof. Bruno is an expert in Solar Thermal Energy and Advanced Materials with over 200 published papers.">
-                <div class="badge keynote">KEYNOTE</div>
-                <div class="speaker-img-box"><img src="https://via.placeholder.com/400x400?text=Bruno" alt=""></div>
+                <div class="badge keynote">Keynote</div>
+                <div class="speaker-img-box"><img src="img/advisor-placeholder.svg" alt="Prof. Bruno D'Aguanno">
+                </div>
                 <div class="speaker-info">
-                    <h3>Prof. Bruno D’Aguanno</h3>
+                    <h3>Prof. Bruno D'Aguanno</h3>
                     <p class="university">University of Lincoln, U.K.</p>
                 </div>
                 <div class="view-btn">View Bio</div>
@@ -1548,10 +1557,10 @@
 
             <div class="speaker-card" onclick="openModal(this)" data-name="Dr. Sarah Jenkins"
                 data-role="Keynote Speaker" data-uni="Stanford University, USA"
-                data-img="https://via.placeholder.com/400x400?text=Sarah"
+                data-img="img/advisor-placeholder.svg"
                 data-bio="Dr. Sarah Jenkins leads research in Sustainable Nanotechnology and its applications in water purification.">
-                <div class="badge keynote">KEYNOTE</div>
-                <div class="speaker-img-box"><img src="https://via.placeholder.com/400x400?text=Sarah" alt=""></div>
+                <div class="badge keynote">Keynote</div>
+                <div class="speaker-img-box"><img src="img/advisor-placeholder.svg" alt="Dr. Sarah Jenkins"></div>
                 <div class="speaker-info">
                     <h3>Dr. Sarah Jenkins</h3>
                     <p class="university">Stanford University, USA</p>
@@ -1561,10 +1570,10 @@
 
             <div class="speaker-card" onclick="openModal(this)" data-name="Prof. Hiroshi Tanaka"
                 data-role="Guest Speaker" data-uni="University of Tokyo, Japan"
-                data-img="https://via.placeholder.com/400x400?text=Hiroshi"
+                data-img="img/advisor-placeholder.svg"
                 data-bio="Prof. Tanaka is a pioneer in Robotics and AI integration for manufacturing industries.">
-                <div class="badge keynote">KEYNOTE</div>
-                <div class="speaker-img-box"><img src="https://via.placeholder.com/400x400?text=Hiroshi" alt=""></div>
+                <div class="badge keynote">Keynote</div>
+                <div class="speaker-img-box"><img src="img/advisor-placeholder.svg" alt="Prof. Hiroshi Tanaka"></div>
                 <div class="speaker-info">
                     <h3>Prof. Hiroshi Tanaka</h3>
                     <p class="university">University of Tokyo, Japan</p>
@@ -1580,10 +1589,10 @@
 
             <div class="speaker-card" onclick="openModal(this)" data-name="Dr. Karthick Mani"
                 data-role="Senior Scientist" data-uni="ARCI, Hyderabad"
-                data-img="https://via.placeholder.com/400x400?text=Karthick"
+                data-img="img/advisor-placeholder.svg"
                 data-bio="Dr. Mani specializes in thin-film coatings and surface engineering for aerospace applications.">
-                <div class="badge invited">INVITED</div>
-                <div class="speaker-img-box"><img src="https://via.placeholder.com/400x400?text=Karthick" alt=""></div>
+                <div class="badge invited">Invited</div>
+                <div class="speaker-img-box"><img src="img/advisor-placeholder.svg" alt="Dr. Karthick Mani"></div>
                 <div class="speaker-info">
                     <h3>Dr. Karthick Mani</h3>
                     <span class="designation">Senior Scientist</span>
@@ -1594,10 +1603,10 @@
 
             <div class="speaker-card" onclick="openModal(this)" data-name="Dr. P. Suresh"
                 data-role="Assistant Professor" data-uni="IIT-Hyderabad"
-                data-img="https://via.placeholder.com/400x400?text=Anjali"
+                data-img="img/advisor-placeholder.svg"
                 data-bio="Dr. Desai is a renowned researcher in Chemical Engineering and Green Catalysis.">
-                <div class="badge invited">INVITED</div>
-                <div class="speaker-img-box"><img src="https://via.placeholder.com/400x400?text=Anjali" alt=""></div>
+                <div class="badge invited">Invited</div>
+                <div class="speaker-img-box"><img src="img/advisor-placeholder.svg" alt="Dr. P. Suresh"></div>
                 <div class="speaker-info">
                     <h3>Dr. P. Suresh</h3>
                     <span class="designation">Assistant Professor</span>
@@ -1608,10 +1617,10 @@
 
             <div class="speaker-card" onclick="openModal(this)" data-name="Dr. N. Pradeep"
                 data-role="Assistant Professor" data-uni="NIT-TRICHY"
-                data-img="https://via.placeholder.com/400x400?text=Rajesh"
+                data-img="img/advisor-placeholder.svg"
                 data-bio="Prof. Kumar oversees large-scale energy storage projects and national power grid enhancements.">
-                <div class="badge invited">INVITED</div>
-                <div class="speaker-img-box"><img src="https://via.placeholder.com/400x400?text=Rajesh" alt=""></div>
+                <div class="badge invited">Invited</div>
+                <div class="speaker-img-box"><img src="img/advisor-placeholder.svg" alt="Dr. N. Pradeep"></div>
                 <div class="speaker-info">
                     <h3>Dr. N. Pradeep</h3>
                     <span class="designation">Assistant Professor</span>

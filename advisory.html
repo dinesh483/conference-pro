@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -112,7 +112,6 @@
             font-weight: 900;
             line-height: 1;
             letter-spacing: 0.8px;
-            text-transform: uppercase;
         }
 
         .logo-text span:first-child {
@@ -241,8 +240,8 @@
         }
 
         .page-banner h1 {
-            font-size: 2.2rem;
             text-transform: uppercase;
+            font-size: 2.2rem;
             font-weight: 800;
             border-bottom: 4px solid var(--accent-gold);
             padding-bottom: 5px;
@@ -303,15 +302,27 @@
             transition: all 0.3s ease;
             position: relative;
             border-left: 5px solid var(--primary-blue);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+            display: grid;
+            grid-template-columns: 88px minmax(0, 1fr);
+            align-items: center;
+            column-gap: 18px;
+            justify-content: flex-start;
         }
 
         .adv-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
             border-left-color: var(--accent-gold);
+        }
+
+        .adv-photo {
+            width: 88px;
+            height: 88px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid rgba(212, 160, 23, 0.32);
+            background: #eef3f8;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
         }
 
         .adv-name {
@@ -330,6 +341,7 @@
         }
 
         .adv-details {
+            grid-column: 2;
             border-top: 1px solid #eee;
             padding-top: 12px;
         }
@@ -379,6 +391,7 @@
             }
 
             .page-banner h1 {
+            text-transform: uppercase;
                 font-size: 1.5rem;
             }
 
@@ -393,6 +406,18 @@
 
             .subsection-header {
                 font-size: 1.1rem;
+            }
+
+            .adv-card {
+                grid-template-columns: 72px minmax(0, 1fr);
+                align-items: flex-start;
+                column-gap: 15px;
+                padding: 20px;
+            }
+
+            .adv-photo {
+                width: 72px;
+                height: 72px;
             }
 
             header {
@@ -826,7 +851,9 @@
         }
 
         .page-banner h1,
-        .venue-hero h1 {
+        .venue-hero h1 {
+            text-transform: uppercase;
+            text-transform: uppercase;
             display: inline-block;
             margin: 0 auto;
             padding-bottom: 10px;
@@ -836,7 +863,6 @@
             max-width: min(520px, 46%);
             line-height: 1.12;
             text-align: center;
-            text-transform: uppercase;
             font-weight: 800;
             text-shadow: none;
         }
@@ -857,7 +883,9 @@
             }
 
             .page-banner h1,
-            .venue-hero h1 {
+            .venue-hero h1 {
+            text-transform: uppercase;
+            text-transform: uppercase;
                 font-size: 1.5rem;
                 max-width: min(420px, 78%);
                 text-align: center;
@@ -1024,7 +1052,9 @@
             }
 
             .page-banner h1,
-            .venue-hero h1 {
+            .venue-hero h1 {
+            text-transform: uppercase;
+            text-transform: uppercase;
                 max-width: 92vw !important;
                 font-size: clamp(1.35rem, 7vw, 1.85rem) !important;
                 line-height: 1.15 !important;
@@ -1301,7 +1331,7 @@
             <img src="img/download (7).png" alt="KSRCT symbol" class="logo-mark">
             <span class="logo-text">
                 <span
-                    style="font-size:1.12rem; transform:translateY(-2px); font-weight:900; text-transform:uppercase;">SUSTAINMENT</span>
+                    style="font-size:1.12rem; transform:translateY(-2px); font-weight:900;">SUSTAINMENT</span>
                 <span style="font-size:0.95rem; letter-spacing:1.6px; margin-top:2px; font-weight:800;">2027</span>
             </span>
         </a>
@@ -1352,7 +1382,8 @@
         <div class="advisory-grid">
 
             <div class="adv-card">
-                <div class="adv-name"><i class="fas fa-user-tie"></i> Prof. Bruno D’Aguanno</div>
+                <img class="adv-photo" src="img/bruno.jpg" alt="Prof. Bruno D Aguanno">
+                <div class="adv-name"><i class="fas fa-user-tie"></i> Prof. Bruno D'Aguanno</div>
                 <div class="adv-details">
                     <div class="adv-uni"><i class="fas fa-university"></i> University of Lincoln, U.K.</div>
                 </div>
@@ -1364,6 +1395,7 @@
         <div class="advisory-grid">
 
             <div class="adv-card">
+                <img class="adv-photo" src="img/advisor-placeholder.svg" alt="Prof. Murthy SSS Chavali Yadav">
                 <div class="adv-name"><i class="fas fa-user-tie"></i> Prof. Murthy SSS Chavali Yadav</div>
                 <div class="adv-details">
                     <div class="adv-role"><i class="fas fa-id-badge"></i> Dean-R&D</div>
@@ -1372,6 +1404,7 @@
             </div>
 
             <div class="adv-card">
+                <img class="adv-photo" src="img/advisor-placeholder.svg" alt="Prof. B. Vidya Praveen">
                 <div class="adv-name"><i class="fas fa-user-tie"></i> Prof. B. Vidya Praveen</div>
                 <div class="adv-details">
                     <div class="adv-uni"><i class="fas fa-university"></i> IIT-Madras</div>
@@ -1379,6 +1412,7 @@
             </div>
 
             <div class="adv-card">
+                <img class="adv-photo" src="img/advisor-placeholder.svg" alt="Prof. P. Rajamalli">
                 <div class="adv-name"><i class="fas fa-user-tie"></i> Prof. P. Rajamalli</div>
                 <div class="adv-details">
                     <div class="adv-uni"><i class="fas fa-university"></i> IISC-Bangalore</div>
@@ -1386,6 +1420,7 @@
             </div>
 
             <div class="adv-card">
+                <img class="adv-photo" src="img/advisor-placeholder.svg" alt="Prof. M. Arivanandhan">
                 <div class="adv-name"><i class="fas fa-user-tie"></i> Prof. M. Arivanandhan</div>
                 <div class="adv-details">
                     <div class="adv-uni"><i class="fas fa-university"></i> Anna University, Chennai</div>
@@ -1393,6 +1428,7 @@
             </div>
 
             <div class="adv-card">
+                <img class="adv-photo" src="img/advisor-placeholder.svg" alt="Prof. K. Suresh Babu">
                 <div class="adv-name"><i class="fas fa-user-tie"></i> Prof. K. Suresh Babu</div>
                 <div class="adv-details">
                     <div class="adv-uni"><i class="fas fa-university"></i> Pondicherry University, Pondicherry</div>
@@ -1400,6 +1436,7 @@
             </div>
 
             <div class="adv-card">
+                <img class="adv-photo" src="img/karthick.jpg" alt="Dr. Karthick Mani">
                 <div class="adv-name"><i class="fas fa-user-tie"></i> Dr. Karthick Mani</div>
                 <div class="adv-details">
                     <div class="adv-role"><i class="fas fa-id-badge"></i> Senior Scientist</div>
@@ -1408,6 +1445,7 @@
             </div>
 
             <div class="adv-card">
+                <img class="adv-photo" src="img/advisor-placeholder.svg" alt="Dr. N. Pradeep">
                 <div class="adv-name"><i class="fas fa-user-tie"></i> Dr. N. Pradeep</div>
                 <div class="adv-details">
                     <div class="adv-role"><i class="fas fa-id-badge"></i> R&D Head</div>
@@ -1417,6 +1455,7 @@
             </div>
 
             <div class="adv-card">
+                <img class="adv-photo" src="img/suresh.jpg" alt="Dr. P. Suresh">
                 <div class="adv-name"><i class="fas fa-user-tie"></i> Dr. P. Suresh</div>
                 <div class="adv-details">
                     <div class="adv-role"><i class="fas fa-id-badge"></i> Assistant Professor</div>
@@ -1425,9 +1464,10 @@
             </div>
 
             <div class="adv-card">
+                <img class="adv-photo" src="img/advisor-placeholder.svg" alt="Dr. Chithambararaj">
                 <div class="adv-name"><i class="fas fa-user-tie"></i> Dr. Chithambararaj</div>
                 <div class="adv-details">
-                    <div class="adv-role"><i class="fas fa-id-badge"></i> Sr. Manager – R&D</div>
+                    <div class="adv-role"><i class="fas fa-id-badge"></i> Sr. Manager - R&D</div>
                     <div class="adv-uni"><i class="fas fa-university"></i> Renewable Energy Systems Ltd, Hyderabad,
                         Telangana</div>
                 </div>
