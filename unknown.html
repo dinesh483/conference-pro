@@ -247,33 +247,42 @@
         .org-tree {
             display: flex;
             flex-direction: column;
-            align-items: center;
+            align-items: stretch;
             gap: 40px;
         }
 
         .org-level {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 30px;
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 25px;
             width: 100%;
+            justify-content: start;
+            justify-items: start;
+            align-content: start;
+            margin-bottom: 0;
+        }
+
+        .org-level>.org-card:only-child {
+            justify-self: start;
+            align-self: start;
         }
 
         /* Unified card style based on the Patrons box size */
         .org-card {
             background: white;
-            width: 420px;
-            height: 150px;
+            width: 100%;
+            min-height: 150px;
             padding: 28px;
-            border-radius: 28px;
-            display: flex;
+            border-radius: 8px;
+            display: grid;
+            grid-template-columns: 120px minmax(0, 1fr);
             align-items: center;
-            gap: 24px;
-            border-left: none;
-            border: 4px solid var(--accent-orange);
-            border-right-color: rgba(0, 51, 102, 0.95);
-            border-top-color: rgba(0, 51, 102, 0.95);
-            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.08);
+            column-gap: 24px;
+            border-left: 5px solid var(--primary-blue);
+            border-top: 1px solid #ddd;
+            border-right: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
             transition: transform 0.25s ease, box-shadow 0.25s ease;
             box-sizing: border-box;
             overflow: hidden;
@@ -282,140 +291,6 @@
         .org-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 28px 60px rgba(0, 0, 0, 0.12);
-        }
-
-        .org-level-title:first-of-type+.org-level .org-card,
-        .org-tree .chief-patrons-level>.org-card {
-            width: 420px;
-            height: 150px;
-            padding: 28px;
-            flex-direction: row;
-            align-items: center;
-            text-align: left;
-            border-left: none;
-            border: 4px solid var(--accent-orange) !important;
-            border-right-color: rgba(0, 51, 102, 0.95) !important;
-            border-top-color: rgba(0, 51, 102, 0.95) !important;
-            background: white !important;
-            background-image: none !important;
-            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.08);
-            border-radius: 28px;
-            box-sizing: border-box;
-            overflow: hidden;
-        }
-
-        .org-level-title:first-of-type+.org-level .org-card .org-img {
-            width: 120px;
-            height: 120px;
-            border-radius: 18px;
-            border: 4px solid rgba(0, 51, 102, 0.2);
-        }
-
-        .org-level-title:first-of-type+.org-level .org-card .org-info {
-            margin-top: 0;
-            text-align: left;
-        }
-
-        .org-level-title:first-of-type+.org-level .org-card .org-name {
-            font-size: 1.28rem;
-            margin-bottom: 8px;
-        }
-
-        .org-level-title:first-of-type+.org-level .org-card .org-title {
-            color: var(--accent-gold);
-            display: block;
-            font-size: 0.95rem;
-            font-weight: 700;
-            margin-bottom: 6px;
-            letter-spacing: 1px;
-        }
-
-        .org-level-title:nth-of-type(2)+.org-level .org-card {
-            width: 420px;
-            height: 150px;
-            padding: 28px;
-            flex-direction: row;
-            align-items: center;
-            text-align: left;
-            border-left: none;
-            border: 4px solid var(--accent-orange);
-            border-right-color: rgba(0, 51, 102, 0.95);
-            border-top-color: rgba(0, 51, 102, 0.95);
-            background: white;
-            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.08);
-            border-radius: 28px;
-            box-sizing: border-box;
-            overflow: hidden;
-        }
-
-        .org-level-title:nth-of-type(2)+.org-level .org-card .org-img {
-            width: 120px;
-            height: 120px;
-            border-radius: 18px;
-            border: 4px solid rgba(0, 51, 102, 0.2);
-        }
-
-        .org-level-title:nth-of-type(2)+.org-level .org-card .org-info {
-            margin-top: 0;
-            text-align: left;
-        }
-
-        .org-level-title:nth-of-type(2)+.org-level .org-card .org-name {
-            font-size: 1.22rem;
-            margin-bottom: 8px;
-        }
-
-        .org-level-title:nth-of-type(2)+.org-level .org-card .org-title {
-            color: var(--accent-gold);
-            display: block;
-            font-size: 0.95rem;
-            font-weight: 700;
-            margin-bottom: 6px;
-            letter-spacing: 1px;
-        }
-
-        .org-tree>.org-level:nth-of-type(4)>.org-card {
-            width: 420px;
-            height: 150px;
-            padding: 28px;
-            flex-direction: row;
-            align-items: center;
-            text-align: left;
-            border-left: none !important;
-            border: 4px solid var(--accent-orange) !important;
-            border-right-color: rgba(0, 51, 102, 0.95) !important;
-            border-top-color: rgba(0, 51, 102, 0.95) !important;
-            background: white !important;
-            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.08);
-            border-radius: 28px;
-            box-sizing: border-box;
-            overflow: hidden;
-        }
-
-        .org-tree>.org-level:nth-of-type(4)>.org-card .org-img {
-            width: 120px;
-            height: 120px;
-            border-radius: 18px;
-            border: 4px solid rgba(0, 51, 102, 0.2);
-        }
-
-        .org-tree>.org-level:nth-of-type(4) .org-card .org-info {
-            margin-top: 0;
-            text-align: left;
-        }
-
-        .org-tree>.org-level:nth-of-type(4) .org-card .org-name {
-            font-size: 1.22rem;
-            margin-bottom: 8px;
-        }
-
-        .org-tree>.org-level:nth-of-type(4) .org-card .org-title {
-            color: var(--accent-gold);
-            display: block;
-            font-size: 0.95rem;
-            font-weight: 700;
-            margin-bottom: 6px;
-            letter-spacing: 1px;
         }
 
         .org-img {
