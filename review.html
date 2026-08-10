@@ -258,117 +258,97 @@
 
         .review-list {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 28px;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 25px;
+            margin-bottom: 60px;
         }
 
         .review-item {
-            background: #ffffff;
+            background: white;
             border-radius: 8px;
-            padding: 30px 24px 26px;
+            padding: 28px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
             position: relative;
-            border: 1px solid rgba(0, 51, 102, 0.12);
-            border-bottom: 5px solid var(--primary-blue);
-            box-shadow: 0 14px 32px rgba(0, 35, 70, 0.08);
-            transition: 0.4s ease;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            min-height: 250px;
-            overflow: hidden;
-        }
-
-        .review-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 70px;
-            background: linear-gradient(90deg, rgba(0, 51, 102, 0.09), rgba(247, 147, 30, 0.16));
-            clip-path: polygon(0 0, 100% 0, 100% 46%, 0 100%);
+            border-left: 5px solid var(--primary-blue);
+            display: grid;
+            grid-template-columns: 120px minmax(0, 1fr);
+            align-items: center;
+            column-gap: 24px;
+            justify-content: flex-start;
         }
 
         .review-item:hover {
-            transform: translateY(-8px);
-            border-bottom-color: var(--accent-gold);
-            box-shadow: 0 20px 38px rgba(0, 35, 70, 0.14);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            border-left-color: var(--accent-gold);
         }
 
-        .review-icon {
-            width: 78px;
-            height: 78px;
-            background: var(--primary-blue);
-            color: #ffffff;
-            border-radius: 18px;
+        .review-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid rgba(212, 160, 23, 0.32);
+            background: #eef3f8;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+        }
+
+        .review-name {
+            color: var(--primary-blue);
+            font-size: 1.32rem;
+            font-weight: 700;
+            margin-bottom: 14px;
+            line-height: 1.35;
+            letter-spacing: 0.01em;
             display: flex;
-            justify-content: center;
             align-items: center;
-            margin-bottom: 22px;
-            font-size: 2rem;
-            border: 4px solid #ffffff;
-            box-shadow: 0 12px 26px rgba(0, 35, 70, 0.18);
-            position: relative;
-            z-index: 1;
-            transform: rotate(-4deg);
-            transition: 0.3s ease;
+            gap: 12px;
         }
 
-        .review-item:hover .review-icon {
-            background: var(--accent-gold);
-            color: var(--primary-blue);
-            transform: rotate(0deg) scale(1.04);
+        .review-name i {
+            color: var(--accent-gold);
+            font-size: 1.05rem;
+            flex-shrink: 0;
         }
 
-        .review-info {
-            position: relative;
-            z-index: 1;
-            min-width: 0;
-        }
-
-        .review-info h4 {
-            margin: 0 0 8px 0;
-            color: var(--primary-blue);
-            font-size: 1.28rem;
-            line-height: 1.2;
-            font-family: var(--font-heading);
+        .review-details {
+            grid-column: 2;
+            border-top: 1px solid #eee;
+            padding-top: 14px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
         }
 
         .review-role {
-            color: #273b4f;
-            font-size: 0.94rem;
-            font-weight: 700;
-            margin-bottom: 4px;
+            font-size: 0.98rem;
+            color: #555;
+            font-weight: 600;
+            margin-bottom: 0;
+            line-height: 1.45;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
         .review-uni {
-            color: #667381;
+            font-size: 0.95rem;
+            color: #777;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            line-height: 1.5;
+        }
+
+        .review-uni i,
+        .review-role i {
             font-size: 0.9rem;
-            font-weight: 600;
-            line-height: 1.35;
-        }
-
-        .review-area {
-            position: relative;
-            z-index: 1;
-            margin-top: auto;
-            background: rgba(0, 51, 102, 0.08);
-            border: 1px solid rgba(0, 51, 102, 0.14);
-            padding: 7px 14px;
-            border-radius: 999px;
-            font-size: 0.78rem;
-            color: var(--primary-blue);
-            font-weight: 700;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 32px;
-        }
-
-        .review-item:hover .review-area {
-            background: var(--accent-gold);
-            color: var(--primary-blue);
-            border-color: var(--accent-gold);
+            color: #999;
+            width: 16px;
+            text-align: center;
+            flex-shrink: 0;
+            margin-top: 2px;
         }
 
         /* =========================================
@@ -391,25 +371,41 @@
             }
 
             .page-banner h1 {
-            text-transform: uppercase;
+                text-transform: uppercase;
                 font-size: 1.5rem;
             }
 
+            .review-list {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
             .review-item {
-                padding: 20px;
-                min-height: auto;
+                grid-template-columns: 96px minmax(0, 1fr);
+                align-items: flex-start;
+                column-gap: 18px;
+                padding: 22px;
             }
 
-            .review-icon {
-                width: 68px;
-                height: 68px;
-                font-size: 1.7rem;
-                margin-bottom: 18px;
+            .review-photo {
+                width: 96px;
+                height: 96px;
             }
 
-            .review-area {
-                margin-top: 15px;
-                white-space: normal;
+            .review-name {
+                font-size: 1.12rem;
+                margin-bottom: 12px;
+                gap: 10px;
+            }
+
+            .review-details {
+                padding-top: 12px;
+                gap: 6px;
+            }
+
+            .review-role,
+            .review-uni {
+                font-size: 0.9rem;
             }
 
             /* Sliding Menu */
@@ -877,8 +873,8 @@
 
             .page-banner h1,
             .venue-hero h1 {
-            text-transform: uppercase;
-            text-transform: uppercase;
+                text-transform: uppercase;
+                text-transform: uppercase;
                 font-size: 1.5rem;
                 max-width: min(420px, 78%);
                 text-align: center;
@@ -1046,8 +1042,8 @@
 
             .page-banner h1,
             .venue-hero h1 {
-            text-transform: uppercase;
-            text-transform: uppercase;
+                text-transform: uppercase;
+                text-transform: uppercase;
                 max-width: 92vw !important;
                 font-size: clamp(1.35rem, 7vw, 1.85rem) !important;
                 line-height: 1.15 !important;
@@ -1323,8 +1319,7 @@
         <a class="logo" href="index.html" aria-label="KSRCT CONF 2027 home">
             <img src="img/download (7).png" alt="KSRCT symbol" class="logo-mark">
             <span class="logo-text">
-                <span
-                    style="font-size:1.12rem; transform:translateY(-2px); font-weight:900;">SUSTAINMAT</span>
+                <span style="font-size:1.12rem; transform:translateY(-2px); font-weight:900;">SUSTAINMAT</span>
                 <span style="font-size:0.95rem; letter-spacing:1.6px; margin-top:2px; font-weight:800;">2027</span>
             </span>
         </a>
@@ -1342,6 +1337,7 @@
                 <ul class="dropdown-content">
                     <li><a href="advisory.html">Advisory Board</a></li>
                     <li><a href="organizing-committee.html">Organizing Committee</a></li>
+                    <li><a href="unknown.html">Unknown Committee</a></li>
                     <li><a href="review.html" style="color: var(--accent-gold);">Review Committee</a></li>
                 </ul>
             </li>
@@ -1373,53 +1369,48 @@
         <div class="review-list">
 
             <div class="review-item">
-                <div class="review-icon"><i class="fas fa-microscope"></i></div>
-                <div class="review-info">
-                    <h4>Dr. A. Velmurugan</h4>
-                    <div class="review-role">Professor</div>
-                    <div class="review-uni">PSG College of Technology</div>
+                <img class="review-photo" src="img/advisor-placeholder.svg" alt="Dr. A. Velmurugan">
+                <div class="review-name"><i class="fas fa-user-tie"></i>Dr. A. Velmurugan</div>
+                <div class="review-details">
+                    <div class="review-role"><i class="fas fa-id-badge"></i>Professor</div>
+                    <div class="review-uni"><i class="fas fa-university"></i>PSG College of Technology</div>
                 </div>
-                <div class="review-area">Machine Learning</div>
             </div>
 
             <div class="review-item">
-                <div class="review-icon"><i class="fas fa-cloud-upload-alt"></i></div>
-                <div class="review-info">
-                    <h4>Dr. B. Chitra</h4>
-                    <div class="review-role">Associate Professor</div>
-                    <div class="review-uni">NIT Trichy</div>
+                <img class="review-photo" src="img/advisor-placeholder.svg" alt="Dr. B. Chitra">
+                <div class="review-name"><i class="fas fa-user-tie"></i>Dr. B. Chitra</div>
+                <div class="review-details">
+                    <div class="review-role"><i class="fas fa-id-badge"></i>Associate Professor</div>
+                    <div class="review-uni"><i class="fas fa-university"></i>NIT Trichy</div>
                 </div>
-                <div class="review-area">Cloud Computing</div>
             </div>
 
             <div class="review-item">
-                <div class="review-icon"><i class="fas fa-user-secret"></i></div>
-                <div class="review-info">
-                    <h4>Dr. C. Balaji</h4>
-                    <div class="review-role">Research Head</div>
-                    <div class="review-uni">Vellore Institute of Technology</div>
+                <img class="review-photo" src="img/advisor-placeholder.svg" alt="Dr. C. Balaji">
+                <div class="review-name"><i class="fas fa-user-tie"></i>Dr. C. Balaji</div>
+                <div class="review-details">
+                    <div class="review-role"><i class="fas fa-id-badge"></i>Research Head</div>
+                    <div class="review-uni"><i class="fas fa-university"></i>Vellore Institute of Technology</div>
                 </div>
-                <div class="review-area">Cyber Security</div>
             </div>
 
             <div class="review-item">
-                <div class="review-icon"><i class="fas fa-network-wired"></i></div>
-                <div class="review-info">
-                    <h4>Dr. D. Kavitha</h4>
-                    <div class="review-role">Professor</div>
-                    <div class="review-uni">Anna University</div>
+                <img class="review-photo" src="img/advisor-placeholder.svg" alt="Dr. D. Kavitha">
+                <div class="review-name"><i class="fas fa-user-tie"></i>Dr. D. Kavitha</div>
+                <div class="review-details">
+                    <div class="review-role"><i class="fas fa-id-badge"></i>Professor</div>
+                    <div class="review-uni"><i class="fas fa-university"></i>Anna University</div>
                 </div>
-                <div class="review-area">IoT & Embedded Systems</div>
             </div>
 
             <div class="review-item">
-                <div class="review-icon"><i class="fas fa-database"></i></div>
-                <div class="review-info">
-                    <h4>Dr. E. Suresh</h4>
-                    <div class="review-role">Data Scientist</div>
-                    <div class="review-uni">IBM India</div>
+                <img class="review-photo" src="img/advisor-placeholder.svg" alt="Dr. E. Suresh">
+                <div class="review-name"><i class="fas fa-user-tie"></i>Dr. E. Suresh</div>
+                <div class="review-details">
+                    <div class="review-role"><i class="fas fa-id-badge"></i>Data Scientist</div>
+                    <div class="review-uni"><i class="fas fa-university"></i>IBM India</div>
                 </div>
-                <div class="review-area">Big Data Analytics</div>
             </div>
 
         </div>
@@ -1478,4 +1469,3 @@
 </body>
 
 </html>
-
