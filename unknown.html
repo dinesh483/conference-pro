@@ -271,13 +271,15 @@
         .org-card {
             background: white;
             width: 100%;
-            min-height: 150px;
-            padding: 28px;
+            min-height: 152px;
+            padding: 14px 20px;
             border-radius: 8px;
             display: grid;
-            grid-template-columns: 120px minmax(0, 1fr);
+            grid-template-columns: 126px minmax(0, 1fr);
             align-items: center;
-            column-gap: 24px;
+            align-content: center;
+            column-gap: 18px;
+            row-gap: 2px;
             border-left: 5px solid var(--primary-blue);
             border-top: 1px solid #ddd;
             border-right: 1px solid #ddd;
@@ -294,8 +296,8 @@
         }
 
         .org-img {
-            width: 96px;
-            height: 96px;
+            width: 126px;
+            height: 126px;
             border-radius: 50%;
             object-fit: cover;
             border: 2px solid #eee;
@@ -305,6 +307,7 @@
         .org-info {
             text-align: left;
             min-width: 0;
+            align-self: center;
         }
 
         .org-title {
@@ -320,7 +323,7 @@
             font-size: 1.22rem;
             font-weight: bold;
             color: #333;
-            margin-bottom: 6px;
+            margin-bottom: 4px;
         }
 
         .org-desig {
@@ -361,7 +364,18 @@
             .org-card {
                 width: 100%;
                 max-width: 440px;
-                padding: 22px;
+                min-height: 116px;
+                padding: 10px 14px;
+                grid-template-columns: 100px minmax(0, 1fr);
+                align-items: center;
+                align-content: center;
+                column-gap: 14px;
+                row-gap: 2px;
+            }
+
+            .org-img {
+                width: 100px;
+                height: 100px;
             }
 
             .nav-menu {
@@ -1258,9 +1272,10 @@
                 <div class="dropbtn">Committees <i class="fas fa-caret-down" style="margin-left:8px;"></i></div>
                 <ul class="dropdown-content">
                     <li><a href="advisory.html">Advisory Board</a></li>
-                    <li><a href="organizing-committee.html">Organizing Committee</a></li>
                     <li><a href="unknown.html" style="color: var(--accent-gold);">Unknown Committee</a></li>
                     <li><a href="review.html">Review Committee</a></li>
+                    <li><a href="organizing-committee.html">Organizing Committee</a></li>
+
                 </ul>
             </li>
 
